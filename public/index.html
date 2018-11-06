@@ -5,13 +5,18 @@
   <title>Web Socket REPL Test</title>  
   <link rel="stylesheet" href="xterm.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.10.0/codemirror.css" />
+  <style>
+    .CodeMirror {
+      height: auto;
+    }
+  </style>
 </head>
 <body>
   <input id="language" type="text" name="language" placeholder="Language" value="ruby" />
   <button class="language" type="button">Change Language</button>
 
   <div id="terminal"></div>
-  
+
   <button class="execute">Run</button>
   <textarea class='codemirror-textarea'></textarea>
 

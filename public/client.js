@@ -73,6 +73,8 @@ document.addEventListener('DOMContentLoaded', event => {
     tabSize: 2,
   });
 
+  editor.viewportMargin = Infinity;
+
   $('button.execute').addEventListener('click', event => {
     evaluate(editor.getValue());
   });
