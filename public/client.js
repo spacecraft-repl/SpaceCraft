@@ -68,12 +68,12 @@ document.addEventListener('DOMContentLoaded', event => {
 
   let editor = CodeMirror.fromTextArea(code, {
     lineNumbers: true,
-    mode: 'ruby',
+    mode: { name: 'text/x-ruby' },
     theme: 'one-dark',
     tabSize: 2,
   });
 
-  editor.viewportMargin = Infinity;
+  console.log(CodeMirror.modes);
 
   $('button.execute').addEventListener('click', event => {
     evaluate(editor.getValue());
