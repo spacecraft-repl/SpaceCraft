@@ -40,8 +40,8 @@ const handleTerminalKeypress = (event) => {
 const handleEnterReleased = () => {
   term.write('\r\n');
 
-  evaluate(state.line)
-  state.line = ''
+  evaluate(state.line);
+  state.line = '';
 }
 
 const handleBackspaceReleased = () => {

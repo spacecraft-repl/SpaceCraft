@@ -42,6 +42,10 @@ const Repl = {
 
   id() {
     return this.process.pid;
+  },
+
+  removeListener(event, func) {
+    if (this.process) this.process.removeListener(event, func);
   }
 };
 
