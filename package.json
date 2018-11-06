@@ -1,0 +1,23 @@
+{
+  "name": "npm_repl_prototype",
+  "version": "1.0.0",
+  "description": "a simple repl prototype using HTTP rest/WebSockets",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "repository": "git+https://github.com/thecatstones/repl-prototype.git",
+  "author": "YingCGooi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thecatstones/repl-prototype/issues"
+  },
+  "homepage": "https://github.com/thecatstones/repl-prototype#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "node-pty": "^0.7.8",
+    "socket.io": "^2.1.1"
+  }
+}
