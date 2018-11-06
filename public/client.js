@@ -59,10 +59,19 @@ document.getElementById('terminal').addEventListener('keyup', event => {
   if (key == 'Backspace') return handleBackspaceReleased();
 });
 
-document.querySelector('button').addEventListener('click', event => {
+document.querySelector('button.language').addEventListener('click', event => {
   handleButtonPress(event);
 });
 
-var editor = CodeMirror.fromTextArea(myTextarea, {
-  lineNumbers: true,
+document.addEventListener('DOMContentLoaded', event => {
+  let code = document.querySelector('.codemirror-textarea');
+
+  let editor = CodeMirror.fromTextArea(code, {
+    lineNumbers: true,
+  });
+
+  document.querySelector('button.execute').addEventListener('click', event => {
+    evaluate(editor.getValue() + '\n');
+    term.write('\r\n');
+  });
 });

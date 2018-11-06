@@ -8,11 +8,13 @@
 </head>
 <body>
   <input id="language" type="text" name="language" placeholder="Language" value="ruby" />
-  <button type="button">Change Language</button>
+  <button class="language" type="button">Change Language</button>
 
   <div id="terminal"></div>
 
   <textarea class='codemirror-textarea'></textarea>
+
+  <button class="execute">Run</button>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
   <script src="xterm.js"></script>
