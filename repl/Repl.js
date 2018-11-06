@@ -37,6 +37,7 @@ const Repl = {
 
   kill() {
     if (this.process) this.process.kill();
+    this.process = null;
     this.language = null;
   },
 

@@ -24,22 +24,16 @@ const io = socketIo(server);
 io.on('connection', (socket) => {
   let emitOutput = (output) => io.emit('output', { output });
 
-  socket.on('execRepl', ({ language = 'ruby' } = {}) => {
-    Repl.removeListener('data', emitOutput);
+  socket.on('initRepl', ({ language = 'ruby' } = {}) => {
     if (language === Repl.language) return;
+    Repl.removeListener('data', emitOutput);
     Repl.kill();
     Repl.init(language);
     Repl.process.on('data', emitOutput);
   });
 
   socket.on('execute', ({ line }) => {
-    console.log('INPUT', line);
-
-    Repl.write(`${line}`)
-      .then(output => {
-        console.log('OUTPUT', output);
-        // io.emit('output', { output });
-      });
+    Repl.write(`${line}`);
   });
 
   socket.on('disconnect', () => {

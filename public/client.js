@@ -2,7 +2,7 @@ const $ = (selector) => document.querySelector(selector);
 
 const term = new Terminal();
 term.open(document.getElementById('terminal'));
-term.write('REPL Prototype > ');
+term.write('WELCOME TO SPACECRAFT!!!\n');
 
 const socket = io('http://localhost:3000');
 
@@ -11,7 +11,7 @@ socket.on('output', ({ output }) => {
 });
 
 socket.on('connect', () => {
-  socket.emit('execRepl', { language: 'ruby' });
+  socket.emit('initRepl', { language: 'ruby' });
 });
 
 socket.on('disconnect', function(){});
@@ -25,9 +25,9 @@ const evaluate = (line) => (
 );
 
 const handleButtonPress = (event) => {
-  const language = document.querySelector('input').value
+  const language = $('input').value
 
-  socket.emit('execRepl', { language });
+  socket.emit('initRepl', { language });
 }
 
 const handleTerminalKeypress = (event) => {
@@ -59,19 +59,21 @@ document.getElementById('terminal').addEventListener('keyup', event => {
   if (key == 'Backspace') return handleBackspaceReleased();
 });
 
-document.querySelector('button.language').addEventListener('click', event => {
+$('button.language').addEventListener('click', event => {
   handleButtonPress(event);
 });
 
 document.addEventListener('DOMContentLoaded', event => {
-  let code = document.querySelector('.codemirror-textarea');
+  let code = $('.codemirror-textarea');
 
   let editor = CodeMirror.fromTextArea(code, {
     lineNumbers: true,
+    mode: 'ruby',
+    theme: 'one-dark',
+    tabSize: 2,
   });
 
-  document.querySelector('button.execute').addEventListener('click', event => {
-    evaluate(editor.getValue() + '\n');
-    term.write('\r\n');
+  $('button.execute').addEventListener('click', event => {
+    evaluate(editor.getValue());
   });
 });
