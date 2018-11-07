@@ -6,8 +6,19 @@ term.write('WELCOME TO SPACECRAFT!\n');
 
 const socket = io('http://localhost:3000');
 
+let state = {
+  line: '',
+  editor: null,
+  language: null,
+};
+
 socket.on('output', ({ output }) => {
   term.write(output);
+});
+
+socket.on('langChange', ({ language }) => {
+  state.editor.setOption("mode", language);
+  state.language = language;
 });
 
 socket.on('connect', () => {
@@ -15,12 +26,6 @@ socket.on('connect', () => {
 });
 
 socket.on('disconnect', function(){});
-
-let state = {
-  line: '',
-  editor: null,
-  language: null,
-};
 
 const evaluate = (line) => (
   socket.emit('execute', { line })
@@ -67,13 +72,12 @@ document.addEventListener('DOMContentLoaded', event => {
 
   state.editor = CodeMirror.fromTextArea(code, {
     lineNumbers: true,
-    mode: 'javascript',
     theme: 'one-dark',
     tabSize: 2,
   });
 
   $('button.execute').addEventListener('click', event => {
-    evaluate(editor.getValue());
+    evaluate(state.editor.getValue());
   });
 });
 

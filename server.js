@@ -33,6 +33,7 @@ io.on('connection', (socket) => {
     Repl.kill();
     Repl.init(language);
     Repl.process.on('data', emitOutput);
+    io.emit('langChange', { language });    
   });
 
   socket.on('execute', ({ line }) => {
