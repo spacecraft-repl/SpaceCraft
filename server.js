@@ -30,7 +30,6 @@ io.on('connection', (socket) => {
 
   socket.on('initRepl', ({ language = 'ruby' } = {}) => {
     if (language === Repl.language) return;
-    Repl.removeListener('data', emitOutput);
     Repl.kill();
     Repl.init(language);
     Repl.process.on('data', emitOutput);

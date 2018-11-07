@@ -1,8 +1,8 @@
 const $ = (selector) => document.querySelector(selector);
 
 const term = new Terminal();
-term.open(document.getElementById('terminal'));
-term.write('WELCOME TO SPACECRAFT!!!\n');
+term.open($('#terminal'));
+term.write('WELCOME TO SPACECRAFT!\n');
 
 const socket = io('http://localhost:3000');
 
@@ -19,6 +19,7 @@ socket.on('disconnect', function(){});
 let state = {
   line: '',
   editor: null,
+  language: null,
 };
 
 const evaluate = (line) => (
@@ -52,6 +53,7 @@ const handleBackspaceReleased = () => {
 }
 
 document.addEventListener('keypress', handleTerminalKeypress);
+
 $('button.language').addEventListener('click', handleButtonPress);
 
 $('#terminal').addEventListener('keyup', event => {
