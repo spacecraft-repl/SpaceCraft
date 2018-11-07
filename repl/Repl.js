@@ -33,8 +33,7 @@ const Repl = {
       setTimeout(() => {
         resolve(result);
         this.process.removeListener('data', concatResult);
-      }, 10);
-      // wait for output to buffer
+      }, 10); // wait for output to buffer
     });
   },
 

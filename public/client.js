@@ -1,3 +1,5 @@
+import io from 'socket.io-client';
+
 const $ = (selector) => document.querySelector(selector);
 
 const term = new Terminal();
