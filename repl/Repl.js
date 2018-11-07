@@ -21,21 +21,21 @@ const Repl = {
     this.process.write(string + "\n");
   },
 
-  bufferWrite(string) {
-    return new Promise((resolve, reject) => {
-      let result = '';
-      let concatResult = data => result += data;
+  // bufferWrite(string) {
+  //   return new Promise((resolve, reject) => {
+  //     let result = '';
+  //     let concatResult = data => result += data;
 
-      this.process.write(string + "\n");
+  //     this.process.write(string + "\n");
 
-      this.process.on('data', concatResult);
+  //     this.process.on('data', concatResult);
 
-      setTimeout(() => {
-        resolve(result);
-        this.process.removeListener('data', concatResult);
-      }, 10); // wait for output to buffer
-    });
-  },
+  //     setTimeout(() => {
+  //       resolve(result);
+  //       this.process.removeListener('data', concatResult);
+  //     }, 10); // wait for output to buffer
+  //   });
+  // },
 
   kill() {
     if (this.process) this.process.kill();
