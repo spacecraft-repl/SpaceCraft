@@ -39,34 +39,31 @@ const handleButtonPress = (event) => {
   socket.emit('initRepl', { language });
 }
 
-const handleTerminalKeypress = (event) => {
-  const textArea = $('.xterm-helper-textarea');
-  if (event.target !== textArea) return;
-  term.write(event.key);
-  state.line += event.key;
+const handleTerminalKeypress = (key) => {
+  term.write(key);
+  state.line += key;
 }
 
-const handleEnterReleased = () => {
+const handleEnterPressed = () => {
   term.write('\r\n');
 
   evaluate(state.line);
   state.line = '';
 }
 
-const handleBackspaceReleased = () => {
+const handleBackspacePressed = () => {
   term.write('\b \b');
   state.line = state.line.slice(0, -1);
   console.log(state.line);
 }
 
-document.addEventListener('keypress', handleTerminalKeypress);
-
 $('button.language').addEventListener('click', handleButtonPress);
 
-$('#terminal').addEventListener('keyup', event => {
+term.on('keypress', handleTerminalKeypress);
+term.on('keydown', event => {
   const key = event.key;
-  if (key == 'Enter') return handleEnterReleased();
-  if (key == 'Backspace') return handleBackspaceReleased();
+  if (key == 'Enter') return handleEnterPressed();
+  if (key == 'Backspace') return handleBackspacePressed();
 });
 
 document.addEventListener('DOMContentLoaded', event => {
