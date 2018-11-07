@@ -25,6 +25,7 @@
     "y-memory": "^8.0.9",
     "y-text": "^9.5.1",
     "y-websockets-client": "^8.0.16",
+    "y-websockets-server": "^9.2.1",
     "yjs": "^12.3.3"
   }
 }
