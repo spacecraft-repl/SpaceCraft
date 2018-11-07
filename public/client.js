@@ -18,6 +18,7 @@ socket.on('disconnect', function(){});
 
 let state = {
   line: '',
+  editor: null,
 };
 
 const evaluate = (line) => (
@@ -51,38 +52,28 @@ const handleBackspaceReleased = () => {
 }
 
 document.addEventListener('keypress', handleTerminalKeypress);
+$('button.language').addEventListener('click', handleButtonPress);
 
-document.getElementById('terminal').addEventListener('keyup', event => {
-  console.log(state.line);
+$('#terminal').addEventListener('keyup', event => {
   const key = event.key;
   if (key == 'Enter') return handleEnterReleased();
   if (key == 'Backspace') return handleBackspaceReleased();
 });
 
-$('button.language').addEventListener('click', event => {
-  handleButtonPress(event);
-});
-
-let editor;
-
 document.addEventListener('DOMContentLoaded', event => {
   let code = $('.codemirror-textarea');
 
-  editor = CodeMirror.fromTextArea(code, {
+  state.editor = CodeMirror.fromTextArea(code, {
     lineNumbers: true,
-    mode: { name: 'text/x-ruby' },
+    mode: 'javascript',
     theme: 'one-dark',
     tabSize: 2,
   });
-
-  console.log(CodeMirror.modes);
 
   $('button.execute').addEventListener('click', event => {
     evaluate(editor.getValue());
   });
 });
-
-
 
 console.log('----- YJS ------');
 import Y from 'yjs';
@@ -93,28 +84,19 @@ import yText             from 'y-text';
 Y.extend(yWebsocketsClient, yMemory, yArray, yText);
 window.Y = Y;
 
-// const url = 'https://catstones-websocket-server.herokuapp.com/';
-// const io  = Y['websockets-client'].io;
-
 Y({
   db: {
     name: 'memory',             // store the shared data in memory
   },
   connector: {
-    name: 'websockets-client',  // use the websockets connector
-    room: 'catstones-repl',     // instances connected to the same room share data
-    // TODO: uncomment to use custom WebSocket server
-    // socket: io(url),         // Pass socket.io object to use (CORS...?)
-    // url,
+    name: 'websockets-client',
+    room: 'spacecraft-repl',     // instances connected to the same room share data
   },
   share: {                      // specify the shared content
-    array:       'Array',
-    editorText:  'Text',  // new Y.Text
-    // termLine:    'Array',
-    // termOutput:  'Array',
+    editorText:  'Text',        // new Y.Text
   },
 }).then((y) => {                // Yjs is successfully initialized
-  console.log('Yjs instance ready!')
-  window.y = y
-  y.share.editorText.bindCodeMirror(editor)
+  console.log('Yjs instance ready!');
+  window.y = y;
+  y.share.editorText.bindCodeMirror(state.editor);
 })
