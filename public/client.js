@@ -63,10 +63,12 @@ $('button.language').addEventListener('click', event => {
   handleButtonPress(event);
 });
 
+let editor;
+
 document.addEventListener('DOMContentLoaded', event => {
   let code = $('.codemirror-textarea');
 
-  let editor = CodeMirror.fromTextArea(code, {
+  editor = CodeMirror.fromTextArea(code, {
     lineNumbers: true,
     mode: { name: 'text/x-ruby' },
     theme: 'one-dark',
@@ -79,3 +81,40 @@ document.addEventListener('DOMContentLoaded', event => {
     evaluate(editor.getValue());
   });
 });
+
+
+
+console.log('----- YJS ------');
+import Y from 'yjs';
+import yWebsocketsClient from 'y-websockets-client';
+import yMemory           from 'y-memory';
+import yArray            from 'y-array';
+import yText             from 'y-text';
+Y.extend(yWebsocketsClient, yMemory, yArray, yText);
+window.Y = Y;
+
+// const url = 'https://catstones-websocket-server.herokuapp.com/';
+// const io  = Y['websockets-client'].io;
+
+Y({
+  db: {
+    name: 'memory',             // store the shared data in memory
+  },
+  connector: {
+    name: 'websockets-client',  // use the websockets connector
+    room: 'catstones-repl',     // instances connected to the same room share data
+    // TODO: uncomment to use custom WebSocket server
+    // socket: io(url),         // Pass socket.io object to use (CORS...?)
+    // url,
+  },
+  share: {                      // specify the shared content
+    array:       'Array',
+    editorText:  'Text',  // new Y.Text
+    // termLine:    'Array',
+    // termOutput:  'Array',
+  },
+}).then((y) => {                // Yjs is successfully initialized
+  console.log('Yjs instance ready!')
+  window.y = y
+  y.share.editorText.bindCodeMirror(editor)
+})

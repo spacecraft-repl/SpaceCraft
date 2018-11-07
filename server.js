@@ -7,9 +7,13 @@ const Repl = require('./repl/Repl.js');
 
 const port = process.env.port || 3000;
 
+// const Y = require('yjs')
+// console.log(Y)
+
 const app = express();
 app.use(bodyParser.text());
 app.use(express.static('public'));
+// app.use(express.static('node_modules'));
 
 app.get('/:room', (req, res) => {
   if (req.params.room === 'favicon.ico') return;
