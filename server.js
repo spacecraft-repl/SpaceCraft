@@ -13,7 +13,7 @@ const port = process.env.port || 3000;
 const app = express();
 app.use(bodyParser.text());
 app.use(express.static('public'));
-// app.use(express.static('node_modules'));
+app.use(express.static('xterm'));
 
 app.get('/:room', (req, res) => {
   if (req.params.room === 'favicon.ico') return;
@@ -33,7 +33,7 @@ io.on('connection', (socket) => {
     Repl.kill();
     Repl.init(language);
     Repl.process.on('data', emitOutput);
-    io.emit('langChange', { language });    
+    io.emit('langChange', { language });
   });
 
   socket.on('execute', ({ line }) => {
