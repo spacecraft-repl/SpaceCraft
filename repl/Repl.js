@@ -18,6 +18,10 @@ const Repl = {
   },
 
   write(string) {
+    this.process.write(string + "\n");
+  },
+
+  bufferWrite(string) {
     return new Promise((resolve, reject) => {
       let result = '';
       let concatResult = data => result += data;
