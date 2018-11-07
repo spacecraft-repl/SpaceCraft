@@ -18,6 +18,10 @@ const Repl = {
   },
 
   write(string) {
+    this.process.write(string + "\n");
+  },
+
+  bufferWrite(string) {
     return new Promise((resolve, reject) => {
       let result = '';
       let concatResult = data => result += data;
@@ -29,10 +33,8 @@ const Repl = {
       setTimeout(() => {
         resolve(result);
         this.process.removeListener('data', concatResult);
-      }, 10);
-      // wait for output to buffer
+      }, 10); // wait for output to buffer
     });
-
   },
 
   kill() {
@@ -44,10 +46,6 @@ const Repl = {
   id() {
     return this.process.pid;
   },
-
-  removeListener(event, func) {
-    if (this.process) this.process.removeListener(event, func);
-  }
 };
 
 module.exports = Repl;
