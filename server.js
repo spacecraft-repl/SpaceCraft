@@ -7,9 +7,6 @@ const Repl = require('./repl/Repl.js');
 
 const port = process.env.port || 3000;
 
-// const Y = require('yjs')
-// console.log(Y)
-
 const app = express();
 app.use(bodyParser.text());
 app.use(express.static('public'));
@@ -26,13 +23,12 @@ server.listen(port, () => console.log(`Listening on ${port}...`));
 const io = socketIo(server);
 
 io.on('connection', (socket) => {
-  let emitOutput = (output) => io.emit('output', { output });
 
   socket.on('initRepl', ({ language = 'ruby' } = {}) => {
     if (language === Repl.language) return;
     Repl.kill();
     Repl.init(language);
-    Repl.process.on('data', emitOutput);
+    Repl.process.on('data', (output) => io.emit('output', { output }));
     io.emit('langChange', { language });
   });
 
@@ -47,4 +43,47 @@ io.on('connection', (socket) => {
       }
     });
   });
+
+  // Yjs Websockets Server Events
+  const { getInstanceOfY, options } = require('./yjs-ws-server.js')(io);
+
+  var rooms = [];
+  socket.on('joinRoom', (room) => {
+    console.log('User "%s" joins room "%s"', socket.id, room);
+    socket.join(room);
+    getInstanceOfY(room).then((y) => {
+      if (rooms.indexOf(room) === -1) {
+        y.connector.userJoined(socket.id, 'slave');
+        rooms.push(room);
+      }
+    })
+  })
+  socket.on('yjsEvent', (msg) => {
+    if (msg.room != null) {
+      getInstanceOfY(msg.room).then((y) => {
+        y.connector.receiveMessage(socket.id, msg);
+      })
+    }
+  })
+  socket.on('disconnect', () => {
+    for (var i = 0; i < rooms.length; i++) {
+      let room = rooms[i];
+      getInstanceOfY(room).then((y) => {
+        var i = rooms.indexOf(room);
+        if (i >= 0) {
+          y.connector.userLeft(socket.id);
+          rooms.splice(i, 1);
+        }
+      })
+    }
+  })
+  socket.on('leaveRoom', (room) => {
+    getInstanceOfY(room).then((y) => {
+      var i = rooms.indexOf(room);
+      if (i >= 0) {
+        y.connector.userLeft(socket.id);
+        rooms.splice(i, 1);
+      }
+    })
+  })  
 });
