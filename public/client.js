@@ -75,8 +75,8 @@ const evaluate = (line) => (
   socket.emit('execute', { line })
 );
 
-const emitReplLine = ({ clearLine = false }) => {
-  socket.emit('updateLine', { line: clearLine ? '' : state.line });
+const emitReplLine = () => {
+  socket.emit('updateLine', { line: state.line });
 }
 
 const handleButtonPress = (event) => {
@@ -92,9 +92,10 @@ const handleTerminalKeypress = (key) => {
 }
 
 const handleEnter = () => {
-  emitReplLine({clearLine: true});
-  evaluate(state.line);
+  const line = state.line;
   state.line = '';
+  emitReplLine();
+  evaluate(line);
 }
 
 const handleBackspace = () => {
