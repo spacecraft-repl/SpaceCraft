@@ -1,24 +1,8 @@
 <!doctype html>
-<html>
+<html lang="en-US">
 <head>
-  <meta charset="utf-8">
-  <title>SpaceCraft: A Real-Time Collaborative REPL and Code Editor</title>
-  <!-- xterm source codes -->
-  <script src="xterm.js"></script>   
-  <link rel="stylesheet" href="xterm.css" />
-  <!-- CodeMirror CDNs -->
-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5/lib/codemirror.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5/lib/codemirror.min.css">  
-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5/mode/javascript/javascript.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5/mode/ruby/ruby.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror-one-dark-theme@1/one-dark.min.css">
-
-  <style>
-  .CodeMirror {
-    height: 100px;
-    background-color: #282c34;
-  }
-  </style>
+  <meta charset="utf-8" />
+  <title>SpaceCraft: A Real-Time Collaborative REPL and Code Editor - @dev</title>
 </head>
 <body>
   <input id="language" type="text" name="language" placeholder="Language" value="ruby" />
@@ -27,8 +11,8 @@
   <div id="terminal"></div>
 
   <button class="execute">Run</button>
-  <textarea class='codemirror-textarea'></textarea>
+  <textarea class="codemirror-textarea"></textarea>
 
-  <script src='main.js'></script>
+  <script src="main.js"></script>
 </body>
 </html>

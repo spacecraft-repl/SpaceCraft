@@ -1,8 +1,14 @@
-import io from 'socket.io-client';
-
 const $ = (selector) => document.querySelector(selector);
 
+// ========================= REPL ==========================
+import { Terminal } from 'xterm';
+import * as fit from 'xterm/lib/addons/fit/fit';
+import * as attach from 'xterm/lib/addons/attach/attach'
+import 'xterm/dist/xterm.css';
+Terminal.applyAddon(fit);
+Terminal.applyAddon(attach);
 const term = new Terminal();
+
 term.setOption('theme', {
   foreground:     '#abb2bf',
   background:     '#282c34',
@@ -31,11 +37,13 @@ term.setOption('enableBold', true)
 term.setOption('fontSize', 15)
 term.setOption('fontFamily', 'monospace')
 term.setOption('tabStopWidth', 2)
+
 term.open($('#terminal'));
 term.write('WELCOME TO SPACECRAFT!\n');
 
-window.term = term;
 
+// ========================= Socket IO ==========================
+import io from 'socket.io-client';
 const socket = io('http://localhost:3000');
 
 let state = {
@@ -114,6 +122,14 @@ term.on('keydown', event => {
   if (key == 'Backspace') return handleBackspace();
 });
 
+
+// ======================= Editor =========================
+import CodeMirror from 'codemirror/lib/codemirror.js';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror-one-dark-theme/one-dark.css';
+import 'codemirror/mode/javascript/javascript.js';
+import 'codemirror/mode/ruby/ruby.js';
+
 document.addEventListener('DOMContentLoaded', event => {
   let code = $('.codemirror-textarea');
 
@@ -121,6 +137,7 @@ document.addEventListener('DOMContentLoaded', event => {
     lineNumbers: true,
     theme: 'one-dark',
     tabSize: 2,
+    mode: 'ruby',
   });
 
   $('button.execute').addEventListener('click', event => {
@@ -128,14 +145,14 @@ document.addEventListener('DOMContentLoaded', event => {
   });
 });
 
-console.log('----- YJS ------');
+
+// ========================= Yjs =========================
 import Y from 'yjs';
 import yWebsocketsClient from 'y-websockets-client';
 import yMemory           from 'y-memory';
 import yArray            from 'y-array';
 import yText             from 'y-text';
 Y.extend(yWebsocketsClient, yMemory, yArray, yText);
-window.Y = Y;
 
 Y({
   db: {
@@ -155,3 +172,18 @@ Y({
   window.y = y;
   y.share.editorText.bindCodeMirror(state.editor);
 })
+
+
+import './main.css';
+// ========================= Debugging =========================
+window.state = state
+window.io = io;
+window.socket = socket;
+window.Y = Y;
+window.CodeMirror = CodeMirror;
+
+// xterm.js
+window.term = term;
+// term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');
+import ansiEscapes from 'ansi-escapes';
+window.ansi = ansiEscapes

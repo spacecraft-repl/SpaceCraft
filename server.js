@@ -14,10 +14,10 @@ const port = process.env.port || 3000;
 const app = express();
 app.use(bodyParser.text());
 app.use(express.static('public'));
-app.use(express.static('xterm'));
+// app.use(express.static('xterm'));
 
 app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath
+  publicPath: config.output.publicPath,
 }));
 
 app.get('/:room', (req, res) => {
