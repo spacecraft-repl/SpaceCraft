@@ -95,7 +95,7 @@ const handleButtonPress = (event) => {
 
 const handleTerminalKeypress = (key) => {
   state.line += key;
-  emitReplLine();  
+  emitReplLine();
   term.write(key);
 }
 
@@ -187,3 +187,8 @@ window.term = term;
 // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');
 import ansiEscapes from 'ansi-escapes';
 window.ansi = ansiEscapes
+
+// const term2 = new Terminal()
+// window.term2 = term2
+// term2.open($('#terminal-attach'))
+// term2.write('terminal-attach')
