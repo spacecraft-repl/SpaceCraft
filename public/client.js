@@ -50,7 +50,7 @@ socket.on('output', ({ output }) => {
   term.write('\u001b[2K\r' + state.currentPrompt);
   term.write(output);
   state.currentOutput = output;
-  
+
   console.log(output.split("\n"));
   state.currentPrompt = output.split("\n").pop();
 });
@@ -75,8 +75,8 @@ const evaluate = (line) => (
   socket.emit('execute', { line })
 );
 
-const emitReplLine = () => {
-  socket.emit('updateLine', { line: state.line });
+const emitReplLine = ({ clearLine = false }) => {
+  socket.emit('updateLine', { line: clearLine ? '' : state.line });
 }
 
 const handleButtonPress = (event) => {
@@ -92,6 +92,7 @@ const handleTerminalKeypress = (key) => {
 }
 
 const handleEnter = () => {
+  emitReplLine({clearLine: true});
   evaluate(state.line);
   state.line = '';
 }
