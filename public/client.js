@@ -34,16 +34,25 @@ term.setOption('tabStopWidth', 2)
 term.open($('#terminal'));
 term.write('WELCOME TO SPACECRAFT!\n');
 
+window.term = term;
+
 const socket = io('http://localhost:3000');
 
 let state = {
   line: '',
   editor: null,
   language: null,
+  currentOutput: [],
+  currentPrompt: '',
 };
 
 socket.on('output', ({ output }) => {
+  term.write('\u001b[2K\r' + state.currentPrompt);
   term.write(output);
+  state.currentOutput = output;
+  
+  console.log(output.split("\n"));
+  state.currentPrompt = output.split("\n").pop();
 });
 
 socket.on('langChange', ({ language }) => {
@@ -55,11 +64,20 @@ socket.on('connect', () => {
   socket.emit('initRepl', { language: 'ruby' });
 });
 
+socket.on('syncLine', ({ line }) => {
+  state.line = line;
+  term.write('\u001b[2K\r' + state.currentPrompt + line);
+});
+
 socket.on('disconnect', function(){});
 
 const evaluate = (line) => (
   socket.emit('execute', { line })
 );
+
+const emitReplLine = () => {
+  socket.emit('updateLine', { line: state.line });
+}
 
 const handleButtonPress = (event) => {
   const language = $('input').value
@@ -68,31 +86,30 @@ const handleButtonPress = (event) => {
 }
 
 const handleTerminalKeypress = (key) => {
-  term.write(key);
   state.line += key;
+  emitReplLine();  
+  term.write(key);
 }
 
-const handleEnterReleased = () => {
-  term.write('\r\n');
-
+const handleEnter = () => {
   evaluate(state.line);
   state.line = '';
 }
 
-const handleBackspaceReleased = () => {
-  term.write('\b \b');
+const handleBackspace = () => {
+  if (state.line === '') return;
   state.line = state.line.slice(0, -1);
-  console.log(state.line);
+  emitReplLine();
+  term.write('\b \b');
 }
-
-term.on('keypress', handleTerminalKeypress);
 
 $('button.language').addEventListener('click', handleButtonPress);
 
+term.on('keypress', handleTerminalKeypress);
 term.on('keydown', event => {
   const key = event.key;
-  if (key == 'Enter') return handleEnterReleased();
-  if (key == 'Backspace') return handleBackspaceReleased();
+  if (key == 'Enter') return handleEnter();
+  if (key == 'Backspace') return handleBackspace();
 });
 
 document.addEventListener('DOMContentLoaded', event => {
