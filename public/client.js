@@ -44,7 +44,9 @@ term.write('WELCOME TO SPACECRAFT!\n');
 
 // ========================= Socket IO ==========================
 import io from 'socket.io-client';
-const socket = io('http://localhost:3000');
+// const socket = io('http://localhost:3000');
+const url = window.location.href;
+const socket = io(url);
 
 let state = {
   line: '',
@@ -161,8 +163,10 @@ Y({
   connector: {
     name: 'websockets-client',
     room: 'spacecraft-repl',     // instances connected to the same room share data
-    socket: io('http://localhost:3000'),
-    url: 'http://localhost:3000',
+    // socket: io('http://localhost:3000'),
+    // url: 'http://localhost:3000',
+    socket: io(url),
+    url,
   },
   share: {                      // specify the shared content
     editorText:  'Text',        // new Y.Text
