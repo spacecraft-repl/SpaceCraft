@@ -27,7 +27,7 @@ app.get('/:room', (req, res) => {
 const server = http.Server(app);
 server.listen(port, () => console.log(`Listening on ${port}...`));
 
-const io = socketIo(server);
+const io = socketIo(server); // our websocket server
 
 io.on('connection', (socket) => {
   const emitOutput = (output) => io.emit('output', { output });
@@ -59,49 +59,6 @@ io.on('connection', (socket) => {
   });
 
   // Yjs Websockets Server Events
-  const { getInstanceOfY, options } = require('./yjs-ws-server.js')(io);
+  require('./src/yjs-ws-server.js')(io, socket);
 
-  var rooms = [];
-
-  socket.on('joinRoom', (room) => {
-    console.log('User "%s" joins room "%s"', socket.id, room);
-    socket.join(room);
-    getInstanceOfY(room).then((y) => {
-      if (rooms.indexOf(room) === -1) {
-        y.connector.userJoined(socket.id, 'slave');
-        rooms.push(room);
-      }
-    });
-  });
-
-  socket.on('yjsEvent', (msg) => {
-    if (msg.room != null) {
-      getInstanceOfY(msg.room).then((y) => {
-        y.connector.receiveMessage(socket.id, msg);
-      });
-    }
-  });
-
-  socket.on('disconnect', () => {
-    for (var i = 0; i < rooms.length; i++) {
-      let room = rooms[i];
-      getInstanceOfY(room).then((y) => {
-        var i = rooms.indexOf(room);
-        if (i >= 0) {
-          y.connector.userLeft(socket.id);
-          rooms.splice(i, 1);
-        }
-      })
-    }
-  });
-
-  socket.on('leaveRoom', (room) => {
-    getInstanceOfY(room).then((y) => {
-      var i = rooms.indexOf(room);
-      if (i >= 0) {
-        y.connector.userLeft(socket.id);
-        rooms.splice(i, 1);
-      }
-    });
-  });
 });

@@ -26,7 +26,7 @@ Y.extend(yWebsocketsClient, yMemory, yArray, yText);
 
 import io from 'socket.io-client';
 const url = window.location.href;
-const socket = io(url);
+const socket = io(url);  // duplicate??
 
 Y({
   db: {
@@ -54,4 +54,5 @@ window.Y = Y;
 window.ioY = io;
 window.socketY = socket;
 
-export default editor;
+export { editor, socket };
+

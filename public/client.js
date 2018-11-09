@@ -1,14 +1,12 @@
-import { $ } from './utils.js';
-import term from './term.js';
-import editor from './editor.js';
+import { $ } from '../src/utils.js';
+import term from '../src/term.js';
 import './main.css';
+import { editor, socket } from '../src/editor.js'
 
 term.open($('#terminal'));
 term.writeln('WELCOME TO SPACECRAFT!');
 
-import io from 'socket.io-client';
 const url = window.location.href;
-const socket = io(url);
 
 let state = {
   editor,
@@ -22,9 +20,11 @@ const languageInput = $('#language');
 const languageButton = $('button.language');
 const runButton = $('button.execute');
 
+const updateLine = output => { term.write('\u001b[2K\r' + state.currentPrompt + output) }
+
 // TODO: clear state.line after user hits Run button
 socket.on('output', ({ output }) => {
-  term.write('\u001b[2K\r' + state.currentPrompt + output);
+  updateLine(output);
   state.currentOutput = output;
   console.log(output.split('\n'));
   state.currentPrompt = output.split('\n').pop();
@@ -33,6 +33,8 @@ socket.on('output', ({ output }) => {
 socket.on('langChange', ({ language }) => {
   state.editor.setOption('mode', language);
   state.language = language;
+  term.clear();  //  needs improvement due to some previous prompts still appearing when collaborating
+  updateLine('');
   console.log(`Language has been changed to: ${language}`);
 });
 
@@ -42,70 +44,73 @@ socket.on('connect', () => {
 
 socket.on('syncLine', ({ line }) => {
   state.line = line;
-  term.write('\u001b[2K\r' + state.currentPrompt + line);
+  updateLine(line);
 });
 
 socket.on('disconnect', function(){});  // TODO: fill in...?
 
-const evaluate = (line) => {
-  socket.emit('execute', { line });
-};
+const ClientRepl = {
 
-const emitReplLine = () => {
-  socket.emit('updateLine', { line: state.line });
-};
+  evaluate(line) {
+    socket.emit('execute', { line });
+  },
 
-const handleLanguageClick = (_) => {
-  socket.emit('initRepl', { language: languageInput.value });
-};
+  emitReplLine() {
+    socket.emit('updateLine', { line: state.line });
+  },
 
-const handleTerminalKeypress = (key) => {
-  state.line += key;
-  emitReplLine();
-  term.write(key);
-};
+  handleLanguageClick(_) {
+    socket.emit('initRepl', { language: languageInput.value });
+  },
 
-const handleTerminalKeydown = (event) => {
-  const key = event.key;
-  if (key === 'Enter') return handleEnter();
-  if (key === 'Backspace') return handleBackspace();
-};
+  handleTerminalKeypress(key) {
+    state.line += key;
+    this.emitReplLine();
+    term.write(key);
+  },
 
-const handleEnter = () => {
-  const line = state.line;
-  state.line = '';
-  emitReplLine();
-  evaluate(line);
-};
+  handleTerminalKeydown(event) {
+    const key = event.key;
+    if (key === 'Enter') return this.handleEnter();
+    if (key === 'Backspace') return this.handleBackspace();
+  },
 
-const handleBackspace = () => {
-  if (state.line === '') return;
-  state.line = state.line.slice(0, -1);
-  emitReplLine();
-  term.write('\b \b');
-};
+  handleEnter() {
+    const line = state.line;
+    state.line = '';
+    this.emitReplLine();
+    this.evaluate(line);
+  },
 
-const handleLanguageKeypress = (event) => {
-  if (event.key !== 'Enter') return;
-  handleLanguageClick();
-};
+  handleBackspace() {
+    if (state.line === '') return;
+    state.line = state.line.slice(0, -1);
+    this.emitReplLine();
+    term.write('\b \b');
+  },
 
-languageButton.addEventListener('click', handleLanguageClick);
-languageInput.addEventListener('keypress', handleLanguageKeypress);
+  handleLanguageKeypress(event) {
+    if (event.key !== 'Enter') return;
+    this.handleLanguageClick();
+  }
+}
 
-term.on('keypress', handleTerminalKeypress);
-term.on('keydown', handleTerminalKeydown);
+languageButton.addEventListener('click', ClientRepl.handleLanguageClick.bind(ClientRepl));
+languageInput.addEventListener('keypress', ClientRepl.handleLanguageKeypress.bind(ClientRepl));
+
+term.on('keypress', ClientRepl.handleTerminalKeypress.bind(ClientRepl));
+term.on('keydown', ClientRepl.handleTerminalKeydown.bind(ClientRepl));
 
 runButton.addEventListener('click', (event) => {
-  evaluate(state.editor.getValue());
+  ClientRepl.evaluate(state.editor.getValue());
 });
 
 
 
 // ========================= Debugging =========================
 window.state = state;
-window.io = io;
-window.socket = socket;
+// window.io = io;
+// window.socket = socket;
 
 window.term = term;
 // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');
