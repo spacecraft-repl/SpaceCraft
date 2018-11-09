@@ -14,19 +14,23 @@ const Repl = {
       console.log(`INITIALIZED ${command}`);
       return this;
     } 
+
     throw 'Unknown Language';
   },
 
   write(string) {
-    this.process.write(string + "\n");
+    this.process.write(string + '\n');
   },
 
   bufferWrite(string) {
     return new Promise((resolve, reject) => {
       let result = '';
-      let concatResult = data => result += data;
 
-      this.process.write(string + "\n");
+      let concatResult = (data) => {
+        result += data;
+      };
+
+      this.process.write(string + '\n');
 
       this.process.on('data', concatResult);
 

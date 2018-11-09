@@ -1,19 +1,30 @@
-const path    = require('path')
-const webpack = require('webpack')
+const path    = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
-  // devtool: 'inline-source-map',
   entry: './public/client.js',
   devServer: {
-    contentBase: './',
+    contentBase: path.resolve(__dirname, 'public'),
+    publicPath: '/public/',
   },
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'public'),
-    publicPath: '/',
+    publicPath: '/public/',
   },
   plugins: [
     new webpack.ContextReplacementPlugin(/y.*/),  // TODO: lookup
   ],
-}
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+    ],
+  },
+};

@@ -9,15 +9,14 @@ const http = require('http');
 const socketIo = require('socket.io');
 const Repl = require('./repl/Repl.js');
 
-const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
 
 const app = express();
 app.use(bodyParser.text());
 app.use(express.static('public'));
-app.use(express.static('xterm'));
 
 app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath
+  publicPath: config.output.publicPath,
 }));
 
 app.get('/:room', (req, res) => {
@@ -63,6 +62,7 @@ io.on('connection', (socket) => {
   const { getInstanceOfY, options } = require('./yjs-ws-server.js')(io);
 
   var rooms = [];
+
   socket.on('joinRoom', (room) => {
     console.log('User "%s" joins room "%s"', socket.id, room);
     socket.join(room);
@@ -71,15 +71,17 @@ io.on('connection', (socket) => {
         y.connector.userJoined(socket.id, 'slave');
         rooms.push(room);
       }
-    })
-  })
+    });
+  });
+
   socket.on('yjsEvent', (msg) => {
     if (msg.room != null) {
       getInstanceOfY(msg.room).then((y) => {
         y.connector.receiveMessage(socket.id, msg);
-      })
+      });
     }
-  })
+  });
+
   socket.on('disconnect', () => {
     for (var i = 0; i < rooms.length; i++) {
       let room = rooms[i];
@@ -91,7 +93,8 @@ io.on('connection', (socket) => {
         }
       })
     }
-  })
+  });
+
   socket.on('leaveRoom', (room) => {
     getInstanceOfY(room).then((y) => {
       var i = rooms.indexOf(room);
@@ -99,6 +102,6 @@ io.on('connection', (socket) => {
         y.connector.userLeft(socket.id);
         rooms.splice(i, 1);
       }
-    })
-  })  
+    });
+  });
 });
