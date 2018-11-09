@@ -1,4 +1,8 @@
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
 const express = require('express');
+const config = require('./webpack.config.js');
+const compiler = webpack(config);
 const path = require('path');
 const bodyParser = require('body-parser');
 const http = require('http');
@@ -12,6 +16,10 @@ app.use(bodyParser.text());
 app.use(express.static('public'));
 app.use(express.static('xterm'));
 
+app.use(webpackDevMiddleware(compiler, {
+  publicPath: config.output.publicPath
+}));
+
 app.get('/:room', (req, res) => {
   if (req.params.room === 'favicon.ico') return;
   res.sendFile(path.join(__dirname, './index.html'));
@@ -23,17 +31,20 @@ server.listen(port, () => console.log(`Listening on ${port}...`));
 const io = socketIo(server);
 
 io.on('connection', (socket) => {
+  const emitOutput = (output) => io.emit('output', { output });
 
   socket.on('initRepl', ({ language = 'ruby' } = {}) => {
     if (language === Repl.language) return;
     Repl.kill();
     Repl.init(language);
-    Repl.process.on('data', (output) => io.emit('output', { output }));
+    Repl.process.on('data', emitOutput);
     io.emit('langChange', { language });
   });
 
   socket.on('execute', ({ line }) => {
-    Repl.write(`${line}`);
+    Repl.process.removeListener('data', emitOutput);
+    Repl.bufferWrite(`${line}`)
+      .then(emitOutput);
   });
 
   socket.on('disconnect', () => {
@@ -42,6 +53,10 @@ io.on('connection', (socket) => {
         Repl.kill();
       }
     });
+  });
+
+  socket.on('updateLine', ({ line }) => {
+    socket.broadcast.emit('syncLine', { line });
   });
 
   // Yjs Websockets Server Events

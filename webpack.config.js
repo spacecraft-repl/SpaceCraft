@@ -6,7 +6,7 @@ module.exports = {
   // devtool: 'inline-source-map',
   entry: './public/client.js',
   devServer: {
-    contentBase: './public',
+    contentBase: './',
   },
   output: {
     filename: 'main.js',
