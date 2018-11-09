@@ -14,8 +14,9 @@ RUN apk --no-cache --virtual build-dependencies add \
     php5 \
     make \
     g++ \
-    && npm install
+    && npm install \
+    && npm run build
     # && apk del build-dependencies
 
 EXPOSE 3000
-CMD [ "npm", "start" ]
+CMD [ "node", "server.js" ]
