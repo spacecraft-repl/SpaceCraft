@@ -6,12 +6,12 @@ module.exports = {
   entry: './public/client.js',
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
-    // publicPath: '/public/',
+    publicPath: '/public/',
   },
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'public'),
-    // publicPath: '/public/',
+    publicPath: '/public/',
   },
   plugins: [
     new webpack.ContextReplacementPlugin(/y.*/),  // TODO: lookup

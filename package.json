@@ -7,6 +7,7 @@
     "test": "npm test",
     "build": "webpack",
     "start": "webpack --config webpack.config.js && node server.js",
+    "inspect": "webpack --config webpack.config.js && node --inspect server.js",
     "start:dev": "webpack-dev-server --open",
     "server": "node server.js"
   },
