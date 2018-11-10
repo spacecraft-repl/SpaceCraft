@@ -31,17 +31,17 @@ const io = socketIo(server); // our websocket server
 
 io.on('connection', (socket) => {
   const emitOutput = (output) => io.emit('output', { output });
+  const languageChange = (data) => io.emit('langChange', { language: Repl.language, data });
 
   socket.on('initRepl', ({ language = 'ruby' } = {}) => {
     if (language === Repl.language) return;
     Repl.kill();
     Repl.init(language);
-    Repl.process.on('data', emitOutput);
-    io.emit('langChange', { language });
+    Repl.process.on('data', languageChange);   
   });
 
   socket.on('execute', ({ line }) => {
-    Repl.process.removeListener('data', emitOutput);
+    Repl.process.removeListener('data', languageChange);
     Repl.bufferWrite(`${line}`)
       .then(emitOutput);
   });
