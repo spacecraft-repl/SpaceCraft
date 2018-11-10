@@ -26,7 +26,7 @@ const updateLine = output => { term.write('\u001b[2K\r' + state.currentPrompt + 
 socket.on('output', ({ output }) => {
   updateLine(output);
   state.currentOutput = output;
-  console.log(output.split('\n'));
+  console.log('OUTPUT', output.split('\n'));
   state.currentPrompt = output.split('\n').pop();
 });
 
@@ -37,7 +37,11 @@ socket.on('langChange', ({ language, data }) => {
   state.currentOutput = data;
   state.currentPrompt = data.split('\n').pop();
   term.write(data);
-  // console.log(`Language has been changed to: ${language}`);
+});
+
+socket.on('clear', () => {
+  console.log('CLEAR');
+  term.reset();
 });
 
 socket.on('connect', () => {
@@ -54,8 +58,11 @@ socket.on('disconnect', function(){});  // TODO: fill in...?
 const ClientRepl = {
 
   evaluate(line) {
-    term.reset();
     socket.emit('execute', { line });
+  },
+
+  run(line) {
+    socket.emit('execute', { line, clear: true });
   },
 
   emitReplLine() {
@@ -81,6 +88,7 @@ const ClientRepl = {
   },
 
   handleEnter() {
+    console.log('LINE', state.line);
     const line = state.line;
     state.line = '';
     this.emitReplLine();
@@ -111,7 +119,7 @@ term.on('keydown', ClientRepl.handleTerminalKeydown.bind(ClientRepl));
 // the previous input will still be executed.
 
 runButton.addEventListener('click', (event) => {
-  ClientRepl.evaluate(state.editor.getValue());
+  ClientRepl.run(state.editor.getValue());
 });
 
 
