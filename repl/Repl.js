@@ -22,7 +22,7 @@ const Repl = {
     this.process.write(string + '\n');
   },
 
-  bufferWrite(string, ms = 10) {
+  bufferWrite(string, ms = 15) {
     return new Promise((resolve, reject) => {
       let result = '';
 
@@ -41,7 +41,7 @@ const Repl = {
     });
   },
 
-  bufferRead() {
+  bufferRead(ms = 400) {
     return new Promise((resolve, reject) => {
       let result = '';
 
@@ -54,7 +54,7 @@ const Repl = {
       setTimeout(() => {
         resolve(result);
         this.process.removeListener('data', concatResult);
-      }, 500); // wait for output to buffer
+      }, ms); // wait for output to buffer
     });
   },
 
