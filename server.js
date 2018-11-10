@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
 const express = require('express');
 const config = require('./webpack.config.js');
 const compiler = webpack(config);
@@ -14,10 +13,6 @@ const port = process.env.PORT || 3000;
 const app = express();
 app.use(bodyParser.text());
 app.use(express.static('public'));
-
-app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath,
-}));
 
 app.get('/:room', (req, res) => {
   if (req.params.room === 'favicon.ico') return;
