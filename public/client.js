@@ -30,12 +30,14 @@ socket.on('output', ({ output }) => {
   state.currentPrompt = output.split('\n').pop();
 });
 
-socket.on('langChange', ({ language }) => {
+socket.on('langChange', ({ language, data }) => {
   state.editor.setOption('mode', language);
   state.language = language;
-  term.clear();  //  needs improvement due to some previous prompts still appearing when collaborating
-  updateLine('');
-  console.log(`Language has been changed to: ${language}`);
+  term.reset();
+  state.currentOutput = data;
+  state.currentPrompt = data.split('\n').pop();
+  term.write(data);
+  // console.log(`Language has been changed to: ${language}`);
 });
 
 socket.on('connect', () => {
@@ -52,6 +54,7 @@ socket.on('disconnect', function(){});  // TODO: fill in...?
 const ClientRepl = {
 
   evaluate(line) {
+    term.reset();
     socket.emit('execute', { line });
   },
 
@@ -60,6 +63,8 @@ const ClientRepl = {
   },
 
   handleLanguageClick(_) {
+    state.line = '';
+    this.emitReplLine();
     socket.emit('initRepl', { language: languageInput.value });
   },
 
@@ -100,6 +105,10 @@ languageInput.addEventListener('keypress', ClientRepl.handleLanguageKeypress.bin
 
 term.on('keypress', ClientRepl.handleTerminalKeypress.bind(ClientRepl));
 term.on('keydown', ClientRepl.handleTerminalKeydown.bind(ClientRepl));
+
+// Clear repl input line before/after hitting the 'Run' button.
+// Right now the line is visibly cleared, but if you hit enter in the repl after hitting the 'Run' button,
+// the previous input will still be executed.
 
 runButton.addEventListener('click', (event) => {
   ClientRepl.evaluate(state.editor.getValue());
