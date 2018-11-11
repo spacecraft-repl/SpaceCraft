@@ -28,8 +28,11 @@ const Repl = {
     this.process.write(string + '\n');
   },
 
-  // TODO: Remove repetitive code in bufferWrite and bufferRead
-  // TODO: Improve clarity of promises in bufferWrite and bufferRead
+  // TODO: Remove repetitive code in bufferWrite and bufferRead.
+  // TODO: Improve clarity of promises in bufferWrite and bufferRead.
+  // TODO: Add reject function and/or catch clauses to all promises and 'thens'
+  //       in this code and throughout project, so that all errors will be
+  //       handled and/or logged.
   bufferWrite(string, ms = 10) {
     console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string = ${string}, ms = ${ms})]`);
 
