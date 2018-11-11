@@ -7,6 +7,7 @@ const Repl = {
 
   init(language) {
     console.log(`${Date().slice(4, 33)} -- [Repl.init(language = ${language})]`);
+
     const command = COMMANDS[language];
     if (command) {
       this.process = pty.spawn(command);
@@ -29,6 +30,7 @@ const Repl = {
 
   bufferWrite(string, ms = 15) {
     console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string = ${string}, ms = ${ms})]`);
+
     return new Promise((resolve, reject) => {
       let result = '';
 
@@ -51,6 +53,7 @@ const Repl = {
 
   bufferRead(ms = 400) {
     console.log(`${Date().slice(4, 33)} -- [Repl.bufferRead(ms = ${ms})]`);
+
     return new Promise((resolve, reject) => {
       let result = '';
 

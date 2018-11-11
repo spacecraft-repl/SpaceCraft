@@ -27,18 +27,18 @@ io.on('connection', (socket) => {
   console.log(`${Date().slice(4, 33)} -- [io.on('connection')] socket: ${socket}`);
 
   const emitOutput = (output) => {
-    console.log(`${Date().slice(4, 33)} -- [emitOutput(output)] output: ${output}`)
+    console.log(`${Date().slice(4, 33)} -- [emitOutput(output = ${output})]`)
     io.emit('output', { output });
   };
 
   const emitClearThenOutput = (output) => {
-    console.log(`${Date().slice(4, 33)} -- [emitClearThenOutput(output)] output: ${output}`)
+    console.log(`${Date().slice(4, 33)} -- [emitClearThenOutput(output = ${output})]`)
     io.emit('clear');
     emitOutput(output);
   };
 
   socket.on('initRepl', ({ language = 'ruby' } = {}) => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('initRepl')] language: ${language}`);
+    console.log(`${Date().slice(4, 33)} -- [socket.on('initRepl', fn)] language: ${language}`);
     if (language === Repl.language) return;
     Repl.kill();
     Repl.init(language);
@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('execute', ({ line, clear }) => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('execute')] line: ${line}, clear: ${clear}`);
+    console.log(`${Date().slice(4, 33)} -- [socket.on('execute', fn)] line: ${line}, clear: ${clear}`);
     if (clear) {
       Repl.bufferWrite(line)
         .then(emitClearThenOutput)
@@ -58,7 +58,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('disconnect')] Client disconnected`);
+    console.log(`${Date().slice(4, 33)} -- [socket.on('disconnect', fn)] Client disconnected`);
     io.of('/').clients((error, clients) => {
       if (clients.length === 0) {
         console.log(`${Date().slice(4, 33)} -- 0 clients --> Repl.kill()`);
@@ -68,12 +68,11 @@ io.on('connection', (socket) => {
   });
 
   socket.on('updateLine', ({ line }) => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('updateLine')] line: ${line}`)
+    console.log(`${Date().slice(4, 33)} -- [socket.on('updateLine', fn)] line: ${line}`)
     socket.broadcast.emit('syncLine', { line });
   });
 
   // Yjs Websockets Server Events
-  
   require('./src/yjs-ws-server.js')(io, socket);
 });
 
