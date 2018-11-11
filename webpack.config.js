@@ -3,11 +3,11 @@ const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
-  entry: './public/client.js',
-  devServer: {
-    contentBase: path.resolve(__dirname, 'public'),
-    publicPath: '/public/',
-  },
+  entry: './src/client.js',
+  // devServer: {
+  //   contentBase: path.resolve(__dirname, 'public'),
+  //   publicPath: '/public/',
+  // },
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'public'),
