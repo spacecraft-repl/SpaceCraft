@@ -18,13 +18,14 @@ module.exports = (io, socket) => {
   const options = minimist(process.argv.slice(2), {
     string: ['port', 'debug', 'db'],
     default: {
-      port: process.env.PORT || '1234',
+      port: process.env.PORT || 3000,
       debug: false,
       db: 'memory'
     }
   })
 
   const getInstanceOfY = function(room) {
+    console.log(`${Date().slice(4, 33)} -- [getInstanceOfY(room)] room: ${room}`);
     if (global.yInstances[room] == null) {
       global.yInstances[room] = Y({
         db: {
@@ -47,6 +48,7 @@ module.exports = (io, socket) => {
   let rooms = [];
 
   socket.on('joinRoom', (room) => {
+    console.log(`${Date().slice(4, 33)} -- [socket.on('joinRoom', fn)] room: ${room}`);
     console.log('User "%s" joins room "%s"', socket.id, room);
     socket.join(room);
     getInstanceOfY(room).then((y) => {
@@ -58,6 +60,7 @@ module.exports = (io, socket) => {
   });
 
   socket.on('yjsEvent', (msg) => {
+    console.log(`${Date().slice(4, 33)} -- [socket.on('yjsEvent', fn)] msg: ${msg}`);
     if (msg.room != null) {
       getInstanceOfY(msg.room).then((y) => {
         y.connector.receiveMessage(socket.id, msg);
@@ -66,6 +69,7 @@ module.exports = (io, socket) => {
   });
 
   socket.on('disconnect', () => {
+    console.log(`${Date().slice(4, 33)} -- [socket.on('disconnect', fn)]`);
     for (var i = 0; i < rooms.length; i++) {
       let room = rooms[i];
       getInstanceOfY(room).then((y) => {
@@ -79,6 +83,7 @@ module.exports = (io, socket) => {
   });
 
   socket.on('leaveRoom', (room) => {
+    console.log(`${Date().slice(4, 33)} -- [socket.on('leaveRoom')] room: ${room}`);
     getInstanceOfY(room).then((y) => {
       var i = rooms.indexOf(room);
       if (i >= 0) {
@@ -90,4 +95,3 @@ module.exports = (io, socket) => {
 
   return module;
 }
-
