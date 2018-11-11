@@ -1,0 +1,159 @@
+> webpack --config webpack.config.js && node server.js
+
+Hash: ec37502f1d3938884f50
+Version: webpack 4.25.1
+Time: 1581ms
+Built at: 11/10/2018 10:09:16 PM
+  Asset      Size  Chunks             Chunk Names
+main.js  1.55 MiB    main  [emitted]  main
+Entrypoint main = main.js
+[0] ws (ignored) 15 bytes {main} [optional] [built]
+[./node_modules/css-loader/index.js!./src/main.css] ./node_modules/css-loader!./src/main.css 996 bytes {main} [built]
+[./node_modules/webpack/buildin/amd-options.js] (webpack)/buildin/amd-options.js 80 bytes {main} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 489 bytes {main} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 497 bytes {main} [built]
+[./node_modules/yjs/src sync recursive] ./node_modules/yjs/src sync 160 bytes {main} [built]
+[./src/client.js] 4.68 KiB {main} [built]
+[./src/editor.js] 1.55 KiB {main} [built]
+[./src/main.css] 1.04 KiB {main} [built]
+[./src/term.js] 1.08 KiB {main} [built]
+[./src/utils.js] 65 bytes {main} [built]
+    + 175 hidden modules
+Nov 10 2018 22:09:16 GMT-0800 -- Listening on 3000...
+Nov 10 2018 22:09:17 GMT-0800 -- [io.on('connection')] socket: [object Object]
+Nov 10 2018 22:09:17 GMT-0800 -- [socket.on('initRepl', fn)] language: ruby
+Nov 10 2018 22:09:17 GMT-0800 -- [Repl.kill()]
+Nov 10 2018 22:09:17 GMT-0800 -- [Repl.init(language = ruby)]
+Nov 10 2018 22:09:17 GMT-0800 -- INITIALIZED irb
+Nov 10 2018 22:09:17 GMT-0800 -- [Repl.bufferRead(ms = 400)]
+Nov 10 2018 22:09:17 GMT-0800 -- [socket.on('joinRoom', fn)] room: spacecraft-repl
+User "y74P-p0tA1Hna256AAAA" joins room "spacecraft-repl"
+Nov 10 2018 22:09:17 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 22:09:17 GMT-0800 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 10 2018 22:09:17 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 22:09:17 GMT-0800 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 10 2018 22:09:17 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 22:09:17 GMT-0800 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 10 2018 22:09:17 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 22:09:17 GMT-0800 -- [bufferRead: concatResult(data = >> )]
+Nov 10 2018 22:09:18 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 22:09:19 GMT-0800 -- [socket.on('updateLine', fn)] line: 1
+Nov 10 2018 22:09:19 GMT-0800 -- [socket.on('updateLine', fn)] line: 13
+Nov 10 2018 22:09:19 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 22:09:19 GMT-0800 -- [socket.on('execute', fn)] line: 13, clear: undefined
+Nov 10 2018 22:09:19 GMT-0800 -- [Repl.bufferWrite(string = 13, ms = 10)]
+Nov 10 2018 22:09:19 GMT-0800 -- [bufferWrite: concatResult(data = 13
+)]
+Nov 10 2018 22:09:19 GMT-0800 -- [bufferWrite: concatResult(data = 13
+)]
+Nov 10 2018 22:09:19 GMT-0800 -- [bufferWrite: concatResult(data = >> )]
+Nov 10 2018 22:09:19 GMT-0800 -- [emitOutput(output = 13
+13
+>> )]
+Nov 10 2018 22:09:19 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('updateLine', fn)] line: 3
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('execute', fn)] line: 3, clear: undefined
+Nov 10 2018 22:09:20 GMT-0800 -- [Repl.bufferWrite(string = 3, ms = 10)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data = 3
+)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data = 3
+)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data = >> )]
+Nov 10 2018 22:09:20 GMT-0800 -- [emitOutput(output = 3
+3
+>> )]
+Nov 10 2018 22:09:20 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('updateLine', fn)] line: 2
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('execute', fn)] line: 2, clear: undefined
+Nov 10 2018 22:09:20 GMT-0800 -- [Repl.bufferWrite(string = 2, ms = 10)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data = 2
+)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data = 2
+)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data = >> )]
+Nov 10 2018 22:09:20 GMT-0800 -- [emitOutput(output = 2
+2
+>> )]
+Nov 10 2018 22:09:20 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('updateLine', fn)] line: 2
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('execute', fn)] line: 2, clear: undefined
+Nov 10 2018 22:09:20 GMT-0800 -- [Repl.bufferWrite(string = 2, ms = 10)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data = 2
+)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data = 2
+)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data = >> )]
+Nov 10 2018 22:09:20 GMT-0800 -- [emitOutput(output = 2
+2
+>> )]
+Nov 10 2018 22:09:20 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('updateLine', fn)] line: 2
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('updateLine', fn)] line: 22
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 22:09:20 GMT-0800 -- [socket.on('execute', fn)] line: 22, clear: undefined
+Nov 10 2018 22:09:20 GMT-0800 -- [Repl.bufferWrite(string = 22, ms = 10)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data = 22)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data =
+)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data = 22
+)]
+Nov 10 2018 22:09:20 GMT-0800 -- [bufferWrite: concatResult(data = >> )]
+Nov 10 2018 22:09:20 GMT-0800 -- [emitOutput(output = 22
+22
+>> )]
+Nov 10 2018 22:09:20 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 22:09:21 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 22:09:21 GMT-0800 -- [socket.on('execute', fn)] line: , clear: undefined
+Nov 10 2018 22:09:21 GMT-0800 -- [Repl.bufferWrite(string = , ms = 10)]
+Nov 10 2018 22:09:21 GMT-0800 -- [bufferWrite: concatResult(data =
+)]
+Nov 10 2018 22:09:21 GMT-0800 -- [bufferWrite: concatResult(data = >> )]
+Nov 10 2018 22:09:21 GMT-0800 -- [emitOutput(output =
+>> )]
+Nov 10 2018 22:09:21 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 22:09:21 GMT-0800 -- [socket.on('updateLine', fn)] line: 2
+Nov 10 2018 22:09:21 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 22:09:21 GMT-0800 -- [socket.on('execute', fn)] line: 2, clear: undefined
+Nov 10 2018 22:09:21 GMT-0800 -- [Repl.bufferWrite(string = 2, ms = 10)]
+Nov 10 2018 22:09:21 GMT-0800 -- [bufferWrite: concatResult(data = 2
+)]
+Nov 10 2018 22:09:21 GMT-0800 -- [bufferWrite: concatResult(data = 2
+)]
+Nov 10 2018 22:09:21 GMT-0800 -- [bufferWrite: concatResult(data = >> )]
+Nov 10 2018 22:09:21 GMT-0800 -- [emitOutput(output = 2
+2
+>> )]
+Nov 10 2018 22:09:21 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 22:09:21 GMT-0800 -- [socket.on('updateLine', fn)] line: 2
+Nov 10 2018 22:09:21 GMT-0800 -- [socket.on('updateLine', fn)] line: 22
+Nov 10 2018 22:09:21 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 22:09:21 GMT-0800 -- [socket.on('execute', fn)] line: 22, clear: undefined
+Nov 10 2018 22:09:21 GMT-0800 -- [Repl.bufferWrite(string = 22, ms = 10)]
+Nov 10 2018 22:09:21 GMT-0800 -- [bufferWrite: concatResult(data = 2)]
+Nov 10 2018 22:09:21 GMT-0800 -- [bufferWrite: concatResult(data = 2
+)]
+Nov 10 2018 22:09:21 GMT-0800 -- [bufferWrite: concatResult(data = 22
+)]
+Nov 10 2018 22:09:21 GMT-0800 -- [bufferWrite: concatResult(data = >> )]
+Nov 10 2018 22:09:21 GMT-0800 -- [emitOutput(output = 22
+22
+>> )]
+Nov 10 2018 22:09:21 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 22:09:25 GMT-0800 -- [socket.on('updateLine', fn)] line: 2
+Nov 10 2018 22:09:25 GMT-0800 -- [socket.on('updateLine', fn)] line: 23
+Nov 10 2018 22:09:25 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 22:09:25 GMT-0800 -- [socket.on('execute', fn)] line: 23, clear: undefined
+Nov 10 2018 22:09:25 GMT-0800 -- [Repl.bufferWrite(string = 23, ms = 10)]
+Nov 10 2018 22:09:25 GMT-0800 -- [bufferWrite: concatResult(data = 23
+)]
+Nov 10 2018 22:09:25 GMT-0800 -- [bufferWrite: concatResult(data = 23
+)]
+Nov 10 2018 22:09:25 GMT-0800 -- [bufferWrite: concatResult(data = >> )]
+Nov 10 2018 22:09:25 GMT-0800 -- [emitOutput(output = 23
+23
+>> )]
+Nov 10 2018 22:09:25 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+
