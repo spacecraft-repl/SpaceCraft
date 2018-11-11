@@ -300,13 +300,13 @@ Nov 10 2018 22:13:48 GMT-0800 -- [bufferWrite: concatResult(data = 2
 )]
 Nov 10 2018 22:13:48 GMT-0800 -- [bufferWrite: concatResult(data = Traceback (most recent call last):
 )]
-Nov 10 2018 22:13:48 GMT-0800 -- [bufferWrite: concatResult(data =         1: from /home/one/.asdf/installs/ruby/2.5
+Nov 10 2018 22:13:48 GMT-0800 -- [bufferWrite: concatResult(data =         1: from $HOME/.asdf/installs/ruby/2.5
 .1/bin/irb:11:in `<main>'
 SyntaxError ((irb):2: syntax error, unexpected tINTEGER, expecting end-of-input)
 >> )]
 Nov 10 2018 22:13:48 GMT-0800 -- [emitOutput(output = 2
 Traceback (most recent call last):
-        1: from /home/one/.asdf/installs/ruby/2.5.1/bin/irb:11:in `<main>'
+        1: from $HOME/.asdf/installs/ruby/2.5.1/bin/irb:11:in `<main>'
 SyntaxError ((irb):2: syntax error, unexpected tINTEGER, expecting end-of-input)
 >> )]
 Nov 10 2018 22:13:48 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
