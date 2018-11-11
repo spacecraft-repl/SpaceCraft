@@ -81,7 +81,6 @@ const Repl = {
 
     return new Promise((resolve, reject) => {
       let result = '';
-      const concatResult = (data) => (result += data);
 
       const concatResult = (data) => {
         console.log(`${Date().slice(4, 33)} -- [bufferRead: concatResult(data = ${data})]`);
