@@ -33,89 +33,45 @@ const Repl = {
   // TODO: Add reject function and/or catch clauses to all promises and 'thens'
   //       in this code and throughout project, so that all errors will be
   //       handled and/or logged.
-  bufferWrite(string, ms = 10) {
-    console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string = ${string}, ms = ${ms})]`);
+  bufferWrite(string, bufferInterval = 4, write = true) {
+    console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string = ${string}, bufferInterval = ${bufferInterval})]`);
 
     return new Promise((resolve, reject) => {
       let result = '';
       let dataReceived = false;
 
       const concatResult = (data) => {
-        console.log(`${Date().slice(4, 33)} -- [bufferWrite: concatResult(data = ${data})]`);
-
         result += data;
         dataReceived = true;
       };
 
-      this.process.write(string + '\n');
+      if (write) this.process.write(string + '\n');
+
       this.process.on('data', concatResult);
 
       new Promise((res) => {
         // TODO: how does this interval get cleared if no data is received?
         const id = setInterval(() => {
-          if (dataReceived) {
-            console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): new Promise(fn(res)) -- if (dataReceived)] -- before 'clearInterval(id); res()'`);
-            clearInterval(id);
-            res();
-            console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): new Promise(fn(res)) -- if (dataReceived)] -- after 'clearInterval(id); res()'`);
-          }
+          if (!dataReceived) return;
+          clearInterval(id);
+          res();
         }, 1);
       }).then(() => {
         let currResult = result;
 
         const id = setInterval(() => {
         // TODO: how does this interval get cleared if currResult never equals result?
-          if (currResult === result) {
-            console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): new Promise(fn(res)).then -- if currResult === result] -- before 'resolve(result)'`);
-            resolve(result);
-            console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): new Promise(fn(res)).then -- if currResult === result] -- after 'resolve(result)', before 'clearInterval(id)'`);
-            clearInterval(id);
-
-            console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): new Promise(fn(res)).then -- if currResult === result] -- after 'clearInterval(id)', before 'this.process.removeListener("data", concatResult)'`);
-            // added nil guard:
-            this.process && this.process.removeListener('data', concatResult);      
-            console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): new Promise(fn(res)).then -- if currResult === result] -- after 'this.process.removeListener("data", concatResult)'`);
-          } else {
-            console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): new Promise(fn(res)).then -- else currResult !== result] -- before 'currResult = result'`);
-            currResult = result;
-            console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): new Promise(fn(res)).then -- else currResult !== result] -- after 'currResult = result'`);
-          }
-        }, 4);
+          if (currResult !== result) return currResult = result;
+          clearInterval(id);
+          this.removeListener('data', concatResult);
+          resolve(result);
+        }, bufferInterval);
       });
-
-      setTimeout(() => {
-        console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): setTimeout()] -- before 'resolve(result)'`);
-        resolve(result);
-        console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): setTimeout()] -- after 'resolve(result)'`);
-
-        console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): setTimeout()] -- before 'removeListener("data", concatResult)'`);
-        // added nil guard:
-        this.process && this.process.removeListener('data', concatResult);
-        console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): setTimeout()] -- after 'removeListener("data", concatResult)'`);
-      }, ms); // wait for output to buffer
     });
   },
 
-  bufferRead(ms = 400) {
-    console.log(`${Date().slice(4, 33)} -- [Repl.bufferRead(ms = ${ms})]`);
-
-    return new Promise((resolve, reject) => {
-      let result = '';
-
-      const concatResult = (data) => {
-        console.log(`${Date().slice(4, 33)} -- [bufferRead: concatResult(data = ${data})]`);
-        result += data;
-      };
-      
-      this.process.on('data', concatResult);
-
-      setTimeout(() => {
-        console.log(`${Date().slice(4, 33)} -- [Repl.bufferWrite(string, ms): setTimeout()]`);
-        resolve(result);
-        // added nil guard:
-        this.process && this.process.removeListener('data', concatResult);
-      }, ms); // wait for output to buffer
-    });
+  bufferRead(bufferInterval) {
+    return this.bufferWrite('', bufferInterval, write = false);
   },
 
   kill() {
@@ -128,6 +84,10 @@ const Repl = {
   id() {
     console.log(`${Date().slice(4, 33)} -- [Repl.id()]`);
     return this.process.pid;
+  },
+
+  removeListener(event, func) {
+    this.process && this.process.removeListener(event, func);
   },
 };
 
