@@ -1,7 +1,7 @@
 FROM mhart/alpine-node:latest
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY . /usr/src/app
+RUN mkdir -p /app
+WORKDIR /app
+COPY . /app
 
 # --no-cache: download package index on-the-fly, no need to cleanup afterwards
 # --virtual: bundle packages, remove whole bundle at once, when done
@@ -11,7 +11,6 @@ RUN apk --no-cache --virtual build-dependencies add \
     ruby \
     ruby-irb \
     python \
-    php5 \
     make \
     g++ \
     && npm install \

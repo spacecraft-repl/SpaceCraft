@@ -4,6 +4,7 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   entry: './public/client.js',
+  entry: './src/client.js',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'public'),
