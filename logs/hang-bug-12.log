@@ -1,0 +1,448 @@
+Nov 11 2018 07:50:14 GMT+0000 -- [socket.on('execute', fn)] line: 1332123312, clear: undefined
+Nov 11 2018 07:50:14 GMT+0000 -- [Repl.bufferWrite(string = 1332123312, ms = 10)]
+Nov 11 2018 07:50:14 GMT+0000 -- [bufferWrite: concatResult(data = 1332123312
+irb(main):1784:1' )]
+Nov 11 2018 07:50:14 GMT+0000 -- [emitOutput(output = 1332123312
+irb(main):1784:1' )]
+Nov 11 2018 07:50:14 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1k
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1k3
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1k33
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1k332
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1k3321
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1k33212
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1k332123
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1k3321233
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1k33212331
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1k332123312
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('execute', fn)] line: 1k332123312, clear: undefined
+Nov 11 2018 07:50:15 GMT+0000 -- [Repl.bufferWrite(string = 1k332123312, ms = 10)]
+Nov 11 2018 07:50:15 GMT+0000 -- [bufferWrite: concatResult(data = 1k332123312
+irb(main):1785:1' )]
+Nov 11 2018 07:50:15 GMT+0000 -- [emitOutput(output = 1k332123312
+irb(main):1785:1' )]
+Nov 11 2018 07:50:15 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 13
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 133
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321233
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212331
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('execute', fn)] line: 1332123312, clear: undefined
+Nov 11 2018 07:50:15 GMT+0000 -- [Repl.bufferWrite(string = 1332123312, ms = 10)]
+Nov 11 2018 07:50:15 GMT+0000 -- [bufferWrite: concatResult(data = 1332123312
+irb(main):1786:1' )]
+Nov 11 2018 07:50:15 GMT+0000 -- [emitOutput(output = 1332123312
+irb(main):1786:1' )]
+Nov 11 2018 07:50:15 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1x
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1x3
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1x33
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1x332
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1x3321
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1x33212
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1x332123
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1x3321233
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1x33212331
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1x332123312
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('execute', fn)] line: 1x332123312, clear: undefined
+Nov 11 2018 07:50:15 GMT+0000 -- [Repl.bufferWrite(string = 1x332123312, ms = 10)]
+Nov 11 2018 07:50:15 GMT+0000 -- [bufferWrite: concatResult(data = 1x332123312
+irb(main):1787:1' )]
+Nov 11 2018 07:50:15 GMT+0000 -- [emitOutput(output = 1x332123312
+irb(main):1787:1' )]
+Nov 11 2018 07:50:15 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 11
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 113
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1133
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 11332
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 113321
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1133212
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 11332123
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 113321233
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 1133212331
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 11332123312
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:15 GMT+0000 -- [socket.on('execute', fn)] line: 11332123312, clear: undefined
+Nov 11 2018 07:50:15 GMT+0000 -- [Repl.bufferWrite(string = 11332123312, ms = 10)]
+Nov 11 2018 07:50:15 GMT+0000 -- [bufferWrite: concatResult(data = 11332123312
+irb(main):1788:1' )]
+Nov 11 2018 07:50:15 GMT+0000 -- [emitOutput(output = 11332123312
+irb(main):1788:1' )]
+Nov 11 2018 07:50:15 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('execute', fn)] line: 1, clear: undefined
+Nov 11 2018 07:50:17 GMT+0000 -- [Repl.bufferWrite(string = 1, ms = 10)]
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 2
+Nov 11 2018 07:50:17 GMT+0000 -- [bufferWrite: concatResult(data = 1
+irb(main):1789:1' )]
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 22
+Nov 11 2018 07:50:17 GMT+0000 -- [emitOutput(output = 1
+irb(main):1789:1' )]
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:17 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('execute', fn)] line: 22, clear: undefined
+Nov 11 2018 07:50:17 GMT+0000 -- [Repl.bufferWrite(string = 22, ms = 10)]
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 3
+Nov 11 2018 07:50:17 GMT+0000 -- [bufferWrite: concatResult(data = 22
+irb(main):1790:1' )]
+Nov 11 2018 07:50:17 GMT+0000 -- [emitOutput(output = 22
+irb(main):1790:1' )]
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 33
+Nov 11 2018 07:50:17 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 333
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('execute', fn)] line: 333, clear: undefined
+Nov 11 2018 07:50:17 GMT+0000 -- [Repl.bufferWrite(string = 333, ms = 10)]
+Nov 11 2018 07:50:17 GMT+0000 -- [bufferWrite: concatResult(data = 333
+irb(main):1791:1' )]
+Nov 11 2018 07:50:17 GMT+0000 -- [emitOutput(output = 333
+irb(main):1791:1' )]
+Nov 11 2018 07:50:17 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 13
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 133
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321233
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212331
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('execute', fn)] line: 1332123312, clear: undefined
+Nov 11 2018 07:50:17 GMT+0000 -- [Repl.bufferWrite(string = 1332123312, ms = 10)]
+Nov 11 2018 07:50:17 GMT+0000 -- [bufferWrite: concatResult(data = 1332123312
+irb(main):1792:1' )]
+Nov 11 2018 07:50:17 GMT+0000 -- [emitOutput(output = 1332123312
+irb(main):1792:1' )]
+Nov 11 2018 07:50:17 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1p
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1p3
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1p33
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1p332
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1p3321
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1p33212
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1p332123
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1p3321233
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1p33212331
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1p332123312
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('execute', fn)] line: 1p332123312, clear: undefined
+Nov 11 2018 07:50:17 GMT+0000 -- [Repl.bufferWrite(string = 1p332123312, ms = 10)]
+Nov 11 2018 07:50:17 GMT+0000 -- [bufferWrite: concatResult(data = 1p332123312
+irb(main):1793:1' )]
+Nov 11 2018 07:50:17 GMT+0000 -- [emitOutput(output = 1p332123312
+irb(main):1793:1' )]
+Nov 11 2018 07:50:17 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 13
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 133
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321233
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212331
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('execute', fn)] line: 1332123312, clear: undefined
+Nov 11 2018 07:50:17 GMT+0000 -- [Repl.bufferWrite(string = 1332123312, ms = 10)]
+Nov 11 2018 07:50:17 GMT+0000 -- [bufferWrite: concatResult(data = 1332123312
+irb(main):1794:1' )]
+Nov 11 2018 07:50:17 GMT+0000 -- [emitOutput(output = 1332123312
+irb(main):1794:1' )]
+Nov 11 2018 07:50:17 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o3
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o332
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o3321
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o332123
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o3321233
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i2
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i21
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i213
+Nov 11 2018 07:50:17 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i2133
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i21331
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i213313
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i2133133
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i21331332
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i213313321
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i2133133212
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i21331332123
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i213313321233
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i2133133212331
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1o33212331i21331332123312
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('execute', fn)] line: 1o33212331i21331332123312, clear: undefined
+Nov 11 2018 07:50:18 GMT+0000 -- [Repl.bufferWrite(string = 1o33212331i21331332123312, ms = 10)]
+Nov 11 2018 07:50:18 GMT+0000 -- [bufferWrite: concatResult(data = 1o33212331i21331332123312
+irb(main):1795:1' )]
+Nov 11 2018 07:50:18 GMT+0000 -- [emitOutput(output = 1o33212331i21331332123312
+irb(main):1795:1' )]
+Nov 11 2018 07:50:18 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 11
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 113
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1131
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 11313
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 113133
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1131332
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 11313321
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 113133212
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1131332123
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 11313321233
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 113133212331
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 1131332123312
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:18 GMT+0000 -- [socket.on('execute', fn)] line: 1131332123312, clear: undefined
+Nov 11 2018 07:50:18 GMT+0000 -- [Repl.bufferWrite(string = 1131332123312, ms = 10)]
+Nov 11 2018 07:50:18 GMT+0000 -- [bufferWrite: concatResult(data = 1131332123312
+irb(main):1796:1' )]
+Nov 11 2018 07:50:18 GMT+0000 -- [emitOutput(output = 1131332123312
+irb(main):1796:1' )]
+Nov 11 2018 07:50:18 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('execute', fn)] line: 1, clear: undefined
+Nov 11 2018 07:50:19 GMT+0000 -- [Repl.bufferWrite(string = 1, ms = 10)]
+Nov 11 2018 07:50:19 GMT+0000 -- [bufferWrite: concatResult(data = 1
+irb(main):1797:1' )]
+Nov 11 2018 07:50:19 GMT+0000 -- [emitOutput(output = 1
+irb(main):1797:1' )]
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 2
+Nov 11 2018 07:50:19 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 22
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('execute', fn)] line: 22, clear: undefined
+Nov 11 2018 07:50:19 GMT+0000 -- [Repl.bufferWrite(string = 22, ms = 10)]
+Nov 11 2018 07:50:19 GMT+0000 -- [bufferWrite: concatResult(data = 22
+irb(main):1798:1' )]
+Nov 11 2018 07:50:19 GMT+0000 -- [emitOutput(output = 22
+irb(main):1798:1' )]
+Nov 11 2018 07:50:19 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 3
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 33
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 333
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('execute', fn)] line: 333, clear: undefined
+Nov 11 2018 07:50:19 GMT+0000 -- [Repl.bufferWrite(string = 333, ms = 10)]
+Nov 11 2018 07:50:19 GMT+0000 -- [bufferWrite: concatResult(data = 333
+irb(main):1799:1' )]
+Nov 11 2018 07:50:19 GMT+0000 -- [emitOutput(output = 333
+irb(main):1799:1' )]
+Nov 11 2018 07:50:19 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 13
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 133
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321233
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212331
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:19 GMT+0000 -- [socket.on('execute', fn)] line: 1332123312, clear: undefined
+Nov 11 2018 07:50:19 GMT+0000 -- [Repl.bufferWrite(string = 1332123312, ms = 10)]
+Nov 11 2018 07:50:19 GMT+0000 -- [bufferWrite: concatResult(data = 1332123312
+irb(main):1800:1' )]
+Nov 11 2018 07:50:19 GMT+0000 -- [emitOutput(output = 1332123312
+irb(main):1800:1' )]
+Nov 11 2018 07:50:19 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321233
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212331
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('execute', fn)] line: 1332123312, clear: undefined
+Nov 11 2018 07:50:20 GMT+0000 -- [Repl.bufferWrite(string = 1332123312, ms = 10)]
+Nov 11 2018 07:50:20 GMT+0000 -- [bufferWrite: concatResult(data = 1332123312
+irb(main):1801:1' )]
+Nov 11 2018 07:50:20 GMT+0000 -- [emitOutput(output = 1332123312
+irb(main):1801:1' )]
+Nov 11 2018 07:50:20 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321233
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212331
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('execute', fn)] line: 1332123312, clear: undefined
+Nov 11 2018 07:50:20 GMT+0000 -- [Repl.bufferWrite(string = 1332123312, ms = 10)]
+Nov 11 2018 07:50:20 GMT+0000 -- [bufferWrite: concatResult(data = 1332123312
+irb(main):1802:1' )]
+Nov 11 2018 07:50:20 GMT+0000 -- [emitOutput(output = 1332123312
+irb(main):1802:1' )]
+Nov 11 2018 07:50:20 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321233
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212331
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321233121
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212331213
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321233121332
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212331213321
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321233121332119
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212331213321193
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211933
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 13321233121332119332
+Nov 11 2018 07:50:20 GMT+0000 -- [socket.on('updateLine', fn)] line: 133212331213321193321
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211933211
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211933211/
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211933211/3
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211933211/33
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211933211/332
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211933211/3321
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211933211/33212
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211933211/332123
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211933211/3321233
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211933211/33212331
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('updateLine', fn)] line: 1332123312133211933211/332123312
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('execute', fn)] line: 1332123312133211933211/332123312, clear: undefined
+Nov 11 2018 07:50:21 GMT+0000 -- [Repl.bufferWrite(string = 1332123312133211933211/332123312, ms = 10)]
+Nov 11 2018 07:50:21 GMT+0000 -- [bufferWrite: concatResult(data = 1332123312133211933211/332123312
+irb(main):1803:1' )]
+Nov 11 2018 07:50:21 GMT+0000 -- [emitOutput(output = 1332123312133211933211/332123312
+irb(main):1803:1' )]
+Nov 11 2018 07:50:21 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('disconnect', fn)] Client disconnected
+Nov 11 2018 07:50:21 GMT+0000 -- [socket.on('disconnect', fn)]
+Nov 11 2018 07:50:21 GMT+0000 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 11 2018 07:50:21 GMT+0000 -- 0 clients --> Repl.kill()
+Nov 11 2018 07:50:21 GMT+0000 -- [Repl.kill()]
+Nov 11 2018 07:50:32 GMT+0000 -- [io.on('connection')] socket: [object Object]
+Nov 11 2018 07:50:32 GMT+0000 -- [socket.on('initRepl', fn)] language: ruby
+Nov 11 2018 07:50:32 GMT+0000 -- [Repl.kill()]
+Nov 11 2018 07:50:32 GMT+0000 -- [Repl.init(language = ruby)]
+Nov 11 2018 07:50:32 GMT+0000 -- INITIALIZED irb
+Nov 11 2018 07:50:32 GMT+0000 -- [Repl.bufferRead(ms = 400)]
+Nov 11 2018 07:50:32 GMT+0000 -- [socket.on('joinRoom', fn)] room: spacecraft-repl
+User "_5BbjhAmu7o_xIqcAAAB" joins room "spacecraft-repl"
+Nov 11 2018 07:50:32 GMT+0000 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 11 2018 07:50:32 GMT+0000 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 11 2018 07:50:32 GMT+0000 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 11 2018 07:50:33 GMT+0000 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 11 2018 07:50:33 GMT+0000 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 11 2018 07:50:33 GMT+0000 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 11 2018 07:50:33 GMT+0000 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 11 2018 07:50:33 GMT+0000 -- [bufferRead: concatResult(data = irb(main):001:0> )]
+Nov 11 2018 07:50:33 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:33 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:33 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:33 GMT+0000 -- [socket.on('execute', fn)] line: 1, clear: undefined
+Nov 11 2018 07:50:33 GMT+0000 -- [Repl.bufferWrite(string = 1, ms = 10)]
+Nov 11 2018 07:50:33 GMT+0000 -- [bufferWrite: concatResult(data = 1
+)]
+Nov 11 2018 07:50:33 GMT+0000 -- [bufferWrite: concatResult(data = => 1
+)]
+Nov 11 2018 07:50:33 GMT+0000 -- [bufferWrite: concatResult(data = irb(main):002:0> )]
+Nov 11 2018 07:50:33 GMT+0000 -- [emitOutput(output = 1
+=> 1
+irb(main):002:0> )]
+Nov 11 2018 07:50:33 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('execute', fn)] line: , clear: undefined
+Nov 11 2018 07:50:34 GMT+0000 -- [Repl.bufferWrite(string = , ms = 10)]
+Nov 11 2018 07:50:34 GMT+0000 -- [bufferWrite: concatResult(data = 
+)]
+Nov 11 2018 07:50:34 GMT+0000 -- [bufferWrite: concatResult(data = irb(main):003:0> )]
+Nov 11 2018 07:50:34 GMT+0000 -- [emitOutput(output = 
+irb(main):003:0> )]
+Nov 11 2018 07:50:34 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 12
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 123
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('execute', fn)] line: 123, clear: undefined
+Nov 11 2018 07:50:34 GMT+0000 -- [Repl.bufferWrite(string = 123, ms = 10)]
+Nov 11 2018 07:50:34 GMT+0000 -- [bufferWrite: concatResult(data = 123
+)]
+Nov 11 2018 07:50:34 GMT+0000 -- [bufferWrite: concatResult(data = => 123
+)]
+Nov 11 2018 07:50:34 GMT+0000 -- [bufferWrite: concatResult(data = irb(main):004:0> )]
+Nov 11 2018 07:50:34 GMT+0000 -- [emitOutput(output = 123
+=> 123
+irb(main):004:0> )]
+Nov 11 2018 07:50:34 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 1
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 12
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 123
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('execute', fn)] line: 123, clear: undefined
+Nov 11 2018 07:50:34 GMT+0000 -- [Repl.bufferWrite(string = 123, ms = 10)]
+Nov 11 2018 07:50:34 GMT+0000 -- [bufferWrite: concatResult(data = 123
+)]
+Nov 11 2018 07:50:34 GMT+0000 -- [bufferWrite: concatResult(data = => 123
+)]
+Nov 11 2018 07:50:34 GMT+0000 -- [bufferWrite: concatResult(data = irb(main):005:0> )]
+Nov 11 2018 07:50:34 GMT+0000 -- [emitOutput(output = 123
+=> 123
+irb(main):005:0> )]
+Nov 11 2018 07:50:34 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('execute', fn)] line: , clear: undefined
+Nov 11 2018 07:50:34 GMT+0000 -- [Repl.bufferWrite(string = , ms = 10)]
+Nov 11 2018 07:50:34 GMT+0000 -- [bufferWrite: concatResult(data = 
+)]
+Nov 11 2018 07:50:34 GMT+0000 -- [bufferWrite: concatResult(data = irb(main):006:0> )]
+Nov 11 2018 07:50:34 GMT+0000 -- [emitOutput(output = 
+irb(main):006:0> )]
+Nov 11 2018 07:50:34 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 2
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 23
+Nov 11 2018 07:50:34 GMT+0000 -- [socket.on('updateLine', fn)] line: 231
+Nov 11 2018 07:50:35 GMT+0000 -- [socket.on('updateLine', fn)] line: 
+Nov 11 2018 07:50:35 GMT+0000 -- [socket.on('execute', fn)] line: 231, clear: undefined
+Nov 11 2018 07:50:35 GMT+0000 -- [Repl.bufferWrite(string = 231, ms = 10)]
+Nov 11 2018 07:50:35 GMT+0000 -- [bufferWrite: concatResult(data = 231
+)]
+Nov 11 2018 07:50:35 GMT+0000 -- [bufferWrite: concatResult(data = => 231
+)]
+Nov 11 2018 07:50:35 GMT+0000 -- [bufferWrite: concatResult(data = irb(main):007:0> )]
+Nov 11 2018 07:50:35 GMT+0000 -- [emitOutput(output = 231
+=> 231
+irb(main):007:0> )]
+Nov 11 2018 07:50:35 GMT+0000 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 11 2018 07:50:36 GMT+0000 -- [socket.on('disconnect', fn)] Client disconnected
+Nov 11 2018 07:50:36 GMT+0000 -- [socket.on('disconnect', fn)]
+Nov 11 2018 07:50:36 GMT+0000 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 11 2018 07:50:36 GMT+0000 -- 0 clients --> Repl.kill()
+Nov 11 2018 07:50:36 GMT+0000 -- [Repl.kill()]

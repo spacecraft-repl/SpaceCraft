@@ -1,0 +1,550 @@
+#================= SERVER LOG =================#
+> webpack --config webpack.config.js && node server.js
+
+Hash: ec37502f1d3938884f50
+Version: webpack 4.25.1
+Time: 1532ms
+Built at: 11/10/2018 9:51:51 PM
+  Asset      Size  Chunks             Chunk Names
+main.js  1.55 MiB    main  [emitted]  main
+Entrypoint main = main.js
+[0] ws (ignored) 15 bytes {main} [optional] [built]
+[./node_modules/css-loader/index.js!./src/main.css] ./node_modules/css-loader!./src/main.css 996 bytes {main} [built]
+[./node_modules/webpack/buildin/amd-options.js] (webpack)/buildin/amd-options.js 80 bytes {main} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 489 bytes {main} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 497 bytes {main} [built]
+[./node_modules/yjs/src sync recursive] ./node_modules/yjs/src sync 160 bytes {main} [built]
+[./src/client.js] 4.68 KiB {main} [built]
+[./src/editor.js] 1.55 KiB {main} [built]
+[./src/main.css] 1.04 KiB {main} [built]
+[./src/term.js] 1.08 KiB {main} [built]
+[./src/utils.js] 65 bytes {main} [built]
+    + 175 hidden modules
+Nov 10 2018 21:51:51 GMT-0800 -- Listening on 3000...
+Nov 10 2018 21:51:54 GMT-0800 -- [io.on('connection')] socket: [object Object]
+Nov 10 2018 21:51:55 GMT-0800 -- [socket.on('initRepl', fn)] language: ruby
+Nov 10 2018 21:51:55 GMT-0800 -- [Repl.kill()]
+Nov 10 2018 21:51:55 GMT-0800 -- [Repl.init(language = ruby)]
+Nov 10 2018 21:51:55 GMT-0800 -- INITIALIZED irb
+Nov 10 2018 21:51:55 GMT-0800 -- [Repl.bufferRead(ms = 400)]
+Nov 10 2018 21:51:55 GMT-0800 -- [socket.on('joinRoom', fn)] room: spacecraft-repl
+User "xxIpbJRrpJb-y0utAAAA" joins room "spacecraft-repl"
+Nov 10 2018 21:51:55 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 21:51:55 GMT-0800 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 10 2018 21:51:55 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 21:51:55 GMT-0800 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 10 2018 21:51:55 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 21:51:55 GMT-0800 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 10 2018 21:51:55 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 21:51:55 GMT-0800 -- [bufferRead: concatResult(data = >> )]
+Nov 10 2018 21:51:55 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 21:52:03 GMT-0800 -- [socket.on('disconnect', fn)] Client disconnected
+Nov 10 2018 21:52:03 GMT-0800 -- [socket.on('disconnect', fn)]
+Nov 10 2018 21:52:03 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 21:52:03 GMT-0800 -- 0 clients --> Repl.kill()
+Nov 10 2018 21:52:03 GMT-0800 -- [Repl.kill()]
+Nov 10 2018 21:52:03 GMT-0800 -- [io.on('connection')] socket: [object Object]
+Nov 10 2018 21:52:03 GMT-0800 -- [socket.on('initRepl', fn)] language: ruby
+Nov 10 2018 21:52:03 GMT-0800 -- [Repl.kill()]
+Nov 10 2018 21:52:03 GMT-0800 -- [Repl.init(language = ruby)]
+Nov 10 2018 21:52:03 GMT-0800 -- INITIALIZED irb
+Nov 10 2018 21:52:03 GMT-0800 -- [Repl.bufferRead(ms = 400)]
+Nov 10 2018 21:52:03 GMT-0800 -- [socket.on('joinRoom', fn)] room: spacecraft-repl
+User "-EcD7xNu9Gw9tUGQAAAB" joins room "spacecraft-repl"
+Nov 10 2018 21:52:03 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 21:52:03 GMT-0800 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 10 2018 21:52:03 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 21:52:03 GMT-0800 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 10 2018 21:52:03 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 21:52:03 GMT-0800 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 10 2018 21:52:03 GMT-0800 -- [getInstanceOfY(room)] room: spacecraft-repl
+Nov 10 2018 21:52:04 GMT-0800 -- [bufferRead: concatResult(data = >> )]
+Nov 10 2018 21:52:04 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 21:52:09 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 21:52:09 GMT-0800 -- [socket.on('initRepl', fn)] language: javascript
+Nov 10 2018 21:52:09 GMT-0800 -- [Repl.kill()]
+Nov 10 2018 21:52:09 GMT-0800 -- [Repl.init(language = javascript)]
+Nov 10 2018 21:52:09 GMT-0800 -- INITIALIZED node
+Nov 10 2018 21:52:09 GMT-0800 -- [Repl.bufferRead(ms = 400)]
+)]v 10 2018 21:52:09 GMT-0800 -- [bufferRead: concatResult(data =
+No)]10 2018 21:52:09 GMT-0800 -- [bufferRead: concatResult(data = >
+Nov 10 2018 21:52:09 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 21:52:11 GMT-0800 -- [socket.on('updateLine', fn)] line: 1
+Nov 10 2018 21:52:12 GMT-0800 -- [socket.on('updateLine', fn)] line: 12
+Nov 10 2018 21:52:12 GMT-0800 -- [socket.on('updateLine', fn)] line: 123
+Nov 10 2018 21:52:12 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 21:52:12 GMT-0800 -- [socket.on('execute', fn)] line: 123, clear: undefined
+Nov 10 2018 21:52:12 GMT-0800 -- [Repl.bufferWrite(string = 123, ms = 10)]
+Nov 10 2018 21:52:12 GMT-0800 -- [bufferWrite: concatResult(data = 1)]
+Nov 10 2018 21:52:12 GMT-0800 -- [bufferWrite: concatResult(data = 2)]
+Nov 10 2018 21:52:12 GMT-0800 -- [bufferWrite: concatResult(data = 3)]
+Nov 10 2018 21:52:12 GMT-0800 -- [bufferWrite: concatResult(data =
+)]
+Nov 10 2018 21:52:12 GMT-0800 -- [bufferWrite: concatResult(data = 123
+)]
+> )]
+Nov 10 2018 21:52:12 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 21:52:12 GMT-0800 -- [emitOutput(output = 123
+123
+> )]
+Nov 10 2018 21:52:12 GMT-0800 -- [socket.on('updateLine', fn)] line: 3
+Nov 10 2018 21:52:12 GMT-0800 -- [socket.on('updateLine', fn)] line: 31
+Nov 10 2018 21:52:12 GMT-0800 -- [socket.on('updateLine', fn)] line: 312
+Nov 10 2018 21:52:12 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 21:52:12 GMT-0800 -- [socket.on('execute', fn)] line: 312, clear: undefined
+Nov 10 2018 21:52:12 GMT-0800 -- [Repl.bufferWrite(string = 312, ms = 10)]
+Nov 10 2018 21:52:12 GMT-0800 -- [bufferWrite: concatResult(data = 3)]
+Nov 10 2018 21:52:12 GMT-0800 -- [bufferWrite: concatResult(data = 1)]
+Nov 10 2018 21:52:12 GMT-0800 -- [bufferWrite: concatResult(data = 2
+)]
+Nov 10 2018 21:52:12 GMT-0800 -- [bufferWrite: concatResult(data = 312
+)]
+> )]
+Nov 10 2018 21:52:12 GMT-0800 -- [emitOutput(output = 312
+312
+> )]
+Nov 10 2018 21:52:12 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 21:52:12 GMT-0800 -- [socket.on('updateLine', fn)] line: 3
+Nov 10 2018 21:52:13 GMT-0800 -- [socket.on('updateLine', fn)] line: 31
+Nov 10 2018 21:52:13 GMT-0800 -- [socket.on('updateLine', fn)] line: 312
+Nov 10 2018 21:52:13 GMT-0800 -- [socket.on('updateLine', fn)] line:
+Nov 10 2018 21:52:13 GMT-0800 -- [socket.on('execute', fn)] line: 312, clear: undefined
+Nov 10 2018 21:52:13 GMT-0800 -- [Repl.bufferWrite(string = 312, ms = 10)]
+Nov 10 2018 21:52:13 GMT-0800 -- [bufferWrite: concatResult(data = 3)]
+Nov 10 2018 21:52:13 GMT-0800 -- [bufferWrite: concatResult(data = 12)]
+Nov 10 2018 21:52:13 GMT-0800 -- [bufferWrite: concatResult(data =
+)]
+Nov 10 2018 21:52:13 GMT-0800 -- [bufferWrite: concatResult(data = 312
+> )]
+Nov 10 2018 21:52:13 GMT-0800 -- [emitOutput(output = 312
+312
+> )]
+Nov 10 2018 21:52:13 GMT-0800 -- [Repl.bufferWrite(string, ms): setTimeout()]
+Nov 10 2018 21:52:13 GMT-0800 -- [socket.on('updateLine', fn)] line: 3
+Nov 10 2018 21:52:13 GMT-0800 -- [socket.on('updateLine', fn)] line: 31
+
+
+
+#================= CLIENT LOG =================#
+
+----- WebSocket -----
+
+2probe	6	
+21:52:03.856
+3probe	6	
+21:52:03.873
+5	1	
+21:52:03.879
+42["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]	124	
+21:52:03.887
+42["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]	99	
+21:52:03.889
+42["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]	60	
+21:52:03.889
+42["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]	99	
+21:52:03.890
+42["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]	60	
+21:52:03.890
+42["langChange",{"language":"ruby","data":">> "}]	49	
+21:52:04.254
+42["updateLine",{"line":""}]	28	
+21:52:09.162
+42["initRepl",{"language":"javascript"}]	40	
+21:52:09.164
+42["langChange",{"language":"javascript","data":"\u001b[1G\u001b[0J> \u001b[3G"}]	81	
+21:52:09.569
+42["updateLine",{"line":"1"}]	29	
+21:52:11.954
+42["updateLine",{"line":"12"}]	30	
+21:52:12.000
+42["updateLine",{"line":"123"}]	31	
+21:52:12.061
+42["updateLine",{"line":""}]	28	
+21:52:12.265
+42["execute",{"line":"123"}]	28	
+21:52:12.267
+42["output",{"output":"123\r\r\n\u001b[33m123\u001b[39m\r\n\u001b[1G\u001b[0J> \u001b[3G"}]	91	
+21:52:12.279
+42["updateLine",{"line":"3"}]	29	
+21:52:12.671
+42["updateLine",{"line":"31"}]	30	
+21:52:12.763
+42["updateLine",{"line":"312"}]	31	
+21:52:12.767
+42["updateLine",{"line":""}]	28	
+21:52:12.819
+42["execute",{"line":"312"}]	28	
+21:52:12.820
+42["output",{"output":"312\r\r\n\u001b[33m312\u001b[39m\r\n\u001b[1G\u001b[0J> \u001b[3G"}]	91	
+21:52:12.832
+42["updateLine",{"line":"3"}]	29	
+21:52:12.902
+42["updateLine",{"line":"31"}]	30	
+21:52:13.048
+42["updateLine",{"line":"312"}]	31	
+21:52:13.051
+42["updateLine",{"line":""}]	28	
+21:52:13.051
+42["execute",{"line":"312"}]	28	
+21:52:13.051
+42["output",{"output":"312\r\r\n\u001b[33m312\u001b[39m\r\n\u001b[1G\u001b[0J> \u001b[3G"}]	91	
+21:52:13.058
+42["updateLine",{"line":"3"}]	29	
+21:52:13.124
+42["updateLine",{"line":"31"}]	30	
+21:52:13.329
+42["updateLine",{"line":"312"}]	31	
+21:52:13.891
+42["updateLine",{"line":""}]	28	
+21:52:13.894
+42["execute",{"line":"312"}]	28	
+21:52:13.894
+42["updateLine",{"line":"1"}]	29	
+21:52:14.288
+42["updateLine",{"line":"12"}]	30	
+21:52:14.343
+42["updateLine",{"line":"123"}]	31	
+21:52:14.393
+42["updateLine",{"line":""}]	28	
+21:52:14.396
+42["execute",{"line":"123"}]	28	
+21:52:14.396
+42["updateLine",{"line":""}]	28	
+21:52:15.060
+42["execute",{"line":""}]	25	
+21:52:15.061
+42["updateLine",{"line":""}]	28	
+21:52:15.354
+42["execute",{"line":""}]	25	
+21:52:15.355
+2	1	
+21:52:28.840
+
+
+
+
+
+
+
+
+
+
+Navigated to http://localhost:3000/
+21:52:03.840 client.js:56 Nov 10 2018 21:52:03 GMT-0800 -- [socket.on('connect'), fn]
+21:52:03.870 polling-xhr.js:263 XHR finished loading: GET "http://localhost:3000/socket.io/?EIO=3&transport=polling&t=MS1Kxff".
+Request.create @ polling-xhr.js:263
+Request @ polling-xhr.js:165
+XHR.request @ polling-xhr.js:92
+XHR.doPoll @ polling-xhr.js:122
+Polling.poll @ polling.js:118
+Polling.doOpen @ polling.js:63
+Transport.open @ transport.js:80
+Socket.open @ socket.js:245
+Socket @ socket.js:119
+Socket @ socket.js:28
+Manager.open.Manager.connect @ manager.js:226
+Manager @ manager.js:69
+Manager @ manager.js:37
+lookup @ index.js:60
+(anonymous) @ editor.js:55
+./src/editor.js @ main.js:2159
+__webpack_require__ @ main.js:20
+(anonymous) @ client.js:6
+./src/client.js @ main.js:2147
+__webpack_require__ @ main.js:20
+(anonymous) @ main.js:84
+(anonymous) @ main.js:87
+21:52:03.896 editor.js:71 Yjs instance ready!
+21:52:03.919 polling-xhr.js:263 XHR finished loading: POST "http://localhost:3000/socket.io/?EIO=3&transport=polling&t=MS1Kxi3&sid=-EcD7xNu9Gw9tUGQAAAB".
+Request.create @ polling-xhr.js:263
+Request @ polling-xhr.js:165
+XHR.request @ polling-xhr.js:92
+XHR.doWrite @ polling-xhr.js:105
+(anonymous) @ polling.js:206
+(anonymous) @ browser.js:339
+proxy @ index.js:23
+(anonymous) @ browser.js:354
+(anonymous) @ browser.js:334
+exports.encodePacket @ browser.js:123
+encodeOne @ browser.js:333
+eachWithIndex @ browser.js:352
+map @ browser.js:359
+exports.encodePayload @ browser.js:338
+Polling.write @ polling.js:205
+Transport.send @ transport.js:110
+Socket.flush @ socket.js:565
+Socket.sendPacket @ socket.js:625
+Socket.write.Socket.send @ socket.js:585
+(anonymous) @ manager.js:423
+Encoder.encode @ index.js:135
+Manager.packet @ manager.js:421
+Socket.packet @ socket.js:178
+Socket.emit @ socket.js:159
+_editor_js__WEBPACK_IMPORTED_MODULE_3__.socket.on @ client.js:57
+Emitter.emit @ index.js:133
+Socket.emit @ socket.js:138
+Socket.onconnect @ socket.js:335
+Socket.onpacket @ socket.js:232
+(anonymous) @ index.js:21
+Emitter.emit @ index.js:133
+Manager.ondecoded @ manager.js:345
+(anonymous) @ index.js:21
+Emitter.emit @ index.js:133
+Decoder.add @ index.js:251
+Manager.ondata @ manager.js:335
+(anonymous) @ index.js:21
+Emitter.emit @ index.js:133
+Socket.onPacket @ socket.js:456
+(anonymous) @ socket.js:273
+Emitter.emit @ index.js:133
+Transport.onPacket @ transport.js:145
+callback @ polling.js:144
+exports.decodePayload @ browser.js:417
+Polling.onData @ polling.js:148
+(anonymous) @ polling-xhr.js:125
+Emitter.emit @ index.js:133
+Request.onData @ polling-xhr.js:298
+Request.onLoad @ polling-xhr.js:365
+xhr.onreadystatechange @ polling-xhr.js:251
+XMLHttpRequest.send (async)
+Request.create @ polling-xhr.js:263
+Request @ polling-xhr.js:165
+XHR.request @ polling-xhr.js:92
+XHR.doPoll @ polling-xhr.js:122
+Polling.poll @ polling.js:118
+Polling.doOpen @ polling.js:63
+Transport.open @ transport.js:80
+Socket.open @ socket.js:245
+Socket @ socket.js:119
+Socket @ socket.js:28
+Manager.open.Manager.connect @ manager.js:226
+Manager @ manager.js:69
+Manager @ manager.js:37
+lookup @ index.js:60
+(anonymous) @ editor.js:55
+./src/editor.js @ main.js:2159
+__webpack_require__ @ main.js:20
+(anonymous) @ client.js:6
+./src/client.js @ main.js:2147
+__webpack_require__ @ main.js:20
+(anonymous) @ main.js:84
+(anonymous) @ main.js:87
+21:52:03.921 polling-xhr.js:263 XHR finished loading: POST "http://localhost:3000/socket.io/?EIO=3&transport=polling&t=MS1KxiT&sid=-EcD7xNu9Gw9tUGQAAAB".
+Request.create @ polling-xhr.js:263
+Request @ polling-xhr.js:165
+XHR.request @ polling-xhr.js:92
+XHR.doWrite @ polling-xhr.js:105
+(anonymous) @ polling.js:206
+(anonymous) @ browser.js:339
+proxy @ index.js:23
+(anonymous) @ browser.js:354
+(anonymous) @ browser.js:334
+exports.encodePacket @ browser.js:123
+encodeOne @ browser.js:333
+eachWithIndex @ browser.js:352
+map @ browser.js:359
+exports.encodePayload @ browser.js:338
+Polling.write @ polling.js:205
+Transport.send @ transport.js:110
+Socket.flush @ socket.js:565
+Socket.onDrain @ socket.js:551
+(anonymous) @ socket.js:270
+Emitter.emit @ index.js:133
+callbackfn @ polling.js:202
+Emitter.emit @ index.js:133
+Request.onSuccess @ polling-xhr.js:287
+Request.onData @ polling-xhr.js:299
+Request.onLoad @ polling-xhr.js:365
+xhr.onreadystatechange @ polling-xhr.js:251
+XMLHttpRequest.send (async)
+Request.create @ polling-xhr.js:263
+Request @ polling-xhr.js:165
+XHR.request @ polling-xhr.js:92
+XHR.doWrite @ polling-xhr.js:105
+(anonymous) @ polling.js:206
+(anonymous) @ browser.js:339
+proxy @ index.js:23
+(anonymous) @ browser.js:354
+(anonymous) @ browser.js:334
+exports.encodePacket @ browser.js:123
+encodeOne @ browser.js:333
+eachWithIndex @ browser.js:352
+map @ browser.js:359
+exports.encodePayload @ browser.js:338
+Polling.write @ polling.js:205
+Transport.send @ transport.js:110
+Socket.flush @ socket.js:565
+Socket.sendPacket @ socket.js:625
+Socket.write.Socket.send @ socket.js:585
+(anonymous) @ manager.js:423
+Encoder.encode @ index.js:135
+Manager.packet @ manager.js:421
+Socket.packet @ socket.js:178
+Socket.emit @ socket.js:159
+_editor_js__WEBPACK_IMPORTED_MODULE_3__.socket.on @ client.js:57
+Emitter.emit @ index.js:133
+Socket.emit @ socket.js:138
+Socket.onconnect @ socket.js:335
+Socket.onpacket @ socket.js:232
+(anonymous) @ index.js:21
+Emitter.emit @ index.js:133
+Manager.ondecoded @ manager.js:345
+(anonymous) @ index.js:21
+Emitter.emit @ index.js:133
+Decoder.add @ index.js:251
+Manager.ondata @ manager.js:335
+(anonymous) @ index.js:21
+Emitter.emit @ index.js:133
+Socket.onPacket @ socket.js:456
+(anonymous) @ socket.js:273
+Emitter.emit @ index.js:133
+Transport.onPacket @ transport.js:145
+callback @ polling.js:144
+exports.decodePayload @ browser.js:417
+Polling.onData @ polling.js:148
+(anonymous) @ polling-xhr.js:125
+Emitter.emit @ index.js:133
+Request.onData @ polling-xhr.js:298
+Request.onLoad @ polling-xhr.js:365
+xhr.onreadystatechange @ polling-xhr.js:251
+XMLHttpRequest.send (async)
+Request.create @ polling-xhr.js:263
+Request @ polling-xhr.js:165
+XHR.request @ polling-xhr.js:92
+XHR.doPoll @ polling-xhr.js:122
+Polling.poll @ polling.js:118
+Polling.doOpen @ polling.js:63
+Transport.open @ transport.js:80
+Socket.open @ socket.js:245
+Socket @ socket.js:119
+Socket @ socket.js:28
+Manager.open.Manager.connect @ manager.js:226
+Manager @ manager.js:69
+Manager @ manager.js:37
+lookup @ index.js:60
+(anonymous) @ editor.js:55
+./src/editor.js @ main.js:2159
+__webpack_require__ @ main.js:20
+(anonymous) @ client.js:6
+./src/client.js @ main.js:2147
+__webpack_require__ @ main.js:20
+(anonymous) @ main.js:84
+(anonymous) @ main.js:87
+21:52:03.922 polling-xhr.js:263 XHR finished loading: GET "http://localhost:3000/socket.io/?EIO=3&transport=polling&t=MS1Kxi8&sid=-EcD7xNu9Gw9tUGQAAAB".
+Request.create @ polling-xhr.js:263
+Request @ polling-xhr.js:165
+XHR.request @ polling-xhr.js:92
+XHR.doPoll @ polling-xhr.js:122
+Polling.poll @ polling.js:118
+Polling.onData @ polling.js:157
+(anonymous) @ polling-xhr.js:125
+Emitter.emit @ index.js:133
+Request.onData @ polling-xhr.js:298
+Request.onLoad @ polling-xhr.js:365
+xhr.onreadystatechange @ polling-xhr.js:251
+XMLHttpRequest.send (async)
+Request.create @ polling-xhr.js:263
+Request @ polling-xhr.js:165
+XHR.request @ polling-xhr.js:92
+XHR.doPoll @ polling-xhr.js:122
+Polling.poll @ polling.js:118
+Polling.doOpen @ polling.js:63
+Transport.open @ transport.js:80
+Socket.open @ socket.js:245
+Socket @ socket.js:119
+Socket @ socket.js:28
+Manager.open.Manager.connect @ manager.js:226
+Manager @ manager.js:69
+Manager @ manager.js:37
+lookup @ index.js:60
+(anonymous) @ editor.js:55
+./src/editor.js @ main.js:2159
+__webpack_require__ @ main.js:20
+(anonymous) @ client.js:6
+./src/client.js @ main.js:2147
+__webpack_require__ @ main.js:20
+(anonymous) @ main.js:84
+(anonymous) @ main.js:87
+21:52:04.254 client.js:41 Nov 10 2018 21:52:04 GMT-0800 -- [socket.on('langChange', fn)] language: ruby, data: >> 
+21:52:06.985 client.js:125 Nov 10 2018 21:52:06 GMT-0800 -- [ClientRepl.handleLanguageKeypress(event = [object KeyboardEvent])]
+21:52:07.112 client.js:125 Nov 10 2018 21:52:07 GMT-0800 -- [ClientRepl.handleLanguageKeypress(event = [object KeyboardEvent])]
+21:52:07.255 client.js:125 Nov 10 2018 21:52:07 GMT-0800 -- [ClientRepl.handleLanguageKeypress(event = [object KeyboardEvent])]
+21:52:07.374 client.js:125 Nov 10 2018 21:52:07 GMT-0800 -- [ClientRepl.handleLanguageKeypress(event = [object KeyboardEvent])]
+21:52:07.605 client.js:125 Nov 10 2018 21:52:07 GMT-0800 -- [ClientRepl.handleLanguageKeypress(event = [object KeyboardEvent])]
+21:52:07.719 client.js:125 Nov 10 2018 21:52:07 GMT-0800 -- [ClientRepl.handleLanguageKeypress(event = [object KeyboardEvent])]
+21:52:07.912 client.js:125 Nov 10 2018 21:52:07 GMT-0800 -- [ClientRepl.handleLanguageKeypress(event = [object KeyboardEvent])]
+21:52:07.995 client.js:125 Nov 10 2018 21:52:07 GMT-0800 -- [ClientRepl.handleLanguageKeypress(event = [object KeyboardEvent])]
+21:52:08.168 client.js:125 Nov 10 2018 21:52:08 GMT-0800 -- [ClientRepl.handleLanguageKeypress(event = [object KeyboardEvent])]
+21:52:08.233 client.js:125 Nov 10 2018 21:52:08 GMT-0800 -- [ClientRepl.handleLanguageKeypress(event = [object KeyboardEvent])]
+21:52:09.161 client.js:125 Nov 10 2018 21:52:09 GMT-0800 -- [ClientRepl.handleLanguageKeypress(event = [object KeyboardEvent])]
+21:52:09.162 client.js:88 Nov 10 2018 21:52:09 GMT-0800 -- [ClientRepl.handleLanguageClick(_event = undefined)]
+21:52:09.162 client.js:83 Nov 10 2018 21:52:09 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:09.569 client.js:41 Nov 10 2018 21:52:09 GMT-0800 -- [socket.on('langChange', fn)] language: javascript, data: [1G[0J> [3G
+21:52:11.954 client.js:95 Nov 10 2018 21:52:11 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 1)]
+21:52:11.954 client.js:83 Nov 10 2018 21:52:11 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:12.000 client.js:95 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 2)]
+21:52:12.000 client.js:83 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:12.061 client.js:95 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 3)]
+21:52:12.061 client.js:83 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:12.265 client.js:102 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.handleTerminalKeydown(event = [object KeyboardEvent])]
+21:52:12.265 client.js:109 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.handleEnter()] -- state.line: 123
+21:52:12.265 client.js:83 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:12.266 client.js:73 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.evaluate(line = 123)]
+21:52:12.280 client.js:33 Nov 10 2018 21:52:12 GMT-0800 -- [socket.on('output', fn)] output: 123
+123[1G[0J> [3G
+21:52:12.281 client.js:36 OUTPUT (3) ["123", "[33m123[39m", "[1G[0J> [3G"]
+21:52:12.670 client.js:95 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 3)]
+21:52:12.671 client.js:83 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:12.762 client.js:95 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 1)]
+21:52:12.763 client.js:83 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:12.764 client.js:95 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 2)]
+21:52:12.765 client.js:83 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:12.818 client.js:102 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.handleTerminalKeydown(event = [object KeyboardEvent])]
+21:52:12.819 client.js:109 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.handleEnter()] -- state.line: 312
+21:52:12.819 client.js:83 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:12.819 client.js:73 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.evaluate(line = 312)]
+21:52:12.832 client.js:33 Nov 10 2018 21:52:12 GMT-0800 -- [socket.on('output', fn)] output: 312
+312[1G[0J> [3G
+21:52:12.832 client.js:36 OUTPUT (3) ["312", "[33m312[39m", "[1G[0J> [3G"]
+21:52:12.901 client.js:95 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 3)]
+21:52:12.902 client.js:83 Nov 10 2018 21:52:12 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:13.047 client.js:95 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 1)]
+21:52:13.047 client.js:83 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:13.049 client.js:95 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 2)]
+21:52:13.049 client.js:83 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:13.050 client.js:102 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.handleTerminalKeydown(event = [object KeyboardEvent])]
+21:52:13.050 client.js:109 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.handleEnter()] -- state.line: 312
+21:52:13.050 client.js:83 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:13.051 client.js:73 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.evaluate(line = 312)]
+21:52:13.059 client.js:33 Nov 10 2018 21:52:13 GMT-0800 -- [socket.on('output', fn)] output: 312
+312[1G[0J> [3G
+21:52:13.059 client.js:36 OUTPUT (3) ["312", "[33m312[39m", "[1G[0J> [3G"]
+21:52:13.124 client.js:95 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 3)]
+21:52:13.124 client.js:83 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:13.328 client.js:95 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 1)]
+21:52:13.329 client.js:83 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:13.890 client.js:95 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 2)]
+21:52:13.891 client.js:83 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:13.892 client.js:102 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.handleTerminalKeydown(event = [object KeyboardEvent])]
+21:52:13.892 client.js:109 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.handleEnter()] -- state.line: 312
+21:52:13.893 client.js:83 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:13.893 client.js:73 Nov 10 2018 21:52:13 GMT-0800 -- [ClientRepl.evaluate(line = 312)]
+21:52:14.287 client.js:95 Nov 10 2018 21:52:14 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 1)]
+21:52:14.288 client.js:83 Nov 10 2018 21:52:14 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:14.342 client.js:95 Nov 10 2018 21:52:14 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 2)]
+21:52:14.342 client.js:83 Nov 10 2018 21:52:14 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:14.392 client.js:95 Nov 10 2018 21:52:14 GMT-0800 -- [ClientRepl.handleTerminalKeypress(key = 3)]
+21:52:14.393 client.js:83 Nov 10 2018 21:52:14 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:14.394 client.js:102 Nov 10 2018 21:52:14 GMT-0800 -- [ClientRepl.handleTerminalKeydown(event = [object KeyboardEvent])]
+21:52:14.394 client.js:109 Nov 10 2018 21:52:14 GMT-0800 -- [ClientRepl.handleEnter()] -- state.line: 123
+21:52:14.394 client.js:83 Nov 10 2018 21:52:14 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:14.395 client.js:73 Nov 10 2018 21:52:14 GMT-0800 -- [ClientRepl.evaluate(line = 123)]
+21:52:15.059 client.js:102 Nov 10 2018 21:52:15 GMT-0800 -- [ClientRepl.handleTerminalKeydown(event = [object KeyboardEvent])]
+21:52:15.059 client.js:109 Nov 10 2018 21:52:15 GMT-0800 -- [ClientRepl.handleEnter()] -- state.line: 
+21:52:15.060 client.js:83 Nov 10 2018 21:52:15 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:15.060 client.js:73 Nov 10 2018 21:52:15 GMT-0800 -- [ClientRepl.evaluate(line = )]
+21:52:15.353 client.js:102 Nov 10 2018 21:52:15 GMT-0800 -- [ClientRepl.handleTerminalKeydown(event = [object KeyboardEvent])]
+21:52:15.353 client.js:109 Nov 10 2018 21:52:15 GMT-0800 -- [ClientRepl.handleEnter()] -- state.line: 
+21:52:15.354 client.js:83 Nov 10 2018 21:52:15 GMT-0800 -- [ClientRepl.emitReplLine()]
+21:52:15.354 client.js:73 Nov 10 2018 21:52:15 GMT-0800 -- [ClientRepl.evaluate(line = )]
+21:52:33.841 client.js:68 Nov 10 2018 21:52:33 GMT-0800 -- [socket.on('disconnect', fn)]
