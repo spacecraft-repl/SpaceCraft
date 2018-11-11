@@ -21,6 +21,18 @@ module.exports = {
           'css-loader',
         ],
       },
+      {
+        test: /\.(otf|ttf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[name].[ext]',
+              context: ''
+            }
+          }
+        ]
+      }      
     ],
   },
 };

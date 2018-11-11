@@ -25,7 +25,6 @@
     "codemirror-one-dark-theme": "^1.1.1",
     "css-loader": "^1.0.1",
     "express": "^4.16.4",
-    "file-loader": "^2.0.0",
     "node-pty": "^0.7.8",
     "socket.io": "^2.1.1",
     "style-loader": "^0.23.1",
@@ -39,5 +38,7 @@
     "y-websockets-server": "^9.2.1",
     "yjs": "^12.3.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "file-loader": "^2.0.0"
+  }
 }

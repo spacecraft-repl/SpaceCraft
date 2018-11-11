@@ -1,13 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 html, body, textarea, input, div, button, pre, .terminal, .xterm, #terminal, .codeMirrorContainer, .CodeMirror {
   background-color: #282c34;
   color: #abb2bf;
   font-family: 'Fira Code', 'Inconsolata', Menlo, Monaco, Consolas, Monaco, 'Droid Sans Mono', monospace;
   font-size: 15px;
-}
-
-@font-face {
-  font-family: OratorStd;
-  src: url(../public/fonts/OratorStd.otf);
 }
 
 body {
@@ -20,7 +17,7 @@ body {
 }
 
 button, #language {
-  font-family: 'Fira Code', monospace;
+  font-family: Roboto, sans-serif;
   padding: 3px;
   font-size: 16px;
   background: #61afef;
