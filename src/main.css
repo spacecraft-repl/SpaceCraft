@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 html, body, textarea, input, div, button, pre, .terminal, .xterm, #terminal, .codeMirrorContainer, .CodeMirror {
   background-color: #282c34;
   color: #abb2bf;
@@ -9,16 +11,15 @@ body {
   overflow: hidden;
 }
 
-#language {
-  border: solid 1px #61afef;
-}
-
 #editor-output, #terminal {
   border-bottom: solid 1px #61afef;
   padding-top: 15px;
 }
 
-button {
+button, #language {
+  font-family: Roboto, sans-serif;
+  padding: 3px;
+  font-size: 16px;
   background: #61afef;
   border: none;
   border-radius: 2px;

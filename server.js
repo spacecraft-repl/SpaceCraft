@@ -50,7 +50,7 @@ io.on('connection', (socket) => {
     console.log(`${Date().slice(4, 33)} -- [socket.on('execute', fn)] line: ${line}, clear: ${clear}`);
     if (clear) {
       Repl.bufferWrite(line)
-        .then(emitClearThenOutput)
+        .then(emitClearThenOutput);
     } else {
       Repl.bufferWrite(line)
         .then(emitOutput);

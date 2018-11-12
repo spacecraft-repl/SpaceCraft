@@ -3,7 +3,6 @@ const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
-  entry: './public/client.js',
   entry: './src/client.js',
   output: {
     filename: 'main.js',
@@ -22,6 +21,18 @@ module.exports = {
           'css-loader',
         ],
       },
+      {
+        test: /\.(otf|ttf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[name].[ext]',
+              context: ''
+            }
+          }
+        ]
+      }      
     ],
   },
 };
