@@ -40,9 +40,7 @@ socket.on('clear', () => {
   term.reset();
 });
 
-socket.on('connect', () => {
-
-});
+socket.on('connect', () => {});
 
 socket.on('syncLine', ({ line }) => {
   state.line = line;
