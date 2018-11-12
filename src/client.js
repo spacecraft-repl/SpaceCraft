@@ -1,35 +1,48 @@
 import { $ } from './utils.js';
 import term from './term.js';
-import './main.css';
 import { editor, socket } from './editor.js'
+import './main.css';
 
-term.open($('#terminal'));
+const languageSelectElem = $('#language');
+const runButton = $('.run-editor-code-button');
 
 let state = {
-  editor,
   line: '',
   language: 'ruby',
   currentOutput: [],
   currentPrompt: '',
 };
 
-const languageSelect = $('#language');
-const runButton = $('button.execute');
 
-const updateLine = output => { term.write('\u001b[2K\r' + state.currentPrompt + output) }
+//#================= Term =================#
+term.open($('#terminal'));
 
-// TODO: clear state.line after user hits Run button
+const clearTermLine = () => term.write('\u001b[2K\r');
+const setTermPrompt = () => term.write(state.currentPrompt);
+const resetTermLine = () => {
+  clearTermLine();
+  setTermPrompt();
+};
+
+const clearTermScreen = () => term.reset();
+const resetTermScreen = () => {
+  clearTermScreen();
+  resetTermLine();
+};
+
+
+//#================= Socket =================#
 socket.on('output', ({ output }) => {
-  updateLine(output);
+  resetTermLine();
+  term.write(output);
   state.currentOutput = output;
   state.currentPrompt = output.split('\n').pop();
 });
 
 socket.on('langChange', ({ language, data }) => {
-  state.editor.setOption('mode', language);
+  editor.setOption('mode', language);
   state.language = language;
-  languageSelect.value = language;
-
+  languageSelectElem.value = language;
   term.reset();
   state.currentOutput = data;
   state.currentPrompt = data.split('\n').pop();
@@ -37,93 +50,101 @@ socket.on('langChange', ({ language, data }) => {
 });
 
 socket.on('clear', () => {
-  term.reset();
+  state.line = '';
+  resetTermScreen();
 });
 
-socket.on('connect', () => {});
-
+// Sync line of client so that it's the same as the line from server.
 socket.on('syncLine', ({ line }) => {
   state.line = line;
-  updateLine(line);
+  resetTermLine();
+  term.write(line);
 });
 
 // TODO: fill in...?
-socket.on('disconnect', () => {
-});
+socket.on('connect', () => {});
+socket.on('disconnect', () => {});
 
+
+
+//#================= ClientRepl =================#
 const ClientRepl = {
-  evaluate(line) {
-    socket.emit('execute', { line });
+  emitEvaluate(code) {
+    socket.emit('evaluate', { code });
   },
 
-  run(line) {
-    socket.emit('execute', { line, clear: true });
+  emitClear() {
+    socket.emit('clear');
   },
 
-  emitReplLine() {
-    socket.emit('updateLine', { line: state.line });
+  // Emit 'lineChanged` event to server --> server broadcasts 'syncLine' to clients.
+  emitLineChanged() {
+    socket.emit('lineChanged', { line: state.line });
   },
 
-  handleTerminalKeypress(key) {
-    state.line += key;
-    this.emitReplLine();
-    term.write(key);
+  emitInitRepl() {
+    socket.emit('initRepl', { language: languageSelectElem.value });
   },
 
-  handleTerminalKeydown(event) {
-    const key = event.key;
-    if      (key === 'Enter')     this.handleEnter();
-    else if (key === 'Backspace') this.handleBackspace();
+  clearLine() {
+    state.line = '';
+    this.emitLineChanged();
   },
 
   handleEnter() {
-    const line = state.line;
-    state.line = '';
-    this.emitReplLine();
-    this.evaluate(line);
+    let lineOfCode = state.line;
+    this.clearLine();
+    this.emitEvaluate(lineOfCode);
   },
 
   handleBackspace() {
     if (state.line === '') return;
     state.line = state.line.slice(0, -1);
-    this.emitReplLine();
+    this.emitLineChanged();
     term.write('\b \b');
   },
 
+  // Handle character keys.
+  handleKeypress(key) {
+    state.line += key;
+    this.emitLineChanged();
+    term.write(key);
+  },
+
+  // Handle special keys (Enter, Backspace).
+  // @param: KeyboardEvent
+  handleKeydown({ key }) {
+    if      (key === 'Enter')     this.handleEnter();
+    else if (key === 'Backspace') this.handleBackspace();
+  },
+
+  handleRunButtonClick() {
+    let editorCode = editor.getValue();
+    if (editorCode === '') return;
+    this.emitClear();
+    this.emitEvaluate(editorCode);
+  },
+
   handleLanguageChange() {
-    state.line = '';
-    this.emitReplLine();
-    socket.emit('initRepl', { language: languageSelect.value });    
-  }
+    this.clearLine();
+    this.emitInitRepl();
+  },
 };
 
-languageSelect.addEventListener('change', ClientRepl.handleLanguageChange.bind(ClientRepl));
-
-term.on('keypress', ClientRepl.handleTerminalKeypress.bind(ClientRepl));
-term.on('keydown', ClientRepl.handleTerminalKeydown.bind(ClientRepl));
-
-// Clear repl input line before/after hitting the 'Run' button.
-// Right now the line is visibly cleared, but if you hit enter in the repl after hitting the 'Run' button,
-// the previous input will still be executed.
-
-runButton.addEventListener('click', (event) => {
-  ClientRepl.run(state.editor.getValue());
-});
+term.on('keypress', ClientRepl.handleKeypress.bind(ClientRepl));
+term.on('keydown',  ClientRepl.handleKeydown.bind(ClientRepl));
+runButton.addEventListener('click', ClientRepl.handleRunButtonClick.bind(ClientRepl));
+languageSelectElem.addEventListener('change', ClientRepl.handleLanguageChange.bind(ClientRepl));
 
 
 
-// ========================= Debugging =========================
+//#===========================================================#
+//========================= Debugging =========================
+//#===========================================================#
 window.state = state;
-// window.io = io;
-// window.socket = socket;
-
 window.term = term;
-// term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');
 
+// --- Escape codes ---
 import ansiEscapes from 'ansi-escapes';
-window.ansi = ansiEscapes
-
-// const term2 = new Terminal()
-// window.term2 = term2
-// term2.open($('#terminal-attach'))
-// term2.write('terminal-attach')
+window.ansi = ansiEscapes;
+// term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');
