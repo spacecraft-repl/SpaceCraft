@@ -1,12 +1,13 @@
-// ========================= CodeMirror =========================
+//========================= CodeMirror =========================
 import CodeMirror from 'codemirror/lib/codemirror.js';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror-one-dark-theme/one-dark.css';
-import 'codemirror/mode/javascript/javascript.js';
 import 'codemirror/mode/ruby/ruby.js';
+import 'codemirror/mode/javascript/javascript.js';
 import 'codemirror/mode/python/python.js';
+import 'codemirror/mode/shell/shell.js';
 
-import { $ } from './utils.js'
+import { $ } from './utils.js';
 
 const code = $('.codemirror-textarea');
 
@@ -17,7 +18,17 @@ const editor = CodeMirror.fromTextArea(code, {
   mode: 'ruby',
 });
 
-// ========================= Yjs =========================
+// TODO: fix bug where indentation doesn't sync correctly in editor
+// - To reproduce (in ruby mode):
+//   ```
+//     def foo
+//       puts 42
+//     end
+//   ```
+// - Result:
+//   - first browser:  end
+//   - second browser: edn
+//========================= Yjs =========================
 import Y from 'yjs';
 import yWebsocketsClient from 'y-websockets-client';
 import yMemory           from 'y-memory';
@@ -31,7 +42,7 @@ const socket = io(url);
 
 Y({
   db: {
-    name: 'memory',             // store the shared data in memory
+    name: 'memory',              // store the shared data in memory
   },
   connector: {
     name: 'websockets-client',
@@ -39,16 +50,18 @@ Y({
     socket,
     url,
   },
-  share: {                      // specify the shared content
-    editorText:  'Text',        // new Y.Text
+  share: {                       // specify the shared content
+    editorText: 'Text',          // new Y.Text
   },
-}).then((y) => {                // Yjs is successfully initialized
+}).then((y) => {                 // Yjs is successfully initialized
   console.log('Yjs instance ready!');
   window.y = y;
-  y.share.editorText.bindCodeMirror(state.editor);
+  y.share.editorText.bindCodeMirror(editor);
 });
 
-// Debugging
+
+
+//#================= Debugging =================#
 window.CodeMirror = CodeMirror;
 window.editor = editor;
 window.Y = Y;
