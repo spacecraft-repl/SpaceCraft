@@ -18,36 +18,45 @@ const server = http.Server(app);
 const io = socketIo(server); // our websocket server
 
 app.get('/:room', (req, res) => {
-  console.log(`${Date().slice(4, 33)} -- [app.get('/:room')]`);
   if (req.params.room === 'favicon.ico') return;
   res.sendFile(path.join(__dirname, './index.html'));
 });
 
+const WELCOME = 'WELCOME TO SPACECRAFT!\n\r';
+
 io.on('connection', (socket) => {
-  console.log(`${Date().slice(4, 33)} -- [io.on('connection')] socket: ${socket}`);
+  const initRepl = (language, welcome = '') => {
+    Repl.kill();
+    Repl.init(language);
+    Repl.bufferRead()
+      .then(data => io.emit('langChange', { language: Repl.language, 
+        data: welcome + data,
+      }));
+  }
 
   const emitOutput = (output) => {
-    console.log(`${Date().slice(4, 33)} -- [emitOutput(output = ${output})]`)
     io.emit('output', { output });
   };
 
   const emitClearThenOutput = (output) => {
-    console.log(`${Date().slice(4, 33)} -- [emitClearThenOutput(output = ${output})]`)
     io.emit('clear');
     emitOutput(output);
   };
 
-  socket.on('initRepl', ({ language = 'ruby' } = {}) => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('initRepl', fn)] language: ${language}`);
+  socket.emit('langChange', { language: Repl.language, data: WELCOME });
+
+  io.of('/').clients((error, clients) => {
+    if (clients.length === 1) {
+      initRepl('ruby', WELCOME);
+    }
+  });  
+
+  socket.on('initRepl', ({ language }) => {
     if (language === Repl.language) return;
-    Repl.kill();
-    Repl.init(language);
-    Repl.bufferRead()
-      .then(data => io.emit('langChange', { language: Repl.language, data }));
+    initRepl(language)
   });
 
   socket.on('execute', ({ line, clear }) => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('execute', fn)] line: ${line}, clear: ${clear}`);
     if (clear) {
       Repl.bufferWrite(line)
         .then(emitClearThenOutput);
@@ -58,7 +67,6 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('disconnect', fn)] Client disconnected`);
     io.of('/').clients((error, clients) => {
       if (clients.length === 0) {
         console.log(`${Date().slice(4, 33)} -- 0 clients --> Repl.kill()`);
@@ -68,7 +76,6 @@ io.on('connection', (socket) => {
   });
 
   socket.on('updateLine', ({ line }) => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('updateLine', fn)] line: ${line}`)
     socket.broadcast.emit('syncLine', { line });
   });
 

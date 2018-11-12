@@ -4,7 +4,6 @@ import './main.css';
 import { editor, socket } from './editor.js'
 
 term.open($('#terminal'));
-term.writeln('WELCOME TO SPACECRAFT!');
 
 let state = {
   editor,
@@ -42,7 +41,7 @@ socket.on('clear', () => {
 });
 
 socket.on('connect', () => {
-  socket.emit('initRepl', { language: state.language });
+
 });
 
 socket.on('syncLine', ({ line }) => {
