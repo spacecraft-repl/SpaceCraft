@@ -27,41 +27,40 @@ const Repl = {
     this.process.write(string + '\n');
   },
 
+  untilCondIsMet(condFunc, interval = 1, value) {
+    return new Promise((resolve, reject) => {
+      (function wait() {
+        if (condFunc()) return resolve(value);
+        setTimeout(wait, interval);
+      })();
+    });
+  },
+
   // TODO: Improve clarity of promises in bufferWrite and bufferRead.
   // TODO: Add reject function and/or catch clauses to all promises and 'thens'
   //       in this code and throughout project, so that all errors will be
   //       handled and/or logged.
   bufferWrite(string, bufferInterval = 5, write = true) {
-    return new Promise((resolve, _reject) => {
-      let result = '';
-      let dataReceived = false;
+    let result = '';
+    const concatResult = (data) => result += data;
+    const isDataReceived = () => result !== '';
 
-      const concatResult = (data) => {
-        result += data;
-        dataReceived = true;
-      };
+    if (write) this.process.write(string + '\n');
+    this.process.on('data', concatResult);
 
-      if (write) this.process.write(string + '\n');
+    return new Promise(async (resolve, _reject) => {
+      await this.untilCondIsMet(isDataReceived);
 
-      this.process.on('data', concatResult);
+      let currResult = result;
+      const noNewDataReceived = () => currResult === result;
 
-      new Promise((res) => {
-        // TODO: how does this interval get cleared if no data is received?
-        const intervalId = setInterval(() => {
-          if (!dataReceived) return;
-          clearInterval(intervalId);
-          res();
-        }, 1);
-      }).then(() => {
-        // TODO: how does this interval get cleared if currResult never equals result?
-        let currResult = result;
-        const intervalId = setInterval(() => {
-          if (currResult !== result) return currResult = result;
-          clearInterval(intervalId);
-          this.removeListener('data', concatResult);
-          resolve(result);
-        }, bufferInterval);
-      });
+      const intervalId = setInterval(() => {
+        if (currResult !== result) return currResult = result;
+
+        clearInterval(intervalId);
+        this.removeListener('data', concatResult);
+        resolve(result);
+      }, bufferInterval);
     });
   },
 
