@@ -70,7 +70,7 @@ io.on('connection', (socket) => {
   });
 
   // Yjs Websockets Server Events
-  require('./src/yjs-ws-server.js')(io, socket);
+  require('./yjs-ws-server.js')(io, socket);
 });
 
 server.listen(port, () => {
