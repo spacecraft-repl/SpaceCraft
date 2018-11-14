@@ -1,4 +1,4 @@
-//========================= CodeMirror =========================
+//#~~~~~~~~~~~~~~~~~~~~~~~~~ CodeMirror ~~~~~~~~~~~~~~~~~~~~~~~~~#
 import CodeMirror from 'codemirror/lib/codemirror.js';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror-one-dark-theme/one-dark.css';
@@ -16,19 +16,13 @@ const editor = CodeMirror.fromTextArea(code, {
   theme: 'one-dark',
   tabSize: 2,
   mode: 'ruby',
+  // Prevent bug with Yjs syncing.
+  // - disable auto-re-indenting on certain characters (eg: `end`).
+  electricChars: false,
 });
 
-// TODO: fix bug where indentation doesn't sync correctly in editor
-// - To reproduce (in ruby mode):
-//   ```
-//     def foo
-//       puts 42
-//     end
-//   ```
-// - Result:
-//   - first browser:  end
-//   - second browser: edn
-//========================= Yjs =========================
+
+//#~~~~~~~~~~~~~~~~~~~~~~~~~ Yjs ~~~~~~~~~~~~~~~~~~~~~~~~~#
 import Y from 'yjs';
 import yWebsocketsClient from 'y-websockets-client';
 import yMemory           from 'y-memory';
@@ -61,7 +55,9 @@ Y({
 
 
 
-//#================= Debugging =================#
+//#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+//#~~~~~~~~~~~~~~~~~~~~~~~~ Debugging ~~~~~~~~~~~~~~~~~~~~~~~~#
+//#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 window.CodeMirror = CodeMirror;
 window.editor = editor;
 window.Y = Y;

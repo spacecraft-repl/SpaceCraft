@@ -14,7 +14,7 @@ let state = {
 };
 
 
-//#================= Term =================#
+//#~~~~~~~~~~~~~~~~~ Term ~~~~~~~~~~~~~~~~~#
 term.open($('#terminal'));
 
 const clearTermLine = () => term.write('\u001b[2K\r');
@@ -31,7 +31,7 @@ const resetTermScreen = () => {
 };
 
 
-//#================= Socket =================#
+//#~~~~~~~~~~~~~~~~~ Socket ~~~~~~~~~~~~~~~~~#
 socket.on('output', ({ output }) => {
   resetTermLine();
   term.write(output);
@@ -67,7 +67,7 @@ socket.on('disconnect', () => {});
 
 
 
-//#================= ClientRepl =================#
+//#~~~~~~~~~~~~~~~~~ ClientRepl ~~~~~~~~~~~~~~~~~#
 const ClientRepl = {
   emitEvaluate(code) {
     socket.emit('evaluate', { code });
@@ -138,9 +138,9 @@ languageSelectElem.addEventListener('change', ClientRepl.handleLanguageChange.bi
 
 
 
-//#===========================================================#
-//========================= Debugging =========================
-//#===========================================================#
+//#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+//#~~~~~~~~~~~~~~~~~~~~~~~~ Debugging ~~~~~~~~~~~~~~~~~~~~~~~~#
+//#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 window.state = state;
 window.term = term;
 
