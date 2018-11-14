@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Usage:
+# ./docker-start START_PORT_NUM END_PORT_NUM IMAGE_NAME
+
+# Example:
+# ./docker-start 3000 3010 bitnami/ruby
+
+start="$1"
+end="$2"
+image_name="$3"
+
+for i in $(seq "$start" "$end"); do 
+  echo docker run -d -p "$i":3000 "$image_name"
+  docker run -d -p "$i":3000 "$image_name"
+done
