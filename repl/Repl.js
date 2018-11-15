@@ -38,18 +38,19 @@ const Repl = {
 
   // @todo: Check if `value` is being passed from somewhere, or is always `undefined`.
   // @todo: Don't use default value in a middle param.
+  // @todo: Can interval be changed to a constant?
   untilCondIsMet(condFunc, interval = 1, value) {
     debug('[untilCondIsMet(condFunc = %s, interval = %s, value = %s)]', condFunc, interval, value)
 
     // @todo: Check if the return value of `untilCondIsMet` is actually getting used.
     return new Promise((resolve) => {
-      debug('  `return new Promise((resolve) => {` resolve: %s', resolve)
+      debug('  `return new Promise((resolve) => {` resolve: %s', resolve);
       // @todo: Why do we need an IIFE here?
       (function wait() {
-        debug('    [wait()] wait: %s', wait)
+        debug('    [wait()] wait: %s', wait);
         // @todo: Check where `resolve(value)` is getting returned to...
         if (condFunc()) {
-          debug('if (condFunc()) --> return resolve(value = "%s")', value)
+          debug('if (condFunc()) --> return resolve(value = "%s")', value);
           return resolve(value);
         }
         setTimeout(wait, interval);

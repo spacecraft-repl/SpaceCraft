@@ -51,6 +51,7 @@ io.on('connection', (socket) => {
   };
 
   // @todo: Check if this is necessary.
+  debug('`socket.emit("langChange", {` ~~> language: %s, data: %s', Repl.language || 'ruby', WELCOME_MSG)
   socket.emit('langChange', {
     language: Repl.language || 'ruby',  // Added null guard to speed up initial loading.
     data: WELCOME_MSG,
