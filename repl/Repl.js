@@ -73,6 +73,7 @@ const Repl = {
       return result !== '';
     };
 
+    // @todo: Check if a '\r' should be added after the '\n'.
     if (write) this.process.write(string + '\n');
     this.process.on('data', concatResult);
 
@@ -111,7 +112,7 @@ const Repl = {
 
     // @done: Removed `write = false` because it creates a global variable.
     // return this.bufferWrite('', bufferInterval, write = false);
-    return this.bufferWrite('', bufferInterval, write);
+    return this.bufferWrite('', bufferInterval, false);
   },
 
   kill() {
