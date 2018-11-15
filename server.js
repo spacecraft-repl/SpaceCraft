@@ -33,7 +33,6 @@ io.on('connection', (socket) => {
   };
 
   const initRepl = (language, welcome_msg = '') => {
-    Repl.removeListener('data', emitOutput);
     Repl.kill();
     Repl.init(language);
     histOutputs = [[]];
