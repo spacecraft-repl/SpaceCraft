@@ -9,8 +9,6 @@ const http = require('http');
 const socketIo = require('socket.io');
 const Repl = require('./repl/Repl.js');
 
-Repl.init('ruby').bufferRead()
-
 const port = process.env.PORT || 3000;
 
 const app = express();
