@@ -145,6 +145,6 @@ window.state = state;
 window.term = term;
 
 // --- Escape codes ---
-import ansiEscapes from 'ansi-escapes';
-window.ansi = ansiEscapes;
+// import ansiEscapes from 'ansi-escapes';
+// window.ansi = ansiEscapes;
 // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');

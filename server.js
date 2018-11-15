@@ -1,3 +1,5 @@
+const debug = require('debug')('server')
+
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -15,18 +17,25 @@ const server = http.Server(app);
 const io = socketIo(server);  // our websocket server
 
 app.get('/:room', (req, res) => {
+  debug(`${req.method} ${req.url}, req.params: %o`, req.params)
   if (req.params.room === 'favicon.ico') return;
+
+  debug('path.join(__dirname, "./index.html") = %s', path.join(__dirname, './index.html'))
   res.sendFile(path.join(__dirname, './index.html'));
 });
 
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r';
 
 io.on('connection', (socket) => {
+  debug('io.on("connection", (socket) => {')
+
   const initRepl = (language, welcome_msg = '') => {
+    debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
     Repl.kill();
     Repl.init(language);
     Repl.bufferRead()
       .then((data) => {
+        debug('    data: %j', data)
         io.emit('langChange', {
           language: Repl.language,
           data: welcome_msg + data,
@@ -35,30 +44,39 @@ io.on('connection', (socket) => {
   };
 
   const emitOutput = (output) => {
+    debug('  [emitOutput] output: %s', output)
     io.emit('output', { output });
   };
 
   socket.emit('langChange', { language: Repl.language, data: WELCOME_MSG });
 
   io.of('/').clients((error, clients) => {
+    debug('  [io.of / .clients] error: %s, clients: %s', error, clients)
     if (clients.length === 1) {
       initRepl('ruby', WELCOME_MSG);
     }
   });
 
   socket.on('initRepl', ({ language }) => {
+    debug('  ["initRepl"] { language: %s }', language)
     if (language === Repl.language) return;
     initRepl(language);
   });
 
   socket.on('evaluate', ({ code }) => {
+    debug('  ["evaluate"] { code: %s }', code)
     Repl.bufferWrite(code).then(emitOutput);
   });
 
-  socket.on('clear', () => io.emit('clear'));
+  socket.on('clear', () => {
+    debug('  ["clear"]')
+    io.emit('clear');
+  });
 
   socket.on('disconnect', () => {
+    debug('  ["disconnect"]')
     io.of('/').clients((error, clients) => {
+      debug('    [io of / .clients] error: %s, clients: %s', error, clients)
       if (clients.length === 0) {
         Repl.kill();
       }
@@ -66,6 +84,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('lineChanged', ({ line }) => {
+    debug('  ["lineChanged"] { line: %s }', line)
     socket.broadcast.emit('syncLine', { line });
   });
 
@@ -74,5 +93,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(port, () => {
-  console.log(`${Date().slice(4, 33)} -- Listening on ${port}...`);
+  debug(`Listening on port: ${port}...`);
 });

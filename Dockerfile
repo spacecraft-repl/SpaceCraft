@@ -3,9 +3,10 @@ RUN mkdir -p /app
 WORKDIR /app
 COPY . /app
 
+# @todo: Verify that this build process is not producing any bugs!
+
 # --no-cache: download package index on-the-fly, no need to cleanup afterwards
 # --virtual: bundle packages, remove whole bundle at once, when done
-# RUN apk --no-cache --virtual build-dependencies add \
 RUN apk --no-cache --virtual build-dependencies add \
     bash \
     ruby \

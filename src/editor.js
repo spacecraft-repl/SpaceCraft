@@ -31,6 +31,8 @@ const editor = CodeMirror.fromTextArea(code, {
 //Y.extend(yWebsocketsClient, yMemory, yArray, yText);
 
 import io from 'socket.io-client';
+
+// @todo: Check if this is always a valid way to get url.
 const url = window.location.href;
 const socket = io(url);
 

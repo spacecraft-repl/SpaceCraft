@@ -1,6 +1,7 @@
 const path    = require('path');
 const webpack = require('webpack');
 
+// @todo: Verify all syntax is correct, and everything necessary is present.
 module.exports = {
   mode: 'development',
   entry: './src/client.js',
@@ -10,7 +11,8 @@ module.exports = {
     publicPath: '/public/',
   },
   plugins: [
-    new webpack.ContextReplacementPlugin(/y.*/),  // TODO: lookup
+    // @todo: Verify what this does.
+    new webpack.ContextReplacementPlugin(/y.*/),
   ],
   module: {
     rules: [
@@ -21,18 +23,19 @@ module.exports = {
           'css-loader',
         ],
       },
-      {
-        test: /\.(otf|ttf)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'fonts/[name].[ext]',
-              context: '',
-            },
-          },
-        ],
-      },
+      // @todo: Uncomment.
+      // {
+      //   test: /\.(otf|ttf)$/,
+      //   use: [
+      //     {
+      //       loader: 'file-loader',
+      //       options: {
+      //         name: 'fonts/[name].[ext]',
+      //         context: '',
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
 };

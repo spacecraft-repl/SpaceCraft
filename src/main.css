@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+/* @todo: Uncomment. */
+/* @import url('https://fonts.googleapis.com/css?family=Roboto'); */
 
 html, body, textarea, input, div, button, pre, .terminal, .xterm, #terminal, .codeMirrorContainer, .CodeMirror {
   background-color: #282c34;
   color: #abb2bf;
-  font-family: 'Fira Code', 'Inconsolata', Menlo, Monaco, Consolas, Monaco, 'Droid Sans Mono', monospace;
+  font-family: 'Inconsolata', Menlo, 'SF Mono', Consolas, Monaco, 'Liberation Mono', 'Droid Sans Mono', monospace;
   font-size: 15px;
 }
 
