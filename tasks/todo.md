@@ -10,7 +10,7 @@
 See comments in `Repl.js` and the following two logs for details
 
 ### New (best) Log
-[logs/best-log/2018-11-15-0628.log](./logs/best-log/2018-11-15-0628.log) : Use an ansi-capable viewer to view (like [bat](https://github.com/sharkdp/bat))
+[logs/best-log/2018-11-15-0628.log](../logs/best-log/2018-11-15-0628.log) : Use an ansi-capable viewer to view (like [bat](https://github.com/sharkdp/bat))
 
 ### Older Log
 
