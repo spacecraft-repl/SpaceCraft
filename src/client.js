@@ -2,6 +2,7 @@ import { $ } from './utils.js';
 import term from './term.js';
 import { editor, socket } from './editor.js'
 import './main.css';
+import ansi from 'ansi-escapes'
 
 const languageSelectElem = $('#language');
 const runButton = $('.run-editor-code-button');
@@ -9,8 +10,7 @@ const runButton = $('.run-editor-code-button');
 let state = {
   line: '',
   language: 'ruby',
-  currentOutput: [],
-  currentPrompt: '',
+  currentPrompt: null,
 };
 
 
@@ -32,12 +32,8 @@ const resetTermScreen = () => {
 
 
 //#~~~~~~~~~~~~~~~~~ Socket ~~~~~~~~~~~~~~~~~#
-socket.on('output', ({ output, currentPrompt }) => {
-  resetTermLine();
+socket.on('output', ({ output }) => {
   term.write(output);
-  state.currentOutput = output;
-  state.currentPrompt = currentPrompt;
-  console.log('currentPrompt', state.currentPrompt);
 });
 
 socket.on('langChange', ({ language, data }) => {
@@ -45,8 +41,6 @@ socket.on('langChange', ({ language, data }) => {
   state.language = language;
   languageSelectElem.value = language;
   term.reset();
-  state.currentOutput = data;
-  state.currentPrompt = data.split('\n').pop();
   term.write(data);
 });
 
@@ -56,7 +50,8 @@ socket.on('clear', () => {
 });
 
 // Sync line of client so that it's the same as the line from server.
-socket.on('syncLine', ({ line }) => {
+socket.on('syncLine', ({ line, prompt }) => {
+  state.currentPrompt = prompt;
   state.line = line;
   resetTermLine();
   term.write(line);
@@ -65,7 +60,6 @@ socket.on('syncLine', ({ line }) => {
 // TODO: fill in...?
 socket.on('connect', () => {});
 socket.on('disconnect', () => {});
-
 
 
 //#~~~~~~~~~~~~~~~~~ ClientRepl ~~~~~~~~~~~~~~~~~#
@@ -88,6 +82,7 @@ const ClientRepl = {
   },
 
   clearLine() {
+    for (let i = 0; i < state.line.length; i++) term.write('\b \b');
     state.line = '';
     this.emitLineChanged();
   },

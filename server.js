@@ -14,7 +14,9 @@ app.use(express.static('public'));
 const server = http.Server(app);
 const io = socketIo(server);  // our websocket server
 
-let histOutput = null;
+let histOutputs = null;
+let timeoutId = null;
+let currentPrompt = null;
 
 app.get('/:room', (req, res) => {
   if (req.params.room === 'favicon.ico') return;
@@ -25,8 +27,8 @@ const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r';
 
 io.on('connection', (socket) => {
   const emitOutput = (output) => {
-    histOutput[histOutput.length - 1].push(output);
-    // const currentPrompt = histOutput[histOutput.length - 1].join('').split('\n').pop();
+    const lastOutputs = histOutputs[histOutputs.length - 1];
+    lastOutputs.push(output);
     io.emit('output', { output });
   };
 
@@ -34,7 +36,7 @@ io.on('connection', (socket) => {
     Repl.removeListener('data', emitOutput);
     Repl.kill();
     Repl.init(language);
-    histOutput = [[]];
+    histOutputs = [[]];
 
     io.emit('langChange', {
       language: Repl.language,
@@ -43,6 +45,13 @@ io.on('connection', (socket) => {
 
     Repl.process.on('data', emitOutput);
   };
+
+  const getCurrentPrompt = () => {
+    return histOutputs[histOutputs.length - 1]
+             .join('')
+             .split('\n')
+             .pop();
+  }
 
   socket.emit('langChange', { language: Repl.language || 'ruby', data: WELCOME_MSG });
 
@@ -58,11 +67,15 @@ io.on('connection', (socket) => {
   });
 
   socket.on('evaluate', ({ code }) => {
-    histOutput.push([]);
-    console.log(histOutput);    
-    // [['123', '12'], []]
+    currentPrompt = null; 
+    histOutputs.push([]);
     Repl.write(code);
   });
+
+  socket.on('lineChanged', ({ line }) => {
+    if (!currentPrompt) currentPrompt = getCurrentPrompt();
+    socket.broadcast.emit('syncLine', { line, prompt: currentPrompt });
+  });  
 
   socket.on('clear', () => io.emit('clear'));
 
@@ -72,10 +85,6 @@ io.on('connection', (socket) => {
         Repl.kill();
       }
     });
-  });
-
-  socket.on('lineChanged', ({ line }) => {
-    socket.broadcast.emit('syncLine', { line });
   });
 
   // Yjs Websockets Server Events
