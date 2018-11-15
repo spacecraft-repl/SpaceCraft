@@ -40,6 +40,7 @@ const Repl = {
   // @todo: Don't use default value in a middle param.
   untilCondIsMet(condFunc, interval = 1, value) {
     debug('[untilCondIsMet(condFunc = %s, interval = %s, value = %s)]', condFunc, interval, value)
+
     // @todo: Check if the return value of `untilCondIsMet` is actually getting used.
     return new Promise((resolve) => {
       debug('  `return new Promise((resolve) => {` resolve: %s', resolve)
@@ -47,7 +48,10 @@ const Repl = {
       (function wait() {
         debug('    [wait()] wait: %s', wait)
         // @todo: Check where `resolve(value)` is getting returned to...
-        if (condFunc()) return resolve(value);
+        if (condFunc()) {
+          debug('if (condFunc()) --> return resolve(value = "%s")', value)
+          return resolve(value);
+        }
         setTimeout(wait, interval);
       })();
     });
@@ -58,30 +62,39 @@ const Repl = {
   //        in this code and throughout project, so that all errors will be
   //        handled and/or logged.
   // @todo: Rename `write` param to something more descriptive.
+  // @todo: Why do we need to pass bufferInterval here? It seems to always be constant.
   bufferWrite(string, bufferInterval = 5, write = true) {
-    debug('[bufferWrite(string = %s, bufferInterval = %s, write = %s)]', string, bufferInterval, write)
+    debug('[bufferWrite(string = "%s", bufferInterval = %s, write = %s)]', string, bufferInterval, write)
     let result = '';
 
     const concatResult = (data) => {
-      debug('  [concatResult(data = %s)], result: %s', data, result)
+      debug('  [concatResult(data = %s)] result: "%s"', data, result)
       // @todo: Check if return is necessary here.
       return result += data;
     };
 
     const isDataReceived = () => {
-      debug('  [isDataReceived()], result: %s', result)
+      debug('  [isDataReceived()] result: "%s"', result)
       return result !== '';
     };
 
     // @todo: Check if a '\r' should be added after the '\n'.
-    if (write) this.process.write(string + '\n');
+    if (write) {
+      debug(`  this.process.write('${string}' + '\\n')`)
+      this.process.write(string + '\n');
+    }
+
+    debug('this.process.on("data", concatResult)')
     this.process.on('data', concatResult);
 
     // @todo: Check how async arrow functions within Promise constructors work.
     return new Promise(async (resolve) => {
-      debug('  `return new Promise(async (resolve) => {` resolve: %s', resolve)
+      debug('  `return new Promise(async (resolve = %s) => {`', resolve)
+
+      debug('  `await this.untilCondIsMet(isDataReceived)`')
       await this.untilCondIsMet(isDataReceived);
 
+      debug('`let currResult = result` //==> "%s"', result)
       let currResult = result;
 
       // @todo: Delete this function, since it's not being used anywhere.
@@ -92,21 +105,26 @@ const Repl = {
         debug('  [setInterval()]')
 
         // @todo: Check where currResult is being returned to.
-        if (currResult !== result) return currResult = result;
+        if (currResult !== result) {
+          debug('    [currResult !== result --> return currResult = result] currResult: "%s", result: "%s"', currResult, result)
+          return currResult = result;
+        }
 
-        debug('  intervalId: %s', intervalId)
+        debug('  clearInterval(intervalId = %s)', intervalId)
         clearInterval(intervalId);
 
         // @todo: Check if it's necessary to remove listener every time.
+        debug("this.removeListener('data', concatResult)")
         this.removeListener('data', concatResult);
 
-        debug('  NEXT LINE: `resolve(result = %s)`', result)
+        debug('  resolve(result = "%s")', result)
         resolve(result);
       }, bufferInterval);
     });
   },
 
-  // @todo: Rename.
+  // @todo: Rename bufferRead function, or refactor code so that it makes more sense.
+  // @todo: Why do we need to pass bufferInterval here?
   bufferRead(bufferInterval) {
     debug('[bufferRead(bufferInterval = %s)]', bufferInterval)
 
