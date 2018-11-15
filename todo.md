@@ -1,4 +1,0 @@
-- Run linter / syntax checker.
-- Check how Yjs websocket server and Socket.io websocket server integrate.
-- Refactor how 'ruby' is hardcoded into many different places.
-- Specify node version in `package.json`.

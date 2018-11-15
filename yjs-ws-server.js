@@ -1,3 +1,5 @@
+'use strict';
+
 // @todo: Refactor / clean up code.
 // @todo: Combine the two debugs into one.
 const debugYjsWS = require('debug')('YjsWS')

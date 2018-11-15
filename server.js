@@ -1,4 +1,6 @@
-const debug = require('debug')('server')
+'use strict';
+
+const debug = require('debug')('server');
 
 const express = require('express');
 const path = require('path');
@@ -6,6 +8,8 @@ const bodyParser = require('body-parser');
 const http = require('http');
 const socketIo = require('socket.io');
 const Repl = require('./repl/Repl.js');
+
+Repl.init('ruby').bufferRead()
 
 const port = process.env.PORT || 3000;
 
@@ -16,10 +20,10 @@ app.use(express.static('public'));
 const server = http.Server(app);
 const io = socketIo(server);  // our websocket server
 
+// @todo: Check if this route is necessary -- is it ever used?
 app.get('/:room', (req, res) => {
   debug(`${req.method} ${req.url}, req.params: %o`, req.params)
   if (req.params.room === 'favicon.ico') return;
-
   debug('path.join(__dirname, "./index.html") = %s', path.join(__dirname, './index.html'))
   res.sendFile(path.join(__dirname, './index.html'));
 });
@@ -48,10 +52,14 @@ io.on('connection', (socket) => {
     io.emit('output', { output });
   };
 
-  socket.emit('langChange', { language: Repl.language, data: WELCOME_MSG });
+  // @todo: Check if this is necessary.
+  socket.emit('langChange', {
+    language: Repl.language || 'ruby',  // Added null guard to speed up initial loading.
+    data: WELCOME_MSG,
+  });
 
   io.of('/').clients((error, clients) => {
-    debug('  [io.of / .clients] error: %s, clients: %s', error, clients)
+    debug('  [io.of("/").clients(fn)] error: %s, clients: %s', error, clients)
     if (clients.length === 1) {
       initRepl('ruby', WELCOME_MSG);
     }

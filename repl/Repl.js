@@ -1,4 +1,6 @@
-const debug = require('debug')('Repl')
+'use strict';
+
+const debug = require('debug')('Repl');
 
 // @todo: Check if we should add some or all of the boilerplate in the node-pty readme.
 const pty = require('node-pty');
@@ -10,22 +12,23 @@ const Repl = {
   process: null,
 
   init(language) {
-    debug(`[Repl.init(language = ${language})]`);
+    debug(`[Repl.init(language = "${language}")]`);
     const command = COMMANDS[language];
     if (command) {
       this.process = pty.spawn(command);
       this.language = language;
       debug(`  INITIALIZED command: ${command}`);
-      debug('  this.process: %o, this.language: %s', this.process, this.language)
+      debug('  this.process: %O, this.language: "%s"', this.process, this.language)
+      // @todo: Is it necessary to return `this` here? -- it doesn't appear to be used anywhere.
       return this;
     }
+
     // @todo: Refactor or remove.
     debug('WARNING: Unknown Language! Setting language to ruby...');
-    this.init('ruby');
-    return this;
+    return this.init('ruby');
   },
 
-  
+
   // @todo: Delete this function, or use it within `bufferWrite`.
   // write(string) {
   //   debug(`[Repl.write(string = ${string})]`);
@@ -83,7 +86,7 @@ const Repl = {
       // @todo: Delete this function, since it's not being used anywhere.
       // const noNewDataReceived = () => currResult === result;
 
-      // @todo: See if this can be refactored to avoid using an interval. 
+      // @todo: See if this can be refactored to avoid using an interval.
       const intervalId = setInterval(() => {
         debug('  [setInterval()]')
 
@@ -105,13 +108,17 @@ const Repl = {
   // @todo: Rename.
   bufferRead(bufferInterval) {
     debug('[bufferRead(bufferInterval = %s)]', bufferInterval)
-    return this.bufferWrite('', bufferInterval, write = false);
+
+    // @done: Removed `write = false` because it creates a global variable.
+    // return this.bufferWrite('', bufferInterval, write = false);
+    return this.bufferWrite('', bufferInterval, write);
   },
 
   kill() {
     debug('[kill()] this.process: %o', this.process)
     // @todo: Check if `kill` is the best method to use here.
     if (this.process) this.process.kill();
+    debug('Repl process killed.')
     this.process = null;
     this.language = null;
   },

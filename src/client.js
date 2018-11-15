@@ -35,6 +35,7 @@ const resetTermScreen = () => {
 socket.on('output', ({ output }) => {
   resetTermLine();
   term.write(output);
+  // @todo: Extract these two lines into a function, if possible.
   state.currentOutput = output;
   state.currentPrompt = output.split('\n').pop();
 });
