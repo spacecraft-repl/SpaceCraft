@@ -6,13 +6,16 @@
 - Specify node version in `package.json` and/or another file (if beneficial).
 - Go through files and copy `@todo` comments to here or to the GitHub Project page.
 
-## Fix `Repl.bufferWrite`
-See comments in `Repl.js` and the following two logs for details
+## Fix `Repl.bufferWrite` bug
+See comments in `Repl.js` and the following two logs for details.
+(Note: The bug seems unrelated to Yjs, because I disabled it and it still happens.)
 
 ### New (best) Log
-[logs/best-log/2018-11-15-0628.log](../logs/best-log/2018-11-15-0628.log) : Use an ansi-capable viewer to view (like [bat](https://github.com/sharkdp/bat))
+[logs/best-log/2018-11-15-0628.log](../logs/best-log/2018-11-15-0628.log) : Use an ANSI-capable viewer to view (like [bat](https://github.com/sharkdp/bat))
 
 ### Older Log
+This log doesn't have as many details and doesn't cause the same type of hang. 
+The problem was related to something else that I solved in a previous commit, but I think the warning message still applies in general to any error that could occur.
 
 #### Log
 ```js
