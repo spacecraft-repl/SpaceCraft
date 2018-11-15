@@ -120,6 +120,7 @@ const Repl = {
         debug('  resolve(result = "%s")', result)
         resolve(result);
       }, bufferInterval);
+      debug('after `setInterval` has returned #==> intervalId: "%s"', intervalId)
     });
   },
 
