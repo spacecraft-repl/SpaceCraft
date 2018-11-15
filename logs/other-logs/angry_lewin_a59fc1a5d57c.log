@@ -1,0 +1,361 @@
+
+> npm_repl_prototype@1.0.0 debug /app
+> DEBUG=* node server.js
+
+Wed, 14 Nov 2018 11:40:36 GMT express:application set "x-powered-by" to true
+Wed, 14 Nov 2018 11:40:36 GMT express:application set "etag" to 'weak'
+Wed, 14 Nov 2018 11:40:36 GMT express:application set "etag fn" to [Function: generateETag]
+Wed, 14 Nov 2018 11:40:36 GMT express:application set "env" to 'development'
+Wed, 14 Nov 2018 11:40:36 GMT express:application set "query parser" to 'extended'
+Wed, 14 Nov 2018 11:40:36 GMT express:application set "query parser fn" to [Function: parseExtendedQueryString]
+Wed, 14 Nov 2018 11:40:36 GMT express:application set "subdomain offset" to 2
+Wed, 14 Nov 2018 11:40:36 GMT express:application set "trust proxy" to false
+Wed, 14 Nov 2018 11:40:36 GMT express:application set "trust proxy fn" to [Function: trustNone]
+Wed, 14 Nov 2018 11:40:36 GMT express:application booting in development mode
+Wed, 14 Nov 2018 11:40:36 GMT express:application set "view" to [Function: View]
+Wed, 14 Nov 2018 11:40:36 GMT express:application set "views" to '/app/views'
+Wed, 14 Nov 2018 11:40:36 GMT express:application set "jsonp callback name" to 'callback'
+Wed, 14 Nov 2018 11:40:36 GMT express:router use '/' query
+Wed, 14 Nov 2018 11:40:36 GMT express:router:layer new '/'
+Wed, 14 Nov 2018 11:40:36 GMT express:router use '/' expressInit
+Wed, 14 Nov 2018 11:40:36 GMT express:router:layer new '/'
+Wed, 14 Nov 2018 11:40:36 GMT express:router use '/' textParser
+Wed, 14 Nov 2018 11:40:36 GMT express:router:layer new '/'
+Wed, 14 Nov 2018 11:40:36 GMT express:router use '/' serveStatic
+Wed, 14 Nov 2018 11:40:36 GMT express:router:layer new '/'
+2018-11-14T11:40:36.773Z socket.io:server initializing namespace /
+2018-11-14T11:40:36.784Z socket.io-parser encoding packet {"type":0,"nsp":"/"}
+2018-11-14T11:40:36.787Z socket.io-parser encoded {"type":0,"nsp":"/"} as 0
+2018-11-14T11:40:36.788Z socket.io:server creating engine.io instance with opts {"path":"/socket.io","initialPacket":["0"]}
+2018-11-14T11:40:36.881Z socket.io:server attaching client serving req handler
+Wed, 14 Nov 2018 11:40:36 GMT express:router:route new '/:room'
+Wed, 14 Nov 2018 11:40:36 GMT express:router:layer new '/:room'
+Wed, 14 Nov 2018 11:40:36 GMT express:router:route get '/:room'
+Wed, 14 Nov 2018 11:40:36 GMT express:router:layer new '/'
+Nov 14 2018 11:40:36 GMT+0000 -- Listening on 3000...
+Wed, 14 Nov 2018 11:56:01 GMT express:router dispatching GET /
+Wed, 14 Nov 2018 11:56:01 GMT express:router query  : /
+Wed, 14 Nov 2018 11:56:01 GMT express:router expressInit  : /
+Wed, 14 Nov 2018 11:56:01 GMT express:router textParser  : /
+Wed, 14 Nov 2018 11:56:01 GMT body-parser:text skip empty body
+Wed, 14 Nov 2018 11:56:01 GMT express:router serveStatic  : /
+Wed, 14 Nov 2018 11:56:01 GMT send stat "/app/public/index.html"
+Wed, 14 Nov 2018 11:56:01 GMT send pipe "/app/public/index.html"
+Wed, 14 Nov 2018 11:56:01 GMT send accept ranges
+Wed, 14 Nov 2018 11:56:01 GMT send cache-control public, max-age=0
+Wed, 14 Nov 2018 11:56:01 GMT send modified Wed, 14 Nov 2018 11:17:52 GMT
+Wed, 14 Nov 2018 11:56:01 GMT send etag W/"28c-16711f11700"
+Wed, 14 Nov 2018 11:56:01 GMT send content-type text/html
+Wed, 14 Nov 2018 11:56:01 GMT express:router dispatching GET /main.js
+Wed, 14 Nov 2018 11:56:01 GMT express:router query  : /main.js
+Wed, 14 Nov 2018 11:56:01 GMT express:router expressInit  : /main.js
+Wed, 14 Nov 2018 11:56:01 GMT express:router textParser  : /main.js
+Wed, 14 Nov 2018 11:56:01 GMT body-parser:text skip empty body
+Wed, 14 Nov 2018 11:56:01 GMT express:router serveStatic  : /main.js
+Wed, 14 Nov 2018 11:56:01 GMT send stat "/app/public/main.js"
+Wed, 14 Nov 2018 11:56:01 GMT send pipe "/app/public/main.js"
+Wed, 14 Nov 2018 11:56:01 GMT send accept ranges
+Wed, 14 Nov 2018 11:56:01 GMT send cache-control public, max-age=0
+Wed, 14 Nov 2018 11:56:01 GMT send modified Wed, 14 Nov 2018 11:19:24 GMT
+Wed, 14 Nov 2018 11:56:01 GMT send etag W/"19235f-16711f27e60"
+Wed, 14 Nov 2018 11:56:01 GMT send content-type application/javascript
+2018-11-14T11:56:02.152Z engine intercepting request for path "/socket.io/"
+2018-11-14T11:56:02.153Z engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSI50Yy"
+2018-11-14T11:56:02.158Z engine handshaking client "oOambhrlcR4raKvWAAAA"
+2018-11-14T11:56:02.159Z engine:socket sending packet "open" ({"sid":"oOambhrlcR4raKvWAAAA","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000})
+2018-11-14T11:56:02.171Z engine:socket sending packet "message" (0)
+2018-11-14T11:56:02.172Z engine:polling setting request
+2018-11-14T11:56:02.172Z engine:socket flushing buffer to transport
+2018-11-14T11:56:02.173Z engine:polling writing "96:0{"sid":"oOambhrlcR4raKvWAAAA","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}2:40"
+2018-11-14T11:56:02.176Z engine:socket executing batch send callback
+2018-11-14T11:56:02.176Z socket.io:server incoming connection with id oOambhrlcR4raKvWAAAA
+2018-11-14T11:56:02.177Z socket.io:client connecting to namespace /
+2018-11-14T11:56:02.191Z socket.io:namespace adding socket to nsp /
+2018-11-14T11:56:02.193Z socket.io:socket socket connected - writing packet
+2018-11-14T11:56:02.195Z socket.io:socket joining room oOambhrlcR4raKvWAAAA
+2018-11-14T11:56:02.196Z socket.io:socket packet already sent in initial handshake
+2018-11-14T11:56:02.197Z socket.io:client writing packet {"type":2,"data":["langChange",{"language":null,"data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"}
+2018-11-14T11:56:02.198Z socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":null,"data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"}
+2018-11-14T11:56:02.198Z socket.io-parser encoded {"type":2,"data":["langChange",{"language":null,"data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} as 2["langChange",{"language":null,"data":"WELCOME TO SPACECRAFT!\n\r"}]
+2018-11-14T11:56:02.198Z engine:socket sending packet "message" (2["langChange",{"language":null,"data":"WELCOME TO SPACECRAFT!\n\r"}])
+{ [Function: Y]
+  AbstractConnector: [Function: AbstractConnector],
+  AbstractDatabase: [Function: AbstractDatabase],
+  Transaction: [Function: TransactionInterface],
+  Struct:
+   { Delete:
+      { encode: [Function: encode],
+        requiredOps: [Function: requiredOps],
+        execute: [GeneratorFunction: execute] },
+     Insert:
+      { encode: [Function: encode],
+        requiredOps: [Function: requiredOps],
+        getDistanceToOrigin: [GeneratorFunction: getDistanceToOrigin],
+        execute: [GeneratorFunction: execute] },
+     List:
+      { create: [Function: create],
+        encode: [Function: encode],
+        requiredOps: [Function: requiredOps],
+        execute: [GeneratorFunction: execute],
+        ref: [GeneratorFunction: ref],
+        map: [GeneratorFunction: map] },
+     Map:
+      { create: [Function: create],
+        encode: [Function: encode],
+        requiredOps: [Function: requiredOps],
+        execute: [GeneratorFunction: execute],
+        get: [GeneratorFunction: get] } },
+  utils:
+   { bubbleEvent: [Function],
+     EventListenerHandler: [Function: EventListenerHandler],
+     EventHandler: [Function: EventHandler],
+     CustomType: [Function: CustomType],
+     CustomTypeDefinition: [Function: CustomTypeDefinition],
+     isTypeDefinition: [Function: isTypeDefinition],
+     copyObject: [Function: copyObject],
+     copyOperation: [Function: copyOperation],
+     smaller: [Function: smaller],
+     inDeletionRange: [Function: inDeletionRange],
+     compareIds: [Function: compareIds],
+     matchesId: [Function: matchesId],
+     getLastId: [Function: getLastId],
+     createSmallLookupBuffer: [Function: createSmallLookupBuffer],
+     generateGuid: [Function: generateGuid],
+     globalRoom:
+      { users: {},
+        buffers: {},
+        removeUser: [Function: removeUser],
+        addUser: [Function: addUser],
+        whenTransactionsFinished: [Function: whenTransactionsFinished],
+        flushOne: [Function: flushOne],
+        flushAll: [Function: flushAll] } },
+  Test: [Function: Test],
+  debug:
+   { [Function: createDebug]
+     default: [Circular],
+     debug: [Circular],
+     coerce: [Function: coerce],
+     disable: [Function: disable],
+     enable: [Function: enable],
+     enabled: [Function: enabled],
+     humanize: [Function],
+     names: [ /^.*?$/ ],
+     skips: [],
+     formatters: { o: [Function], O: [Function] },
+     init: [Function: init],
+     log: [Function: log],
+     formatArgs: [Function: formatArgs],
+     save: [Function: save],
+     load: [Function: load],
+     useColors: [Function: useColors],
+     colors: [ 6, 2, 3, 4, 5, 1 ],
+     inspectOpts: {} },
+  requiringModules: {},
+  extend: [Function],
+  requestModules: [Function: requestModules] }
+Y.debug: function createDebug(namespace) {
+
+  function debug() {
+    // disabled?
+    if (!debug.enabled) return;
+
+    var self = debug;
+
+    // set `diff` timestamp
+    var curr = +new Date();
+    var ms = curr - (prevTime || curr);
+    self.diff = ms;
+    self.prev = prevTime;
+    self.curr = curr;
+    prevTime = curr;
+
+    // turn the `arguments` into a proper Array
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+
+    args[0] = exports.coerce(args[0]);
+
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
+    }
+
+    // apply any `formatters` transformations
+    var index = 0;
+    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
+      index++;
+      var formatter = exports.formatters[format];
+      if ('function' === typeof formatter) {
+        var val = args[index];
+        match = formatter.call(self, val);
+
+        // now we need to remove `args[index]` since it's inlined in the `format`
+        args.splice(index, 1);
+        index--;
+      }
+      return match;
+    });
+
+    // apply env-specific formatting (colors, etc.)
+    exports.formatArgs.call(self, args);
+
+    var logFn = debug.log || exports.log || console.log.bind(console);
+    logFn.apply(self, args);
+  }
+
+  debug.namespace = namespace;
+  debug.enabled = exports.enabled(namespace);
+  debug.useColors = exports.useColors();
+  debug.color = selectColor(namespace);
+
+  // env-specific initialization logic for debug instances
+  if ('function' === typeof exports.init) {
+    exports.init(debug);
+  }
+
+  return debug;
+}
+[NEXT LINE: "const options = minimist(process.argv.slice(2), {..."]
+    process.argv= [ '/usr/bin/node', '/app/server.js' ]
+2018-11-14T11:56:02.352Z socket.io:socket joined room oOambhrlcR4raKvWAAAA
+Nov 14 2018 11:56:02 GMT+0000 -- [Repl.init(language = ruby)]
+Nov 14 2018 11:56:02 GMT+0000 -- INITIALIZED irb
+Wed, 14 Nov 2018 11:56:02 GMT express:router dispatching GET /favicon.ico
+Wed, 14 Nov 2018 11:56:02 GMT express:router query  : /favicon.ico
+Wed, 14 Nov 2018 11:56:02 GMT express:router expressInit  : /favicon.ico
+Wed, 14 Nov 2018 11:56:02 GMT express:router textParser  : /favicon.ico
+Wed, 14 Nov 2018 11:56:02 GMT body-parser:text skip empty body
+Wed, 14 Nov 2018 11:56:02 GMT express:router serveStatic  : /favicon.ico
+Wed, 14 Nov 2018 11:56:02 GMT send stat "/app/public/favicon.ico"
+Wed, 14 Nov 2018 11:56:02 GMT send pipe "/app/public/favicon.ico"
+Wed, 14 Nov 2018 11:56:02 GMT send accept ranges
+Wed, 14 Nov 2018 11:56:02 GMT send cache-control public, max-age=0
+Wed, 14 Nov 2018 11:56:02 GMT send modified Wed, 14 Nov 2018 11:17:52 GMT
+Wed, 14 Nov 2018 11:56:02 GMT send etag W/"2492e-16711f11700"
+Wed, 14 Nov 2018 11:56:02 GMT send content-type image/x-icon
+2018-11-14T11:56:02.420Z engine intercepting request for path "/socket.io/"
+2018-11-14T11:56:02.435Z engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSI50cU&sid=oOambhrlcR4raKvWAAAA"
+2018-11-14T11:56:02.436Z engine setting new request for existing client
+2018-11-14T11:56:02.436Z engine:polling setting request
+2018-11-14T11:56:02.436Z engine:socket flushing buffer to transport
+2018-11-14T11:56:02.436Z engine:polling writing "70:42["langChange",{"language":null,"data":"WELCOME TO SPACECRAFT!\n\r"}]"
+2018-11-14T11:56:02.437Z engine:socket executing batch send callback
+2018-11-14T11:56:02.488Z engine upgrading existing transport
+2018-11-14T11:56:02.488Z engine:socket might upgrade socket transport from "polling" to "websocket"
+2018-11-14T11:56:02.488Z engine intercepting request for path "/socket.io/"
+2018-11-14T11:56:02.489Z engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSI50eH&sid=oOambhrlcR4raKvWAAAA"
+2018-11-14T11:56:02.489Z engine setting new request for existing client
+2018-11-14T11:56:02.489Z engine:polling setting request
+Wed, 14 Nov 2018 11:56:02 GMT express:router dispatching GET /favicon.ico
+Wed, 14 Nov 2018 11:56:02 GMT express:router query  : /favicon.ico
+Wed, 14 Nov 2018 11:56:02 GMT express:router expressInit  : /favicon.ico
+Wed, 14 Nov 2018 11:56:02 GMT express:router textParser  : /favicon.ico
+Wed, 14 Nov 2018 11:56:02 GMT body-parser:text skip empty body
+Wed, 14 Nov 2018 11:56:02 GMT express:router serveStatic  : /favicon.ico
+Wed, 14 Nov 2018 11:56:02 GMT send stat "/app/public/favicon.ico"
+Wed, 14 Nov 2018 11:56:02 GMT send pipe "/app/public/favicon.ico"
+Wed, 14 Nov 2018 11:56:02 GMT send accept ranges
+Wed, 14 Nov 2018 11:56:02 GMT send cache-control public, max-age=0
+Wed, 14 Nov 2018 11:56:02 GMT send modified Wed, 14 Nov 2018 11:17:52 GMT
+Wed, 14 Nov 2018 11:56:02 GMT send etag W/"2492e-16711f11700"
+Wed, 14 Nov 2018 11:56:02 GMT send content-type image/x-icon
+Wed, 14 Nov 2018 11:56:02 GMT send not modified
+2018-11-14T11:56:02.557Z engine:ws received "2probe"
+2018-11-14T11:56:02.564Z engine:ws writing "3probe"
+2018-11-14T11:56:02.679Z engine:socket writing a noop packet to polling for fast upgrade
+2018-11-14T11:56:02.680Z engine:polling writing "1:6"
+2018-11-14T11:56:02.722Z engine:ws received "5"
+2018-11-14T11:56:02.722Z engine:socket got upgrade packet - upgrading
+2018-11-14T11:56:02.723Z engine:polling closing
+2018-11-14T11:56:02.731Z engine:polling transport discarded - closing right away
+2018-11-14T11:56:03.134Z socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\rirb(main):001:0> "}],"nsp":"/"}
+2018-11-14T11:56:03.134Z socket.io-parser encoded {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\rirb(main):001:0> "}],"nsp":"/"} as 2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\rirb(main):001:0> "}]
+2018-11-14T11:56:03.134Z socket.io:client writing packet ["2[\"langChange\",{\"language\":\"ruby\",\"data\":\"WELCOME TO SPACECRAFT!\\n\\rirb(main):001:0> \"}]"]
+2018-11-14T11:56:03.134Z engine:socket sending packet "message" (2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\rirb(main):001:0> "}])
+2018-11-14T11:56:03.134Z engine:socket flushing buffer to transport
+2018-11-14T11:56:03.135Z engine:ws writing "42["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\rirb(main):001:0> "}]"
+2018-11-14T11:56:03.546Z engine:ws received "42["joinRoom","spacecraft-repl"]"
+2018-11-14T11:56:03.547Z engine:socket packet
+2018-11-14T11:56:03.560Z socket.io-parser decoded 2["joinRoom","spacecraft-repl"] as {"type":2,"nsp":"/","data":["joinRoom","spacecraft-repl"]}
+2018-11-14T11:56:03.568Z socket.io:socket got packet {"type":2,"nsp":"/","data":["joinRoom","spacecraft-repl"]}
+2018-11-14T11:56:03.568Z socket.io:socket emitting event ["joinRoom","spacecraft-repl"]
+2018-11-14T11:56:03.568Z socket.io:socket dispatching an event ["joinRoom","spacecraft-repl"]
+Nov 14 2018 11:56:03 GMT+0000 -- [socket.on('joinRoom', fn)] room: spacecraft-repl
+User "oOambhrlcR4raKvWAAAA" joins room "spacecraft-repl"
+2018-11-14T11:56:03.571Z socket.io:socket joining room spacecraft-repl
+Nov 14 2018 11:56:03 GMT+0000 -- [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+[NEXT LINE: "      global.yInstances[room] = Y({..."]
+[NEXT LINE: "return global.yInstances[room];"]
+2018-11-14T11:56:03.588Z socket.io:socket joined room spacecraft-repl
+Wed, 14 Nov 2018 11:56:03 GMT y:connector Set userId to "add9227b-64bc-4076-adb8-1abba480287d"
+2018-11-14T11:56:03.607Z engine:ws received "42["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]"
+2018-11-14T11:56:03.607Z engine:socket packet
+2018-11-14T11:56:03.608Z socket.io-parser decoded 2["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}] as {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]}
+2018-11-14T11:56:03.608Z socket.io:socket got packet {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]}
+2018-11-14T11:56:03.611Z socket.io:socket emitting event ["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]
+2018-11-14T11:56:03.611Z socket.io:socket dispatching an event ["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]
+Nov 14 2018 11:56:03 GMT+0000 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 14 2018 11:56:03 GMT+0000 -- [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+[NEXT LINE: "return global.yInstances[room];"]
+Wed, 14 Nov 2018 11:56:03 GMT y:connector User joined: oOambhrlcR4raKvWAAAA
+[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]
+Wed, 14 Nov 2018 11:56:03 GMT y:connector Receive 'sync step 1' from oOambhrlcR4raKvWAAAA
+Wed, 14 Nov 2018 11:56:03 GMT y:connector-message Message: {"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}
+2018-11-14T11:56:03.628Z socket.io-parser encoding packet {"type":2,"data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}],"nsp":"/"}
+2018-11-14T11:56:03.631Z socket.io-parser encoded {"type":2,"data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}],"nsp":"/"} as 2["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]
+2018-11-14T11:56:03.631Z socket.io:client writing packet ["2[\"yjsEvent\",{\"type\":\"sync step 1\",\"stateSet\":{},\"deleteSet\":{},\"protocolVersion\":11,\"auth\":null,\"room\":\"spacecraft-repl\"}]"]
+2018-11-14T11:56:03.635Z engine:socket sending packet "message" (2["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}])
+2018-11-14T11:56:03.635Z engine:socket flushing buffer to transport
+2018-11-14T11:56:03.635Z engine:ws writing "42["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]"
+Wed, 14 Nov 2018 11:56:03 GMT y:connector Send 'sync step 1' to oOambhrlcR4raKvWAAAA
+Wed, 14 Nov 2018 11:56:03 GMT y:connector-message Message: {"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}
+2018-11-14T11:56:03.637Z socket.io-parser encoding packet {"type":2,"data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}],"nsp":"/"}
+2018-11-14T11:56:03.639Z socket.io-parser encoded {"type":2,"data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}],"nsp":"/"} as 2["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]
+2018-11-14T11:56:03.639Z socket.io:client writing packet ["2[\"yjsEvent\",{\"type\":\"sync step 2\",\"stateSet\":{},\"deleteSet\":{},\"os\":[],\"room\":\"spacecraft-repl\"}]"]
+2018-11-14T11:56:03.640Z engine:socket sending packet "message" (2["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}])
+Wed, 14 Nov 2018 11:56:03 GMT y:connector Send 'sync step 2' to oOambhrlcR4raKvWAAAA
+Wed, 14 Nov 2018 11:56:03 GMT y:connector-message Message: {"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}
+2018-11-14T11:56:03.640Z socket.io-parser encoding packet {"type":2,"data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}],"nsp":"/"}
+2018-11-14T11:56:03.640Z socket.io-parser encoded {"type":2,"data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}],"nsp":"/"} as 2["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]
+2018-11-14T11:56:03.640Z socket.io:client writing packet ["2[\"yjsEvent\",{\"type\":\"sync done\",\"room\":\"spacecraft-repl\"}]"]
+2018-11-14T11:56:03.640Z engine:socket sending packet "message" (2["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}])
+Wed, 14 Nov 2018 11:56:03 GMT y:connector Send 'sync done' to oOambhrlcR4raKvWAAAA
+Wed, 14 Nov 2018 11:56:03 GMT y:connector-message Message: {"type":"sync done","room":"spacecraft-repl"}
+2018-11-14T11:56:03.648Z engine:socket flushing buffer to transport
+2018-11-14T11:56:03.648Z engine:ws writing "42["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]"
+2018-11-14T11:56:03.648Z engine:ws writing "42["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]"
+2018-11-14T11:56:03.734Z engine:ws received "42["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]"
+2018-11-14T11:56:03.734Z engine:socket packet
+2018-11-14T11:56:03.734Z socket.io-parser decoded 2["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}] as {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]}
+2018-11-14T11:56:03.734Z socket.io:socket got packet {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]}
+2018-11-14T11:56:03.734Z socket.io:socket emitting event ["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]
+2018-11-14T11:56:03.735Z socket.io:socket dispatching an event ["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]
+Nov 14 2018 11:56:03 GMT+0000 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 14 2018 11:56:03 GMT+0000 -- [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+[NEXT LINE: "return global.yInstances[room];"]
+[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]
+Wed, 14 Nov 2018 11:56:03 GMT y:connector Receive 'sync step 2' from oOambhrlcR4raKvWAAAA
+Wed, 14 Nov 2018 11:56:03 GMT y:connector-message Message: {"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}
+2018-11-14T11:56:03.739Z engine:ws received "42["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]"
+2018-11-14T11:56:03.740Z engine:socket packet
+2018-11-14T11:56:03.740Z socket.io-parser decoded 2["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}] as {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]}
+2018-11-14T11:56:03.740Z socket.io:socket got packet {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]}
+2018-11-14T11:56:03.740Z socket.io:socket emitting event ["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]
+2018-11-14T11:56:03.740Z socket.io:socket dispatching an event ["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]
+Nov 14 2018 11:56:03 GMT+0000 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 14 2018 11:56:03 GMT+0000 -- [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+[NEXT LINE: "return global.yInstances[room];"]
+[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]
+Wed, 14 Nov 2018 11:56:03 GMT y:connector Receive 'sync done' from oOambhrlcR4raKvWAAAA
+Wed, 14 Nov 2018 11:56:03 GMT y:connector-message Message: {"type":"sync done","room":"spacecraft-repl"}
+2018-11-14T11:56:04.344Z socket.io:client client close with reason transport close
+2018-11-14T11:56:04.344Z socket.io:socket closing socket - reason transport close
+Nov 14 2018 11:56:04 GMT+0000 -- [socket.on('disconnect', fn)]
+Nov 14 2018 11:56:04 GMT+0000 -- [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+[NEXT LINE: "return global.yInstances[room];"]
+[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]
+Wed, 14 Nov 2018 11:56:04 GMT y:connector User left: oOambhrlcR4raKvWAAAA

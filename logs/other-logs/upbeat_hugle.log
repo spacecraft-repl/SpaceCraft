@@ -1,0 +1,171 @@
+
+> npm_repl_prototype@1.0.0 debug /app
+> DEBUG=* node server.js
+
+Nov 14 2018 11:40:39 GMT+0000 -- Listening on 3000...
+{ [Function: Y]
+  AbstractConnector: [Function: AbstractConnector],
+  AbstractDatabase: [Function: AbstractDatabase],
+  Transaction: [Function: TransactionInterface],
+  Struct:
+   { Delete:
+      { encode: [Function: encode],
+        requiredOps: [Function: requiredOps],
+        execute: [GeneratorFunction: execute] },
+     Insert:
+      { encode: [Function: encode],
+        requiredOps: [Function: requiredOps],
+        getDistanceToOrigin: [GeneratorFunction: getDistanceToOrigin],
+        execute: [GeneratorFunction: execute] },
+     List:
+      { create: [Function: create],
+        encode: [Function: encode],
+        requiredOps: [Function: requiredOps],
+        execute: [GeneratorFunction: execute],
+        ref: [GeneratorFunction: ref],
+        map: [GeneratorFunction: map] },
+     Map:
+      { create: [Function: create],
+        encode: [Function: encode],
+        requiredOps: [Function: requiredOps],
+        execute: [GeneratorFunction: execute],
+        get: [GeneratorFunction: get] } },
+  utils:
+   { bubbleEvent: [Function],
+     EventListenerHandler: [Function: EventListenerHandler],
+     EventHandler: [Function: EventHandler],
+     CustomType: [Function: CustomType],
+     CustomTypeDefinition: [Function: CustomTypeDefinition],
+     isTypeDefinition: [Function: isTypeDefinition],
+     copyObject: [Function: copyObject],
+     copyOperation: [Function: copyOperation],
+     smaller: [Function: smaller],
+     inDeletionRange: [Function: inDeletionRange],
+     compareIds: [Function: compareIds],
+     matchesId: [Function: matchesId],
+     getLastId: [Function: getLastId],
+     createSmallLookupBuffer: [Function: createSmallLookupBuffer],
+     generateGuid: [Function: generateGuid],
+     globalRoom:
+      { users: {},
+        buffers: {},
+        removeUser: [Function: removeUser],
+        addUser: [Function: addUser],
+        whenTransactionsFinished: [Function: whenTransactionsFinished],
+        flushOne: [Function: flushOne],
+        flushAll: [Function: flushAll] } },
+  Test: [Function: Test],
+  debug:
+   { [Function: createDebug]
+     default: [Circular],
+     debug: [Circular],
+     coerce: [Function: coerce],
+     disable: [Function: disable],
+     enable: [Function: enable],
+     enabled: [Function: enabled],
+     humanize: [Function],
+     names: [ /^.*?$/ ],
+     skips: [],
+     formatters: { o: [Function], O: [Function] },
+     init: [Function: init],
+     log: [Function: log],
+     formatArgs: [Function: formatArgs],
+     save: [Function: save],
+     load: [Function: load],
+     useColors: [Function: useColors],
+     colors: [ 6, 2, 3, 4, 5, 1 ],
+     inspectOpts: {} },
+  requiringModules: {},
+  extend: [Function],
+  requestModules: [Function: requestModules] }
+Y.debug: function createDebug(namespace) {
+
+  function debug() {
+    // disabled?
+    if (!debug.enabled) return;
+
+    var self = debug;
+
+    // set `diff` timestamp
+    var curr = +new Date();
+    var ms = curr - (prevTime || curr);
+    self.diff = ms;
+    self.prev = prevTime;
+    self.curr = curr;
+    prevTime = curr;
+
+    // turn the `arguments` into a proper Array
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+
+    args[0] = exports.coerce(args[0]);
+
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
+    }
+
+    // apply any `formatters` transformations
+    var index = 0;
+    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
+      index++;
+      var formatter = exports.formatters[format];
+      if ('function' === typeof formatter) {
+        var val = args[index];
+        match = formatter.call(self, val);
+
+        // now we need to remove `args[index]` since it's inlined in the `format`
+        args.splice(index, 1);
+        index--;
+      }
+      return match;
+    });
+
+    // apply env-specific formatting (colors, etc.)
+    exports.formatArgs.call(self, args);
+
+    var logFn = debug.log || exports.log || console.log.bind(console);
+    logFn.apply(self, args);
+  }
+
+  debug.namespace = namespace;
+  debug.enabled = exports.enabled(namespace);
+  debug.useColors = exports.useColors();
+  debug.color = selectColor(namespace);
+
+  // env-specific initialization logic for debug instances
+  if ('function' === typeof exports.init) {
+    exports.init(debug);
+  }
+
+  return debug;
+}
+[NEXT LINE: "const options = minimist(process.argv.slice(2), {..."]
+    process.argv= [ '/usr/bin/node', '/app/server.js' ]
+Nov 14 2018 11:52:16 GMT+0000 -- [Repl.init(language = ruby)]
+Nov 14 2018 11:52:16 GMT+0000 -- INITIALIZED irb
+Nov 14 2018 11:52:16 GMT+0000 -- [socket.on('joinRoom', fn)] room: spacecraft-repl
+User "wcHlrDXm1RB-tYa6AAAA" joins room "spacecraft-repl"
+Nov 14 2018 11:52:16 GMT+0000 -- [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+[NEXT LINE: "      global.yInstances[room] = Y({..."]
+[NEXT LINE: "return global.yInstances[room];"]
+Nov 14 2018 11:52:16 GMT+0000 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 14 2018 11:52:16 GMT+0000 -- [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+[NEXT LINE: "return global.yInstances[room];"]
+[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]
+Nov 14 2018 11:52:16 GMT+0000 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 14 2018 11:52:16 GMT+0000 -- [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+[NEXT LINE: "return global.yInstances[room];"]
+[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]
+Nov 14 2018 11:52:16 GMT+0000 -- [socket.on('yjsEvent', fn)] msg: [object Object]
+Nov 14 2018 11:52:16 GMT+0000 -- [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+[NEXT LINE: "return global.yInstances[room];"]
+[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]
+Nov 14 2018 11:52:17 GMT+0000 -- [socket.on('disconnect', fn)]
+Nov 14 2018 11:52:17 GMT+0000 -- [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+[NEXT LINE: "return global.yInstances[room];"]
+[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]
