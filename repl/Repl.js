@@ -89,10 +89,13 @@ const Repl = {
     this.process.on('data', concatResult);
 
     // @todo: Check how async arrow functions within Promise constructors work.
+    // @todo: Avoid using an async function as an argument to Promise constructor (see link in todo.md).
     return new Promise(async (resolve) => {
       debug('  `return new Promise(async (resolve = %s) => {`', resolve)
 
       debug('  `await this.untilCondIsMet(isDataReceived)`')
+
+      // @todo: Wrap this with try/catch.
       await this.untilCondIsMet(isDataReceived);
 
       debug('`let currResult = result` //==> "%s"', result)
@@ -121,7 +124,9 @@ const Repl = {
         debug('  resolve(result = "%s")', result)
         resolve(result);
       }, bufferInterval);
-      debug('after `setInterval` has returned #==> intervalId: "%s"', intervalId)
+
+      // @todo: Check type of `intervalId`.
+      debug('after `setInterval` has returned #==> typeof intervalId: %s, intervalId: "%j"', typeof intervalId, intervalId)
     });
   },
 
