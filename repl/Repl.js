@@ -46,12 +46,6 @@ const Repl = {
     this.process = null;
     this.language = null;
   },
-
-  // TODO: delete this if not used anywhere
-  // id() {
-  //   console.log(`${Date().slice(4, 33)} -- [Repl.id()]`);
-  //   return this.process.pid;
-  // },
 };
 
 module.exports = Repl;

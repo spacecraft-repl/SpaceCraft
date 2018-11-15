@@ -2,7 +2,7 @@ import { $ } from './utils.js';
 import term from './term.js';
 import { editor, socket } from './editor.js'
 import './main.css';
-import ansi from 'ansi-escapes'
+import ansi from 'ansi-escapes';
 
 const languageSelectElem = $('#language');
 const runButton = $('.run-editor-code-button');
