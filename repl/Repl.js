@@ -28,6 +28,7 @@ const Repl = {
   },
 
   untilCondIsMet(condFunc, interval = 1, value) {
+    console.log('untilCondIsMet(condFunc, interval = 1, value) {')
     return new Promise((resolve, reject) => {
       (function wait() {
         if (condFunc()) return resolve(value);

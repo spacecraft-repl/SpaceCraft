@@ -69,8 +69,8 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('syncLine', { line });
   });
 
-  // Yjs Websockets Server Events
-  require('./yjs-ws-server.js')(io, socket);
+  // // Yjs Websockets Server Events
+  // require('./yjs-ws-server.js')(io, socket);
 });
 
 server.listen(port, () => {
