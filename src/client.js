@@ -32,11 +32,12 @@ const resetTermScreen = () => {
 
 
 //#~~~~~~~~~~~~~~~~~ Socket ~~~~~~~~~~~~~~~~~#
-socket.on('output', ({ output }) => {
+socket.on('output', ({ output, currentPrompt }) => {
   resetTermLine();
   term.write(output);
   state.currentOutput = output;
-  state.currentPrompt = output.split('\n').pop();
+  state.currentPrompt = currentPrompt;
+  console.log('currentPrompt', state.currentPrompt);
 });
 
 socket.on('langChange', ({ language, data }) => {

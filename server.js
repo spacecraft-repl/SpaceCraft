@@ -14,6 +14,8 @@ app.use(express.static('public'));
 const server = http.Server(app);
 const io = socketIo(server);  // our websocket server
 
+let histOutput = null;
+
 app.get('/:room', (req, res) => {
   if (req.params.room === 'favicon.ico') return;
   res.sendFile(path.join(__dirname, './index.html'));
@@ -22,23 +24,27 @@ app.get('/:room', (req, res) => {
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r';
 
 io.on('connection', (socket) => {
-  const initRepl = (language, welcome_msg = '') => {
-    Repl.kill();
-    Repl.init(language);
-    Repl.bufferRead()
-      .then((data) => {
-        io.emit('langChange', {
-          language: Repl.language,
-          data: welcome_msg + data,
-        })
-      });
-  };
-
   const emitOutput = (output) => {
+    histOutput[histOutput.length - 1].push(output);
+    // const currentPrompt = histOutput[histOutput.length - 1].join('').split('\n').pop();
     io.emit('output', { output });
   };
 
-  socket.emit('langChange', { language: Repl.language, data: WELCOME_MSG });
+  const initRepl = (language, welcome_msg = '') => {
+    Repl.removeListener('data', emitOutput);
+    Repl.kill();
+    Repl.init(language);
+    histOutput = [[]];
+
+    io.emit('langChange', {
+      language: Repl.language,
+      data: welcome_msg,
+    });
+
+    Repl.process.on('data', emitOutput);
+  };
+
+  socket.emit('langChange', { language: Repl.language || 'ruby', data: WELCOME_MSG });
 
   io.of('/').clients((error, clients) => {
     if (clients.length === 1) {
@@ -52,7 +58,10 @@ io.on('connection', (socket) => {
   });
 
   socket.on('evaluate', ({ code }) => {
-    Repl.bufferWrite(code).then(emitOutput);
+    histOutput.push([]);
+    console.log(histOutput);    
+    // [['123', '12'], []]
+    Repl.write(code);
   });
 
   socket.on('clear', () => io.emit('clear'));
