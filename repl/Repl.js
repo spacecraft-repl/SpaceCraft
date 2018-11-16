@@ -43,7 +43,7 @@ const Repl = {
     if (this.process) {
       this.process.removeAllListeners('data')
       this.process.kill()
-      this.process = null
+      // this.process = null
       debug('Repl process killed.')
     }
     this.language = null

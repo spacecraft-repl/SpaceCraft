@@ -28,7 +28,8 @@ const resetTermLine = () => {
 const clearTermScreen = () => term.reset()
 const resetTermScreen = () => {
   clearTermScreen()
-  resetTermLine()
+  // resetTermLine()
+  setTermPrompt()
 }
 
 const writeBackspaces = (length) => {
