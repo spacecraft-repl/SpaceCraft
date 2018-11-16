@@ -127,14 +127,14 @@ const ClientRepl = {
   handleRunButtonClick() {
     let editorCode = editor.getValue().trim();
     if (editorCode === '') return;
-    this.emitLineChanged();    
+    this.emitLineChanged();
     this.emitClear();
     this.emitEvaluate(editorCode);
   },
 
   handleLanguageChange() {
     this.clearLine();
-    resetCurrentPrompt();   
+    resetCurrentPrompt();
     this.emitInitRepl();
   },
 };
