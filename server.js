@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+// @todo: Check if we need body-parser.
 const bodyParser = require('body-parser');
 const http = require('http');
 const socketIo = require('socket.io');
@@ -50,7 +51,7 @@ io.on('connection', (socket) => {
              .join('')
              .split('\n')
              .pop();
-  }
+  };
 
   socket.emit('langChange', { language: Repl.language || 'ruby', data: WELCOME_MSG });
 
