@@ -1,8 +1,14 @@
+'use strict';
+
+// @todo: Refactor / clean up code.
+// @todo: Combine the two debugs into one.
+const debugYjsWS = require('debug')('YjsWS')
+
 const Y = require('yjs');
 
-// TODO: add Y.debug.log
-console.log(Y)
-console.log('Y.debug:', Y.debug)
+// @todo: Add Y.debug.log
+debug(Y)
+debug('Y.debug:', Y.debug)
 
 const minimist = require('minimist')
 require('y-memory')(Y)
@@ -11,16 +17,16 @@ try {
 } catch (err) {}
 
 try {
-  require('./y-websockets-server.js')(Y)  // doesn't exist...
+  require('./y-websockets-server.js')(Y)  // Doesn't exist...
 } catch (err) {
-  require('y-websockets-server')(Y)       // <-- this one is called
+  require('y-websockets-server')(Y)       // <-- This one is called.
 }
 
 global.yInstances = {}
 
 module.exports = (io, socket) => {
-  console.log('[NEXT LINE: "const options = minimist(process.argv.slice(2), {..."]')
-  console.log('    process.argv=', process.argv)
+  debugYjsWS('[NEXT LINE: "const options = minimist(process.argv.slice(2), {..."]')
+  debugYjsWS('    process.argv=', process.argv)
   const options = minimist(process.argv.slice(2), {
     string: ['port', 'debug', 'db'],
     default: {
@@ -31,9 +37,9 @@ module.exports = (io, socket) => {
   })
 
   const getInstanceOfY = function(room) {
-    console.log(`${Date().slice(4, 33)} -- [getInstanceOfY(room)] arguments: `, arguments);
+    debugYjsWS(`[getInstanceOfY(room)] arguments: `, arguments);
     if (global.yInstances[room] == null) {
-      console.log('[NEXT LINE: "      global.yInstances[room] = Y({..."]')
+      debugYjsWS('[NEXT LINE: "      global.yInstances[room] = Y({..."]')
       global.yInstances[room] = Y({
         db: {
           name: options.db,
@@ -49,15 +55,15 @@ module.exports = (io, socket) => {
         share: {}
       })
     }
-    console.log('[NEXT LINE: "return global.yInstances[room];"]')
+    debugYjsWS('[NEXT LINE: "return global.yInstances[room];"]')
     return global.yInstances[room];
   }
 
   let rooms = [];
 
   socket.on('joinRoom', (room) => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('joinRoom', fn)] room: ${room}`);
-    console.log('User "%s" joins room "%s"', socket.id, room);
+    debugYjsWS(`[socket.on('joinRoom', fn)] room: ${room}`);
+    debugYjsWS('User "%s" joins room "%s"', socket.id, room);
     socket.join(room);
     getInstanceOfY(room).then((y) => {
       if (rooms.indexOf(room) === -1) {
@@ -68,21 +74,21 @@ module.exports = (io, socket) => {
   });
 
   socket.on('yjsEvent', (msg) => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('yjsEvent', fn)] msg: ${msg}`);
+    debugYjsWS(`[socket.on('yjsEvent', fn)] msg: ${msg}`);
     if (msg.room != null) {
       getInstanceOfY(msg.room).then((y) => {
-      console.log('[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]')
+      debugYjsWS('[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]')
         y.connector.receiveMessage(socket.id, msg);
       });
     }
   });
 
   socket.on('disconnect', () => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('disconnect', fn)]`);
+    debugYjsWS(`[socket.on('disconnect', fn)]`);
     for (var i = 0; i < rooms.length; i++) {
       let room = rooms[i];
       getInstanceOfY(room).then((y) => {
-      console.log('[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]')
+      debugYjsWS('[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]')
         var i = rooms.indexOf(room);
         if (i >= 0) {
           y.connector.userLeft(socket.id);
@@ -93,9 +99,9 @@ module.exports = (io, socket) => {
   });
 
   socket.on('leaveRoom', (room) => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('leaveRoom')] room: ${room}`);
+    debugYjsWS(`[socket.on('leaveRoom')] room: ${room}`);
     getInstanceOfY(room).then((y) => {
-      console.log('[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]')
+      debugYjsWS('[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]')
       var i = rooms.indexOf(room);
       if (i >= 0) {
         y.connector.userLeft(socket.id);
@@ -104,6 +110,6 @@ module.exports = (io, socket) => {
     });
   });
 
-  // TODO: check if this return value gets used anywhere
+  // @todo: Check if this return value gets used anywhere.
   return module;
 }

@@ -1,0 +1,35 @@
+
+> npm_repl_prototype@1.0.0 debug /app
+> DEBUG=* node server.js
+
+Wed, 14 Nov 2018 11:40:38 GMT express:application set "x-powered-by" to true
+Wed, 14 Nov 2018 11:40:38 GMT express:application set "etag" to 'weak'
+Wed, 14 Nov 2018 11:40:38 GMT express:application set "etag fn" to [Function: generateETag]
+Wed, 14 Nov 2018 11:40:38 GMT express:application set "env" to 'development'
+Wed, 14 Nov 2018 11:40:38 GMT express:application set "query parser" to 'extended'
+Wed, 14 Nov 2018 11:40:38 GMT express:application set "query parser fn" to [Function: parseExtendedQueryString]
+Wed, 14 Nov 2018 11:40:38 GMT express:application set "subdomain offset" to 2
+Wed, 14 Nov 2018 11:40:38 GMT express:application set "trust proxy" to false
+Wed, 14 Nov 2018 11:40:38 GMT express:application set "trust proxy fn" to [Function: trustNone]
+Wed, 14 Nov 2018 11:40:38 GMT express:application booting in development mode
+Wed, 14 Nov 2018 11:40:38 GMT express:application set "view" to [Function: View]
+Wed, 14 Nov 2018 11:40:38 GMT express:application set "views" to '/app/views'
+Wed, 14 Nov 2018 11:40:38 GMT express:application set "jsonp callback name" to 'callback'
+Wed, 14 Nov 2018 11:40:38 GMT express:router use '/' query
+Wed, 14 Nov 2018 11:40:38 GMT express:router:layer new '/'
+Wed, 14 Nov 2018 11:40:38 GMT express:router use '/' expressInit
+Wed, 14 Nov 2018 11:40:38 GMT express:router:layer new '/'
+Wed, 14 Nov 2018 11:40:38 GMT express:router use '/' textParser
+Wed, 14 Nov 2018 11:40:38 GMT express:router:layer new '/'
+Wed, 14 Nov 2018 11:40:38 GMT express:router use '/' serveStatic
+Wed, 14 Nov 2018 11:40:38 GMT express:router:layer new '/'
+2018-11-14T11:40:38.720Z socket.io:server initializing namespace /
+2018-11-14T11:40:38.730Z socket.io-parser encoding packet {"type":0,"nsp":"/"}
+2018-11-14T11:40:38.730Z socket.io-parser encoded {"type":0,"nsp":"/"} as 0
+2018-11-14T11:40:38.735Z socket.io:server creating engine.io instance with opts {"path":"/socket.io","initialPacket":["0"]}
+2018-11-14T11:40:38.795Z socket.io:server attaching client serving req handler
+Wed, 14 Nov 2018 11:40:38 GMT express:router:route new '/:room'
+Wed, 14 Nov 2018 11:40:38 GMT express:router:layer new '/:room'
+Wed, 14 Nov 2018 11:40:38 GMT express:router:route get '/:room'
+Wed, 14 Nov 2018 11:40:38 GMT express:router:layer new '/'
+Nov 14 2018 11:40:38 GMT+0000 -- Listening on 3000...

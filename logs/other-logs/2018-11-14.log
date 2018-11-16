@@ -1,0 +1,24 @@
+good containers:
+kind_bassi
+eloquent_lederberg
+
+
+CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS                      PORTS               NAMES
+5bd1f97df102        njohnson7/spacecraft-debug   "npm run debug"          13 hours ago        Exited (0) 3 hours ago                          upbeat_hugle
+3157d66a2df2        njohnson7/spacecraft-debug   "npm run debug"          13 hours ago        Exited (0) 3 hours ago                          peaceful_zhukovsky
+66187e23d188        njohnson7/spacecraft-debug   "npm run debug"          13 hours ago        Exited (0) 3 hours ago                          eloquent_lederberg
+275d2334f194        njohnson7/spacecraft-debug   "npm run debug"          13 hours ago        Exited (0) 3 hours ago                          flamboyant_mayer
+a59fc1a5d57c        njohnson7/spacecraft-debug   "npm run debug"          13 hours ago        Exited (0) 3 hours ago                          angry_lewin
+b76b1053a516        njohnson7/spacecraft-pm2     "pm2-runtime server.…"   13 hours ago        Exited (137) 3 hours ago                        zen_mestorf
+ce7240fba61b        njohnson7/spacecraft-pm2     "pm2-runtime server.…"   13 hours ago        Exited (137) 3 hours ago                        laughing_shannon
+83094dba6288        njohnson7/spacecraft-pm2     "pm2-runtime server.…"   13 hours ago        Exited (137) 3 hours ago                        nostalgic_cray
+e92032420ca8        njohnson7/spacecraft-pm2     "pm2-runtime server.…"   13 hours ago        Exited (137) 3 hours ago                        flamboyant_elbakyan
+d65e705f9239        njohnson7/spacecraft-pm2     "pm2-runtime server.…"   13 hours ago        Exited (137) 3 hours ago                        laughing_greider
+2971502e53a9        njohnson7/spacecraft-pm2     "pm2-runtime server.…"   13 hours ago        Exited (137) 3 hours ago                        lucid_carson
+
+
+docker logs 5bd1f97df102 > upbeat_hugle_5bd1f97df102.log 2>&1
+docker logs 3157d66a2df2 > peaceful_zhukovsky_3157d66a2df2.log 2>&1
+docker logs 66187e23d188 > eloquent_lederberg_66187e23d188.log 2>&1
+docker logs 275d2334f194 > flamboyant_mayer_275d2334f194.log 2>&1
+docker logs a59fc1a5d57c > angry_lewin_a59fc1a5d57c.log 2>&1

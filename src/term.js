@@ -1,21 +1,23 @@
 import { Terminal } from 'xterm';
 import * as fit from 'xterm/lib/addons/fit/fit';
-import * as attach from 'xterm/lib/addons/attach/attach';
 import 'xterm/dist/xterm.css';
 
 Terminal.applyAddon(fit);
-Terminal.applyAddon(attach);
+
+// @todo: Uncomment or remove.
+// import * as attach from 'xterm/lib/addons/attach/attach';
+// Terminal.applyAddon(attach);
 
 const term = new Terminal();
 
+// @todo: Fix highlighting so that text is visible.
 term.setOption('theme', {
   foreground:     '#abb2bf',
   background:     '#282c34',
   cursor:         '#e06c75',
   cursorAccent:   '#e06c75',
   selection:      '#98c379',
-  // black:          '#98c379',
-  black:          '#000000',
+  black:          '#98c379',
   red:            '#d19a66',
   green:          '#d19a66',
   yellow:         '#61afef',

@@ -4,8 +4,10 @@
   "description": "a simple repl prototype using HTTP rest/WebSockets",
   "main": "server.js",
   "scripts": {
+    "test": "npm test",
     "build": "webpack",
     "start": "webpack --config webpack.config.js && node server.js",
+    "start:dev": "webpack-dev-server --open",
     "inspect": "webpack --config webpack.config.js && node --inspect server.js",
     "debug": "DEBUG=* node server.js",
     "server": "node server.js"
@@ -22,10 +24,14 @@
     "body-parser": "^1.18.3",
     "codemirror": "^5.41.0",
     "codemirror-one-dark-theme": "^1.1.1",
+    "css-loader": "^1.0.1",
     "debug": "^4.1.0",
     "express": "^4.16.4",
     "node-pty": "^0.7.8",
     "socket.io": "^2.1.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
     "xterm": "^3.8.0",
     "y-array": "^10.1.4",
     "y-memory": "^8.0.9",
@@ -35,11 +41,6 @@
     "yjs": "^12.3.3"
   },
   "devDependencies": {
-    "css-loader": "^1.0.1",
-    "file-loader": "^2.0.0",
-    "style-loader": "^0.23.1",
-    "supports-color": "^5.5.0",
-    "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "file-loader": "^2.0.0"
   }
 }
