@@ -25,7 +25,7 @@ let lastOutput = ''
 let currentPrompt = null
 const DEFAULT_LANG = 'ruby'
 
-debug('debug: %O' debug)
+debug('debug: %O', debug)
 debug('cwd: %s', process.cwd())
 debug('__dirname: %s', __dirname)
 debug('process: %O', process)
