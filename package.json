@@ -1,7 +1,7 @@
 {
-  "name": "npm_repl_prototype",
+  "name": "SpaceCraft REPL",
   "version": "1.0.0",
-  "description": "a simple repl prototype using HTTP rest/WebSockets",
+  "description": "An open-source real-time collaborative REPL and code editor",
   "main": "server.js",
   "scripts": {
     "build": "webpack",
@@ -10,13 +10,27 @@
     "debug": "DEBUG=* node server.js",
     "server": "node server.js"
   },
-  "repository": "git+https://github.com/thecatstones/repl-prototype.git",
-  "author": "YingCGooi",
+  "repository": "git+https://github.com/spacecraft-repl/SpaceCraft.git",
+  "author": "spacecraft-repl",
+  "contributors": [
+    {
+      "name": "YingCGooi",
+      "email": "25574844+YingCGooi@users.noreply.github.com"
+    },
+    {
+      "name": "Julius Zerwick",
+      "email": "jrzerwick@gmail.com"
+    },
+    {
+      "name": "Nick Johnson",
+      "email": "njohnson7@pm.me"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thecatstones/repl-prototype/issues"
+    "url": "https://github.com/spacecraft-repl/SpaceCraft/issues"
   },
-  "homepage": "https://github.com/thecatstones/repl-prototype#readme",
+  "homepage": "https://github.com/spacecraft-repl/SpaceCraft",
   "dependencies": {
     "ansi-escapes": "^3.1.0",
     "body-parser": "^1.18.3",
