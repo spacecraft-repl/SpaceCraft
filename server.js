@@ -38,6 +38,7 @@ io.on('connection', (socket) => {
     Repl.kill();
     Repl.init(language);
     histOutputs = '';
+    lastOutput = '';
 
     io.emit('langChange', {
       language: Repl.language,

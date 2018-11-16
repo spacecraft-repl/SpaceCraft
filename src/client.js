@@ -10,7 +10,7 @@ const runButton = $('.run-editor-code-button');
 let state = {
   line: '',
   language: 'ruby',
-  currentPrompt: null,
+  currentPrompt: '',
 };
 
 
@@ -45,7 +45,6 @@ socket.on('output', ({ output }) => {
 socket.on('langChange', ({ language, data }) => {
   editor.setOption('mode', language);
   state.language = language;
-  resetCurrentPrompt();
   languageSelectElem.value = language;
   term.reset();
   term.write(data);
@@ -130,8 +129,7 @@ const ClientRepl = {
   },
 
   handleLanguageChange() {
-    this.clearLine();
-    resetCurrentPrompt();   
+    this.clearLine(); 
     this.emitInitRepl();
   },
 };
