@@ -25,6 +25,15 @@ let lastOutput = ''
 let currentPrompt = null
 const DEFAULT_LANG = 'ruby'
 
+debug('debug: %O' debug)
+debug('cwd: %s', process.cwd())
+debug('__dirname: %s', __dirname)
+debug('process: %O', process)
+debug('process.env: %O', process.env)
+debug('app: %O', app)
+debug('io: %O', io)
+debug('Repl [before init]: %O', Repl)
+
 // @todo: Check if this route is necessary -- is it ever used?
 app.get('/:room', (req, res) => {
   debug(`${req.method} ${req.url}, req.params: %o`, req.params)
@@ -38,6 +47,7 @@ const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
 
 io.on('connection', (socket) => {
   debug('io.on("connection", (socket) => {')
+  debug('socket: %O', socket)
 
   const emitOutput = (output) => {
     histOutputs += output
@@ -49,6 +59,9 @@ io.on('connection', (socket) => {
     debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
     Repl.kill()
     Repl.init(language)
+
+    debug('Repl [after init]: %O', Repl)
+
     histOutputs = ''
 
     io.emit('langChange', {

@@ -8,7 +8,8 @@
     "debug": "standard --fix && webpack && DEBUG=* node server.js",
     "inspect": "standard --fix && webpack && node --inspect server.js",
     "server": "node server.js",
-    "start": "standard --fix && webpack && node server.js"
+    "start": "standard --fix && webpack && node server.js",
+    "foo": "node"
   },
   "repository": "git+https://github.com/spacecraft-repl/SpaceCraft.git",
   "author": "spacecraft-repl",

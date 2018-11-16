@@ -7,8 +7,8 @@ const debug = require('debug')('YjsWS')
 const Y = require('yjs')
 
 // @todo: Verify what these two lines are doing.
-debug(Y)
-debug('Y.debug:', Y.debug)
+debug('Y: %O', Y)
+debug('Y.debug: %O', Y.debug)
 
 const minimist = require('minimist')
 require('y-memory')(Y)
