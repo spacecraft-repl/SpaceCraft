@@ -81,8 +81,7 @@ const ClientRepl = {
   },
 
   // Emit 'lineChanged` event to server --> server broadcasts 'syncLine' to clients.
-
-  emitLineChanged({ syncSelf = false } = {}) {
+  emitLineChanged({ syncSelf = undefined } = {}) {
     socket.emit('lineChanged', { line: state.line, syncSelf });
   },
 
