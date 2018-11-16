@@ -19,7 +19,9 @@ RUN apk --no-cache --virtual build-dependencies add \
     # && apk del build-dependencies
 
 EXPOSE 3000
-CMD ["node", "server.js"]
+
+# Uncomment for regular server.
+# CMD ["node", "server.js"]
 
 # Uncomment for debugging/logs.
-# CMD [ "npm", "run", "debug" ]
+CMD [ "npm", "run", "debug" ]
