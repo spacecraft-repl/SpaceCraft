@@ -35,13 +35,22 @@ app.get('/:room', (req, res) => {
 
 // @todo: Check if order of \n\r matters.
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
+const TOO_MUCH_OUTPUT = '\n\rTOO MUCH OUTPUT!\n\r'
+const MAX_OUTPUT_LENGTH = 10000
 
 io.on('connection', (socket) => {
   debug('io.on("connection", (socket) => {')
 
+  const handleTooMuchOutput = () => {
+    io.emit('output', { output: TOO_MUCH_OUTPUT })
+    lastOutput = ''
+    Repl.write('\x03')
+  }
+
   const emitOutput = (output) => {
     histOutputs += output
     lastOutput += output
+    if (lastOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
     io.emit('output', { output })
   }
 

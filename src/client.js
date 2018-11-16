@@ -119,11 +119,17 @@ const ClientRepl = {
     term.write(key)
   },
 
+  handleCtrlC () {
+    this.clearLine()
+    this.emitEvaluate('\x03')
+  },
+
   // Handle special keys (Enter, Backspace).
   // @param: KeyboardEvent
-  handleKeydown ({ key }) {
+  handleKeydown ({ key, ctrlKey }) {
     if (key === 'Enter') this.handleEnter()
     else if (key === 'Backspace') this.handleBackspace()
+    else if (key === 'c' && ctrlKey) this.handleCtrlC()
   },
 
   handleRunButtonClick () {
