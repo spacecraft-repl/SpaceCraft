@@ -1,124 +1,127 @@
-'use strict';
+'use strict'
 
-const debug = require('debug')('server');
+const debug = require('debug')('server')
 
-const express = require('express');
-const path = require('path');
+const express = require('express')
+const path = require('path')
+
 // @todo: Check if we need body-parser.
-const bodyParser = require('body-parser');
-const http = require('http');
-const socketIo = require('socket.io');
-const Repl = require('./repl/Repl.js');
+const bodyParser = require('body-parser')
+const http = require('http')
+const socketIo = require('socket.io')
+const Repl = require('./repl/Repl.js')
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000
 
-const app = express();
-app.use(bodyParser.text());
-app.use(express.static('public'));
+const app = express()
+app.use(bodyParser.text())
+app.use(express.static('public'))
 
-const server = http.Server(app);
-const io = socketIo(server);  // our websocket server
+const server = http.Server(app)
+const io = socketIo(server) // our websocket server
 
-let histOutputs = '';
-let lastOutput = '';
-let timeoutId = null;
-let currentPrompt = null;
-const DEFAULT_LANG = 'ruby';
+let histOutputs = ''
+let lastOutput = ''
+
+// *** Commented out to fix: "'timeoutId' is assigned a value but never used."
+// let timeoutId = null
+let currentPrompt = null
+const DEFAULT_LANG = 'ruby'
 
 // @todo: Check if this route is necessary -- is it ever used?
 app.get('/:room', (req, res) => {
-  debug(`${req.method} ${req.url}, req.params: %o`, req.params);
-  if (req.params.room === 'favicon.ico') return;
-  debug('path.join(__dirname, "./index.html") = %s', path.join(__dirname, './index.html'));
-  res.sendFile(path.join(__dirname, './index.html'));
-});
+  debug(`${req.method} ${req.url}, req.params: %o`, req.params)
+  if (req.params.room === 'favicon.ico') return
+  debug('path.join(__dirname, "./index.html") = %s', path.join(__dirname, './index.html'))
+  res.sendFile(path.join(__dirname, './index.html'))
+})
 
 // @todo: Check if order of \n\r matters.
-const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r';
+const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
 
 io.on('connection', (socket) => {
-  debug('io.on("connection", (socket) => {');
+  debug('io.on("connection", (socket) => {')
 
   const emitOutput = (output) => {
-    histOutputs += output;
-    lastOutput += output;
-    io.emit('output', { output });
-  };
+    histOutputs += output
+    lastOutput += output
+    io.emit('output', { output })
+  }
 
   const initRepl = (language, welcome_msg = '') => {
-    debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg);
-    Repl.kill();
-    Repl.init(language);
-    histOutputs = '';
+    debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
+    Repl.kill()
+    Repl.init(language)
+    histOutputs = ''
 
     io.emit('langChange', {
       language: Repl.language,
-      data: welcome_msg,
-    });
+      data: welcome_msg
+    })
 
-    Repl.process.on('data', emitOutput);
-  };
+    Repl.process.on('data', emitOutput)
+  }
 
   const getCurrentPrompt = () => {
-    return lastOutput.split('\n').pop();
-  };
+    return lastOutput.split('\n').pop()
+  }
 
   // @todo: Check if this is necessary.
-  debug('`socket.emit("langChange", {` ~~> language: %s, data: %s', Repl.language || 'ruby', WELCOME_MSG);
+  debug('`socket.emit("langChange", {` ~~> language: %s, data: %s', Repl.language || 'ruby', WELCOME_MSG)
   socket.emit('langChange', {
     language: Repl.language || DEFAULT_LANG,
-    data: WELCOME_MSG,
-  });
+    data: WELCOME_MSG
+  })
 
-  socket.emit('output', { output: histOutputs });
+  socket.emit('output', { output: histOutputs })
 
   io.of('/').clients((error, clients) => {
-    debug('  [io.of("/").clients(fn)] error: %s, clients: %s', error, clients);
+    debug('  [io.of("/").clients(fn)] error: %s, clients: %s', error, clients)
     if (clients.length === 1) {
-      initRepl(DEFAULT_LANG, WELCOME_MSG);
+      initRepl(DEFAULT_LANG, WELCOME_MSG)
     }
-  });
+  })
 
   socket.on('initRepl', ({ language }) => {
-    debug('  ["initRepl"] { language: %s }', language);
-    currentPrompt = null;
-    if (language === Repl.language) return;
-    initRepl(language);
-  });
+    debug('  ["initRepl"] { language: %s }', language)
+    currentPrompt = null
+    if (language === Repl.language) return
+    initRepl(language)
+  })
 
   socket.on('evaluate', ({ code }) => {
-    debug('  ["evaluate"] { code: %s }', code);
-    currentPrompt = null;
-    lastOutput = '';
-    Repl.write(code);
-  });
+    debug('  ["evaluate"] { code: %s }', code)
+    currentPrompt = null
+    lastOutput = ''
+    Repl.write(code)
+  })
 
   socket.on('lineChanged', ({ line }) => {
-    debug('  ["lineChanged"] { line: %s }', line);
-    if (!currentPrompt) currentPrompt = getCurrentPrompt();
-    io.emit('syncLine', { line, prompt: currentPrompt });
-  });
+    debug('  ["lineChanged"] { line: %s }', line)
+    if (!currentPrompt) currentPrompt = getCurrentPrompt()
+    io.emit('syncLine', { line, prompt: currentPrompt })
+  })
 
   socket.on('clear', () => {
-    debug('  ["clear"]');
-    io.emit('clear');
-    histOutputs = '';
-  });
+    debug('  ["clear"]')
+    io.emit('clear')
+    histOutputs = ''
+  })
 
   socket.on('disconnect', () => {
-    debug('  ["disconnect"]');
+    debug('  ["disconnect"]')
     io.of('/').clients((error, clients) => {
-      debug('    [io of / .clients] error: %s, clients: %s', error, clients);
+      debug('    [io of / .clients] error: %s, clients: %s', error, clients)
       if (clients.length === 0) {
-        Repl.kill();
+        Repl.kill()
       }
-    });
-  });
+    })
+  })
 
   // Yjs Websockets Server Events
-  require('./yjs-ws-server.js')(io, socket);
-});
+  require('./yjs-ws-server.js')(io, socket)
+})
 
 server.listen(port, () => {
-  debug(`Listening on port: ${port}...`);
-});
+  debug(`Listening on port: ${port}...`)
+})

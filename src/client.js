@@ -1,155 +1,150 @@
-import { $ } from './utils.js';
-import term from './term.js';
+import { $ } from './utils.js'
+import term from './term.js'
 import { editor, socket } from './editor.js'
-import ansi from 'ansi-escapes';
-import './main.css';
+import ansi from 'ansi-escapes'
+import './main.css'
 
-const languageSelectElem = $('#language');
-const runButton = $('.run-editor-code-button');
+const languageSelectElem = $('#language')
+const runButton = $('.run-editor-code-button')
 
 let state = {
   line: '',
   language: 'ruby',
-  currentPrompt: null,
-};
+  currentPrompt: null
+}
 
-
-//#~~~~~~~~~~~~~~~~~ Term ~~~~~~~~~~~~~~~~~#
-term.open($('#terminal'));
+// #~~~~~~~~~~~~~~~~~ Term ~~~~~~~~~~~~~~~~~#
+term.open($('#terminal'))
 
 // @todo: Refactor.
-const clearTermLine = () => term.write('\u001b[2K\r');
-const setTermPrompt = () => term.write(state.currentPrompt);
+const clearTermLine = () => term.write('\u001b[2K\r')
+const setTermPrompt = () => term.write(state.currentPrompt)
 const resetTermLine = () => {
-  clearTermLine();
-  setTermPrompt();
-};
+  clearTermLine()
+  setTermPrompt()
+}
 
-const clearTermScreen = () => term.reset();
+const clearTermScreen = () => term.reset()
 const resetTermScreen = () => {
-  clearTermScreen();
-  resetTermLine();
-};
+  clearTermScreen()
+  resetTermLine()
+}
 
 const writeBackspaces = (length) => {
-  for (let i = 0; i < length; i++) term.write('\b \b');
-};
+  for (let i = 0; i < length; i++) term.write('\b \b')
+}
 
 const resetCurrentPrompt = () => {
-  state.currentPrompt = '';
-};
+  state.currentPrompt = ''
+}
 
-
-//#~~~~~~~~~~~~~~~~~ Socket ~~~~~~~~~~~~~~~~~#
+// #~~~~~~~~~~~~~~~~~ Socket ~~~~~~~~~~~~~~~~~#
 socket.on('output', ({ output }) => {
-  term.write(output);
-});
+  term.write(output)
+})
 
 socket.on('langChange', ({ language, data }) => {
-  editor.setOption('mode', language);
-  state.language = language;
-  resetCurrentPrompt();
-  languageSelectElem.value = language;
-  term.reset();
-  term.write(data);
-});
+  editor.setOption('mode', language)
+  state.language = language
+  resetCurrentPrompt()
+  languageSelectElem.value = language
+  term.reset()
+  term.write(data)
+})
 
 socket.on('clear', () => {
-  state.line = '';
-  resetTermScreen();
-});
+  state.line = ''
+  resetTermScreen()
+})
 
 // Sync line of client so that it's the same as the line from server.
 socket.on('syncLine', ({ line, prompt }) => {
-  state.currentPrompt = prompt;
-  state.line = line;
-  resetTermLine();
-  term.write(line);
-});
+  state.currentPrompt = prompt
+  state.line = line
+  resetTermLine()
+  term.write(line)
+})
 
 // TODO: fill in...?
-socket.on('connect', () => {});
-socket.on('disconnect', () => {});
+socket.on('connect', () => {})
+socket.on('disconnect', () => {})
 
-
-//#~~~~~~~~~~~~~~~~~ ClientRepl ~~~~~~~~~~~~~~~~~#
+// #~~~~~~~~~~~~~~~~~ ClientRepl ~~~~~~~~~~~~~~~~~#
 const ClientRepl = {
-  emitEvaluate(code) {
-    socket.emit('evaluate', { code });
+  emitEvaluate (code) {
+    socket.emit('evaluate', { code })
   },
 
-  emitClear() {
-    socket.emit('clear');
+  emitClear () {
+    socket.emit('clear')
   },
 
   // Emit 'lineChanged` event to server --> server broadcasts 'syncLine' to clients.
-  emitLineChanged() {
-    socket.emit('lineChanged', { line: state.line });
+  emitLineChanged () {
+    socket.emit('lineChanged', { line: state.line })
   },
 
-  emitInitRepl() {
-    socket.emit('initRepl', { language: languageSelectElem.value });
+  emitInitRepl () {
+    socket.emit('initRepl', { language: languageSelectElem.value })
   },
 
-  clearLine() {
-    writeBackspaces(state.line.length);
-    state.line = '';
-    this.emitLineChanged();
+  clearLine () {
+    writeBackspaces(state.line.length)
+    state.line = ''
+    this.emitLineChanged()
   },
 
-  handleEnter() {
-    let lineOfCode = state.line;
-    this.clearLine();
-    this.emitEvaluate(lineOfCode);
+  handleEnter () {
+    let lineOfCode = state.line
+    this.clearLine()
+    this.emitEvaluate(lineOfCode)
   },
 
-  handleBackspace() {
-    if (state.line === '') return;
-    state.line = state.line.slice(0, -1);
-    this.emitLineChanged();
-    term.write('\b \b');
+  handleBackspace () {
+    if (state.line === '') return
+    state.line = state.line.slice(0, -1)
+    this.emitLineChanged()
+    term.write('\b \b')
   },
 
   // Handle character keys.
-  handleKeypress(key) {
-    state.line += key;
-    this.emitLineChanged();
-    term.write(key);
+  handleKeypress (key) {
+    state.line += key
+    this.emitLineChanged()
+    term.write(key)
   },
 
   // Handle special keys (Enter, Backspace).
   // @param: KeyboardEvent
-  handleKeydown({ key }) {
-    if      (key === 'Enter')     this.handleEnter();
-    else if (key === 'Backspace') this.handleBackspace();
+  handleKeydown ({ key }) {
+    if (key === 'Enter') this.handleEnter()
+    else if (key === 'Backspace') this.handleBackspace()
   },
 
-  handleRunButtonClick() {
-    let editorCode = editor.getValue().trim();
-    if (editorCode === '') return;
-    this.emitLineChanged();
-    this.emitClear();
-    this.emitEvaluate(editorCode);
+  handleRunButtonClick () {
+    let editorCode = editor.getValue().trim()
+    if (editorCode === '') return
+    this.emitLineChanged()
+    this.emitClear()
+    this.emitEvaluate(editorCode)
   },
 
-  handleLanguageChange() {
-    this.clearLine();
-    resetCurrentPrompt();
-    this.emitInitRepl();
-  },
-};
+  handleLanguageChange () {
+    this.clearLine()
+    resetCurrentPrompt()
+    this.emitInitRepl()
+  }
+}
 
-term.on('keypress', ClientRepl.handleKeypress.bind(ClientRepl));
-term.on('keydown',  ClientRepl.handleKeydown.bind(ClientRepl));
-runButton.addEventListener('click', ClientRepl.handleRunButtonClick.bind(ClientRepl));
-languageSelectElem.addEventListener('change', ClientRepl.handleLanguageChange.bind(ClientRepl));
+term.on('keypress', ClientRepl.handleKeypress.bind(ClientRepl))
+term.on('keydown', ClientRepl.handleKeydown.bind(ClientRepl))
+runButton.addEventListener('click', ClientRepl.handleRunButtonClick.bind(ClientRepl))
+languageSelectElem.addEventListener('change', ClientRepl.handleLanguageChange.bind(ClientRepl))
 
-
-
-//#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-//#~~~~~~~~~~~~~~~~~~~~~~~~ Debugging ~~~~~~~~~~~~~~~~~~~~~~~~#
-//#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-window.state = state;
-window.term = term;
-window.ansi = ansi;
+// #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+// #~~~~~~~~~~~~~~~~~~~~~~~~ Debugging ~~~~~~~~~~~~~~~~~~~~~~~~#
+// #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+window.state = state
+window.term = term
+window.ansi = ansi
 // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');

@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-const path    = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 
 // @todo: Verify all syntax is correct, and everything necessary is present.
 module.exports = {
@@ -10,11 +10,11 @@ module.exports = {
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'public'),
-    publicPath: '/public/',
+    publicPath: '/public/'
   },
   plugins: [
     // @todo: Verify what this does.
-    new webpack.ContextReplacementPlugin(/y.*/),
+    new webpack.ContextReplacementPlugin(/y.*/)
   ],
   module: {
     rules: [
@@ -22,9 +22,16 @@ module.exports = {
         test: /\.css$/,
         use: [
           'style-loader',
-          'css-loader',
-        ],
+          'css-loader'
+        ]
       },
+      {
+        // Set up standard-loader as a preloader.
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'standard-loader',
+        exclude: /(node_modules|main\.js|misc)/
+      }
       // @todo: Uncomment.
       // {
       //   test: /\.(otf|ttf)$/,
@@ -38,6 +45,6 @@ module.exports = {
       //     },
       //   ],
       // },
-    ],
-  },
-};
+    ]
+  }
+}
