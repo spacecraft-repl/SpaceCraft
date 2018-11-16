@@ -81,8 +81,9 @@ const ClientRepl = {
   },
 
   // Emit 'lineChanged` event to server --> server broadcasts 'syncLine' to clients.
-  emitLineChanged () {
-    socket.emit('lineChanged', { line: state.line })
+
+  emitLineChanged({ syncSelf = false } = {}) {
+    socket.emit('lineChanged', { line: state.line, syncSelf });
   },
 
   emitInitRepl () {
@@ -117,6 +118,18 @@ const ClientRepl = {
 
   // Handle special keys (Enter, Backspace).
   // @param: KeyboardEvent
+  handleKeydown({ key }) {
+    if      (key === 'Enter')     this.handleEnter();
+    else if (key === 'Backspace') this.handleBackspace();
+  },
+
+  handleRunButtonClick() {
+    let editorCode = editor.getValue().trim();
+    if (editorCode === '') return;
+    this.emitLineChanged({ syncSelf: true });
+    this.emitClear();
+    this.emitEvaluate(editorCode);
+
   handleKeydown ({ key }) {
     if (key === 'Enter') this.handleEnter()
     else if (key === 'Backspace') this.handleBackspace()

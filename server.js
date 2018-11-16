@@ -93,11 +93,14 @@ io.on('connection', (socket) => {
     Repl.write(code)
   })
 
-  socket.on('lineChanged', ({ line }) => {
+  socket.on('lineChanged', ({ line, syncSelf }) => {
     debug('  ["lineChanged"] { line: %s }', line)
-    if (!currentPrompt) currentPrompt = getCurrentPrompt()
-    io.emit('syncLine', { line, prompt: currentPrompt })
-  })
+    currentPrompt = currentPrompt || getCurrentPrompt();
+    const data = { line, prompt: currentPrompt };
+
+    if (syncSelf) return io.emit('syncLine', data);
+    socket.broadcast.emit('syncLine', data);
+  });
 
   socket.on('clear', () => {
     debug('  ["clear"]')
