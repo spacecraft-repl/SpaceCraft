@@ -30,6 +30,12 @@ const resetTermScreen = () => {
   resetTermLine();
 };
 
+const writeBackspaces = (length) => {
+  for (let i = 0; i < length; i++) term.write('\b \b');
+};
+
+const resetCurrentPrompt = () => state.currentPrompt = '';
+
 
 //#~~~~~~~~~~~~~~~~~ Socket ~~~~~~~~~~~~~~~~~#
 socket.on('output', ({ output }) => {
@@ -39,6 +45,7 @@ socket.on('output', ({ output }) => {
 socket.on('langChange', ({ language, data }) => {
   editor.setOption('mode', language);
   state.language = language;
+  resetCurrentPrompt();
   languageSelectElem.value = language;
   term.reset();
   term.write(data);
@@ -82,7 +89,7 @@ const ClientRepl = {
   },
 
   clearLine() {
-    for (let i = 0; i < state.line.length; i++) term.write('\b \b');
+    writeBackspaces(state.line.length);
     state.line = '';
     this.emitLineChanged();
   },
@@ -115,14 +122,16 @@ const ClientRepl = {
   },
 
   handleRunButtonClick() {
-    let editorCode = editor.getValue();
+    let editorCode = editor.getValue().trim();
     if (editorCode === '') return;
+    this.emitLineChanged();    
     this.emitClear();
     this.emitEvaluate(editorCode);
   },
 
   handleLanguageChange() {
     this.clearLine();
+    resetCurrentPrompt();   
     this.emitInitRepl();
   },
 };

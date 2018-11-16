@@ -14,9 +14,11 @@ app.use(express.static('public'));
 const server = http.Server(app);
 const io = socketIo(server);  // our websocket server
 
-let histOutputs = null;
+let histOutputs = '';
+let lastOutput = '';
 let timeoutId = null;
 let currentPrompt = null;
+const DEFAULT_LANG = 'ruby';
 
 app.get('/:room', (req, res) => {
   if (req.params.room === 'favicon.ico') return;
@@ -27,15 +29,15 @@ const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r';
 
 io.on('connection', (socket) => {
   const emitOutput = (output) => {
-    const lastOutputs = histOutputs[histOutputs.length - 1];
-    lastOutputs.push(output);
+    histOutputs += output;
+    lastOutput += output;
     io.emit('output', { output });
   };
 
   const initRepl = (language, welcome_msg = '') => {
     Repl.kill();
     Repl.init(language);
-    histOutputs = [[]];
+    histOutputs = '';
 
     io.emit('langChange', {
       language: Repl.language,
@@ -46,37 +48,45 @@ io.on('connection', (socket) => {
   };
 
   const getCurrentPrompt = () => {
-    return histOutputs[histOutputs.length - 1]
-             .join('')
+    return lastOutput
              .split('\n')
              .pop();
   }
 
-  socket.emit('langChange', { language: Repl.language || 'ruby', data: WELCOME_MSG });
+  socket.emit('langChange', { 
+    language: Repl.language || DEFAULT_LANG, 
+    data: WELCOME_MSG,
+  });
+
+  socket.emit('output', { output: histOutputs });
 
   io.of('/').clients((error, clients) => {
     if (clients.length === 1) {
-      initRepl('ruby', WELCOME_MSG);
+      initRepl(DEFAULT_LANG, WELCOME_MSG);
     }
   });
 
   socket.on('initRepl', ({ language }) => {
+    currentPrompt = null;
     if (language === Repl.language) return;
     initRepl(language);
   });
 
   socket.on('evaluate', ({ code }) => {
     currentPrompt = null; 
-    histOutputs.push([]);
+    lastOutput = '';
     Repl.write(code);
   });
 
   socket.on('lineChanged', ({ line }) => {
     if (!currentPrompt) currentPrompt = getCurrentPrompt();
-    socket.broadcast.emit('syncLine', { line, prompt: currentPrompt });
-  });  
+    io.emit('syncLine', { line, prompt: currentPrompt });
+  });
 
-  socket.on('clear', () => io.emit('clear'));
+  socket.on('clear', () => {
+    io.emit('clear')
+    histOutputs = '';
+  });
 
   socket.on('disconnect', () => {
     io.of('/').clients((error, clients) => {
