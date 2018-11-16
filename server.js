@@ -1,41 +1,30 @@
 'use strict'
 
 const debug = require('debug')('server')
-
 const express = require('express')
-const path = require('path')
-
-// @todo: Check if we need body-parser.
+// const path = require('path')
 const bodyParser = require('body-parser')
 const http = require('http')
 const socketIo = require('socket.io')
 const Repl = require('./repl/Repl.js')
 
 const port = process.env.PORT || 3000
-
 const app = express()
-app.use(bodyParser.text())
-app.use(express.static('public'))
-
 const server = http.Server(app)
 const io = socketIo(server) // our websocket server
+const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
+const DEFAULT_LANG = 'ruby'
 
 let histOutputs = ''
 let lastOutput = ''
 let currentPrompt = null
-const DEFAULT_LANG = 'ruby'
 
-// @todo: Check if this route is necessary -- is it ever used?
-app.get('/:room', (req, res) => {
-  debug(`${req.method} ${req.url}, req.params: %o`, req.params)
-  if (req.params.room === 'favicon.ico') return
-  debug('path.join(__dirname, "./index.html") = %s', path.join(__dirname, './index.html'))
-  res.sendFile(path.join(__dirname, './index.html'))
-})
+app.use(bodyParser.text())
+app.use(express.static('public'))
 
 // @todo: Check if order of \n\r matters.
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
-const TOO_MUCH_OUTPUT = '\n\rTOO MUCH OUTPUT!\r'
+const TOO_MUCH_OUTPUT = '\n\r------TOO MUCH OUTPUT!-------\n\r'
 const MAX_OUTPUT_LENGTH = 10000
 
 io.on('connection', (socket) => {

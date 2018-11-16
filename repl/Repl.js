@@ -23,10 +23,6 @@ const Repl = {
       // @todo: Is it necessary to return `this` here? -- it doesn't appear to be used anywhere.
       return this
     }
-
-    // @todo: Refactor or remove.
-    debug('WARNING: Unknown Language! Setting language to ruby...')
-    return this.init('ruby')
   },
 
   write (string) {
