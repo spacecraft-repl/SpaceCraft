@@ -16,7 +16,6 @@ const io = socketIo(server);  // our websocket server
 
 let histOutputs = '';
 let lastOutput = '';
-let timeoutId = null;
 let currentPrompt = null;
 const DEFAULT_LANG = 'ruby';
 
@@ -49,9 +48,7 @@ io.on('connection', (socket) => {
   };
 
   const getCurrentPrompt = () => {
-    return lastOutput
-             .split('\n')
-             .pop();
+    return lastOutput.split('\n').pop();
   }
 
   socket.emit('langChange', { 
@@ -85,15 +82,13 @@ io.on('connection', (socket) => {
   });
 
   socket.on('clear', () => {
-    io.emit('clear')
+    io.emit('clear');
     histOutputs = '';
   });
 
   socket.on('disconnect', () => {
     io.of('/').clients((error, clients) => {
-      if (clients.length === 0) {
-        Repl.kill();
-      }
+      if (clients.length === 0) Repl.kill();
     });
   });
 
