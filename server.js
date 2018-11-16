@@ -22,12 +22,24 @@ let currentPrompt = null
 app.use(bodyParser.text())
 app.use(express.static('public'))
 
+// @todo: Check if order of \n\r matters.
+const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
+const TOO_MUCH_OUTPUT = '\n\r------TOO MUCH OUTPUT!-------\n\r'
+const MAX_OUTPUT_LENGTH = 10000
+
 io.on('connection', (socket) => {
   debug('io.on("connection", (socket) => {')
+
+  const handleTooMuchOutput = () => {
+    lastOutput = ''
+    Repl.write('\x03')
+    io.emit('output', { output: TOO_MUCH_OUTPUT })    
+  }
 
   const emitOutput = (output) => {
     histOutputs += output
     lastOutput += output
+    if (lastOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
     io.emit('output', { output })
   }
 
