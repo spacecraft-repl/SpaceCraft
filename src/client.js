@@ -10,7 +10,9 @@ const runButton = $('.run-editor-code-button')
 let state = {
   line: '',
   language: 'ruby',
-  currentPrompt: ''
+  currentPrompt: '',
+  locked: false,
+  lastLineLength: 0
 }
 
 // #~~~~~~~~~~~~~~~~~ Term ~~~~~~~~~~~~~~~~~#
@@ -35,13 +37,12 @@ const writeBackspaces = (length) => {
   for (let i = 0; i < length; i++) term.write('\b \b')
 }
 
-// @todo: Refactor or remove.
-// const resetCurrentPrompt = () => {
-//   state.currentPrompt = ''
-// }
-
 // #~~~~~~~~~~~~~~~~~ Socket ~~~~~~~~~~~~~~~~~#
 socket.on('output', ({ output }) => {
+  if (state.locked) {
+    state.locked = false
+    writeBackspaces(state.lastLineLength)
+  }
   term.write(output)
 })
 
@@ -90,12 +91,14 @@ const ClientRepl = {
   },
 
   clearLine () {
-    writeBackspaces(state.line.length)
+    state.lastLineLength = state.line.length
     state.line = ''
     this.emitLineChanged()
   },
 
   handleEnter () {
+    if (state.locked) return
+    state.locked = true
     let lineOfCode = state.line
     this.clearLine()
     this.emitEvaluate(lineOfCode)
@@ -110,6 +113,7 @@ const ClientRepl = {
 
   // Handle character keys.
   handleKeypress (key) {
+    if (state.locked) return
     state.line += key
     this.emitLineChanged()
     term.write(key)
