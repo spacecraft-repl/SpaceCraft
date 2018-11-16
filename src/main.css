@@ -1,6 +1,8 @@
 /* @todo: Uncomment. */
 /* @import url('https://fonts.googleapis.com/css?family=Roboto'); */
 
+/* @todo: Clean up extra classes. */
+
 html, body, textarea, input, div, button, pre, .terminal, .xterm, #terminal, .codeMirrorContainer, .CodeMirror {
   background-color: #282c34;
   color: #abb2bf;

@@ -1,8 +1,8 @@
 import { $ } from './utils.js';
 import term from './term.js';
 import { editor, socket } from './editor.js'
-import './main.css';
 import ansi from 'ansi-escapes';
+import './main.css';
 
 const languageSelectElem = $('#language');
 const runButton = $('.run-editor-code-button');
@@ -17,6 +17,7 @@ let state = {
 //#~~~~~~~~~~~~~~~~~ Term ~~~~~~~~~~~~~~~~~#
 term.open($('#terminal'));
 
+// @todo: Refactor.
 const clearTermLine = () => term.write('\u001b[2K\r');
 const setTermPrompt = () => term.write(state.currentPrompt);
 const resetTermLine = () => {
@@ -30,6 +31,14 @@ const resetTermScreen = () => {
   resetTermLine();
 };
 
+const writeBackspaces = (length) => {
+  for (let i = 0; i < length; i++) term.write('\b \b');
+};
+
+const resetCurrentPrompt = () => {
+  state.currentPrompt = '';
+};
+
 
 //#~~~~~~~~~~~~~~~~~ Socket ~~~~~~~~~~~~~~~~~#
 socket.on('output', ({ output }) => {
@@ -39,6 +48,7 @@ socket.on('output', ({ output }) => {
 socket.on('langChange', ({ language, data }) => {
   editor.setOption('mode', language);
   state.language = language;
+  resetCurrentPrompt();
   languageSelectElem.value = language;
   term.reset();
   term.write(data);
@@ -82,7 +92,7 @@ const ClientRepl = {
   },
 
   clearLine() {
-    for (let i = 0; i < state.line.length; i++) term.write('\b \b');
+    writeBackspaces(state.line.length);
     state.line = '';
     this.emitLineChanged();
   },
@@ -115,14 +125,16 @@ const ClientRepl = {
   },
 
   handleRunButtonClick() {
-    let editorCode = editor.getValue();
+    let editorCode = editor.getValue().trim();
     if (editorCode === '') return;
+    this.emitLineChanged();    
     this.emitClear();
     this.emitEvaluate(editorCode);
   },
 
   handleLanguageChange() {
     this.clearLine();
+    resetCurrentPrompt();   
     this.emitInitRepl();
   },
 };
@@ -139,5 +151,5 @@ languageSelectElem.addEventListener('change', ClientRepl.handleLanguageChange.bi
 //#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 window.state = state;
 window.term = term;
-window.ansi = ansiEscapes;
+window.ansi = ansi;
 // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');

@@ -27,9 +27,9 @@ const DEFAULT_LANG = 'ruby';
 
 // @todo: Check if this route is necessary -- is it ever used?
 app.get('/:room', (req, res) => {
-  debug(`${req.method} ${req.url}, req.params: %o`, req.params);
+  debug(`${req.method} ${req.url}, req.params: %o`, req.params)
   if (req.params.room === 'favicon.ico') return;
-  debug('path.join(__dirname, "./index.html") = %s', path.join(__dirname, './index.html'));
+  debug('path.join(__dirname, "./index.html") = %s', path.join(__dirname, './index.html'))
   res.sendFile(path.join(__dirname, './index.html'));
 });
 
@@ -37,7 +37,7 @@ app.get('/:room', (req, res) => {
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r';
 
 io.on('connection', (socket) => {
-  debug('io.on("connection", (socket) => {');
+  debug('io.on("connection", (socket) => {')
 
   const emitOutput = (output) => {
     histOutputs += output;
@@ -46,7 +46,7 @@ io.on('connection', (socket) => {
   };
 
   const initRepl = (language, welcome_msg = '') => {
-    debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg);
+    debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
     Repl.kill();
     Repl.init(language);
     histOutputs = '';
@@ -60,55 +60,84 @@ io.on('connection', (socket) => {
   };
 
   const getCurrentPrompt = () => {
-    return lastOutput.split('\n').pop();
+    return lastOutput
+             .split('\n')
+             .pop();
   };
 
+<<<<<<< HEAD
   // @todo: Check if this is necessary.
-  debug('`socket.emit("langChange", {` ~~> language: %s, data: %s', Repl.language || 'ruby', WELCOME_MSG);
+  debug('`socket.emit("langChange", {` ~~> language: %s, data: %s', Repl.language || 'ruby', WELCOME_MSG)
   socket.emit('langChange', {
-    language: Repl.language || DEFAULT_LANG,
+    language: Repl.language || 'ruby',  // Added null guard to speed up initial loading.
+    data: WELCOME_MSG,
+  });
+=======
+  socket.emit('langChange', { 
+    language: Repl.language || DEFAULT_LANG, 
     data: WELCOME_MSG,
   });
 
   socket.emit('output', { output: histOutputs });
+>>>>>>> streaming-mode-remove-buffer
 
   io.of('/').clients((error, clients) => {
-    debug('  [io.of("/").clients(fn)] error: %s, clients: %s', error, clients);
+    debug('  [io.of("/").clients(fn)] error: %s, clients: %s', error, clients)
     if (clients.length === 1) {
+<<<<<<< HEAD
+      initRepl('ruby', WELCOME_MSG);
+  // @todo: Check if this is necessary.
+  debug('`socket.emit("langChange", {` ~~> language: %s, data: %s', Repl.language || 'ruby', WELCOME_MSG)
+  socket.emit('langChange', {
+    language: Repl.language || 'ruby',  // Added null guard to speed up initial loading.
+    data: WELCOME_MSG,
+  });
+
+=======
       initRepl(DEFAULT_LANG, WELCOME_MSG);
+>>>>>>> streaming-mode-remove-buffer
     }
   });
 
   socket.on('initRepl', ({ language }) => {
-    debug('  ["initRepl"] { language: %s }', language);
+<<<<<<< HEAD
+    debug('  ["initRepl"] { language: %s }', language)
+=======
     currentPrompt = null;
+>>>>>>> streaming-mode-remove-buffer
     if (language === Repl.language) return;
     initRepl(language);
   });
 
   socket.on('evaluate', ({ code }) => {
-    debug('  ["evaluate"] { code: %s }', code);
-    currentPrompt = null;
+    debug('  ["evaluate"] { code: %s }', code)
+    currentPrompt = null; 
     lastOutput = '';
     Repl.write(code);
   });
 
   socket.on('lineChanged', ({ line }) => {
-    debug('  ["lineChanged"] { line: %s }', line);
+    debug('  ["lineChanged"] { line: %s }', line)
     if (!currentPrompt) currentPrompt = getCurrentPrompt();
     io.emit('syncLine', { line, prompt: currentPrompt });
   });
 
+<<<<<<< HEAD
+
   socket.on('clear', () => {
-    debug('  ["clear"]');
+    debug('  ["clear"]')
     io.emit('clear');
+=======
+  socket.on('clear', () => {
+    io.emit('clear')
     histOutputs = '';
+>>>>>>> streaming-mode-remove-buffer
   });
 
   socket.on('disconnect', () => {
-    debug('  ["disconnect"]');
+    debug('  ["disconnect"]')
     io.of('/').clients((error, clients) => {
-      debug('    [io of / .clients] error: %s, clients: %s', error, clients);
+      debug('    [io of / .clients] error: %s, clients: %s', error, clients)
       if (clients.length === 0) {
         Repl.kill();
       }
@@ -117,6 +146,7 @@ io.on('connection', (socket) => {
 
   // Yjs Websockets Server Events
   require('./yjs-ws-server.js')(io, socket);
+
 });
 
 server.listen(port, () => {

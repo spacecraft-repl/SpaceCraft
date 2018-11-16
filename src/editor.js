@@ -23,12 +23,12 @@ const editor = CodeMirror.fromTextArea(code, {
 
 
 ////#~~~~~~~~~~~~~~~~~~~~~~~~~ Yjs ~~~~~~~~~~~~~~~~~~~~~~~~~#
-//import Y from 'yjs';
-//import yWebsocketsClient from 'y-websockets-client';
-//import yMemory           from 'y-memory';
-//import yArray            from 'y-array';
-//import yText             from 'y-text';
-//Y.extend(yWebsocketsClient, yMemory, yArray, yText);
+import Y from 'yjs';
+import yWebsocketsClient from 'y-websockets-client';
+import yMemory           from 'y-memory';
+import yArray            from 'y-array';
+import yText             from 'y-text';
+Y.extend(yWebsocketsClient, yMemory, yArray, yText);
 
 import io from 'socket.io-client';
 
@@ -36,24 +36,26 @@ import io from 'socket.io-client';
 const url = window.location.href;
 const socket = io(url);
 
-//Y({
-//  db: {
-//    name: 'memory',              // store the shared data in memory
-//  },
-//  connector: {
-//    name: 'websockets-client',
-//    room: 'spacecraft-repl',     // instances connected to the same room share data
-//    socket,
-//    url,
-//  },
-//  share: {                       // specify the shared content
-//    editorText: 'Text',          // new Y.Text
-//  },
-//}).then((y) => {                 // Yjs is successfully initialized
-//  console.log('Yjs instance ready!');
-//  window.y = y;
-//  y.share.editorText.bindCodeMirror(editor);
-//});
+Y({
+  db: {
+    name: 'memory',              // store the shared data in memory
+  },
+  connector: {
+    name: 'websockets-client',
+    room: 'spacecraft-repl',     // instances connected to the same room share data
+    socket,
+    url,
+  },
+  share: {                       // specify the shared content
+    editorText: 'Text',          // new Y.Text
+  },
+}).then((y) => {                 // Yjs is successfully initialized
+  console.log('Yjs instance ready!');
+  window.y = y;
+  y.share.editorText.bindCodeMirror(editor);
+});
+
+export { editor, socket };
 
 
 
@@ -62,8 +64,6 @@ const socket = io(url);
 //#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 window.CodeMirror = CodeMirror;
 window.editor = editor;
-// window.Y = Y;
+window.Y = Y;
 window.io = io;
 window.socket = socket;
-
-export { editor, socket };
