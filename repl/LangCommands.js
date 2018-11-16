@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = {
-  ruby: 'pry',
+  ruby: 'irb',
   javascript: 'node',
   python: 'python',
   shell: 'bash'

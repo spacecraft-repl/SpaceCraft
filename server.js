@@ -42,9 +42,9 @@ io.on('connection', (socket) => {
   debug('io.on("connection", (socket) => {')
 
   const handleTooMuchOutput = () => {
-    io.emit('output', { output: TOO_MUCH_OUTPUT })
     lastOutput = ''
     Repl.write('\x03')
+    io.emit('output', { output: TOO_MUCH_OUTPUT })    
   }
 
   const emitOutput = (output) => {
