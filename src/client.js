@@ -24,6 +24,7 @@ const resetTermLine = () => {
   setTermPrompt()
 }
 
+// @todo: Refactor or remove.
 const clearTermScreen = () => term.reset()
 const resetTermScreen = () => {
   clearTermScreen()
@@ -34,9 +35,10 @@ const writeBackspaces = (length) => {
   for (let i = 0; i < length; i++) term.write('\b \b')
 }
 
-const resetCurrentPrompt = () => {
-  state.currentPrompt = ''
-}
+// @todo: Refactor or remove.
+// const resetCurrentPrompt = () => {
+//   state.currentPrompt = ''
+// }
 
 // #~~~~~~~~~~~~~~~~~ Socket ~~~~~~~~~~~~~~~~~#
 socket.on('output', ({ output }) => {
