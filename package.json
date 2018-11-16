@@ -1,35 +1,46 @@
 {
-  "name": "npm_repl_prototype",
+  "name": "spacecraft",
   "version": "1.0.0",
-  "description": "a simple repl prototype using HTTP rest/WebSockets",
+  "description": "An open-source real-time collaborative REPL and code editor",
   "main": "server.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha --compilers js:@babel/register",
-    "build": "webpack",
-    "start": "webpack --config webpack.config.js && node server.js",
-    "inspect": "webpack --config webpack.config.js && node --inspect server.js",
-    "debug": "DEBUG=* node server.js",
-    "server": "node server.js"
+    "build": "standard --fix && webpack",
+    "debug": "standard --fix && webpack && DEBUG=* node server.js",
+    "inspect": "standard --fix && webpack && node --inspect server.js",
+    "server": "node server.js",
+    "start": "standard --fix && webpack && node server.js"
   },
-  "repository": "git+https://github.com/thecatstones/repl-prototype.git",
-  "author": "YingCGooi",
+  "repository": "git+https://github.com/spacecraft-repl/SpaceCraft.git",
+  "author": "spacecraft-repl",
+  "contributors": [
+    {
+      "name": "YingCGooi",
+      "email": "25574844+YingCGooi@users.noreply.github.com"
+    },
+    {
+      "name": "Julius Zerwick",
+      "email": "jrzerwick@gmail.com"
+    },
+    {
+      "name": "Nick Johnson",
+      "email": "njohnson7@pm.me"
+    }
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thecatstones/repl-prototype/issues"
+    "url": "https://github.com/spacecraft-repl/SpaceCraft/issues"
   },
-  "homepage": "https://github.com/thecatstones/repl-prototype#readme",
+  "homepage": "https://github.com/spacecraft-repl/SpaceCraft",
   "dependencies": {
     "ansi-escapes": "^3.1.0",
     "body-parser": "^1.18.3",
     "codemirror": "^5.41.0",
     "codemirror-one-dark-theme": "^1.1.1",
-    "css-loader": "^1.0.1",
     "debug": "^4.1.0",
     "express": "^4.16.4",
     "node-pty": "^0.7.8",
     "socket.io": "^2.1.1",
-    "style-loader": "^0.23.1",
-    "webpack-cli": "^3.1.2",
+    "uninstall": "0.0.0",
     "xterm": "^3.8.0",
     "y-array": "^10.1.4",
     "y-memory": "^8.0.9",
@@ -39,16 +50,13 @@
     "yjs": "^12.3.3"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.5",
-    "@babel/core": "^7.1.6",
-    "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.1.6",
-    "@babel/register": "^7.0.0",
-    "chai": "^4.2.0",
+    "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",
-    "mocha": "^5.2.0",
-    "mocha-webpack": "^1.1.0",
-    "nodemon": "^1.18.6",
-    "webpack": "^4.25.1"
+    "standard": "^12.0.1",
+    "standard-loader": "^6.0.1",
+    "style-loader": "^0.23.1",
+    "supports-color": "^5.5.0",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
   }
 }

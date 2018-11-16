@@ -1,8 +1,14 @@
-const Y = require('yjs');
+'use strict'
 
-// TODO: add Y.debug.log
-console.log(Y)
-console.log('Y.debug:', Y.debug)
+// @todo: Refactor / clean up code.
+// @todo: Combine the two debugs into one.
+const debug = require('debug')('YjsWS')
+
+const Y = require('yjs')
+
+// @todo: Verify what these two lines are doing.
+debug(Y)
+debug('Y.debug:', Y.debug)
 
 const minimist = require('minimist')
 require('y-memory')(Y)
@@ -11,16 +17,16 @@ try {
 } catch (err) {}
 
 try {
-  require('./y-websockets-server.js')(Y)  // doesn't exist...
+  require('./y-websockets-server.js')(Y) // Doesn't exist...
 } catch (err) {
-  require('y-websockets-server')(Y)       // <-- this one is called
+  require('y-websockets-server')(Y) // <-- ...this one is called.
 }
 
 global.yInstances = {}
 
 module.exports = (io, socket) => {
-  console.log('[NEXT LINE: "const options = minimist(process.argv.slice(2), {..."]')
-  console.log('    process.argv=', process.argv)
+  debug('[NEXT LINE: "const options = minimist(process.argv.slice(2), {..."]')
+  debug('    process.argv=', process.argv)
   const options = minimist(process.argv.slice(2), {
     string: ['port', 'debug', 'db'],
     default: {
@@ -30,10 +36,10 @@ module.exports = (io, socket) => {
     }
   })
 
-  const getInstanceOfY = function(room) {
-    console.log(`${Date().slice(4, 33)} -- [getInstanceOfY(room)] arguments: `, arguments);
+  const getInstanceOfY = function (room) {
+    debug(`[getInstanceOfY(room)] arguments: `, arguments)
     if (global.yInstances[room] == null) {
-      console.log('[NEXT LINE: "      global.yInstances[room] = Y({..."]')
+      debug('[NEXT LINE: "      global.yInstances[room] = Y({..."]')
       global.yInstances[room] = Y({
         db: {
           name: options.db,
@@ -49,61 +55,61 @@ module.exports = (io, socket) => {
         share: {}
       })
     }
-    console.log('[NEXT LINE: "return global.yInstances[room];"]')
-    return global.yInstances[room];
+    debug('[NEXT LINE: "return global.yInstances[room];"]')
+    return global.yInstances[room]
   }
 
-  let rooms = [];
+  let rooms = []
 
   socket.on('joinRoom', (room) => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('joinRoom', fn)] room: ${room}`);
-    console.log('User "%s" joins room "%s"', socket.id, room);
-    socket.join(room);
+    debug(`[socket.on('joinRoom', fn)] room: ${room}`)
+    debug('User "%s" joins room "%s"', socket.id, room)
+    socket.join(room)
     getInstanceOfY(room).then((y) => {
       if (rooms.indexOf(room) === -1) {
-        y.connector.userJoined(socket.id, 'slave');
-        rooms.push(room);
+        y.connector.userJoined(socket.id, 'slave')
+        rooms.push(room)
       }
-    });
-  });
+    })
+  })
 
   socket.on('yjsEvent', (msg) => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('yjsEvent', fn)] msg: ${msg}`);
+    debug(`[socket.on('yjsEvent', fn)] msg: ${msg}`)
     if (msg.room != null) {
       getInstanceOfY(msg.room).then((y) => {
-      console.log('[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]')
-        y.connector.receiveMessage(socket.id, msg);
-      });
+        debug('[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]')
+        y.connector.receiveMessage(socket.id, msg)
+      })
     }
-  });
+  })
 
   socket.on('disconnect', () => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('disconnect', fn)]`);
+    debug(`[socket.on('disconnect', fn)]`)
     for (var i = 0; i < rooms.length; i++) {
-      let room = rooms[i];
+      let room = rooms[i]
       getInstanceOfY(room).then((y) => {
-      console.log('[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]')
-        var i = rooms.indexOf(room);
+        debug('[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]')
+        var i = rooms.indexOf(room)
         if (i >= 0) {
-          y.connector.userLeft(socket.id);
-          rooms.splice(i, 1);
+          y.connector.userLeft(socket.id)
+          rooms.splice(i, 1)
         }
       })
     }
-  });
+  })
 
   socket.on('leaveRoom', (room) => {
-    console.log(`${Date().slice(4, 33)} -- [socket.on('leaveRoom')] room: ${room}`);
+    debug(`[socket.on('leaveRoom')] room: ${room}`)
     getInstanceOfY(room).then((y) => {
-      console.log('[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]')
-      var i = rooms.indexOf(room);
+      debug('[PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]')
+      var i = rooms.indexOf(room)
       if (i >= 0) {
-        y.connector.userLeft(socket.id);
-        rooms.splice(i, 1);
+        y.connector.userLeft(socket.id)
+        rooms.splice(i, 1)
       }
-    });
-  });
+    })
+  })
 
-  // TODO: check if this return value gets used anywhere
-  return module;
+  // @todo: Check if this return value gets used anywhere.
+  return module
 }

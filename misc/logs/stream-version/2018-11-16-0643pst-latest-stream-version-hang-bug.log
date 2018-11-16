@@ -1,0 +1,1368 @@
+
+
+λ root [~] → d logs --details --timestamps elegant_stonebraker
+2018-11-16T14:36:20.400321647Z
+2018-11-16T14:36:20.400386455Z  > spacecraft@1.0.0 debug /app
+2018-11-16T14:36:20.400391992Z  > standard --fix && webpack && DEBUG=* node server.js
+2018-11-16T14:36:20.400395727Z
+2018-11-16T14:36:26.404786285Z  Hash: 5ec10b8f67fc968a18f9
+2018-11-16T14:36:26.404815303Z  Version: webpack 4.25.1
+2018-11-16T14:36:26.404819624Z  Time: 4194ms
+2018-11-16T14:36:26.404823195Z  Built at: 11/16/2018 2:36:26 PM
+2018-11-16T14:36:26.404826958Z    Asset      Size  Chunks             Chunk Names
+2018-11-16T14:36:26.404833641Z  main.js  1.57 MiB    main  [emitted]  main
+2018-11-16T14:36:26.404837643Z  Entrypoint main = main.js
+2018-11-16T14:36:26.404841240Z  [0] ws (ignored) 15 bytes {main} [optional] [built]
+2018-11-16T14:36:26.404845309Z  [./node_modules/css-loader/index.js!./src/main.css] ./node_modules/css-loader!./src/main.css 1.15 KiB {main} [built]
+2018-11-16T14:36:26.404849707Z  [./node_modules/webpack/buildin/amd-options.js] (webpack)/buildin/amd-options.js 80 bytes {main} [built]
+2018-11-16T14:36:26.404853667Z  [./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 489 bytes {main} [built]
+2018-11-16T14:36:26.404857763Z  [./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 497 bytes {main} [built]
+2018-11-16T14:36:26.404949965Z  [./node_modules/yjs/src sync recursive] ./node_modules/yjs/src sync 160 bytes {main} [built]
+2018-11-16T14:36:26.404958221Z  [./src/client.js] 3.6 KiB {main} [built]
+2018-11-16T14:36:26.404962230Z  [./src/editor.js] 1.86 KiB {main} [built]
+2018-11-16T14:36:26.404966072Z  [./src/main.css] 1.04 KiB {main} [built]
+2018-11-16T14:36:26.404969909Z  [./src/term.js] 1.04 KiB {main} [built]
+2018-11-16T14:36:26.404999426Z  [./src/utils.js] 64 bytes {main} [built]
+2018-11-16T14:36:26.405004341Z      + 176 hidden modules
+2018-11-16T14:36:26.641467773Z    express:application set "x-powered-by" to true +0ms
+2018-11-16T14:36:26.643180786Z    express:application set "etag" to 'weak' +4ms
+2018-11-16T14:36:26.644350452Z    express:application set "etag fn" to [Function: generateETag] +1ms
+2018-11-16T14:36:26.644566426Z    express:application set "env" to 'development' +1ms
+2018-11-16T14:36:26.644754107Z    express:application set "query parser" to 'extended' +0ms
+2018-11-16T14:36:26.644995573Z    express:application set "query parser fn" to [Function: parseExtendedQueryString] +0ms
+2018-11-16T14:36:26.645335758Z    express:application set "subdomain offset" to 2 +1ms
+2018-11-16T14:36:26.645563976Z    express:application set "trust proxy" to false +0ms
+2018-11-16T14:36:26.646008911Z    express:application set "trust proxy fn" to [Function: trustNone] +0ms
+2018-11-16T14:36:26.646197163Z    express:application booting in development mode +0ms
+2018-11-16T14:36:26.646392825Z    express:application set "view" to [Function: View] +1ms
+2018-11-16T14:36:26.646657280Z    express:application set "views" to '/app/views' +0ms
+2018-11-16T14:36:26.646885437Z    express:application set "jsonp callback name" to 'callback' +0ms
+2018-11-16T14:36:26.648883094Z    express:router use '/' query +2ms
+2018-11-16T14:36:26.649182297Z    express:router:layer new '/' +1ms
+2018-11-16T14:36:26.649921031Z    express:router use '/' expressInit +0ms
+2018-11-16T14:36:26.650122715Z    express:router:layer new '/' +0ms
+2018-11-16T14:36:26.650477115Z    express:router use '/' textParser +1ms
+2018-11-16T14:36:26.650668192Z    express:router:layer new '/' +0ms
+2018-11-16T14:36:26.651040215Z    express:router use '/' serveStatic +0ms
+2018-11-16T14:36:26.651146486Z    express:router:layer new '/' +0ms
+2018-11-16T14:36:26.655153819Z    socket.io:server initializing namespace / +0ms
+2018-11-16T14:36:26.656311690Z    socket.io-parser encoding packet {"type":0,"nsp":"/"} +0ms
+2018-11-16T14:36:26.656601929Z    socket.io-parser encoded {"type":0,"nsp":"/"} as 0 +1ms
+2018-11-16T14:36:26.656920290Z    socket.io:server creating engine.io instance with opts {"path":"/socket.io","initialPacket":["0"]} +2ms
+2018-11-16T14:36:26.674357552Z    socket.io:server attaching client serving req handler +18ms
+2018-11-16T14:36:26.674778111Z    express:router:route new '/:room' +24ms
+2018-11-16T14:36:26.674960558Z    express:router:layer new '/:room' +0ms
+2018-11-16T14:36:26.675472410Z    express:router:route get '/:room' +1ms
+2018-11-16T14:36:26.675744630Z    express:router:layer new '/' +0ms
+2018-11-16T14:36:26.685328460Z    server Listening on port: 3000... +0ms
+2018-11-16T14:36:40.554408548Z    express:router dispatching GET / +14s
+2018-11-16T14:36:40.555988826Z    express:router query  : / +3ms
+2018-11-16T14:36:40.556773366Z    express:router expressInit  : / +1ms
+2018-11-16T14:36:40.557400893Z    express:router textParser  : / +1ms
+2018-11-16T14:36:40.558058713Z    body-parser:text skip empty body +0ms
+2018-11-16T14:36:40.558257046Z    express:router serveStatic  : / +1ms
+2018-11-16T14:36:40.559764387Z    send stat "/app/public/index.html" +0ms
+2018-11-16T14:36:40.561713763Z    send pipe "/app/public/index.html" +2ms
+2018-11-16T14:36:40.561984493Z    send accept ranges +0ms
+2018-11-16T14:36:40.562216282Z    send cache-control public, max-age=0 +1ms
+2018-11-16T14:36:40.562390069Z    send modified Fri, 16 Nov 2018 14:17:31 GMT +0ms
+2018-11-16T14:36:40.562762751Z    send etag W/"28c-1671ce24878" +0ms
+2018-11-16T14:36:40.563079224Z    send content-type text/html +0ms
+2018-11-16T14:36:40.603539955Z    express:router dispatching GET /main.js +45ms
+2018-11-16T14:36:40.603843318Z    express:router query  : /main.js +0ms
+2018-11-16T14:36:40.604058996Z    express:router expressInit  : /main.js +0ms
+2018-11-16T14:36:40.604286316Z    express:router textParser  : /main.js +1ms
+2018-11-16T14:36:40.604472603Z    body-parser:text skip empty body +47ms
+2018-11-16T14:36:40.604647663Z    express:router serveStatic  : /main.js +0ms
+2018-11-16T14:36:40.605080833Z    send stat "/app/public/main.js" +42ms
+2018-11-16T14:36:40.605573162Z    send pipe "/app/public/main.js" +1ms
+2018-11-16T14:36:40.605713729Z    send accept ranges +0ms
+2018-11-16T14:36:40.605903626Z    send cache-control public, max-age=0 +0ms
+2018-11-16T14:36:40.606037598Z    send modified Fri, 16 Nov 2018 14:36:26 GMT +0ms
+2018-11-16T14:36:40.606204756Z    send etag W/"1911ec-1671cf39b8b" +1ms
+2018-11-16T14:36:40.606342669Z    send content-type application/javascript +0ms
+2018-11-16T14:36:41.076464238Z    engine intercepting request for path "/socket.io/" +0ms
+2018-11-16T14:36:41.076767609Z    engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSSyzJc" +1ms
+2018-11-16T14:36:41.081203136Z    engine handshaking client "Wp1ng3_w-pH-krGAAAAA" +5ms
+2018-11-16T14:36:41.082166038Z    engine:socket sending packet "open" ({"sid":"Wp1ng3_w-pH-krGAAAAA","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}) +0ms
+2018-11-16T14:36:41.082507222Z    engine:socket sending packet "message" (0) +0ms
+2018-11-16T14:36:41.083035080Z    engine:polling setting request +0ms
+2018-11-16T14:36:41.083214790Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:36:41.084229279Z    engine:polling writing "96:0{"sid":"Wp1ng3_w-pH-krGAAAAA","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}2:40" +2ms
+2018-11-16T14:36:41.085603290Z    engine:socket executing batch send callback +2ms
+2018-11-16T14:36:41.085854737Z    socket.io:server incoming connection with id Wp1ng3_w-pH-krGAAAAA +14s
+2018-11-16T14:36:41.086319717Z    socket.io:client connecting to namespace / +0ms
+2018-11-16T14:36:41.086594622Z    socket.io:namespace adding socket to nsp / +0ms
+2018-11-16T14:36:41.088990355Z    socket.io:socket socket connected - writing packet +0ms
+2018-11-16T14:36:41.089207309Z    socket.io:socket joining room Wp1ng3_w-pH-krGAAAAA +1ms
+2018-11-16T14:36:41.089580698Z    socket.io:socket packet already sent in initial handshake +0ms
+2018-11-16T14:36:41.090092735Z    server io.on("connection", (socket) => { +14s
+2018-11-16T14:36:41.090314538Z    server `socket.emit("langChange", {` ~~> language: ruby, data: WELCOME TO SPACECRAFT!
+ +1ms11-16T14:36:41.090323944Z
+2018-11-16T14:36:41.090800469Z    socket.io:client writing packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +4ms
+2018-11-16T14:36:41.090946923Z    socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +14s
+2018-11-16T14:36:41.091178148Z    socket.io-parser encoded {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} as 2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}] +0ms
+2018-11-16T14:36:41.091373149Z    engine:socket sending packet "message" (2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]) +6ms
+2018-11-16T14:36:41.091572311Z    socket.io:client writing packet {"type":2,"data":["output",{"output":""}],"nsp":"/"} +1ms
+2018-11-16T14:36:41.091699447Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":""}],"nsp":"/"} +1ms
+2018-11-16T14:36:41.091761917Z    socket.io-parser encoded {"type":2,"data":["output",{"output":""}],"nsp":"/"} as 2["output",{"output":""}] +0ms
+2018-11-16T14:36:41.091907215Z    engine:socket sending packet "message" (2["output",{"output":""}]) +0ms
+2018-11-16T14:36:41.108826305Z    YjsWS { [Function: Y]
+2018-11-16T14:36:41.108853633Z    YjsWS   AbstractConnector: [Function: AbstractConnector],
+2018-11-16T14:36:41.108858122Z    YjsWS   AbstractDatabase: [Function: AbstractDatabase],
+2018-11-16T14:36:41.108861764Z    YjsWS   Transaction: [Function: TransactionInterface],
+2018-11-16T14:36:41.108865562Z    YjsWS   Struct:
+2018-11-16T14:36:41.108868890Z    YjsWS    { Delete:
+2018-11-16T14:36:41.108872386Z    YjsWS       { encode: [Function: encode],
+2018-11-16T14:36:41.108875760Z    YjsWS         requiredOps: [Function: requiredOps],
+2018-11-16T14:36:41.108956611Z    YjsWS         execute: [GeneratorFunction: execute] },
+2018-11-16T14:36:41.108976352Z    YjsWS      Insert:
+2018-11-16T14:36:41.108979974Z    YjsWS       { encode: [Function: encode],
+2018-11-16T14:36:41.108983353Z    YjsWS         requiredOps: [Function: requiredOps],
+2018-11-16T14:36:41.108986634Z    YjsWS         getDistanceToOrigin: [GeneratorFunction: getDistanceToOrigin],
+2018-11-16T14:36:41.108990017Z    YjsWS         execute: [GeneratorFunction: execute] },
+2018-11-16T14:36:41.108993441Z    YjsWS      List:
+2018-11-16T14:36:41.108996723Z    YjsWS       { create: [Function: create],
+2018-11-16T14:36:41.109000006Z    YjsWS         encode: [Function: encode],
+2018-11-16T14:36:41.109003259Z    YjsWS         requiredOps: [Function: requiredOps],
+2018-11-16T14:36:41.109006558Z    YjsWS         execute: [GeneratorFunction: execute],
+2018-11-16T14:36:41.109009929Z    YjsWS         ref: [GeneratorFunction: ref],
+2018-11-16T14:36:41.109013291Z    YjsWS         map: [GeneratorFunction: map] },
+2018-11-16T14:36:41.109016561Z    YjsWS      Map:
+2018-11-16T14:36:41.109019678Z    YjsWS       { create: [Function: create],
+2018-11-16T14:36:41.109023066Z    YjsWS         encode: [Function: encode],
+2018-11-16T14:36:41.109026291Z    YjsWS         requiredOps: [Function: requiredOps],
+2018-11-16T14:36:41.109029590Z    YjsWS         execute: [GeneratorFunction: execute],
+2018-11-16T14:36:41.109032881Z    YjsWS         get: [GeneratorFunction: get] } },
+2018-11-16T14:36:41.109036481Z    YjsWS   utils:
+2018-11-16T14:36:41.109039626Z    YjsWS    { bubbleEvent: [Function],
+2018-11-16T14:36:41.109042955Z    YjsWS      EventListenerHandler: [Function: EventListenerHandler],
+2018-11-16T14:36:41.109046329Z    YjsWS      EventHandler: [Function: EventHandler],
+2018-11-16T14:36:41.109049706Z    YjsWS      CustomType: [Function: CustomType],
+2018-11-16T14:36:41.109053150Z    YjsWS      CustomTypeDefinition: [Function: CustomTypeDefinition],
+2018-11-16T14:36:41.109057829Z    YjsWS      isTypeDefinition: [Function: isTypeDefinition],
+2018-11-16T14:36:41.109062518Z    YjsWS      copyObject: [Function: copyObject],
+2018-11-16T14:36:41.109123404Z    YjsWS      copyOperation: [Function: copyOperation],
+2018-11-16T14:36:41.109130728Z    YjsWS      smaller: [Function: smaller],
+2018-11-16T14:36:41.109134259Z    YjsWS      inDeletionRange: [Function: inDeletionRange],
+2018-11-16T14:36:41.109137806Z    YjsWS      compareIds: [Function: compareIds],
+2018-11-16T14:36:41.109141174Z    YjsWS      matchesId: [Function: matchesId],
+2018-11-16T14:36:41.109145672Z    YjsWS      getLastId: [Function: getLastId],
+2018-11-16T14:36:41.109148961Z    YjsWS      createSmallLookupBuffer: [Function: createSmallLookupBuffer],
+2018-11-16T14:36:41.109152478Z    YjsWS      generateGuid: [Function: generateGuid],
+2018-11-16T14:36:41.109155995Z    YjsWS      globalRoom:
+2018-11-16T14:36:41.109159156Z    YjsWS       { users: {},
+2018-11-16T14:36:41.109162313Z    YjsWS         buffers: {},
+2018-11-16T14:36:41.109165552Z    YjsWS         removeUser: [Function: removeUser],
+2018-11-16T14:36:41.109168820Z    YjsWS         addUser: [Function: addUser],
+2018-11-16T14:36:41.109172173Z    YjsWS         whenTransactionsFinished: [Function: whenTransactionsFinished],
+2018-11-16T14:36:41.109175725Z    YjsWS         flushOne: [Function: flushOne],
+2018-11-16T14:36:41.109179044Z    YjsWS         flushAll: [Function: flushAll] } },
+2018-11-16T14:36:41.109182338Z    YjsWS   Test: [Function: Test],
+2018-11-16T14:36:41.109185638Z    YjsWS   debug:
+2018-11-16T14:36:41.109188791Z    YjsWS    { [Function: createDebug]
+2018-11-16T14:36:41.109191954Z    YjsWS      default: [Circular],
+2018-11-16T14:36:41.109195295Z    YjsWS      debug: [Circular],
+2018-11-16T14:36:41.109198550Z    YjsWS      coerce: [Function: coerce],
+2018-11-16T14:36:41.109201838Z    YjsWS      disable: [Function: disable],
+2018-11-16T14:36:41.109205071Z    YjsWS      enable: [Function: enable],
+2018-11-16T14:36:41.109208313Z    YjsWS      enabled: [Function: enabled],
+2018-11-16T14:36:41.109211559Z    YjsWS      humanize: [Function],
+2018-11-16T14:36:41.109219310Z    YjsWS      names: [ /^.*?$/ ],
+2018-11-16T14:36:41.109222804Z    YjsWS      skips: [],
+2018-11-16T14:36:41.109225973Z    YjsWS      formatters: { o: [Function], O: [Function] },
+2018-11-16T14:36:41.109264287Z    YjsWS      init: [Function: init],
+2018-11-16T14:36:41.109278738Z    YjsWS      log: [Function: log],
+2018-11-16T14:36:41.109282161Z    YjsWS      formatArgs: [Function: formatArgs],
+2018-11-16T14:36:41.109285453Z    YjsWS      save: [Function: save],
+2018-11-16T14:36:41.109288831Z    YjsWS      load: [Function: load],
+2018-11-16T14:36:41.109292058Z    YjsWS      useColors: [Function: useColors],
+2018-11-16T14:36:41.109295368Z    YjsWS      colors: [ 6, 2, 3, 4, 5, 1 ],
+2018-11-16T14:36:41.109299108Z    YjsWS      inspectOpts: {} },
+2018-11-16T14:36:41.109302290Z    YjsWS   requiringModules: {},
+2018-11-16T14:36:41.109305490Z    YjsWS   extend: [Function],
+2018-11-16T14:36:41.109308798Z    YjsWS   requestModules: [Function: requestModules] } +0ms
+2018-11-16T14:36:41.109354578Z    YjsWS Y.debug: function createDebug(namespace) {
+2018-11-16T14:36:41.109360636Z
+2018-11-16T14:36:41.109404311Z    function debug() {
+2018-11-16T14:36:41.109410159Z      // disabled?
+2018-11-16T14:36:41.109413439Z      if (!debug.enabled) return;
+2018-11-16T14:36:41.109416575Z
+2018-11-16T14:36:41.109444849Z      var self = debug;
+2018-11-16T14:36:41.109450137Z
+2018-11-16T14:36:41.109453221Z      // set `diff` timestamp
+2018-11-16T14:36:41.109456297Z      var curr = +new Date();
+2018-11-16T14:36:41.109459411Z      var ms = curr - (prevTime || curr);
+2018-11-16T14:36:41.109462520Z      self.diff = ms;
+2018-11-16T14:36:41.109465523Z      self.prev = prevTime;
+2018-11-16T14:36:41.109468675Z      self.curr = curr;
+2018-11-16T14:36:41.109518483Z      prevTime = curr;
+2018-11-16T14:36:41.109524496Z
+2018-11-16T14:36:41.109527566Z      // turn the `arguments` into a proper Array
+2018-11-16T14:36:41.109530645Z      var args = new Array(arguments.length);
+2018-11-16T14:36:41.109533740Z      for (var i = 0; i < args.length; i++) {
+2018-11-16T14:36:41.109542069Z        args[i] = arguments[i];
+2018-11-16T14:36:41.109545237Z      }
+2018-11-16T14:36:41.109548235Z
+2018-11-16T14:36:41.109551203Z      args[0] = exports.coerce(args[0]);
+2018-11-16T14:36:41.109554309Z
+2018-11-16T14:36:41.109557293Z      if ('string' !== typeof args[0]) {
+2018-11-16T14:36:41.109560446Z        // anything else let's inspect with %O
+2018-11-16T14:36:41.109563590Z        args.unshift('%O');
+2018-11-16T14:36:41.109566674Z      }
+2018-11-16T14:36:41.109569689Z
+2018-11-16T14:36:41.109572811Z      // apply any `formatters` transformations
+2018-11-16T14:36:41.109627739Z      var index = 0;
+2018-11-16T14:36:41.109633675Z      args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
+2018-11-16T14:36:41.109637097Z        // if we encounter an escaped % then don't increase the array index
+2018-11-16T14:36:41.109640283Z        if (match === '%%') return match;
+2018-11-16T14:36:41.109643371Z        index++;
+2018-11-16T14:36:41.109646409Z        var formatter = exports.formatters[format];
+2018-11-16T14:36:41.109649723Z        if ('function' === typeof formatter) {
+2018-11-16T14:36:41.109652830Z          var val = args[index];
+2018-11-16T14:36:41.109656086Z          match = formatter.call(self, val);
+2018-11-16T14:36:41.109659173Z
+2018-11-16T14:36:41.109662252Z          // now we need to remove `args[index]` since it's inlined in the `format`
+2018-11-16T14:36:41.109665885Z          args.splice(index, 1);
+2018-11-16T14:36:41.109670420Z          index--;
+2018-11-16T14:36:41.109698478Z        }
+2018-11-16T14:36:41.109702129Z        return match;
+2018-11-16T14:36:41.109705141Z      });
+2018-11-16T14:36:41.109708116Z
+2018-11-16T14:36:41.109711724Z      // apply env-specific formatting (colors, etc.)
+2018-11-16T14:36:41.109756653Z      exports.formatArgs.call(self, args);
+2018-11-16T14:36:41.109765526Z
+2018-11-16T14:36:41.109769441Z      var logFn = debug.log || exports.log || console.log.bind(console);
+2018-11-16T14:36:41.109772756Z      logFn.apply(self, args);
+2018-11-16T14:36:41.109775804Z    }
+2018-11-16T14:36:41.109780841Z
+2018-11-16T14:36:41.109785231Z    debug.namespace = namespace;
+2018-11-16T14:36:41.109790233Z    debug.enabled = exports.enabled(namespace);
+2018-11-16T14:36:41.109793516Z    debug.useColors = exports.useColors();
+2018-11-16T14:36:41.109796580Z    debug.color = selectColor(namespace);
+2018-11-16T14:36:41.109799638Z
+2018-11-16T14:36:41.109802647Z    // env-specific initialization logic for debug instances
+2018-11-16T14:36:41.109811110Z    if ('function' === typeof exports.init) {
+2018-11-16T14:36:41.109814340Z      exports.init(debug);
+2018-11-16T14:36:41.109817535Z    }
+2018-11-16T14:36:41.109820514Z
+2018-11-16T14:36:41.109823583Z    return debug;
+2018-11-16T14:36:41.109826681Z  } +3ms
+2018-11-16T14:36:41.113498798Z    YjsWS [NEXT LINE: "const options = minimist(process.argv.slice(2), {..."] +4ms
+2018-11-16T14:36:41.113734514Z    YjsWS     process.argv= [ '/usr/bin/node', '/app/server.js' ] +0ms
+2018-11-16T14:36:41.114632860Z    socket.io:socket joined room Wp1ng3_w-pH-krGAAAAA +25ms
+2018-11-16T14:36:41.114890395Z    server   [io.of("/").clients(fn)] error: null, clients: Wp1ng3_w-pH-krGAAAAA +24ms
+2018-11-16T14:36:41.115086665Z    server   [initRepl] lang: ruby, welcome_msg: WELCOME TO SPACECRAFT!
+ +0ms11-16T14:36:41.115096184Z
+2018-11-16T14:36:41.115408473Z    Repl [kill()] this.process: null +0ms
+2018-11-16T14:36:41.115612798Z    Repl [Repl.init(language = "ruby")] +0ms
+2018-11-16T14:36:41.127821772Z    Repl   INITIALIZED command: irb +12ms
+2018-11-16T14:36:41.130530419Z    Repl   this.process: UnixTerminal {
+2018-11-16T14:36:41.130608662Z    Repl   _internalee:
+2018-11-16T14:36:41.130615962Z    Repl    EventEmitter {
+2018-11-16T14:36:41.130619562Z    Repl      _events: [Object: null prototype] {},
+2018-11-16T14:36:41.130623060Z    Repl      _eventsCount: 0,
+2018-11-16T14:36:41.130627081Z    Repl      _maxListeners: undefined },
+2018-11-16T14:36:41.130630695Z    Repl   _socket:
+2018-11-16T14:36:41.130633910Z    Repl    PipeSocket {
+2018-11-16T14:36:41.130637174Z    Repl      connecting: false,
+2018-11-16T14:36:41.130640444Z    Repl      _hadError: false,
+2018-11-16T14:36:41.130643820Z    Repl      _handle:
+2018-11-16T14:36:41.130646953Z    Repl       Pipe {
+2018-11-16T14:36:41.130650137Z    Repl         onread: [Function: onStreamRead],
+2018-11-16T14:36:41.130653508Z    Repl         [Symbol(owner)]: [Circular] },
+2018-11-16T14:36:41.130657212Z    Repl      _parent: null,
+2018-11-16T14:36:41.130674386Z    Repl      _host: null,
+2018-11-16T14:36:41.130678256Z    Repl      _readableState:
+2018-11-16T14:36:41.130732078Z    Repl       ReadableState {
+2018-11-16T14:36:41.130738430Z    Repl         objectMode: false,
+2018-11-16T14:36:41.130741857Z    Repl         highWaterMark: 16384,
+2018-11-16T14:36:41.130745294Z    Repl         buffer: BufferList { head: null, tail: null, length: 0 },
+2018-11-16T14:36:41.130748922Z    Repl         length: 0,
+2018-11-16T14:36:41.130752186Z    Repl         pipes: null,
+2018-11-16T14:36:41.130755417Z    Repl         pipesCount: 0,
+2018-11-16T14:36:41.130758732Z    Repl         flowing: null,
+2018-11-16T14:36:41.130761962Z    Repl         ended: false,
+2018-11-16T14:36:41.130765491Z    Repl         endEmitted: false,
+2018-11-16T14:36:41.130768957Z    Repl         reading: false,
+2018-11-16T14:36:41.130772350Z    Repl         sync: true,
+2018-11-16T14:36:41.130775602Z    Repl         needReadable: false,
+2018-11-16T14:36:41.130778988Z    Repl         emittedReadable: false,
+2018-11-16T14:36:41.130782218Z    Repl         readableListening: false,
+2018-11-16T14:36:41.130785483Z    Repl         resumeScheduled: false,
+2018-11-16T14:36:41.130788677Z    Repl         emitClose: false,
+2018-11-16T14:36:41.130792136Z    Repl         destroyed: false,
+2018-11-16T14:36:41.130795397Z    Repl         defaultEncoding: 'utf8',
+2018-11-16T14:36:41.130842744Z    Repl         awaitDrain: 0,
+2018-11-16T14:36:41.130849189Z    Repl         readingMore: false,
+2018-11-16T14:36:41.130852867Z    Repl         decoder:
+2018-11-16T14:36:41.130856002Z    Repl          StringDecoder {
+2018-11-16T14:36:41.130859226Z    Repl            encoding: 'utf8',
+2018-11-16T14:36:41.130862500Z    Repl            [Symbol(kNativeDecoder)]: <Buffer 00 00 00 00 00 00 01> },
+2018-11-16T14:36:41.130866318Z    Repl         encoding: 'utf8' },
+2018-11-16T14:36:41.130874453Z    Repl      readable: false,
+2018-11-16T14:36:41.130877919Z    Repl      _events:
+2018-11-16T14:36:41.130881045Z    Repl       [Object: null prototype] {
+2018-11-16T14:36:41.130884402Z    Repl         end: [Function: onReadableStreamEnd],
+2018-11-16T14:36:41.130887787Z    Repl         error: [Function],
+2018-11-16T14:36:41.130891117Z    Repl         close: [Function] },
+2018-11-16T14:36:41.130894403Z    Repl      _eventsCount: 3,
+2018-11-16T14:36:41.130897664Z    Repl      _maxListeners: undefined,
+2018-11-16T14:36:41.130901027Z    Repl      _writableState:
+2018-11-16T14:36:41.130904253Z    Repl       WritableState {
+2018-11-16T14:36:41.130907398Z    Repl         objectMode: false,
+2018-11-16T14:36:41.130910700Z    Repl         highWaterMark: 16384,
+2018-11-16T14:36:41.130914135Z    Repl         finalCalled: false,
+2018-11-16T14:36:41.130969256Z    Repl         needDrain: false,
+2018-11-16T14:36:41.130976112Z    Repl         ending: false,
+2018-11-16T14:36:41.130979573Z    Repl         ended: false,
+2018-11-16T14:36:41.130982837Z    Repl         finished: false,
+2018-11-16T14:36:41.130986147Z    Repl         destroyed: false,
+2018-11-16T14:36:41.130989412Z    Repl         decodeStrings: false,
+2018-11-16T14:36:41.130992666Z    Repl         defaultEncoding: 'utf8',
+2018-11-16T14:36:41.130995922Z    Repl         length: 0,
+2018-11-16T14:36:41.130999485Z    Repl         writing: false,
+2018-11-16T14:36:41.131002720Z    Repl         corked: 0,
+2018-11-16T14:36:41.131005958Z    Repl         sync: true,
+2018-11-16T14:36:41.131009178Z    Repl         bufferProcessing: false,
+2018-11-16T14:36:41.131012551Z    Repl         onwrite: [Function: bound onwrite],
+2018-11-16T14:36:41.131015832Z    Repl         writecb: null,
+2018-11-16T14:36:41.131019061Z    Repl         writelen: 0,
+2018-11-16T14:36:41.131022325Z    Repl         bufferedRequest: null,
+2018-11-16T14:36:41.131032315Z    Repl         lastBufferedRequest: null,
+2018-11-16T14:36:41.131035715Z    Repl         pendingcb: 0,
+2018-11-16T14:36:41.131038973Z    Repl         prefinished: false,
+2018-11-16T14:36:41.131042300Z    Repl         errorEmitted: false,
+2018-11-16T14:36:41.131091862Z    Repl         emitClose: false,
+2018-11-16T14:36:41.131098115Z    Repl         bufferedRequestCount: 0,
+2018-11-16T14:36:41.131101584Z    Repl         corkedRequestsFree:
+2018-11-16T14:36:41.131104806Z    Repl          { next: null,
+2018-11-16T14:36:41.131107999Z    Repl            entry: null,
+2018-11-16T14:36:41.131111238Z    Repl            finish: [Function: bound onCorkedFinish] } },
+2018-11-16T14:36:41.131114699Z    Repl      writable: false,
+2018-11-16T14:36:41.131117865Z    Repl      allowHalfOpen: false,
+2018-11-16T14:36:41.131121044Z    Repl      _sockname: null,
+2018-11-16T14:36:41.131124254Z    Repl      _pendingData: null,
+2018-11-16T14:36:41.131127662Z    Repl      _pendingEncoding: '',
+2018-11-16T14:36:41.131130873Z    Repl      server: null,
+2018-11-16T14:36:41.131134065Z    Repl      _server: null,
+2018-11-16T14:36:41.131137254Z    Repl      [Symbol(asyncId)]: 268,
+2018-11-16T14:36:41.131140676Z    Repl      [Symbol(lastWriteQueueSize)]: 0,
+2018-11-16T14:36:41.131144064Z    Repl      [Symbol(timeout)]: null,
+2018-11-16T14:36:41.131147718Z    Repl      [Symbol(kBytesRead)]: 0,
+2018-11-16T14:36:41.131151062Z    Repl      [Symbol(kBytesWritten)]: 0 },
+2018-11-16T14:36:41.131154417Z    Repl   _pid: 49,
+2018-11-16T14:36:41.131157601Z    Repl   _fd: 22,
+2018-11-16T14:36:41.131160894Z    Repl   _pty: '/dev/pts/1',
+2018-11-16T14:36:41.131194793Z    Repl   _file: 'irb',
+2018-11-16T14:36:41.131200242Z    Repl   _name: 'xterm',
+2018-11-16T14:36:41.131207511Z    Repl   _readable: true,
+2018-11-16T14:36:41.131211023Z    Repl   _writable: true }, this.language: "ruby" +0ms
+2018-11-16T14:36:41.137620717Z    socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +40ms
+2018-11-16T14:36:41.137863499Z    socket.io-parser encoded {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} as 2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}] +6ms
+2018-11-16T14:36:41.138162145Z    socket.io:client writing packet ["2[\"langChange\",{\"language\":\"ruby\",\"data\":\"WELCOME TO SPACECRAFT!\\n\\r\"}]"] +47ms
+2018-11-16T14:36:41.138330854Z    engine:socket sending packet "message" (2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]) +47ms
+2018-11-16T14:36:41.245453516Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"irb(main):001:0> "}],"nsp":"/"} +108ms
+2018-11-16T14:36:41.245552693Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"irb(main):001:0> "}],"nsp":"/"} as 2["output",{"output":"irb(main):001:0> "}] +0ms
+2018-11-16T14:36:41.245829277Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"irb(main):001:0> \"}]"] +107ms
+2018-11-16T14:36:41.245840511Z    engine:socket sending packet "message" (2["output",{"output":"irb(main):001:0> "}]) +107ms
+2018-11-16T14:36:41.366206984Z    engine intercepting request for path "/socket.io/" +284ms
+2018-11-16T14:36:41.366250427Z    engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSSyzO4&sid=Wp1ng3_w-pH-krGAAAAA" +1ms
+2018-11-16T14:36:41.366341815Z    engine setting new request for existing client +0ms
+2018-11-16T14:36:41.366417910Z    engine:polling setting request +282ms
+2018-11-16T14:36:41.366722963Z    engine:socket flushing buffer to transport +121ms
+2018-11-16T14:36:41.366780269Z    engine:polling writing "72:42["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]26:42["output",{"output":""}]72:42["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]43:42["output",{"output":"irb(main):001:0> "}]"
+ +0ms
+2018-11-16T14:36:41.367092416Z    engine:socket executing batch send callback +1ms
+2018-11-16T14:36:41.384910124Z    engine upgrading existing transport +18ms
+2018-11-16T14:36:41.385270957Z    engine:socket might upgrade socket transport from "polling" to "websocket" +18ms
+2018-11-16T14:36:41.386879790Z    engine intercepting request for path "/socket.io/" +2ms
+2018-11-16T14:36:41.386964207Z    engine handling "POST" http request "/socket.io/?EIO=3&transport=polling&t=MSSyzO9&sid=Wp1ng3_w-pH-krGAAAAA" +0ms
+2018-11-16T14:36:41.387225374Z    engine setting new request for existing client +0ms
+2018-11-16T14:36:41.388023303Z    engine:polling received "32:42["joinRoom","spacecraft-repl"]" +21ms
+2018-11-16T14:36:41.388684353Z    engine:socket packet +3ms
+2018-11-16T14:36:41.389646804Z    socket.io-parser decoded 2["joinRoom","spacecraft-repl"] as {"type":2,"nsp":"/","data":["joinRoom","spacecraft-repl"]} +144ms
+2018-11-16T14:36:41.390610026Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["joinRoom","spacecraft-repl"]} +276ms
+2018-11-16T14:36:41.390869568Z    socket.io:socket emitting event ["joinRoom","spacecraft-repl"] +0ms
+2018-11-16T14:36:41.391124954Z    socket.io:socket dispatching an event ["joinRoom","spacecraft-repl"] +0ms
+2018-11-16T14:36:41.391616227Z    YjsWS [socket.on('joinRoom', fn)] room: spacecraft-repl +278ms
+2018-11-16T14:36:41.391690606Z    YjsWS User "Wp1ng3_w-pH-krGAAAAA" joins room "spacecraft-repl" +0ms
+2018-11-16T14:36:41.391867585Z    socket.io:socket joining room spacecraft-repl +1ms
+2018-11-16T14:36:41.392289890Z    YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' } +1ms
+2018-11-16T14:36:41.392523525Z    YjsWS [NEXT LINE: "      global.yInstances[room] = Y({..."] +0ms
+2018-11-16T14:36:41.393222038Z    YjsWS [NEXT LINE: "return global.yInstances[room];"] +1ms
+2018-11-16T14:36:41.393536262Z    socket.io:socket joined room spacecraft-repl +2ms
+2018-11-16T14:36:41.397792027Z    y:connector Set userId to "74e65ffb-c5d8-4123-a609-915bdf0c0f07" +0ms
+2018-11-16T14:36:41.398660527Z    express:router dispatching GET /favicon.ico +794ms
+2018-11-16T14:36:41.399000860Z    express:router query  : /favicon.ico +0ms
+2018-11-16T14:36:41.399016611Z    express:router expressInit  : /favicon.ico +0ms
+2018-11-16T14:36:41.399023783Z    express:router textParser  : /favicon.ico +0ms
+2018-11-16T14:36:41.399105557Z    body-parser:text skip empty body +794ms
+2018-11-16T14:36:41.399372710Z    express:router serveStatic  : /favicon.ico +1ms
+2018-11-16T14:36:41.399448451Z    send stat "/app/public/favicon.ico" +793ms
+2018-11-16T14:36:41.401490447Z    send pipe "/app/public/favicon.ico" +2ms
+2018-11-16T14:36:41.401576953Z    send accept ranges +0ms
+2018-11-16T14:36:41.401645233Z    send cache-control public, max-age=0 +0ms
+2018-11-16T14:36:41.401998146Z    send modified Fri, 16 Nov 2018 14:17:31 GMT +0ms
+2018-11-16T14:36:41.402013106Z    send etag W/"2492e-1671ce24878" +0ms
+2018-11-16T14:36:41.402020166Z    send content-type image/x-icon +0ms
+2018-11-16T14:36:41.402365859Z    engine intercepting request for path "/socket.io/" +16ms
+2018-11-16T14:36:41.402459931Z    engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSSyzOa&sid=Wp1ng3_w-pH-krGAAAAA" +0ms
+2018-11-16T14:36:41.402733304Z    engine setting new request for existing client +0ms
+2018-11-16T14:36:41.402838965Z    engine:polling setting request +15ms
+2018-11-16T14:36:41.403763929Z    y:connector User joined: Wp1ng3_w-pH-krGAAAAA +6ms
+2018-11-16T14:36:41.405238773Z    socket.io-parser encoding packet {"type":2,"data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}],"nsp":"/"} +16ms
+2018-11-16T14:36:41.405350868Z    socket.io-parser encoded {"type":2,"data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}],"nsp":"/"} as 2["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protoc
+olVersion":11,"auth":null,"room":"spacecraft-repl"}] +0ms
+2018-11-16T14:36:41.405643227Z    socket.io:client writing packet ["2[\"yjsEvent\",{\"type\":\"sync step 1\",\"stateSet\":{},\"deleteSet\":{},\"protocolVersion\":11,\"auth\":null,\"room\":\"spacecraft-repl\"}]"] +160ms
+2018-11-16T14:36:41.405672940Z    engine:socket sending packet "message" (2["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]) +17ms
+2018-11-16T14:36:41.405684271Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:41.405762302Z    engine:polling writing "124:42["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]" +3ms
+2018-11-16T14:36:41.406156594Z    y:connector Send 'sync step 1' to Wp1ng3_w-pH-krGAAAAA +3ms
+2018-11-16T14:36:41.406240753Z    y:connector-message Message: {"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"} +0ms
+2018-11-16T14:36:41.415532442Z    engine intercepting request for path "/socket.io/" +13ms
+2018-11-16T14:36:41.415660864Z    engine handling "POST" http request "/socket.io/?EIO=3&transport=polling&t=MSSyzOs&sid=Wp1ng3_w-pH-krGAAAAA" +0ms
+2018-11-16T14:36:41.415675603Z    engine setting new request for existing client +0ms
+2018-11-16T14:36:41.416036917Z    engine:polling received "124:42["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]" +10ms
+2018-11-16T14:36:41.416114392Z    engine:socket packet +11ms
+2018-11-16T14:36:41.416466026Z    socket.io-parser decoded 2["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}] as {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protoco
+lVersion":11,"auth":null,"room":"spacecraft-repl"}]} +11ms
+2018-11-16T14:36:41.416747923Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]} +23ms
+2018-11-16T14:36:41.416983990Z    socket.io:socket emitting event ["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}] +0ms
+2018-11-16T14:36:41.417000610Z    socket.io:socket dispatching an event ["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}] +0ms
+2018-11-16T14:36:41.417291672Z    YjsWS [socket.on('yjsEvent', fn)] msg: [object Object] +24ms
+2018-11-16T14:36:41.417552713Z    YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' } +0ms
+2018-11-16T14:36:41.417568897Z    YjsWS [NEXT LINE: "return global.yInstances[room];"] +0ms
+2018-11-16T14:36:41.417804040Z    YjsWS [PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...] +0ms
+2018-11-16T14:36:41.418204306Z    y:connector Receive 'sync step 1' from Wp1ng3_w-pH-krGAAAAA +12ms
+2018-11-16T14:36:41.418288274Z    y:connector-message Message: {"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"} +0ms
+2018-11-16T14:36:41.422452716Z    socket.io-parser encoding packet {"type":2,"data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}],"nsp":"/"} +6ms
+2018-11-16T14:36:41.422575343Z    socket.io-parser encoded {"type":2,"data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}],"nsp":"/"} as 2["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"
+}] +0ms
+2018-11-16T14:36:41.422675167Z    socket.io:client writing packet ["2[\"yjsEvent\",{\"type\":\"sync step 2\",\"stateSet\":{},\"deleteSet\":{},\"os\":[],\"room\":\"spacecraft-repl\"}]"] +17ms
+2018-11-16T14:36:41.422755541Z    engine:socket sending packet "message" (2["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]) +6ms
+2018-11-16T14:36:41.423030783Z    y:connector Send 'sync step 2' to Wp1ng3_w-pH-krGAAAAA +4ms
+2018-11-16T14:36:41.423045647Z    y:connector-message Message: {"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"} +0ms
+2018-11-16T14:36:41.423120028Z    socket.io-parser encoding packet {"type":2,"data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}],"nsp":"/"} +0ms
+2018-11-16T14:36:41.423178268Z    socket.io-parser encoded {"type":2,"data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}],"nsp":"/"} as 2["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}] +1ms
+2018-11-16T14:36:41.423251837Z    socket.io:client writing packet ["2[\"yjsEvent\",{\"type\":\"sync done\",\"room\":\"spacecraft-repl\"}]"] +1ms
+2018-11-16T14:36:41.423496503Z    engine:socket sending packet "message" (2["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]) +1ms
+2018-11-16T14:36:41.423511207Z    y:connector Send 'sync done' to Wp1ng3_w-pH-krGAAAAA +1ms
+2018-11-16T14:36:41.423575801Z    y:connector-message Message: {"type":"sync done","room":"spacecraft-repl"} +0ms
+2018-11-16T14:36:41.424829054Z    engine:ws received "2probe" +0ms
+2018-11-16T14:36:41.425254350Z    engine:ws writing "3probe" +1ms
+2018-11-16T14:36:41.442009410Z    engine intercepting request for path "/socket.io/" +26ms
+2018-11-16T14:36:41.442126155Z    engine handling "POST" http request "/socket.io/?EIO=3&transport=polling&t=MSSyzPE&sid=Wp1ng3_w-pH-krGAAAAA" +0ms
+2018-11-16T14:36:41.442204284Z    engine setting new request for existing client +1ms
+2018-11-16T14:36:41.442529050Z    engine:polling received "99:42["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]60:42["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]" +27ms
+2018-11-16T14:36:41.442563460Z    engine:socket packet +19ms
+2018-11-16T14:36:41.442812384Z    socket.io-parser decoded 2["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}] as {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}
+]} +19ms
+2018-11-16T14:36:41.442829969Z    engine:socket packet +0ms
+2018-11-16T14:36:41.443070245Z    socket.io-parser decoded 2["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}] as {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]} +0ms
+2018-11-16T14:36:41.443344770Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]} +27ms
+2018-11-16T14:36:41.443356621Z    socket.io:socket emitting event ["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}] +0ms
+2018-11-16T14:36:41.443400743Z    socket.io:socket dispatching an event ["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}] +0ms
+2018-11-16T14:36:41.443456769Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]} +0ms
+2018-11-16T14:36:41.443631276Z    socket.io:socket emitting event ["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}] +0ms
+2018-11-16T14:36:41.443641251Z    socket.io:socket dispatching an event ["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}] +0ms
+2018-11-16T14:36:41.443779402Z    YjsWS [socket.on('yjsEvent', fn)] msg: [object Object] +26ms
+2018-11-16T14:36:41.444033891Z    YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' } +0ms
+2018-11-16T14:36:41.444047669Z    YjsWS [NEXT LINE: "return global.yInstances[room];"] +0ms
+2018-11-16T14:36:41.444112013Z    YjsWS [socket.on('yjsEvent', fn)] msg: [object Object] +0ms
+2018-11-16T14:36:41.444192203Z    YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' } +1ms
+2018-11-16T14:36:41.444251533Z    YjsWS [NEXT LINE: "return global.yInstances[room];"] +0ms
+2018-11-16T14:36:41.444492920Z    YjsWS [PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...] +0ms
+2018-11-16T14:36:41.444507095Z    y:connector Receive 'sync step 2' from Wp1ng3_w-pH-krGAAAAA +21ms
+2018-11-16T14:36:41.444523647Z    y:connector-message Message: {"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"} +0ms
+2018-11-16T14:36:41.444605767Z    YjsWS [PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...] +0ms
+2018-11-16T14:36:41.444665099Z    y:connector Receive 'sync done' from Wp1ng3_w-pH-krGAAAAA +0ms
+2018-11-16T14:36:41.444733507Z    y:connector-message Message: {"type":"sync done","room":"spacecraft-repl"} +0ms
+2018-11-16T14:36:41.445106485Z    engine intercepting request for path "/socket.io/" +2ms
+2018-11-16T14:36:41.445177889Z    engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSSyzP8&sid=Wp1ng3_w-pH-krGAAAAA" +1ms
+2018-11-16T14:36:41.445355611Z    engine setting new request for existing client +0ms
+2018-11-16T14:36:41.445448148Z    engine:polling setting request +3ms
+2018-11-16T14:36:41.445463312Z    engine:socket flushing buffer to transport +3ms
+2018-11-16T14:36:41.445709170Z    engine:polling writing "99:42["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]60:42["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]" +0ms
+2018-11-16T14:36:41.445790980Z    engine:socket executing batch send callback +0ms
+2018-11-16T14:36:41.471009985Z    engine:ws received "5" +45ms
+2018-11-16T14:36:41.471114034Z    engine:socket got upgrade packet - upgrading +25ms
+2018-11-16T14:36:41.471743429Z    engine:polling closing +26ms
+2018-11-16T14:36:41.471820021Z    engine:polling transport discarded - closing right away +0ms
+2018-11-16T14:36:44.856906599Z    engine:ws received "42["lineChanged",{"line":"1"}]" +3s
+2018-11-16T14:36:44.857000209Z    engine:socket packet +3s
+2018-11-16T14:36:44.857215366Z    socket.io-parser decoded 2["lineChanged",{"line":"1"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +3s
+2018-11-16T14:36:44.857529319Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +3s
+2018-11-16T14:36:44.857676287Z    socket.io:socket emitting event ["lineChanged",{"line":"1"}] +0ms
+2018-11-16T14:36:44.858048394Z    socket.io:socket dispatching an event ["lineChanged",{"line":"1"}] +0ms
+2018-11-16T14:36:44.858255286Z    server   ["lineChanged"] { line: 1 } +4s
+2018-11-16T14:36:44.858358688Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"1","prompt":"irb(main):001:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:36:44.858544332Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"1","prompt":"irb(main):001:0> "}],"nsp":"/"} as 2["syncLine",{"line":"1","prompt":"irb(main):001:0> "}] +0ms
+2018-11-16T14:36:44.858657177Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"1\",\"prompt\":\"irb(main):001:0> \"}]"] +3s
+2018-11-16T14:36:44.858766174Z    engine:socket sending packet "message" (2["syncLine",{"line":"1","prompt":"irb(main):001:0> "}]) +2ms
+2018-11-16T14:36:44.858857085Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:44.859041230Z    engine:ws writing "42["syncLine",{"line":"1","prompt":"irb(main):001:0> "}]" +2ms
+2018-11-16T14:36:44.859390654Z    engine:socket executing batch send callback +1ms
+2018-11-16T14:36:44.984230498Z    engine:ws received "42["lineChanged",{"line":""}]" +126ms
+2018-11-16T14:36:44.984325894Z    engine:socket packet +125ms
+2018-11-16T14:36:44.984567163Z    socket.io-parser decoded 2["lineChanged",{"line":""}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +126ms
+2018-11-16T14:36:44.984795268Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +127ms
+2018-11-16T14:36:44.985012418Z    socket.io:socket emitting event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:36:44.985168248Z    socket.io:socket dispatching an event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:36:44.985298228Z    server   ["lineChanged"] { line:  } +128ms
+2018-11-16T14:36:44.985576208Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):001:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:44.991791735Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):001:0> "}],"nsp":"/"} as 2["syncLine",{"line":"","prompt":"irb(main):001:0> "}] +0ms
+2018-11-16T14:36:44.992018587Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"\",\"prompt\":\"irb(main):001:0> \"}]"] +133ms
+2018-11-16T14:36:44.992182797Z    engine:socket sending packet "message" (2["syncLine",{"line":"","prompt":"irb(main):001:0> "}]) +8ms
+2018-11-16T14:36:44.992323396Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:44.992516058Z    engine:ws writing "42["syncLine",{"line":"","prompt":"irb(main):001:0> "}]" +8ms
+2018-11-16T14:36:44.993086325Z    engine:ws received "42["evaluate",{"code":"1"}]" +0ms
+2018-11-16T14:36:44.993233998Z    engine:socket packet +1ms
+2018-11-16T14:36:44.993455048Z    socket.io-parser decoded 2["evaluate",{"code":"1"}] as {"type":2,"nsp":"/","data":["evaluate",{"code":"1"}]} +8ms
+2018-11-16T14:36:44.993637609Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["evaluate",{"code":"1"}]} +9ms
+2018-11-16T14:36:44.993707581Z    socket.io:socket emitting event ["evaluate",{"code":"1"}] +0ms
+2018-11-16T14:36:44.993881087Z    socket.io:socket dispatching an event ["evaluate",{"code":"1"}] +0ms
+2018-11-16T14:36:44.994168516Z    server   ["evaluate"] { code: 1 } +9ms
+2018-11-16T14:36:44.994361567Z    Repl [Repl.write(string = 1)] +4s
+2018-11-16T14:36:44.995205358Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"1\r\n=> 1\r\nirb(main):002:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:36:44.995361948Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"1\r\n=> 1\r\nirb(main):002:0> "}],"nsp":"/"} as 2["output",{"output":"1\r\n=> 1\r\nirb(main):002:0> "}] +0ms
+2018-11-16T14:36:44.995515449Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"1\\r\\n=> 1\\r\\nirb(main):002:0> \"}]"] +4ms
+2018-11-16T14:36:44.995651640Z    engine:socket sending packet "message" (2["output",{"output":"1\r\n=> 1\r\nirb(main):002:0> "}]) +2ms
+2018-11-16T14:36:44.995775500Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:44.995983131Z    engine:ws writing "42["output",{"output":"1\r\n=> 1\r\nirb(main):002:0> "}]" +3ms
+2018-11-16T14:36:45.504819585Z    engine:ws received "42["lineChanged",{"line":"1"}]" +509ms
+2018-11-16T14:36:45.505132036Z    engine:socket packet +509ms
+2018-11-16T14:36:45.505258031Z    socket.io-parser decoded 2["lineChanged",{"line":"1"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +510ms
+2018-11-16T14:36:45.505546653Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +512ms
+2018-11-16T14:36:45.505768937Z    socket.io:socket emitting event ["lineChanged",{"line":"1"}] +0ms
+2018-11-16T14:36:45.505866555Z    socket.io:socket dispatching an event ["lineChanged",{"line":"1"}] +0ms
+2018-11-16T14:36:45.506089073Z    server   ["lineChanged"] { line: 1 } +511ms
+2018-11-16T14:36:45.506363839Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"1","prompt":"irb(main):002:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:45.506609303Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"1","prompt":"irb(main):002:0> "}],"nsp":"/"} as 2["syncLine",{"line":"1","prompt":"irb(main):002:0> "}] +0ms
+2018-11-16T14:36:45.506809785Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"1\",\"prompt\":\"irb(main):002:0> \"}]"] +511ms
+2018-11-16T14:36:45.507017291Z    engine:socket sending packet "message" (2["syncLine",{"line":"1","prompt":"irb(main):002:0> "}]) +2ms
+2018-11-16T14:36:45.507245747Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:36:45.507465211Z    engine:ws writing "42["syncLine",{"line":"1","prompt":"irb(main):002:0> "}]" +3ms
+2018-11-16T14:36:45.725506478Z    engine:ws received "42["lineChanged",{"line":"12"}]" +217ms
+2018-11-16T14:36:45.725554487Z    engine:socket packet +217ms
+2018-11-16T14:36:45.725559983Z    socket.io-parser decoded 2["lineChanged",{"line":"12"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"12"}]} +218ms
+2018-11-16T14:36:45.725565091Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"12"}]} +219ms
+2018-11-16T14:36:45.725569230Z    socket.io:socket emitting event ["lineChanged",{"line":"12"}] +0ms
+2018-11-16T14:36:45.725573288Z    socket.io:socket dispatching an event ["lineChanged",{"line":"12"}] +0ms
+2018-11-16T14:36:45.725576982Z    server   ["lineChanged"] { line: 12 } +219ms
+2018-11-16T14:36:45.725580723Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"12","prompt":"irb(main):002:0> "}],"nsp":"/"} +0ms
+2018-11-16T14:36:45.725585360Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"12","prompt":"irb(main):002:0> "}],"nsp":"/"} as 2["syncLine",{"line":"12","prompt":"irb(main):002:0> "}] +0ms
+2018-11-16T14:36:45.725635107Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"12\",\"prompt\":\"irb(main):002:0> \"}]"] +219ms
+2018-11-16T14:36:45.725652970Z    engine:socket sending packet "message" (2["syncLine",{"line":"12","prompt":"irb(main):002:0> "}]) +1ms
+2018-11-16T14:36:45.725657399Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:45.725660760Z    engine:ws writing "42["syncLine",{"line":"12","prompt":"irb(main):002:0> "}]" +1ms
+2018-11-16T14:36:45.865492327Z    engine:ws received "42["lineChanged",{"line":"122"}]" +140ms
+2018-11-16T14:36:45.865591648Z    engine:socket packet +140ms
+2018-11-16T14:36:45.865876718Z    socket.io-parser decoded 2["lineChanged",{"line":"122"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"122"}]} +141ms
+2018-11-16T14:36:45.865904372Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"122"}]} +141ms
+2018-11-16T14:36:45.865963005Z    socket.io:socket emitting event ["lineChanged",{"line":"122"}] +0ms
+2018-11-16T14:36:45.866010345Z    socket.io:socket dispatching an event ["lineChanged",{"line":"122"}] +0ms
+2018-11-16T14:36:45.866171269Z    server   ["lineChanged"] { line: 122 } +142ms
+2018-11-16T14:36:45.866216080Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"122","prompt":"irb(main):002:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:45.866412843Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"122","prompt":"irb(main):002:0> "}],"nsp":"/"} as 2["syncLine",{"line":"122","prompt":"irb(main):002:0> "}] +0ms
+2018-11-16T14:36:45.866423715Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"122\",\"prompt\":\"irb(main):002:0> \"}]"] +141ms
+2018-11-16T14:36:45.866428627Z    engine:socket sending packet "message" (2["syncLine",{"line":"122","prompt":"irb(main):002:0> "}]) +1ms
+2018-11-16T14:36:45.866463600Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:45.866623705Z    engine:ws writing "42["syncLine",{"line":"122","prompt":"irb(main):002:0> "}]" +1ms
+2018-11-16T14:36:46.261347802Z    engine:ws received "42["lineChanged",{"line":""}]" +395ms
+2018-11-16T14:36:46.261439139Z    engine:socket packet +395ms
+2018-11-16T14:36:46.261675688Z    socket.io-parser decoded 2["lineChanged",{"line":""}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +395ms
+2018-11-16T14:36:46.261790015Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +396ms
+2018-11-16T14:36:46.262036780Z    socket.io:socket emitting event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:36:46.262180507Z    socket.io:socket dispatching an event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:36:46.262342353Z    server   ["lineChanged"] { line:  } +396ms
+2018-11-16T14:36:46.262534056Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):002:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:46.262702848Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):002:0> "}],"nsp":"/"} as 2["syncLine",{"line":"","prompt":"irb(main):002:0> "}] +0ms
+2018-11-16T14:36:46.262938105Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"\",\"prompt\":\"irb(main):002:0> \"}]"] +396ms
+2018-11-16T14:36:46.263030812Z    engine:socket sending packet "message" (2["syncLine",{"line":"","prompt":"irb(main):002:0> "}]) +1ms
+2018-11-16T14:36:46.263266709Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:36:46.263307017Z    engine:ws writing "42["syncLine",{"line":"","prompt":"irb(main):002:0> "}]" +2ms
+2018-11-16T14:36:46.263677354Z    engine:ws received "42["evaluate",{"code":"122"}]" +0ms
+2018-11-16T14:36:46.263823654Z    engine:socket packet +0ms
+2018-11-16T14:36:46.264064774Z    socket.io-parser decoded 2["evaluate",{"code":"122"}] as {"type":2,"nsp":"/","data":["evaluate",{"code":"122"}]} +1ms
+2018-11-16T14:36:46.264264131Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["evaluate",{"code":"122"}]} +3ms
+2018-11-16T14:36:46.264436534Z    socket.io:socket emitting event ["evaluate",{"code":"122"}] +0ms
+2018-11-16T14:36:46.264623732Z    socket.io:socket dispatching an event ["evaluate",{"code":"122"}] +0ms
+2018-11-16T14:36:46.264829379Z    server   ["evaluate"] { code: 122 } +2ms
+2018-11-16T14:36:46.264978244Z    Repl [Repl.write(string = 122)] +1s
+2018-11-16T14:36:46.266070232Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"122\r\n=> 122\r\nirb(main):003:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:36:46.266309129Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"122\r\n=> 122\r\nirb(main):003:0> "}],"nsp":"/"} as 2["output",{"output":"122\r\n=> 122\r\nirb(main):003:0> "}] +1ms
+2018-11-16T14:36:46.266547557Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"122\\r\\n=> 122\\r\\nirb(main):003:0> \"}]"] +4ms
+2018-11-16T14:36:46.266765644Z    engine:socket sending packet "message" (2["output",{"output":"122\r\n=> 122\r\nirb(main):003:0> "}]) +3ms
+2018-11-16T14:36:46.266915452Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:46.267131411Z    engine:ws writing "42["output",{"output":"122\r\n=> 122\r\nirb(main):003:0> "}]" +3ms
+2018-11-16T14:36:46.786543763Z    engine:ws received "42["lineChanged",{"line":"3"}]" +520ms
+2018-11-16T14:36:46.786618017Z    engine:socket packet +520ms
+2018-11-16T14:36:46.786846480Z    socket.io-parser decoded 2["lineChanged",{"line":"3"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"3"}]} +520ms
+2018-11-16T14:36:46.786857794Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"3"}]} +522ms
+2018-11-16T14:36:46.786918044Z    socket.io:socket emitting event ["lineChanged",{"line":"3"}] +0ms
+2018-11-16T14:36:46.786956284Z    socket.io:socket dispatching an event ["lineChanged",{"line":"3"}] +0ms
+2018-11-16T14:36:46.787118569Z    server   ["lineChanged"] { line: 3 } +522ms
+2018-11-16T14:36:46.787164760Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"3","prompt":"irb(main):003:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:46.787197211Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"3","prompt":"irb(main):003:0> "}],"nsp":"/"} as 2["syncLine",{"line":"3","prompt":"irb(main):003:0> "}] +0ms
+2018-11-16T14:36:46.790888909Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"3\",\"prompt\":\"irb(main):003:0> \"}]"] +521ms
+2018-11-16T14:36:46.791122533Z    engine:socket sending packet "message" (2["syncLine",{"line":"3","prompt":"irb(main):003:0> "}]) +4ms
+2018-11-16T14:36:46.791379805Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:36:46.791590284Z    engine:ws writing "42["syncLine",{"line":"3","prompt":"irb(main):003:0> "}]" +5ms
+2018-11-16T14:36:47.038433813Z    engine:ws received "42["lineChanged",{"line":"33"}]" +247ms
+2018-11-16T14:36:47.038739295Z    engine:socket packet +247ms
+2018-11-16T14:36:47.038945318Z    socket.io-parser decoded 2["lineChanged",{"line":"33"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"33"}]} +251ms
+2018-11-16T14:36:47.039165600Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"33"}]} +253ms
+2018-11-16T14:36:47.039329664Z    socket.io:socket emitting event ["lineChanged",{"line":"33"}] +0ms
+2018-11-16T14:36:47.039511538Z    socket.io:socket dispatching an event ["lineChanged",{"line":"33"}] +0ms
+2018-11-16T14:36:47.039678464Z    server   ["lineChanged"] { line: 33 } +253ms
+2018-11-16T14:36:47.039921698Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"33","prompt":"irb(main):003:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:47.040228365Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"33","prompt":"irb(main):003:0> "}],"nsp":"/"} as 2["syncLine",{"line":"33","prompt":"irb(main):003:0> "}] +1ms
+2018-11-16T14:36:47.040436457Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"33\",\"prompt\":\"irb(main):003:0> \"}]"] +253ms
+2018-11-16T14:36:47.040687138Z    engine:socket sending packet "message" (2["syncLine",{"line":"33","prompt":"irb(main):003:0> "}]) +2ms
+2018-11-16T14:36:47.040908620Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:47.041341128Z    engine:ws writing "42["syncLine",{"line":"33","prompt":"irb(main):003:0> "}]" +3ms
+2018-11-16T14:36:47.249780670Z    engine:ws received "42["lineChanged",{"line":"331"}]" +208ms
+2018-11-16T14:36:47.250075059Z    engine:socket packet +209ms
+2018-11-16T14:36:47.250281038Z    socket.io-parser decoded 2["lineChanged",{"line":"331"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"331"}]} +210ms
+2018-11-16T14:36:47.250631190Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"331"}]} +211ms
+2018-11-16T14:36:47.250838731Z    socket.io:socket emitting event ["lineChanged",{"line":"331"}] +0ms
+2018-11-16T14:36:47.251029418Z    socket.io:socket dispatching an event ["lineChanged",{"line":"331"}] +0ms
+2018-11-16T14:36:47.251262597Z    server   ["lineChanged"] { line: 331 } +212ms
+2018-11-16T14:36:47.251542452Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"331","prompt":"irb(main):003:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:47.251744958Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"331","prompt":"irb(main):003:0> "}],"nsp":"/"} as 2["syncLine",{"line":"331","prompt":"irb(main):003:0> "}] +0ms
+2018-11-16T14:36:47.251964353Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"331\",\"prompt\":\"irb(main):003:0> \"}]"] +211ms
+2018-11-16T14:36:47.252154005Z    engine:socket sending packet "message" (2["syncLine",{"line":"331","prompt":"irb(main):003:0> "}]) +2ms
+2018-11-16T14:36:47.252335748Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:36:47.252547033Z    engine:ws writing "42["syncLine",{"line":"331","prompt":"irb(main):003:0> "}]" +3ms
+2018-11-16T14:36:47.284706751Z    engine:ws received "42["lineChanged",{"line":"3312"}]" +32ms
+2018-11-16T14:36:47.285012905Z    engine:socket packet +32ms
+2018-11-16T14:36:47.285282709Z    socket.io-parser decoded 2["lineChanged",{"line":"3312"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"3312"}]} +34ms
+2018-11-16T14:36:47.285528919Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"3312"}]} +35ms
+2018-11-16T14:36:47.285787472Z    socket.io:socket emitting event ["lineChanged",{"line":"3312"}] +0ms
+2018-11-16T14:36:47.285813136Z    socket.io:socket dispatching an event ["lineChanged",{"line":"3312"}] +0ms
+2018-11-16T14:36:47.285987317Z    server   ["lineChanged"] { line: 3312 } +34ms
+2018-11-16T14:36:47.286213117Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"3312","prompt":"irb(main):003:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:47.286404683Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"3312","prompt":"irb(main):003:0> "}],"nsp":"/"} as 2["syncLine",{"line":"3312","prompt":"irb(main):003:0> "}] +0ms
+2018-11-16T14:36:47.286624042Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"3312\",\"prompt\":\"irb(main):003:0> \"}]"] +35ms
+2018-11-16T14:36:47.286810393Z    engine:socket sending packet "message" (2["syncLine",{"line":"3312","prompt":"irb(main):003:0> "}]) +2ms
+2018-11-16T14:36:47.286821060Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:47.286994522Z    engine:ws writing "42["syncLine",{"line":"3312","prompt":"irb(main):003:0> "}]" +2ms
+2018-11-16T14:36:47.404770789Z    engine:ws received "42["lineChanged",{"line":"33123"}]" +118ms
+2018-11-16T14:36:47.405021522Z    engine:socket packet +118ms
+2018-11-16T14:36:47.405279610Z    socket.io-parser decoded 2["lineChanged",{"line":"33123"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"33123"}]} +119ms
+2018-11-16T14:36:47.405527513Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"33123"}]} +120ms
+2018-11-16T14:36:47.405727356Z    socket.io:socket emitting event ["lineChanged",{"line":"33123"}] +0ms
+2018-11-16T14:36:47.405951174Z    socket.io:socket dispatching an event ["lineChanged",{"line":"33123"}] +0ms
+2018-11-16T14:36:47.406170454Z    server   ["lineChanged"] { line: 33123 } +121ms
+2018-11-16T14:36:47.406449218Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"33123","prompt":"irb(main):003:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:47.406629081Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"33123","prompt":"irb(main):003:0> "}],"nsp":"/"} as 2["syncLine",{"line":"33123","prompt":"irb(main):003:0> "}] +0ms
+2018-11-16T14:36:47.406846861Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"33123\",\"prompt\":\"irb(main):003:0> \"}]"] +120ms
+2018-11-16T14:36:47.407031141Z    engine:socket sending packet "message" (2["syncLine",{"line":"33123","prompt":"irb(main):003:0> "}]) +2ms
+2018-11-16T14:36:47.407228745Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:36:47.407405292Z    engine:ws writing "42["syncLine",{"line":"33123","prompt":"irb(main):003:0> "}]" +3ms
+2018-11-16T14:36:47.507109286Z    engine:ws received "42["lineChanged",{"line":""}]" +99ms
+2018-11-16T14:36:47.507408424Z    engine:socket packet +100ms
+2018-11-16T14:36:47.507693875Z    socket.io-parser decoded 2["lineChanged",{"line":""}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +101ms
+2018-11-16T14:36:47.508011336Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +102ms
+2018-11-16T14:36:47.508394660Z    socket.io:socket emitting event ["lineChanged",{"line":""}] +1ms
+2018-11-16T14:36:47.508603888Z    socket.io:socket dispatching an event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:36:47.508937459Z    server   ["lineChanged"] { line:  } +102ms
+2018-11-16T14:36:47.509397569Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):003:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:36:47.509769307Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):003:0> "}],"nsp":"/"} as 2["syncLine",{"line":"","prompt":"irb(main):003:0> "}] +0ms
+2018-11-16T14:36:47.510032945Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"\",\"prompt\":\"irb(main):003:0> \"}]"] +103ms
+2018-11-16T14:36:47.510375371Z    engine:socket sending packet "message" (2["syncLine",{"line":"","prompt":"irb(main):003:0> "}]) +3ms
+2018-11-16T14:36:47.510655058Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:47.510964822Z    engine:ws writing "42["syncLine",{"line":"","prompt":"irb(main):003:0> "}]" +4ms
+2018-11-16T14:36:47.521541480Z    engine:ws received "42["evaluate",{"code":"33123"}]" +11ms
+2018-11-16T14:36:47.521827529Z    engine:socket packet +11ms
+2018-11-16T14:36:47.522077482Z    socket.io-parser decoded 2["evaluate",{"code":"33123"}] as {"type":2,"nsp":"/","data":["evaluate",{"code":"33123"}]} +12ms
+2018-11-16T14:36:47.522349505Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["evaluate",{"code":"33123"}]} +14ms
+2018-11-16T14:36:47.522556911Z    socket.io:socket emitting event ["evaluate",{"code":"33123"}] +0ms
+2018-11-16T14:36:47.522746757Z    socket.io:socket dispatching an event ["evaluate",{"code":"33123"}] +0ms
+2018-11-16T14:36:47.522978999Z    server   ["evaluate"] { code: 33123 } +14ms
+2018-11-16T14:36:47.523149956Z    Repl [Repl.write(string = 33123)] +1s
+2018-11-16T14:36:47.524102533Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"33123\r\n=> 33123\r\nirb(main):004:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:36:47.524347806Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"33123\r\n=> 33123\r\nirb(main):004:0> "}],"nsp":"/"} as 2["output",{"output":"33123\r\n=> 33123\r\nirb(main):004:0> "}] +1ms
+2018-11-16T14:36:47.524557835Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"33123\\r\\n=> 33123\\r\\nirb(main):004:0> \"}]"] +15ms
+2018-11-16T14:36:47.524749460Z    engine:socket sending packet "message" (2["output",{"output":"33123\r\n=> 33123\r\nirb(main):004:0> "}]) +3ms
+2018-11-16T14:36:47.524931699Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:47.525143018Z    engine:ws writing "42["output",{"output":"33123\r\n=> 33123\r\nirb(main):004:0> "}]" +3ms
+2018-11-16T14:36:48.654717304Z    engine:ws received "42["lineChanged",{"line":"3"}]" +1s
+2018-11-16T14:36:48.654808216Z    engine:socket packet +1s
+2018-11-16T14:36:48.654817893Z    socket.io-parser decoded 2["lineChanged",{"line":"3"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"3"}]} +1s
+2018-11-16T14:36:48.654825314Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"3"}]} +1s
+2018-11-16T14:36:48.654831810Z    socket.io:socket emitting event ["lineChanged",{"line":"3"}] +0ms
+2018-11-16T14:36:48.654838565Z    socket.io:socket dispatching an event ["lineChanged",{"line":"3"}] +0ms
+2018-11-16T14:36:48.654845100Z    server   ["lineChanged"] { line: 3 } +1s
+2018-11-16T14:36:48.654872809Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"3","prompt":"irb(main):004:0> "}],"nsp":"/"} +0ms
+2018-11-16T14:36:48.654882988Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"3","prompt":"irb(main):004:0> "}],"nsp":"/"} as 2["syncLine",{"line":"3","prompt":"irb(main):004:0> "}] +0ms
+2018-11-16T14:36:48.654890743Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"3\",\"prompt\":\"irb(main):004:0> \"}]"] +1s
+2018-11-16T14:36:48.654897904Z    engine:socket sending packet "message" (2["syncLine",{"line":"3","prompt":"irb(main):004:0> "}]) +1ms
+2018-11-16T14:36:48.654904540Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:48.654909783Z    engine:ws writing "42["syncLine",{"line":"3","prompt":"irb(main):004:0> "}]" +1ms
+2018-11-16T14:36:48.911465758Z    engine:ws received "42["lineChanged",{"line":"33"}]" +257ms
+2018-11-16T14:36:48.911777015Z    engine:socket packet +257ms
+2018-11-16T14:36:48.911786742Z    socket.io-parser decoded 2["lineChanged",{"line":"33"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"33"}]} +258ms
+2018-11-16T14:36:48.911792069Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"33"}]} +258ms
+2018-11-16T14:36:48.911961838Z    socket.io:socket emitting event ["lineChanged",{"line":"33"}] +0ms
+2018-11-16T14:36:48.911993976Z    socket.io:socket dispatching an event ["lineChanged",{"line":"33"}] +0ms
+2018-11-16T14:36:48.912198071Z    server   ["lineChanged"] { line: 33 } +258ms
+2018-11-16T14:36:48.912220268Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"33","prompt":"irb(main):004:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:48.912393270Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"33","prompt":"irb(main):004:0> "}],"nsp":"/"} as 2["syncLine",{"line":"33","prompt":"irb(main):004:0> "}] +0ms
+2018-11-16T14:36:48.912412894Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"33\",\"prompt\":\"irb(main):004:0> \"}]"] +258ms
+2018-11-16T14:36:48.912418792Z    engine:socket sending packet "message" (2["syncLine",{"line":"33","prompt":"irb(main):004:0> "}]) +1ms
+2018-11-16T14:36:48.912572719Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:48.912581936Z    engine:ws writing "42["syncLine",{"line":"33","prompt":"irb(main):004:0> "}]" +1ms
+2018-11-16T14:36:49.165279203Z    engine:ws received "42["lineChanged",{"line":""}]" +251ms
+2018-11-16T14:36:49.165315866Z    engine:socket packet +252ms
+2018-11-16T14:36:49.165321173Z    socket.io-parser decoded 2["lineChanged",{"line":""}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +252ms
+2018-11-16T14:36:49.165326076Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +253ms
+2018-11-16T14:36:49.165330086Z    socket.io:socket emitting event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:36:49.165333957Z    socket.io:socket dispatching an event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:36:49.165337696Z    server   ["lineChanged"] { line:  } +253ms
+2018-11-16T14:36:49.165341432Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):004:0> "}],"nsp":"/"} +0ms
+2018-11-16T14:36:49.165345875Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):004:0> "}],"nsp":"/"} as 2["syncLine",{"line":"","prompt":"irb(main):004:0> "}] +0ms
+2018-11-16T14:36:49.165350644Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"\",\"prompt\":\"irb(main):004:0> \"}]"] +252ms
+2018-11-16T14:36:49.165355136Z    engine:socket sending packet "message" (2["syncLine",{"line":"","prompt":"irb(main):004:0> "}]) +0ms
+2018-11-16T14:36:49.165378739Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:49.165382573Z    engine:ws writing "42["syncLine",{"line":"","prompt":"irb(main):004:0> "}]" +1ms
+2018-11-16T14:36:49.170703338Z    engine:ws received "42["evaluate",{"code":"33"}]" +4ms
+2018-11-16T14:36:49.170905003Z    engine:socket packet +5ms
+2018-11-16T14:36:49.170918011Z    socket.io-parser decoded 2["evaluate",{"code":"33"}] as {"type":2,"nsp":"/","data":["evaluate",{"code":"33"}]} +5ms
+2018-11-16T14:36:49.170925866Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["evaluate",{"code":"33"}]} +5ms
+2018-11-16T14:36:49.170932787Z    socket.io:socket emitting event ["evaluate",{"code":"33"}] +0ms
+2018-11-16T14:36:49.170938968Z    socket.io:socket dispatching an event ["evaluate",{"code":"33"}] +0ms
+2018-11-16T14:36:49.170945746Z    server   ["evaluate"] { code: 33 } +5ms
+2018-11-16T14:36:49.170951441Z    Repl [Repl.write(string = 33)] +2s
+2018-11-16T14:36:49.170956963Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"33\r\n=> 33\r\nirb(main):005:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:49.170988867Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"33\r\n=> 33\r\nirb(main):005:0> "}],"nsp":"/"} as 2["output",{"output":"33\r\n=> 33\r\nirb(main):005:0> "}] +0ms
+2018-11-16T14:36:49.170996633Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"33\\r\\n=> 33\\r\\nirb(main):005:0> \"}]"] +6ms
+2018-11-16T14:36:49.171003937Z    engine:socket sending packet "message" (2["output",{"output":"33\r\n=> 33\r\nirb(main):005:0> "}]) +1ms
+2018-11-16T14:36:49.171010590Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:49.171016302Z    engine:ws writing "42["output",{"output":"33\r\n=> 33\r\nirb(main):005:0> "}]" +2ms
+2018-11-16T14:36:49.465882420Z    engine:ws received "42["lineChanged",{"line":"1"}]" +295ms
+2018-11-16T14:36:49.466568665Z    engine:socket packet +295ms
+2018-11-16T14:36:49.467736401Z    socket.io-parser decoded 2["lineChanged",{"line":"1"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +296ms
+2018-11-16T14:36:49.467830637Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +298ms
+2018-11-16T14:36:49.468529742Z    socket.io:socket emitting event ["lineChanged",{"line":"1"}] +0ms
+2018-11-16T14:36:49.468986603Z    socket.io:socket dispatching an event ["lineChanged",{"line":"1"}] +1ms
+2018-11-16T14:36:49.469541272Z    server   ["lineChanged"] { line: 1 } +300ms
+2018-11-16T14:36:49.470069009Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"1","prompt":"irb(main):005:0> "}],"nsp":"/"} +3ms
+2018-11-16T14:36:49.470568048Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"1","prompt":"irb(main):005:0> "}],"nsp":"/"} as 2["syncLine",{"line":"1","prompt":"irb(main):005:0> "}] +1ms
+2018-11-16T14:36:49.470911602Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"1\",\"prompt\":\"irb(main):005:0> \"}]"] +300ms
+2018-11-16T14:36:49.471178242Z    engine:socket sending packet "message" (2["syncLine",{"line":"1","prompt":"irb(main):005:0> "}]) +6ms
+2018-11-16T14:36:49.471388535Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:49.471848828Z    engine:ws writing "42["syncLine",{"line":"1","prompt":"irb(main):005:0> "}]" +6ms
+2018-11-16T14:36:49.532153918Z    engine:ws received "42["lineChanged",{"line":"12"}]" +60ms
+2018-11-16T14:36:49.532687857Z    engine:socket packet +61ms
+2018-11-16T14:36:49.533180537Z    socket.io-parser decoded 2["lineChanged",{"line":"12"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"12"}]} +62ms
+2018-11-16T14:36:49.533570853Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"12"}]} +65ms
+2018-11-16T14:36:49.533888795Z    socket.io:socket emitting event ["lineChanged",{"line":"12"}] +0ms
+2018-11-16T14:36:49.534193672Z    socket.io:socket dispatching an event ["lineChanged",{"line":"12"}] +0ms
+2018-11-16T14:36:49.534563211Z    server   ["lineChanged"] { line: 12 } +65ms
+2018-11-16T14:36:49.534880055Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"12","prompt":"irb(main):005:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:36:49.535226496Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"12","prompt":"irb(main):005:0> "}],"nsp":"/"} as 2["syncLine",{"line":"12","prompt":"irb(main):005:0> "}] +0ms
+2018-11-16T14:36:49.535504982Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"12\",\"prompt\":\"irb(main):005:0> \"}]"] +65ms
+2018-11-16T14:36:49.535809099Z    engine:socket sending packet "message" (2["syncLine",{"line":"12","prompt":"irb(main):005:0> "}]) +3ms
+2018-11-16T14:36:49.536060620Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:49.536342499Z    engine:ws writing "42["syncLine",{"line":"12","prompt":"irb(main):005:0> "}]" +5ms
+2018-11-16T14:36:49.638269391Z    engine:ws received "42["lineChanged",{"line":"123"}]" +102ms
+2018-11-16T14:36:49.638661804Z    engine:socket packet +103ms
+2018-11-16T14:36:49.639062554Z    socket.io-parser decoded 2["lineChanged",{"line":"123"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"123"}]} +104ms
+2018-11-16T14:36:49.639410776Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"123"}]} +106ms
+2018-11-16T14:36:49.639686594Z    socket.io:socket emitting event ["lineChanged",{"line":"123"}] +0ms
+2018-11-16T14:36:49.640007539Z    socket.io:socket dispatching an event ["lineChanged",{"line":"123"}] +0ms
+2018-11-16T14:36:49.640327530Z    server   ["lineChanged"] { line: 123 } +106ms
+2018-11-16T14:36:49.640641730Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"123","prompt":"irb(main):005:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:36:49.640936001Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"123","prompt":"irb(main):005:0> "}],"nsp":"/"} as 2["syncLine",{"line":"123","prompt":"irb(main):005:0> "}] +0ms
+2018-11-16T14:36:49.641294614Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"123\",\"prompt\":\"irb(main):005:0> \"}]"] +106ms
+2018-11-16T14:36:49.641564586Z    engine:socket sending packet "message" (2["syncLine",{"line":"123","prompt":"irb(main):005:0> "}]) +3ms
+2018-11-16T14:36:49.642103389Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:49.642456809Z    engine:ws writing "42["syncLine",{"line":"123","prompt":"irb(main):005:0> "}]" +4ms
+2018-11-16T14:36:49.781232489Z    engine:ws received "42["lineChanged",{"line":""}]" +138ms
+2018-11-16T14:36:49.781261601Z    engine:socket packet +139ms
+2018-11-16T14:36:49.781265915Z    socket.io-parser decoded 2["lineChanged",{"line":""}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +140ms
+2018-11-16T14:36:49.781285049Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +141ms
+2018-11-16T14:36:49.781289399Z    socket.io:socket emitting event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:36:49.781293191Z    socket.io:socket dispatching an event ["lineChanged",{"line":""}] +1ms
+2018-11-16T14:36:49.781624477Z    server   ["lineChanged"] { line:  } +141ms
+2018-11-16T14:36:49.781666064Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):005:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:49.781953241Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):005:0> "}],"nsp":"/"} as 2["syncLine",{"line":"","prompt":"irb(main):005:0> "}] +0ms
+2018-11-16T14:36:49.782218869Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"\",\"prompt\":\"irb(main):005:0> \"}]"] +140ms
+2018-11-16T14:36:49.782501756Z    engine:socket sending packet "message" (2["syncLine",{"line":"","prompt":"irb(main):005:0> "}]) +2ms
+2018-11-16T14:36:49.782795451Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:36:49.783038798Z    engine:ws writing "42["syncLine",{"line":"","prompt":"irb(main):005:0> "}]" +2ms
+2018-11-16T14:36:49.786817409Z    engine:ws received "42["evaluate",{"code":"123"}]" +4ms
+2018-11-16T14:36:49.787109058Z    engine:socket packet +4ms
+2018-11-16T14:36:49.787740994Z    socket.io-parser decoded 2["evaluate",{"code":"123"}] as {"type":2,"nsp":"/","data":["evaluate",{"code":"123"}]} +6ms
+2018-11-16T14:36:49.787932828Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["evaluate",{"code":"123"}]} +6ms
+2018-11-16T14:36:49.787943374Z    socket.io:socket emitting event ["evaluate",{"code":"123"}] +0ms
+2018-11-16T14:36:49.787947308Z    socket.io:socket dispatching an event ["evaluate",{"code":"123"}] +0ms
+2018-11-16T14:36:49.787951376Z    server   ["evaluate"] { code: 123 } +6ms
+2018-11-16T14:36:49.788189783Z    Repl [Repl.write(string = 123)] +619ms
+2018-11-16T14:36:49.789005509Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"123\r\n=> 123\r\nirb(main):006:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:36:49.789300266Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"123\r\n=> 123\r\nirb(main):006:0> "}],"nsp":"/"} as 2["output",{"output":"123\r\n=> 123\r\nirb(main):006:0> "}] +1ms
+2018-11-16T14:36:49.789658659Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"123\\r\\n=> 123\\r\\nirb(main):006:0> \"}]"] +8ms
+2018-11-16T14:36:49.789915411Z    engine:socket sending packet "message" (2["output",{"output":"123\r\n=> 123\r\nirb(main):006:0> "}]) +3ms
+2018-11-16T14:36:49.790187052Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:36:49.790480744Z    engine:ws writing "42["output",{"output":"123\r\n=> 123\r\nirb(main):006:0> "}]" +4ms
+2018-11-16T14:37:06.360775227Z    engine:ws received "2" +17s
+2018-11-16T14:37:06.360806806Z    engine:socket packet +17s
+2018-11-16T14:37:06.360812808Z    engine:socket got ping +0ms
+2018-11-16T14:37:06.360817040Z    engine:socket sending packet "pong" (undefined) +0ms
+2018-11-16T14:37:06.360821372Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:06.360825446Z    engine:ws writing "3" +1ms
+2018-11-16T14:37:08.315081929Z    express:router dispatching GET / +27s
+2018-11-16T14:37:08.315113474Z    express:router query  : / +0ms
+2018-11-16T14:37:08.315118474Z    express:router expressInit  : / +0ms
+2018-11-16T14:37:08.315122552Z    express:router textParser  : / +1ms
+2018-11-16T14:37:08.315126493Z    body-parser:text skip empty body +27s
+2018-11-16T14:37:08.315130534Z    express:router serveStatic  : / +0ms
+2018-11-16T14:37:08.315134380Z    send stat "/app/public/index.html" +27s
+2018-11-16T14:37:08.315138474Z    send pipe "/app/public/index.html" +0ms
+2018-11-16T14:37:08.315142473Z    send accept ranges +0ms
+2018-11-16T14:37:08.315146216Z    send cache-control public, max-age=0 +0ms
+2018-11-16T14:37:08.315150154Z    send modified Fri, 16 Nov 2018 14:17:31 GMT +0ms
+2018-11-16T14:37:08.315154078Z    send etag W/"28c-1671ce24878" +0ms
+2018-11-16T14:37:08.315157917Z    send content-type text/html +0ms
+2018-11-16T14:37:08.342859253Z    socket.io:client client close with reason transport close +19s
+2018-11-16T14:37:08.344114875Z    socket.io:socket closing socket - reason transport close +19s
+2018-11-16T14:37:08.345487530Z    server   ["disconnect"] +19s
+2018-11-16T14:37:08.346104358Z    YjsWS [socket.on('disconnect', fn)] +27s
+2018-11-16T14:37:08.346776490Z    YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' } +1ms
+2018-11-16T14:37:08.347323488Z    YjsWS [NEXT LINE: "return global.yInstances[room];"] +1ms
+2018-11-16T14:37:08.348876505Z    server     [io of / .clients] error: null, clients:  +3ms
+2018-11-16T14:37:08.351957597Z    Repl [kill()] this.process: UnixTerminal { _internalee: EventEmitter { _events: [Object: null prototype] {}, _eventsCount: 0, _maxListeners: undefined }, _socket: PipeSocket { connecting: false, _hadError: false, _handle: Pipe { onread: [Function: on
+StreamRead], reading: true, [Symbol(owner)]: [Circular] }, _parent: null, _host: null, _readableState: ReadableState { objectMode: false, highWaterMark: 16384, buffer: BufferList { head: null, tail: null, length: 0 }, length: 0, pipes: null, pipesCount: 0, flowing: true, ended: false
+, endEmitted: false, reading: true, sync: false, needReadable: true, emittedReadable: false, readableListening: false, resumeScheduled: false, emitClose: false, destroyed: false, defaultEncoding: 'utf8', awaitDrain: 0, readingMore: false, decoder: StringDecoder { encoding: 'utf8', [S
+ymbol(kNativeDecoder)]: <Buffer 00 00 00 00 00 00 01> }, encoding: 'utf8' }, readable: false, _events: [Object: null prototype] { end: [Function: onReadableStreamEnd], error: [Function], close: [Function], data: [Function: emitOutput] }, _eventsCount: 4, _maxListeners: undefined, _wr
+itableState: WritableState { objectMode: false, highWaterMark: 16384, finalCalled: false, needDrain: false, ending: false, ended: false, finished: false, destroyed: false, decodeStrings: false, defaultEncoding: 'utf8', length: 0, writing: false, corked: 0, sync: false, bufferProcessi
+ng: false, onwrite: [Function: bound onwrite], writecb: null, writelen: 0, bufferedRequest: null, lastBufferedRequest: null, pendingcb: 0, prefinished: false, errorEmitted: false, emitClose: false, bufferedRequestCount: 0, corkedRequestsFree: { next: null, entry: null, finish: [Funct
+ion: bound onCorkedFinish] } }, writable: false, allowHalfOpen: false, _sockname: null, _pendingData: null, _pendingEncoding: '', server: null, _server: null, [Symbol(asyncId)]: 268, [Symbol(lastWriteQueueSize)]: 0, [Symbol(timeout)]: null, [Symbol(kBytesRead)]: 0, [Symbol(kBytesWrit
+ten)]: 0 }, _pid: 49, _fd: 22, _pty: '/dev/pts/1', _file: 'irb', _name: 'xterm', _readable: true, _writable: true } +19s
+2018-11-16T14:37:08.355314215Z    Repl Repl process killed. +7ms
+2018-11-16T14:37:08.355887139Z    YjsWS [PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...] +8ms
+2018-11-16T14:37:08.356455837Z    y:connector User left: Wp1ng3_w-pH-krGAAAAA +27s
+2018-11-16T14:37:08.357098425Z    express:router dispatching GET /main.js +43ms
+2018-11-16T14:37:08.357488110Z    express:router query  : /main.js +1ms
+2018-11-16T14:37:08.357801203Z    express:router expressInit  : /main.js +0ms
+2018-11-16T14:37:08.358134353Z    express:router textParser  : /main.js +1ms
+2018-11-16T14:37:08.358456325Z    body-parser:text skip empty body +45ms
+2018-11-16T14:37:08.358796332Z    express:router serveStatic  : /main.js +0ms
+2018-11-16T14:37:08.359165155Z    send stat "/app/public/main.js" +46ms
+2018-11-16T14:37:08.360536709Z    send pipe "/app/public/main.js" +1ms
+2018-11-16T14:37:08.360858549Z    send accept ranges +0ms
+2018-11-16T14:37:08.361174997Z    send cache-control public, max-age=0 +1ms
+2018-11-16T14:37:08.361510292Z    send modified Fri, 16 Nov 2018 14:36:26 GMT +0ms
+2018-11-16T14:37:08.361861245Z    send etag W/"1911ec-1671cf39b8b" +0ms
+2018-11-16T14:37:08.362189964Z    send content-type application/javascript +1ms
+2018-11-16T14:37:08.810602861Z    engine intercepting request for path "/socket.io/" +27s
+2018-11-16T14:37:08.811150379Z    engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSSz44r" +0ms
+2018-11-16T14:37:08.812004455Z    engine handshaking client "5r6sVPu_XRuWkm0nAAAB" +1ms
+2018-11-16T14:37:08.812971283Z    engine:socket sending packet "open" ({"sid":"5r6sVPu_XRuWkm0nAAAB","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}) +2s
+2018-11-16T14:37:08.813339694Z    engine:socket sending packet "message" (0) +0ms
+2018-11-16T14:37:08.813882122Z    engine:polling setting request +27s
+2018-11-16T14:37:08.814328238Z    engine:socket flushing buffer to transport +2ms
+2018-11-16T14:37:08.814874941Z    engine:polling writing "96:0{"sid":"5r6sVPu_XRuWkm0nAAAB","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}2:40" +1ms
+2018-11-16T14:37:08.815644772Z    engine:socket executing batch send callback +1ms
+2018-11-16T14:37:08.816377377Z    socket.io:server incoming connection with id 5r6sVPu_XRuWkm0nAAAB +28s
+2018-11-16T14:37:08.816896421Z    socket.io:client connecting to namespace / +474ms
+2018-11-16T14:37:08.817272339Z    socket.io:namespace adding socket to nsp / +28s
+2018-11-16T14:37:08.818003683Z    socket.io:socket socket connected - writing packet +474ms
+2018-11-16T14:37:08.818372147Z    socket.io:socket joining room 5r6sVPu_XRuWkm0nAAAB +1ms
+2018-11-16T14:37:08.818774575Z    socket.io:socket packet already sent in initial handshake +0ms
+2018-11-16T14:37:08.819135529Z    server io.on("connection", (socket) => { +471ms
+2018-11-16T14:37:08.819485523Z    server `socket.emit("langChange", {` ~~> language: ruby, data: WELCOME TO SPACECRAFT!
+ +0ms11-16T14:37:08.819500627Z
+2018-11-16T14:37:08.819887989Z    socket.io:client writing packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +3ms
+2018-11-16T14:37:08.820219048Z    socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +19s
+2018-11-16T14:37:08.820581982Z    socket.io-parser encoded {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} as 2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}] +0ms
+2018-11-16T14:37:08.820903180Z    engine:socket sending packet "message" (2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]) +5ms
+2018-11-16T14:37:08.821275195Z    socket.io:client writing packet {"type":2,"data":["output",{"output":"irb(main):001:0> 1\r\n=> 1\r\nirb(main):002:0> 122\r\n=> 122\r\nirb(main):003:0> 33123\r\n=> 33123\r\nirb(main):004:0> 33\r\n=> 33\r\nirb(main):005:0> 123\r\n=> 123\r\nirb(main):00
+6:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:37:08.821640893Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"irb(main):001:0> 1\r\n=> 1\r\nirb(main):002:0> 122\r\n=> 122\r\nirb(main):003:0> 33123\r\n=> 33123\r\nirb(main):004:0> 33\r\n=> 33\r\nirb(main):005:0> 123\r\n=> 123\r\nirb(main):0
+06:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:37:08.822010236Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"irb(main):001:0> 1\r\n=> 1\r\nirb(main):002:0> 122\r\n=> 122\r\nirb(main):003:0> 33123\r\n=> 33123\r\nirb(main):004:0> 33\r\n=> 33\r\nirb(main):005:0> 123\r\n=> 123\r\nirb(main):006:0> "}
+],"nsp":"/"} as 2["output",{"output":"irb(main):001:0> 1\r\n=> 1\r\nirb(main):002:0> 122\r\n=> 122\r\nirb(main):003:0> 33123\r\n=> 33123\r\nirb(main):004:0> 33\r\n=> 33\r\nirb(main):005:0> 123\r\n=> 123\r\nirb(main):006:0> "}] +0ms
+2018-11-16T14:37:08.822358777Z    engine:socket sending packet "message" (2["output",{"output":"irb(main):001:0> 1\r\n=> 1\r\nirb(main):002:0> 122\r\n=> 122\r\nirb(main):003:0> 33123\r\n=> 33123\r\nirb(main):004:0> 33\r\n=> 33\r\nirb(main):005:0> 123\r\n=> 123\r\nirb(main):006:0> "}]
+) +2ms
+2018-11-16T14:37:08.822840858Z    YjsWS [NEXT LINE: "const options = minimist(process.argv.slice(2), {..."] +467ms
+2018-11-16T14:37:08.823243912Z    YjsWS     process.argv= [ '/usr/bin/node', '/app/server.js' ] +1ms
+2018-11-16T14:37:08.823817147Z    socket.io:socket joined room 5r6sVPu_XRuWkm0nAAAB +5ms
+2018-11-16T14:37:08.824226153Z    server   [io.of("/").clients(fn)] error: null, clients: 5r6sVPu_XRuWkm0nAAAB +5ms
+2018-11-16T14:37:08.824560161Z    server   [initRepl] lang: ruby, welcome_msg: WELCOME TO SPACECRAFT!
+ +0ms11-16T14:37:08.824575119Z
+2018-11-16T14:37:08.824920714Z    Repl [kill()] this.process: null +469ms
+2018-11-16T14:37:08.825246991Z    Repl [Repl.init(language = "ruby")] +1ms
+2018-11-16T14:37:08.830190054Z    Repl   INITIALIZED command: irb +4ms
+2018-11-16T14:37:08.832127060Z    Repl   this.process: UnixTerminal {
+2018-11-16T14:37:08.832144466Z    Repl   _internalee:
+2018-11-16T14:37:08.832152331Z    Repl    EventEmitter {
+2018-11-16T14:37:08.832157863Z    Repl      _events: [Object: null prototype] {},
+2018-11-16T14:37:08.832211471Z    Repl      _eventsCount: 0,
+2018-11-16T14:37:08.832221268Z    Repl      _maxListeners: undefined },
+2018-11-16T14:37:08.832241131Z    Repl   _socket:
+2018-11-16T14:37:08.832247945Z    Repl    PipeSocket {
+2018-11-16T14:37:08.832277149Z    Repl      connecting: false,
+2018-11-16T14:37:08.832283970Z    Repl      _hadError: false,
+2018-11-16T14:37:08.832289643Z    Repl      _handle:
+2018-11-16T14:37:08.832634947Z    Repl       Pipe {
+2018-11-16T14:37:08.832865890Z    Repl         onread: [Function: onStreamRead],
+2018-11-16T14:37:08.833089721Z    Repl         [Symbol(owner)]: [Circular] },
+2018-11-16T14:37:08.833311993Z    Repl      _parent: null,
+2018-11-16T14:37:08.833570893Z    Repl      _host: null,
+2018-11-16T14:37:08.833834406Z    Repl      _readableState:
+2018-11-16T14:37:08.833847884Z    Repl       ReadableState {
+2018-11-16T14:37:08.834092053Z    Repl         objectMode: false,
+2018-11-16T14:37:08.834339810Z    Repl         highWaterMark: 16384,
+2018-11-16T14:37:08.834681523Z    Repl         buffer: BufferList { head: null, tail: null, length: 0 },
+2018-11-16T14:37:08.834696087Z    Repl         length: 0,
+2018-11-16T14:37:08.834702872Z    Repl         pipes: null,
+2018-11-16T14:37:08.834708606Z    Repl         pipesCount: 0,
+2018-11-16T14:37:08.834965196Z    Repl         flowing: null,
+2018-11-16T14:37:08.835219683Z    Repl         ended: false,
+2018-11-16T14:37:08.835491201Z    Repl         endEmitted: false,
+2018-11-16T14:37:08.835767667Z    Repl         reading: false,
+2018-11-16T14:37:08.836051816Z    Repl         sync: true,
+2018-11-16T14:37:08.836336808Z    Repl         needReadable: false,
+2018-11-16T14:37:08.836613464Z    Repl         emittedReadable: false,
+2018-11-16T14:37:08.836884724Z    Repl         readableListening: false,
+2018-11-16T14:37:08.837152048Z    Repl         resumeScheduled: false,
+2018-11-16T14:37:08.837452454Z    Repl         emitClose: false,
+2018-11-16T14:37:08.837484468Z    Repl         destroyed: false,
+2018-11-16T14:37:08.837792017Z    Repl         defaultEncoding: 'utf8',
+2018-11-16T14:37:08.838044956Z    Repl         awaitDrain: 0,
+2018-11-16T14:37:08.838269744Z    Repl         readingMore: false,
+2018-11-16T14:37:08.838489769Z    Repl         decoder:
+2018-11-16T14:37:08.838925735Z    Repl          StringDecoder {
+2018-11-16T14:37:08.839144751Z    Repl            encoding: 'utf8',
+2018-11-16T14:37:08.839362096Z    Repl            [Symbol(kNativeDecoder)]: <Buffer 00 00 00 00 00 00 01> },
+2018-11-16T14:37:08.839580993Z    Repl         encoding: 'utf8' },
+2018-11-16T14:37:08.839814099Z    Repl      readable: false,
+2018-11-16T14:37:08.839827018Z    Repl      _events:
+2018-11-16T14:37:08.840072778Z    Repl       [Object: null prototype] {
+2018-11-16T14:37:08.840357286Z    Repl         end: [Function: onReadableStreamEnd],
+2018-11-16T14:37:08.840370665Z    Repl         error: [Function],
+2018-11-16T14:37:08.840377322Z    Repl         close: [Function] },
+2018-11-16T14:37:08.840628715Z    Repl      _eventsCount: 3,
+2018-11-16T14:37:08.840911121Z    Repl      _maxListeners: undefined,
+2018-11-16T14:37:08.841222032Z    Repl      _writableState:
+2018-11-16T14:37:08.841235101Z    Repl       WritableState {
+2018-11-16T14:37:08.841241404Z    Repl         objectMode: false,
+2018-11-16T14:37:08.841536159Z    Repl         highWaterMark: 16384,
+2018-11-16T14:37:08.841796689Z    Repl         finalCalled: false,
+2018-11-16T14:37:08.842064838Z    Repl         needDrain: false,
+2018-11-16T14:37:08.842329909Z    Repl         ending: false,
+2018-11-16T14:37:08.842343120Z    Repl         ended: false,
+2018-11-16T14:37:08.842599439Z    Repl         finished: false,
+2018-11-16T14:37:08.842856243Z    Repl         destroyed: false,
+2018-11-16T14:37:08.843127810Z    Repl         decodeStrings: false,
+2018-11-16T14:37:08.843395403Z    Repl         defaultEncoding: 'utf8',
+2018-11-16T14:37:08.843883058Z    Repl         length: 0,
+2018-11-16T14:37:08.843896583Z    Repl         writing: false,
+2018-11-16T14:37:08.844432648Z    Repl         corked: 0,
+2018-11-16T14:37:08.844484589Z    Repl         sync: true,
+2018-11-16T14:37:08.844559044Z    Repl         bufferProcessing: false,
+2018-11-16T14:37:08.844886685Z    Repl         onwrite: [Function: bound onwrite],
+2018-11-16T14:37:08.844899705Z    Repl         writecb: null,
+2018-11-16T14:37:08.844906205Z    Repl         writelen: 0,
+2018-11-16T14:37:08.844912105Z    Repl         bufferedRequest: null,
+2018-11-16T14:37:08.844917785Z    Repl         lastBufferedRequest: null,
+2018-11-16T14:37:08.844923779Z    Repl         pendingcb: 0,
+2018-11-16T14:37:08.845163249Z    Repl         prefinished: false,
+2018-11-16T14:37:08.845176444Z    Repl         errorEmitted: false,
+2018-11-16T14:37:08.845409064Z    Repl         emitClose: false,
+2018-11-16T14:37:08.845760143Z    Repl         bufferedRequestCount: 0,
+2018-11-16T14:37:08.845775063Z    Repl         corkedRequestsFree:
+2018-11-16T14:37:08.845781572Z    Repl          { next: null,
+2018-11-16T14:37:08.845787247Z    Repl            entry: null,
+2018-11-16T14:37:08.845792925Z    Repl            finish: [Function: bound onCorkedFinish] } },
+2018-11-16T14:37:08.845799007Z    Repl      writable: false,
+2018-11-16T14:37:08.846042985Z    Repl      allowHalfOpen: false,
+2018-11-16T14:37:08.846055710Z    Repl      _sockname: null,
+2018-11-16T14:37:08.846926434Z    Repl      _pendingData: null,
+2018-11-16T14:37:08.846942472Z    Repl      _pendingEncoding: '',
+2018-11-16T14:37:08.846950097Z    Repl      server: null,
+2018-11-16T14:37:08.846955793Z    Repl      _server: null,
+2018-11-16T14:37:08.846985186Z    Repl      [Symbol(asyncId)]: 1260,
+2018-11-16T14:37:08.847008274Z    Repl      [Symbol(lastWriteQueueSize)]: 0,
+2018-11-16T14:37:08.847015584Z    Repl      [Symbol(timeout)]: null,
+2018-11-16T14:37:08.847021613Z    Repl      [Symbol(kBytesRead)]: 0,
+2018-11-16T14:37:08.847027170Z    Repl      [Symbol(kBytesWritten)]: 0 },
+2018-11-16T14:37:08.847033598Z    Repl   _pid: 52,
+2018-11-16T14:37:08.847039384Z    Repl   _fd: 22,
+2018-11-16T14:37:08.847044893Z    Repl   _pty: '/dev/pts/1',
+2018-11-16T14:37:08.847071415Z    Repl   _file: 'irb',
+2018-11-16T14:37:08.847079695Z    Repl   _name: 'xterm',
+2018-11-16T14:37:08.847085435Z    Repl   _readable: true,
+2018-11-16T14:37:08.847091127Z    Repl   _writable: true }, this.language: "ruby" +1ms
+2018-11-16T14:37:08.847408609Z    socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +25ms
+2018-11-16T14:37:08.847840655Z    socket.io-parser encoded {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} as 2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}] +1ms
+2018-11-16T14:37:08.848310424Z    socket.io:client writing packet ["2[\"langChange\",{\"language\":\"ruby\",\"data\":\"WELCOME TO SPACECRAFT!\\n\\r\"}]"] +27ms
+2018-11-16T14:37:08.848735843Z    engine:socket sending packet "message" (2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]) +26ms
+2018-11-16T14:37:08.937047048Z    engine intercepting request for path "/socket.io/" +125ms
+2018-11-16T14:37:08.937503661Z    engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSSz46u&sid=5r6sVPu_XRuWkm0nAAAB" +1ms
+2018-11-16T14:37:08.937947705Z    engine setting new request for existing client +0ms
+2018-11-16T14:37:08.938555712Z    engine:polling setting request +124ms
+2018-11-16T14:37:08.938926847Z    engine:socket flushing buffer to transport +90ms
+2018-11-16T14:37:08.939542938Z    engine:polling writing "72:42["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]211:42["output",{"output":"irb(main):001:0> 1\r\n=> 1\r\nirb(main):002:0> 122\r\n=> 122\r\nirb(main):003:0> 33123\r\n=> 33123\r\nirb(main):004:0> 33\r\
+n=> 33\r\nirb(main):005:0> 123\r\n=> 123\r\nirb(main):006:0> "}]72:42["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]" +1ms
+2018-11-16T14:37:08.940331815Z    engine:socket executing batch send callback +1ms
+2018-11-16T14:37:08.959520223Z    engine upgrading existing transport +19ms
+2018-11-16T14:37:08.959552997Z    engine:socket might upgrade socket transport from "polling" to "websocket" +20ms
+2018-11-16T14:37:08.962644985Z    engine intercepting request for path "/socket.io/" +6ms
+2018-11-16T14:37:08.963027568Z    engine handling "POST" http request "/socket.io/?EIO=3&transport=polling&t=MSSz46z&sid=5r6sVPu_XRuWkm0nAAAB" +0ms
+2018-11-16T14:37:08.963424502Z    engine setting new request for existing client +1ms
+2018-11-16T14:37:08.963900747Z    engine:polling received "32:42["joinRoom","spacecraft-repl"]" +24ms
+2018-11-16T14:37:08.964206655Z    engine:socket packet +5ms
+2018-11-16T14:37:08.964606427Z    socket.io-parser decoded 2["joinRoom","spacecraft-repl"] as {"type":2,"nsp":"/","data":["joinRoom","spacecraft-repl"]} +117ms
+2018-11-16T14:37:08.965210012Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["joinRoom","spacecraft-repl"]} +142ms
+2018-11-16T14:37:08.965679015Z    socket.io:socket emitting event ["joinRoom","spacecraft-repl"] +0ms
+2018-11-16T14:37:08.966006590Z    socket.io:socket dispatching an event ["joinRoom","spacecraft-repl"] +0ms
+2018-11-16T14:37:08.966399674Z    YjsWS [socket.on('joinRoom', fn)] room: spacecraft-repl +143ms
+2018-11-16T14:37:08.966745265Z    YjsWS User "5r6sVPu_XRuWkm0nAAAB" joins room "spacecraft-repl" +0ms
+2018-11-16T14:37:08.967264019Z    socket.io:socket joining room spacecraft-repl +1ms
+2018-11-16T14:37:08.967701157Z    YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' } +1ms
+2018-11-16T14:37:08.967983592Z    YjsWS [NEXT LINE: "return global.yInstances[room];"] +0ms
+2018-11-16T14:37:08.968325224Z    socket.io:socket joined room spacecraft-repl +2ms
+2018-11-16T14:37:08.968709341Z    y:connector User joined: 5r6sVPu_XRuWkm0nAAAB +612ms
+2018-11-16T14:37:08.969763321Z    express:router dispatching GET /favicon.ico +611ms
+2018-11-16T14:37:08.970075773Z    express:router query  : /favicon.ico +0ms
+2018-11-16T14:37:08.970385166Z    express:router expressInit  : /favicon.ico +1ms
+2018-11-16T14:37:08.970713017Z    express:router textParser  : /favicon.ico +0ms
+2018-11-16T14:37:08.970998473Z    body-parser:text skip empty body +612ms
+2018-11-16T14:37:08.971261213Z    express:router serveStatic  : /favicon.ico +1ms
+2018-11-16T14:37:08.971609338Z    send stat "/app/public/favicon.ico" +609ms
+2018-11-16T14:37:08.972093840Z    engine intercepting request for path "/socket.io/" +8ms
+2018-11-16T14:37:08.972382107Z    engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSSz47S&sid=5r6sVPu_XRuWkm0nAAAB" +1ms
+2018-11-16T14:37:08.972723007Z    engine setting new request for existing client +0ms
+2018-11-16T14:37:08.972995402Z    engine:polling setting request +9ms
+2018-11-16T14:37:08.973506241Z    socket.io-parser encoding packet {"type":2,"data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}],"nsp":"/"} +9ms
+2018-11-16T14:37:08.973823142Z    socket.io-parser encoded {"type":2,"data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}],"nsp":"/"} as 2["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protoc
+olVersion":11,"auth":null,"room":"spacecraft-repl"}] +0ms
+2018-11-16T14:37:08.974137606Z    socket.io:client writing packet ["2[\"yjsEvent\",{\"type\":\"sync step 1\",\"stateSet\":{},\"deleteSet\":{},\"protocolVersion\":11,\"auth\":null,\"room\":\"spacecraft-repl\"}]"] +126ms
+2018-11-16T14:37:08.974427700Z    engine:socket sending packet "message" (2["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]) +10ms
+2018-11-16T14:37:08.974700574Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:08.974997441Z    engine:polling writing "124:42["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]" +2ms
+2018-11-16T14:37:08.975447717Z    y:connector Send 'sync step 1' to 5r6sVPu_XRuWkm0nAAAB +7ms
+2018-11-16T14:37:08.975733139Z    y:connector-message Message: {"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"} +0ms
+2018-11-16T14:37:08.976178556Z    send pipe "/app/public/favicon.ico" +5ms
+2018-11-16T14:37:08.976456747Z    send accept ranges +0ms
+2018-11-16T14:37:08.976778188Z    send cache-control public, max-age=0 +0ms
+2018-11-16T14:37:08.977068114Z    send modified Fri, 16 Nov 2018 14:17:31 GMT +0ms
+2018-11-16T14:37:08.977351851Z    send etag W/"2492e-1671ce24878" +1ms
+2018-11-16T14:37:08.977676450Z    send content-type image/x-icon +0ms
+2018-11-16T14:37:08.995373331Z    engine intercepting request for path "/socket.io/" +23ms
+2018-11-16T14:37:08.995812722Z    engine handling "POST" http request "/socket.io/?EIO=3&transport=polling&t=MSSz47n&sid=5r6sVPu_XRuWkm0nAAAB" +0ms
+2018-11-16T14:37:08.996220388Z    engine setting new request for existing client +1ms
+2018-11-16T14:37:08.996749810Z    engine:polling received "124:42["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]" +22ms
+2018-11-16T14:37:08.997038926Z    engine:socket packet +22ms
+2018-11-16T14:37:08.997459172Z    socket.io-parser decoded 2["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}] as {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protoco
+lVersion":11,"auth":null,"room":"spacecraft-repl"}]} +24ms
+2018-11-16T14:37:08.998004134Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]} +29ms
+2018-11-16T14:37:08.998359923Z    socket.io:socket emitting event ["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}] +1ms
+2018-11-16T14:37:08.998707560Z    socket.io:socket dispatching an event ["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}] +0ms
+2018-11-16T14:37:08.999102358Z    YjsWS [socket.on('yjsEvent', fn)] msg: [object Object] +31ms
+2018-11-16T14:37:08.999541577Z    YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' } +1ms
+2018-11-16T14:37:08.999863241Z    YjsWS [NEXT LINE: "return global.yInstances[room];"] +0ms
+2018-11-16T14:37:09.000189345Z    YjsWS [PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...] +1ms
+2018-11-16T14:37:09.000527264Z    y:connector Receive 'sync step 1' from 5r6sVPu_XRuWkm0nAAAB +25ms
+2018-11-16T14:37:09.000840061Z    y:connector-message Message: {"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"} +0ms
+2018-11-16T14:37:09.012961349Z    engine intercepting request for path "/socket.io/" +16ms
+2018-11-16T14:37:09.013385822Z    engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSSz47s&sid=5r6sVPu_XRuWkm0nAAAB" +1ms
+2018-11-16T14:37:09.013770833Z    engine setting new request for existing client +0ms
+2018-11-16T14:37:09.014079400Z    engine:polling setting request +17ms
+2018-11-16T14:37:09.014381961Z    engine:socket executing batch send callback +18ms
+2018-11-16T14:37:09.014964166Z    socket.io-parser encoding packet {"type":2,"data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}],"nsp":"/"} +17ms
+2018-11-16T14:37:09.015376456Z    socket.io-parser encoded {"type":2,"data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}],"nsp":"/"} as 2["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"
+}] +1ms
+2018-11-16T14:37:09.015755702Z    socket.io:client writing packet ["2[\"yjsEvent\",{\"type\":\"sync step 2\",\"stateSet\":{},\"deleteSet\":{},\"os\":[],\"room\":\"spacecraft-repl\"}]"] +41ms
+2018-11-16T14:37:09.016300549Z    engine:socket sending packet "message" (2["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]) +1ms
+2018-11-16T14:37:09.016821407Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:37:09.017166600Z    engine:polling writing "99:42["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]" +4ms
+2018-11-16T14:37:09.017780777Z    y:connector Send 'sync step 2' to 5r6sVPu_XRuWkm0nAAAB +17ms
+2018-11-16T14:37:09.018120546Z    y:connector-message Message: {"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"} +0ms
+2018-11-16T14:37:09.018493838Z    socket.io-parser encoding packet {"type":2,"data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}],"nsp":"/"} +3ms
+2018-11-16T14:37:09.018877032Z    socket.io-parser encoded {"type":2,"data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}],"nsp":"/"} as 2["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}] +0ms
+2018-11-16T14:37:09.019169180Z    socket.io:client writing packet ["2[\"yjsEvent\",{\"type\":\"sync done\",\"room\":\"spacecraft-repl\"}]"] +3ms
+2018-11-16T14:37:09.019504694Z    engine:socket sending packet "message" (2["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]) +3ms
+2018-11-16T14:37:09.019906438Z    y:connector Send 'sync done' to 5r6sVPu_XRuWkm0nAAAB +2ms
+2018-11-16T14:37:09.020337343Z    y:connector-message Message: {"type":"sync done","room":"spacecraft-repl"} +0ms
+2018-11-16T14:37:09.026496595Z    engine:ws received "2probe" +3s
+2018-11-16T14:37:09.026899589Z    engine:ws writing "3probe" +4ms
+2018-11-16T14:37:09.031415627Z    engine intercepting request for path "/socket.io/" +18ms
+2018-11-16T14:37:09.031766844Z    engine handling "POST" http request "/socket.io/?EIO=3&transport=polling&t=MSSz48C&sid=5r6sVPu_XRuWkm0nAAAB" +0ms
+2018-11-16T14:37:09.032114402Z    engine setting new request for existing client +0ms
+2018-11-16T14:37:09.032531369Z    engine:polling received "99:42["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]60:42["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]" +15ms
+2018-11-16T14:37:09.032863609Z    engine:socket packet +13ms
+2018-11-16T14:37:09.033242363Z    socket.io-parser decoded 2["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}] as {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}
+]} +15ms
+2018-11-16T14:37:09.033590862Z    engine:socket packet +1ms
+2018-11-16T14:37:09.033958075Z    socket.io-parser decoded 2["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}] as {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]} +0ms
+2018-11-16T14:37:09.038181079Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]} +36ms
+2018-11-16T14:37:09.038578324Z    socket.io:socket emitting event ["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}] +4ms
+2018-11-16T14:37:09.038879869Z    socket.io:socket dispatching an event ["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}] +0ms
+2018-11-16T14:37:09.039234293Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]} +1ms
+2018-11-16T14:37:09.039565428Z    socket.io:socket emitting event ["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}] +0ms
+2018-11-16T14:37:09.039886575Z    socket.io:socket dispatching an event ["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}] +0ms
+2018-11-16T14:37:09.040367705Z    YjsWS [socket.on('yjsEvent', fn)] msg: [object Object] +40ms
+2018-11-16T14:37:09.040731792Z    YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' } +0ms
+2018-11-16T14:37:09.041015441Z    YjsWS [NEXT LINE: "return global.yInstances[room];"] +0ms
+2018-11-16T14:37:09.041343408Z    YjsWS [socket.on('yjsEvent', fn)] msg: [object Object] +1ms
+2018-11-16T14:37:09.041762362Z    YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' } +0ms
+2018-11-16T14:37:09.042043014Z    YjsWS [NEXT LINE: "return global.yInstances[room];"] +0ms
+2018-11-16T14:37:09.042345002Z    YjsWS [PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...] +1ms
+2018-11-16T14:37:09.042659820Z    y:connector Receive 'sync step 2' from 5r6sVPu_XRuWkm0nAAAB +23ms
+2018-11-16T14:37:09.042940448Z    y:connector-message Message: {"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"} +0ms
+2018-11-16T14:37:09.043220860Z    YjsWS [PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...] +1ms
+2018-11-16T14:37:09.043489501Z    y:connector Receive 'sync done' from 5r6sVPu_XRuWkm0nAAAB +1ms
+2018-11-16T14:37:09.043855506Z    y:connector-message Message: {"type":"sync done","room":"spacecraft-repl"} +0ms
+2018-11-16T14:37:09.050886574Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"irb(main):001:0> "}],"nsp":"/"} +17ms
+2018-11-16T14:37:09.051320914Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"irb(main):001:0> "}],"nsp":"/"} as 2["output",{"output":"irb(main):001:0> "}] +0ms
+2018-11-16T14:37:09.051628004Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"irb(main):001:0> \"}]"] +33ms
+2018-11-16T14:37:09.051914187Z    engine:socket sending packet "message" (2["output",{"output":"irb(main):001:0> "}]) +18ms
+2018-11-16T14:37:09.052468370Z    engine intercepting request for path "/socket.io/" +21ms
+2018-11-16T14:37:09.052798658Z    engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSSz48X&sid=5r6sVPu_XRuWkm0nAAAB" +0ms
+2018-11-16T14:37:09.053167536Z    engine setting new request for existing client +1ms
+2018-11-16T14:37:09.053514735Z    engine:polling setting request +21ms
+2018-11-16T14:37:09.053873295Z    engine:socket flushing buffer to transport +2ms
+2018-11-16T14:37:09.054322296Z    engine:polling writing "60:42["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]43:42["output",{"output":"irb(main):001:0> "}]" +1ms
+2018-11-16T14:37:09.054866811Z    engine:socket executing batch send callback +1ms
+2018-11-16T14:37:09.083150421Z    engine:ws received "5" +56ms
+2018-11-16T14:37:09.083596812Z    engine:socket got upgrade packet - upgrading +29ms
+2018-11-16T14:37:09.084024468Z    engine:polling closing +29ms
+2018-11-16T14:37:09.084322768Z    engine:polling transport discarded - closing right away +1ms
+2018-11-16T14:37:09.617354571Z    engine:ws received "42["lineChanged",{"line":"1"}]" +535ms
+2018-11-16T14:37:09.617941093Z    engine:socket packet +534ms
+2018-11-16T14:37:09.618551743Z    socket.io-parser decoded 2["lineChanged",{"line":"1"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +568ms
+2018-11-16T14:37:09.619062244Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +579ms
+2018-11-16T14:37:09.619483927Z    socket.io:socket emitting event ["lineChanged",{"line":"1"}] +1ms
+2018-11-16T14:37:09.619915186Z    socket.io:socket dispatching an event ["lineChanged",{"line":"1"}] +0ms
+2018-11-16T14:37:09.620389862Z    server   ["lineChanged"] { line: 1 } +796ms
+2018-11-16T14:37:09.620897877Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"1","prompt":"irb(main):006:0> irb(main):001:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:37:09.621401309Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"1","prompt":"irb(main):006:0> irb(main):001:0> "}],"nsp":"/"} as 2["syncLine",{"line":"1","prompt":"irb(main):006:0> irb(main):001:0> "}] +1ms
+2018-11-16T14:37:09.621843201Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"1\",\"prompt\":\"irb(main):006:0> irb(main):001:0> \"}]"] +570ms
+2018-11-16T14:37:09.622247194Z    engine:socket sending packet "message" (2["syncLine",{"line":"1","prompt":"irb(main):006:0> irb(main):001:0> "}]) +5ms
+2018-11-16T14:37:09.622649820Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:09.623028695Z    engine:ws writing "42["syncLine",{"line":"1","prompt":"irb(main):006:0> irb(main):001:0> "}]" +5ms
+2018-11-16T14:37:09.623607567Z    engine:socket executing batch send callback +1ms
+2018-11-16T14:37:09.727853744Z    engine:ws received "42["lineChanged",{"line":"12"}]" +105ms
+2018-11-16T14:37:09.728474292Z    engine:socket packet +105ms
+2018-11-16T14:37:09.728879209Z    socket.io-parser decoded 2["lineChanged",{"line":"12"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"12"}]} +107ms
+2018-11-16T14:37:09.729246062Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"12"}]} +110ms
+2018-11-16T14:37:09.729618347Z    socket.io:socket emitting event ["lineChanged",{"line":"12"}] +0ms
+2018-11-16T14:37:09.729974868Z    socket.io:socket dispatching an event ["lineChanged",{"line":"12"}] +0ms
+2018-11-16T14:37:09.730344267Z    server   ["lineChanged"] { line: 12 } +110ms
+2018-11-16T14:37:09.730738641Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"12","prompt":"irb(main):006:0> irb(main):001:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:37:09.731233315Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"12","prompt":"irb(main):006:0> irb(main):001:0> "}],"nsp":"/"} as 2["syncLine",{"line":"12","prompt":"irb(main):006:0> irb(main):001:0> "}] +0ms
+2018-11-16T14:37:09.731565863Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"12\",\"prompt\":\"irb(main):006:0> irb(main):001:0> \"}]"] +110ms
+2018-11-16T14:37:09.731850880Z    engine:socket sending packet "message" (2["syncLine",{"line":"12","prompt":"irb(main):006:0> irb(main):001:0> "}]) +3ms
+2018-11-16T14:37:09.732307840Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:37:09.732856520Z    engine:ws writing "42["syncLine",{"line":"12","prompt":"irb(main):006:0> irb(main):001:0> "}]" +5ms
+2018-11-16T14:37:09.795226473Z    engine:ws received "42["lineChanged",{"line":"123"}]" +62ms
+2018-11-16T14:37:09.795611037Z    engine:socket packet +62ms
+2018-11-16T14:37:09.796096713Z    socket.io-parser decoded 2["lineChanged",{"line":"123"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"123"}]} +65ms
+2018-11-16T14:37:09.796494533Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"123"}]} +67ms
+2018-11-16T14:37:09.796850694Z    socket.io:socket emitting event ["lineChanged",{"line":"123"}] +0ms
+2018-11-16T14:37:09.797170621Z    socket.io:socket dispatching an event ["lineChanged",{"line":"123"}] +1ms
+2018-11-16T14:37:09.797549324Z    server   ["lineChanged"] { line: 123 } +67ms
+2018-11-16T14:37:09.797916717Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"123","prompt":"irb(main):006:0> irb(main):001:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:37:09.798477512Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"123","prompt":"irb(main):006:0> irb(main):001:0> "}],"nsp":"/"} as 2["syncLine",{"line":"123","prompt":"irb(main):006:0> irb(main):001:0> "}] +1ms
+2018-11-16T14:37:09.798827102Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"123\",\"prompt\":\"irb(main):006:0> irb(main):001:0> \"}]"] +67ms
+2018-11-16T14:37:09.799346025Z    engine:socket sending packet "message" (2["syncLine",{"line":"123","prompt":"irb(main):006:0> irb(main):001:0> "}]) +4ms
+2018-11-16T14:37:09.799709145Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:37:09.800232509Z    engine:ws writing "42["syncLine",{"line":"123","prompt":"irb(main):006:0> irb(main):001:0> "}]" +5ms
+2018-11-16T14:37:10.252156764Z    engine:ws received "42["lineChanged",{"line":""}]" +451ms
+2018-11-16T14:37:10.252265309Z    engine:socket packet +451ms
+2018-11-16T14:37:10.252273710Z    socket.io-parser decoded 2["lineChanged",{"line":""}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +453ms
+2018-11-16T14:37:10.252278921Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +454ms
+2018-11-16T14:37:10.252283204Z    socket.io:socket emitting event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:37:10.252287245Z    socket.io:socket dispatching an event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:37:10.252291018Z    server   ["lineChanged"] { line:  } +454ms
+2018-11-16T14:37:10.252294637Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):006:0> irb(main):001:0> "}],"nsp":"/"} +0ms
+2018-11-16T14:37:10.252309964Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):006:0> irb(main):001:0> "}],"nsp":"/"} as 2["syncLine",{"line":"","prompt":"irb(main):006:0> irb(main):001:0> "}] +0ms
+2018-11-16T14:37:10.252314830Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"\",\"prompt\":\"irb(main):006:0> irb(main):001:0> \"}]"] +453ms
+2018-11-16T14:37:10.252332293Z    engine:socket sending packet "message" (2["syncLine",{"line":"","prompt":"irb(main):006:0> irb(main):001:0> "}]) +1ms
+2018-11-16T14:37:10.252336776Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:10.252340221Z    engine:ws writing "42["syncLine",{"line":"","prompt":"irb(main):006:0> irb(main):001:0> "}]" +1ms
+2018-11-16T14:37:10.256963237Z    engine:ws received "42["evaluate",{"code":"123"}]" +5ms
+2018-11-16T14:37:10.257465852Z    engine:socket packet +6ms
+2018-11-16T14:37:10.258042734Z    socket.io-parser decoded 2["evaluate",{"code":"123"}] as {"type":2,"nsp":"/","data":["evaluate",{"code":"123"}]} +6ms
+2018-11-16T14:37:10.258608780Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["evaluate",{"code":"123"}]} +7ms
+2018-11-16T14:37:10.259099540Z    socket.io:socket emitting event ["evaluate",{"code":"123"}] +0ms
+2018-11-16T14:37:10.259581347Z    socket.io:socket dispatching an event ["evaluate",{"code":"123"}] +1ms
+2018-11-16T14:37:10.260110094Z    server   ["evaluate"] { code: 123 } +8ms
+2018-11-16T14:37:10.260585723Z    Repl [Repl.write(string = 123)] +1s
+2018-11-16T14:37:10.261934793Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"123\r\n=> 123\r\nirb(main):002:0> "}],"nsp":"/"} +4ms
+2018-11-16T14:37:10.262382151Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"123\r\n=> 123\r\nirb(main):002:0> "}],"nsp":"/"} as 2["output",{"output":"123\r\n=> 123\r\nirb(main):002:0> "}] +1ms
+2018-11-16T14:37:10.262829461Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"123\\r\\n=> 123\\r\\nirb(main):002:0> \"}]"] +11ms
+2018-11-16T14:37:10.263229572Z    engine:socket sending packet "message" (2["output",{"output":"123\r\n=> 123\r\nirb(main):002:0> "}]) +5ms
+2018-11-16T14:37:10.263608287Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:37:10.264007711Z    engine:ws writing "42["output",{"output":"123\r\n=> 123\r\nirb(main):002:0> "}]" +7ms
+2018-11-16T14:37:10.718499989Z    engine:ws received "42["lineChanged",{"line":"3"}]" +455ms
+2018-11-16T14:37:10.718981442Z    engine:socket packet +455ms
+2018-11-16T14:37:10.719461463Z    socket.io-parser decoded 2["lineChanged",{"line":"3"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"3"}]} +457ms
+2018-11-16T14:37:10.719852492Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"3"}]} +460ms
+2018-11-16T14:37:10.720195157Z    socket.io:socket emitting event ["lineChanged",{"line":"3"}] +1ms
+2018-11-16T14:37:10.720496531Z    socket.io:socket dispatching an event ["lineChanged",{"line":"3"}] +0ms
+2018-11-16T14:37:10.720838232Z    server   ["lineChanged"] { line: 3 } +461ms
+2018-11-16T14:37:10.721163960Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"3","prompt":"irb(main):002:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:37:10.721503021Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"3","prompt":"irb(main):002:0> "}],"nsp":"/"} as 2["syncLine",{"line":"3","prompt":"irb(main):002:0> "}] +0ms
+2018-11-16T14:37:10.721862945Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"3\",\"prompt\":\"irb(main):002:0> \"}]"] +459ms
+2018-11-16T14:37:10.722159927Z    engine:socket sending packet "message" (2["syncLine",{"line":"3","prompt":"irb(main):002:0> "}]) +4ms
+2018-11-16T14:37:10.722434960Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:10.722738302Z    engine:ws writing "42["syncLine",{"line":"3","prompt":"irb(main):002:0> "}]" +4ms
+2018-11-16T14:37:10.975756330Z    engine:ws received "42["lineChanged",{"line":""}]" +253ms
+2018-11-16T14:37:10.978095034Z    engine:socket packet +255ms
+2018-11-16T14:37:10.983494059Z    socket.io-parser decoded 2["lineChanged",{"line":""}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +256ms
+2018-11-16T14:37:10.986480622Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +259ms
+2018-11-16T14:37:10.986502799Z    socket.io:socket emitting event ["lineChanged",{"line":""}] +4ms
+2018-11-16T14:37:10.986507895Z    socket.io:socket dispatching an event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:37:10.986511819Z    server   ["lineChanged"] { line:  } +263ms
+2018-11-16T14:37:10.986515884Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):002:0> "}],"nsp":"/"} +6ms
+2018-11-16T14:37:10.986551318Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):002:0> "}],"nsp":"/"} as 2["syncLine",{"line":"","prompt":"irb(main):002:0> "}] +0ms
+2018-11-16T14:37:10.986557225Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"\",\"prompt\":\"irb(main):002:0> \"}]"] +262ms
+2018-11-16T14:37:10.986561684Z    engine:socket sending packet "message" (2["syncLine",{"line":"","prompt":"irb(main):002:0> "}]) +6ms
+2018-11-16T14:37:10.986565814Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:37:10.986570842Z    engine:ws writing "42["syncLine",{"line":"","prompt":"irb(main):002:0> "}]" +9ms
+2018-11-16T14:37:10.986574830Z    engine:ws received "42["evaluate",{"code":"3"}]" +0ms
+2018-11-16T14:37:10.986578732Z    engine:socket packet +0ms
+2018-11-16T14:37:10.986582037Z    socket.io-parser decoded 2["evaluate",{"code":"3"}] as {"type":2,"nsp":"/","data":["evaluate",{"code":"3"}]} +1ms
+2018-11-16T14:37:10.986586239Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["evaluate",{"code":"3"}]} +1ms
+2018-11-16T14:37:10.986590116Z    socket.io:socket emitting event ["evaluate",{"code":"3"}] +0ms
+2018-11-16T14:37:10.986593791Z    socket.io:socket dispatching an event ["evaluate",{"code":"3"}] +0ms
+2018-11-16T14:37:10.986597277Z    server   ["evaluate"] { code: 3 } +1ms
+2018-11-16T14:37:10.986600659Z    Repl [Repl.write(string = 3)] +724ms
+2018-11-16T14:37:10.986604020Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"3\r\n"}],"nsp":"/"} +1ms
+2018-11-16T14:37:10.986608147Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"3\r\n"}],"nsp":"/"} as 2["output",{"output":"3\r\n"}] +0ms
+2018-11-16T14:37:10.986613228Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"3\\r\\n\"}]"] +2ms
+2018-11-16T14:37:10.986617303Z    engine:socket sending packet "message" (2["output",{"output":"3\r\n"}]) +1ms
+2018-11-16T14:37:10.986621156Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:10.986624439Z    engine:ws writing "42["output",{"output":"3\r\n"}]" +1ms
+2018-11-16T14:37:10.986628183Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"=> 3\r\nirb(main):003:0> "}],"nsp":"/"} +0ms
+2018-11-16T14:37:10.986636228Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"=> 3\r\nirb(main):003:0> "}],"nsp":"/"} as 2["output",{"output":"=> 3\r\nirb(main):003:0> "}] +0ms
+2018-11-16T14:37:10.986640671Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"=> 3\\r\\nirb(main):003:0> \"}]"] +0ms
+2018-11-16T14:37:10.986644771Z    engine:socket sending packet "message" (2["output",{"output":"=> 3\r\nirb(main):003:0> "}]) +0ms
+2018-11-16T14:37:10.986648477Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:10.986651897Z    engine:ws writing "42["output",{"output":"=> 3\r\nirb(main):003:0> "}]" +0ms
+2018-11-16T14:37:11.173168885Z    engine:ws received "42["lineChanged",{"line":"1"}]" +187ms
+2018-11-16T14:37:11.173512523Z    engine:socket packet +187ms
+2018-11-16T14:37:11.174042357Z    socket.io-parser decoded 2["lineChanged",{"line":"1"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +188ms
+2018-11-16T14:37:11.174319545Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +189ms
+2018-11-16T14:37:11.174518621Z    socket.io:socket emitting event ["lineChanged",{"line":"1"}] +1ms
+2018-11-16T14:37:11.174527984Z    socket.io:socket dispatching an event ["lineChanged",{"line":"1"}] +0ms
+2018-11-16T14:37:11.174785337Z    server   ["lineChanged"] { line: 1 } +190ms
+2018-11-16T14:37:11.174992914Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"1","prompt":"irb(main):003:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:37:11.175210400Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"1","prompt":"irb(main):003:0> "}],"nsp":"/"} as 2["syncLine",{"line":"1","prompt":"irb(main):003:0> "}] +1ms
+2018-11-16T14:37:11.175442366Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"1\",\"prompt\":\"irb(main):003:0> \"}]"] +190ms
+2018-11-16T14:37:11.175453483Z    engine:socket sending packet "message" (2["syncLine",{"line":"1","prompt":"irb(main):003:0> "}]) +3ms
+2018-11-16T14:37:11.175653415Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:11.175898867Z    engine:ws writing "42["syncLine",{"line":"1","prompt":"irb(main):003:0> "}]" +3ms
+2018-11-16T14:37:11.647857161Z    engine:ws received "42["lineChanged",{"line":""}]" +472ms
+2018-11-16T14:37:11.648099445Z    engine:socket packet +472ms
+2018-11-16T14:37:11.648433053Z    socket.io-parser decoded 2["lineChanged",{"line":""}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +473ms
+2018-11-16T14:37:11.648617255Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +474ms
+2018-11-16T14:37:11.648842766Z    socket.io:socket emitting event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:37:11.648966455Z    socket.io:socket dispatching an event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:37:11.649192112Z    server   ["lineChanged"] { line:  } +475ms
+2018-11-16T14:37:11.649446370Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):003:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:37:11.649640139Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):003:0> "}],"nsp":"/"} as 2["syncLine",{"line":"","prompt":"irb(main):003:0> "}] +0ms
+2018-11-16T14:37:11.649780417Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"\",\"prompt\":\"irb(main):003:0> \"}]"] +474ms
+2018-11-16T14:37:11.649998680Z    engine:socket sending packet "message" (2["syncLine",{"line":"","prompt":"irb(main):003:0> "}]) +2ms
+2018-11-16T14:37:11.650218210Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:37:11.650430827Z    engine:ws writing "42["syncLine",{"line":"","prompt":"irb(main):003:0> "}]" +3ms
+2018-11-16T14:37:11.652849794Z    engine:ws received "42["evaluate",{"code":"1"}]" +2ms
+2018-11-16T14:37:11.653142677Z    engine:socket packet +3ms
+2018-11-16T14:37:11.653504857Z    socket.io-parser decoded 2["evaluate",{"code":"1"}] as {"type":2,"nsp":"/","data":["evaluate",{"code":"1"}]} +4ms
+2018-11-16T14:37:11.653825977Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["evaluate",{"code":"1"}]} +5ms
+2018-11-16T14:37:11.654153330Z    socket.io:socket emitting event ["evaluate",{"code":"1"}] +1ms
+2018-11-16T14:37:11.654485238Z    socket.io:socket dispatching an event ["evaluate",{"code":"1"}] +0ms
+2018-11-16T14:37:11.654747887Z    server   ["evaluate"] { code: 1 } +5ms
+2018-11-16T14:37:11.655005134Z    Repl [Repl.write(string = 1)] +670ms
+2018-11-16T14:37:11.655421608Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"1\r\n"}],"nsp":"/"} +2ms
+2018-11-16T14:37:11.655711285Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"1\r\n"}],"nsp":"/"} as 2["output",{"output":"1\r\n"}] +0ms
+2018-11-16T14:37:11.655887784Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"1\\r\\n\"}]"] +6ms
+2018-11-16T14:37:11.656287563Z    engine:socket sending packet "message" (2["output",{"output":"1\r\n"}]) +3ms
+2018-11-16T14:37:11.656624510Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:11.656962725Z    engine:ws writing "42["output",{"output":"1\r\n"}]" +4ms
+2018-11-16T14:37:11.657379771Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"=> 1\r\nirb(main):004:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:37:11.657770910Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"=> 1\r\nirb(main):004:0> "}],"nsp":"/"} as 2["output",{"output":"=> 1\r\nirb(main):004:0> "}] +0ms
+2018-11-16T14:37:11.658053333Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"=> 1\\r\\nirb(main):004:0> \"}]"] +2ms
+2018-11-16T14:37:11.658397727Z    engine:socket sending packet "message" (2["output",{"output":"=> 1\r\nirb(main):004:0> "}]) +2ms
+2018-11-16T14:37:11.658664898Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:11.659060139Z    engine:ws writing "42["output",{"output":"=> 1\r\nirb(main):004:0> "}]" +2ms
+2018-11-16T14:37:12.430074196Z    engine:ws received "42["lineChanged",{"line":"1"}]" +771ms
+2018-11-16T14:37:12.430436360Z    engine:socket packet +772ms
+2018-11-16T14:37:12.430694838Z    socket.io-parser decoded 2["lineChanged",{"line":"1"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +773ms
+2018-11-16T14:37:12.430901480Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +776ms
+2018-11-16T14:37:12.431065828Z    socket.io:socket emitting event ["lineChanged",{"line":"1"}] +0ms
+2018-11-16T14:37:12.431218503Z    socket.io:socket dispatching an event ["lineChanged",{"line":"1"}] +1ms
+2018-11-16T14:37:12.431416867Z    server   ["lineChanged"] { line: 1 } +777ms
+2018-11-16T14:37:12.431600850Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"1","prompt":"irb(main):004:0> "}],"nsp":"/"} +1ms
+2018-11-16T14:37:12.431781988Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"1","prompt":"irb(main):004:0> "}],"nsp":"/"} as 2["syncLine",{"line":"1","prompt":"irb(main):004:0> "}] +0ms
+2018-11-16T14:37:12.431967455Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"1\",\"prompt\":\"irb(main):004:0> \"}]"] +774ms
+2018-11-16T14:37:12.432125150Z    engine:socket sending packet "message" (2["syncLine",{"line":"1","prompt":"irb(main):004:0> "}]) +2ms
+2018-11-16T14:37:12.432270027Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:12.432428145Z    engine:ws writing "42["syncLine",{"line":"1","prompt":"irb(main):004:0> "}]" +3ms
+2018-11-16T14:37:12.519737796Z    engine:ws received "42["lineChanged",{"line":"12"}]" +87ms
+2018-11-16T14:37:12.520392797Z    engine:socket packet +88ms
+2018-11-16T14:37:12.521079906Z    socket.io-parser decoded 2["lineChanged",{"line":"12"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"12"}]} +89ms
+2018-11-16T14:37:12.521727546Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"12"}]} +90ms
+2018-11-16T14:37:12.522277748Z    socket.io:socket emitting event ["lineChanged",{"line":"12"}] +0ms
+2018-11-16T14:37:12.522845044Z    socket.io:socket dispatching an event ["lineChanged",{"line":"12"}] +1ms
+2018-11-16T14:37:12.523384069Z    server   ["lineChanged"] { line: 12 } +92ms
+2018-11-16T14:37:12.523955172Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"12","prompt":"irb(main):004:0> "}],"nsp":"/"} +3ms
+2018-11-16T14:37:12.524454055Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"12","prompt":"irb(main):004:0> "}],"nsp":"/"} as 2["syncLine",{"line":"12","prompt":"irb(main):004:0> "}] +1ms
+2018-11-16T14:37:12.524982361Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"12\",\"prompt\":\"irb(main):004:0> \"}]"] +93ms
+2018-11-16T14:37:12.525470729Z    engine:socket sending packet "message" (2["syncLine",{"line":"12","prompt":"irb(main):004:0> "}]) +5ms
+2018-11-16T14:37:12.525934080Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:12.526429952Z    engine:ws writing "42["syncLine",{"line":"12","prompt":"irb(main):004:0> "}]" +7ms
+2018-11-16T14:37:12.575741243Z    engine:ws received "42["lineChanged",{"line":"123"}]" +48ms
+2018-11-16T14:37:12.576497268Z    engine:socket packet +51ms
+2018-11-16T14:37:12.577188835Z    socket.io-parser decoded 2["lineChanged",{"line":"123"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"123"}]} +52ms
+2018-11-16T14:37:12.577854276Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"123"}]} +55ms
+2018-11-16T14:37:12.578412872Z    socket.io:socket emitting event ["lineChanged",{"line":"123"}] +1ms
+2018-11-16T14:37:12.579005495Z    socket.io:socket dispatching an event ["lineChanged",{"line":"123"}] +0ms
+2018-11-16T14:37:12.579578081Z    server   ["lineChanged"] { line: 123 } +56ms
+2018-11-16T14:37:12.580199373Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"123","prompt":"irb(main):004:0> "}],"nsp":"/"} +3ms
+2018-11-16T14:37:12.580925210Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"123","prompt":"irb(main):004:0> "}],"nsp":"/"} as 2["syncLine",{"line":"123","prompt":"irb(main):004:0> "}] +1ms
+2018-11-16T14:37:12.581594887Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"123\",\"prompt\":\"irb(main):004:0> \"}]"] +57ms
+2018-11-16T14:37:12.582124752Z    engine:socket sending packet "message" (2["syncLine",{"line":"123","prompt":"irb(main):004:0> "}]) +5ms
+2018-11-16T14:37:12.582595974Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:37:12.583063004Z    engine:ws writing "42["syncLine",{"line":"123","prompt":"irb(main):004:0> "}]" +8ms
+2018-11-16T14:37:12.662113880Z    engine:ws received "42["lineChanged",{"line":""}]" +79ms
+2018-11-16T14:37:12.662901351Z    engine:socket packet +80ms
+2018-11-16T14:37:12.663557238Z    socket.io-parser decoded 2["lineChanged",{"line":""}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +83ms
+2018-11-16T14:37:12.664211044Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +85ms
+2018-11-16T14:37:12.664775274Z    socket.io:socket emitting event ["lineChanged",{"line":""}] +1ms
+2018-11-16T14:37:12.665358910Z    socket.io:socket dispatching an event ["lineChanged",{"line":""}] +0ms
+2018-11-16T14:37:12.666055886Z    server   ["lineChanged"] { line:  } +86ms
+2018-11-16T14:37:12.666768518Z    socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):004:0> "}],"nsp":"/"} +3ms
+2018-11-16T14:37:12.667384744Z    socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"","prompt":"irb(main):004:0> "}],"nsp":"/"} as 2["syncLine",{"line":"","prompt":"irb(main):004:0> "}] +1ms
+2018-11-16T14:37:12.668017738Z    socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"\",\"prompt\":\"irb(main):004:0> \"}]"] +86ms
+2018-11-16T14:37:12.668594297Z    engine:socket sending packet "message" (2["syncLine",{"line":"","prompt":"irb(main):004:0> "}]) +6ms
+2018-11-16T14:37:12.669178052Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:12.669681255Z    engine:ws writing "42["syncLine",{"line":"","prompt":"irb(main):004:0> "}]" +8ms
+2018-11-16T14:37:12.670837331Z    engine:ws received "42["evaluate",{"code":"123"}]" +1ms
+2018-11-16T14:37:12.671352619Z    engine:socket packet +3ms
+2018-11-16T14:37:12.671950504Z    socket.io-parser decoded 2["evaluate",{"code":"123"}] as {"type":2,"nsp":"/","data":["evaluate",{"code":"123"}]} +4ms
+2018-11-16T14:37:12.672497198Z    socket.io:socket got packet {"type":2,"nsp":"/","data":["evaluate",{"code":"123"}]} +8ms
+2018-11-16T14:37:12.673020035Z    socket.io:socket emitting event ["evaluate",{"code":"123"}] +0ms
+2018-11-16T14:37:12.673511512Z    socket.io:socket dispatching an event ["evaluate",{"code":"123"}] +1ms
+2018-11-16T14:37:12.674046648Z    server   ["evaluate"] { code: 123 } +8ms
+2018-11-16T14:37:12.674612566Z    Repl [Repl.write(string = 123)] +1s
+2018-11-16T14:37:12.675368149Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"123\r\n"}],"nsp":"/"} +4ms
+2018-11-16T14:37:12.675677975Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"123\r\n"}],"nsp":"/"} as 2["output",{"output":"123\r\n"}] +0ms
+2018-11-16T14:37:12.675969337Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"123\\r\\n\"}]"] +8ms
+2018-11-16T14:37:12.676253756Z    engine:socket sending packet "message" (2["output",{"output":"123\r\n"}]) +5ms
+2018-11-16T14:37:12.676594846Z    engine:socket flushing buffer to transport +0ms
+2018-11-16T14:37:12.676918716Z    engine:ws writing "42["output",{"output":"123\r\n"}]" +6ms
+2018-11-16T14:37:12.677560290Z    socket.io-parser encoding packet {"type":2,"data":["output",{"output":"=> 123\r\nirb(main):005:0> "}],"nsp":"/"} +2ms
+2018-11-16T14:37:12.677989020Z    socket.io-parser encoded {"type":2,"data":["output",{"output":"=> 123\r\nirb(main):005:0> "}],"nsp":"/"} as 2["output",{"output":"=> 123\r\nirb(main):005:0> "}] +0ms
+2018-11-16T14:37:12.678379152Z    socket.io:client writing packet ["2[\"output\",{\"output\":\"=> 123\\r\\nirb(main):005:0> \"}]"] +3ms
+2018-11-16T14:37:12.678772648Z    engine:socket sending packet "message" (2["output",{"output":"=> 123\r\nirb(main):005:0> "}]) +2ms
+2018-11-16T14:37:12.679137793Z    engine:socket flushing buffer to transport +1ms
+2018-11-16T14:37:12.679453218Z    engine:ws writing "42["output",{"output":"=> 123\r\nirb(main):005:0> "}]" +3ms
+
+λ root [~] →

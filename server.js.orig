@@ -11,7 +11,14 @@ const http = require('http')
 const socketIo = require('socket.io')
 const Repl = require('./repl/Repl.js')
 
+<<<<<<< HEAD
 const port = process.env.PORT || 3000
+=======
+let histOutputs = '';
+let lastOutput = '';
+let currentPrompt = null;
+const DEFAULT_LANG = 'ruby';
+>>>>>>> streaming-mode-remove-buffer
 
 const app = express()
 app.use(bodyParser.text())
@@ -22,6 +29,9 @@ const io = socketIo(server) // our websocket server
 
 let histOutputs = ''
 let lastOutput = ''
+
+// *** Commented out to fix: "'timeoutId' is assigned a value but never used."
+// let timeoutId = null
 let currentPrompt = null
 const DEFAULT_LANG = 'ruby'
 
@@ -46,10 +56,17 @@ io.on('connection', (socket) => {
   }
 
   const initRepl = (language, welcome_msg = '') => {
+<<<<<<< HEAD
     debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
     Repl.kill()
     Repl.init(language)
     histOutputs = ''
+=======
+    Repl.kill();
+    Repl.init(language);
+    histOutputs = '';
+    lastOutput = '';
+>>>>>>> streaming-mode-remove-buffer
 
     io.emit('langChange', {
       language: Repl.language,
@@ -60,7 +77,11 @@ io.on('connection', (socket) => {
   }
 
   const getCurrentPrompt = () => {
+<<<<<<< HEAD
     return lastOutput.split('\n').pop()
+=======
+    return lastOutput.split('\n').pop();
+>>>>>>> streaming-mode-remove-buffer
   }
 
   // @todo: Check if this is necessary.
@@ -93,28 +114,39 @@ io.on('connection', (socket) => {
     Repl.write(code)
   })
 
-  socket.on('lineChanged', ({ line, syncSelf }) => {
+  socket.on('lineChanged', ({ line }) => {
     debug('  ["lineChanged"] { line: %s }', line)
-    currentPrompt = currentPrompt || getCurrentPrompt();
-    const data = { line, prompt: currentPrompt };
-
-    if (syncSelf) return io.emit('syncLine', data);
-    socket.broadcast.emit('syncLine', data);
-  });
+    if (!currentPrompt) currentPrompt = getCurrentPrompt()
+    io.emit('syncLine', { line, prompt: currentPrompt })
+  })
 
   socket.on('clear', () => {
+<<<<<<< HEAD
     debug('  ["clear"]')
     io.emit('clear')
     histOutputs = ''
   })
+=======
+    io.emit('clear');
+    histOutputs = '';
+  });
+>>>>>>> streaming-mode-remove-buffer
 
   socket.on('disconnect', () => {
     debug('  ["disconnect"]')
     io.of('/').clients((error, clients) => {
+<<<<<<< HEAD
       debug('    [io of / .clients] error: %s, clients: %s', error, clients)
-      if (clients.length === 0) Repl.kill()
+      if (clients.length === 0) {
+        Repl.kill()
+      }
     })
   })
+=======
+      if (clients.length === 0) Repl.kill();
+    });
+  });
+>>>>>>> streaming-mode-remove-buffer
 
   // Yjs Websockets Server Events
   require('./yjs-ws-server.js')(io, socket)
