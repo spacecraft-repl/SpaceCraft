@@ -22,9 +22,6 @@ const io = socketIo(server) // our websocket server
 
 let histOutputs = ''
 let lastOutput = ''
-
-// *** Commented out to fix: "'timeoutId' is assigned a value but never used."
-// let timeoutId = null
 let currentPrompt = null
 const DEFAULT_LANG = 'ruby'
 
@@ -112,9 +109,7 @@ io.on('connection', (socket) => {
     debug('  ["disconnect"]')
     io.of('/').clients((error, clients) => {
       debug('    [io of / .clients] error: %s, clients: %s', error, clients)
-      if (clients.length === 0) {
-        Repl.kill()
-      }
+      if (clients.length === 0) Repl.kill()
     })
   })
 

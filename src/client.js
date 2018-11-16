@@ -10,13 +10,13 @@ const runButton = $('.run-editor-code-button')
 let state = {
   line: '',
   language: 'ruby',
-  currentPrompt: null
+  currentPrompt: ''
 }
 
 // #~~~~~~~~~~~~~~~~~ Term ~~~~~~~~~~~~~~~~~#
 term.open($('#terminal'))
 
-// @todo: Refactor.
+// @todo: Refactor or remove.
 const clearTermLine = () => term.write('\u001b[2K\r')
 const setTermPrompt = () => term.write(state.currentPrompt)
 const resetTermLine = () => {
@@ -46,7 +46,6 @@ socket.on('output', ({ output }) => {
 socket.on('langChange', ({ language, data }) => {
   editor.setOption('mode', language)
   state.language = language
-  resetCurrentPrompt()
   languageSelectElem.value = language
   term.reset()
   term.write(data)
@@ -65,7 +64,7 @@ socket.on('syncLine', ({ line, prompt }) => {
   term.write(line)
 })
 
-// TODO: fill in...?
+// TODO: Fill in or remove...?
 socket.on('connect', () => {})
 socket.on('disconnect', () => {})
 
@@ -131,7 +130,6 @@ const ClientRepl = {
 
   handleLanguageChange () {
     this.clearLine()
-    resetCurrentPrompt()
     this.emitInitRepl()
   }
 }
