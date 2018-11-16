@@ -28,7 +28,6 @@ const resetTermLine = () => {
 const clearTermScreen = () => term.reset()
 const resetTermScreen = () => {
   clearTermScreen()
-  // resetTermLine()
   setTermPrompt()
 }
 

@@ -23,10 +23,6 @@ const Repl = {
       // @todo: Is it necessary to return `this` here? -- it doesn't appear to be used anywhere.
       return this
     }
-
-    // @todo: Refactor or remove.
-    debug('WARNING: Unknown Language! Setting language to ruby...')
-    return this.init('ruby')
   },
 
   write (string) {
@@ -43,7 +39,7 @@ const Repl = {
     if (this.process) {
       this.process.removeAllListeners('data')
       this.process.kill()
-      // this.process = null
+      this.process = null
       debug('Repl process killed.')
     }
     this.language = null
