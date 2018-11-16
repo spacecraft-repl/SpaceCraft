@@ -1,4 +1,4 @@
 node_modules
-logs
-*.log
 public/main.js
+!logs
+!*.log

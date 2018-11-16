@@ -1,0 +1,160 @@
+'use strict';
+
+const debug = require('debug')('server');
+
+const express = require('express');
+const path = require('path');
+// @todo: Check if we need body-parser.
+const bodyParser = require('body-parser');
+const http = require('http');
+const socketIo = require('socket.io');
+const Repl = require('./repl/Repl.js');
+
+const port = process.env.PORT || 3000;
+
+const app = express();
+app.use(bodyParser.text());
+app.use(express.static('public'));
+
+const server = http.Server(app);
+const io = socketIo(server);  // our websocket server
+
+<<<<<<< HEAD
+let histOutputs = null;
+let timeoutId = null;
+let currentPrompt = null;
+
+=======
+// @todo: Check if this route is necessary -- is it ever used?
+>>>>>>> no-yjs
+app.get('/:room', (req, res) => {
+  debug(`${req.method} ${req.url}, req.params: %o`, req.params)
+  if (req.params.room === 'favicon.ico') return;
+  debug('path.join(__dirname, "./index.html") = %s', path.join(__dirname, './index.html'))
+  res.sendFile(path.join(__dirname, './index.html'));
+});
+
+const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r';
+
+io.on('connection', (socket) => {
+<<<<<<< HEAD
+  const emitOutput = (output) => {
+    const lastOutputs = histOutputs[histOutputs.length - 1];
+    lastOutputs.push(output);
+    io.emit('output', { output });
+  };
+=======
+  debug('io.on("connection", (socket) => {')
+>>>>>>> no-yjs
+
+  const initRepl = (language, welcome_msg = '') => {
+    debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
+    Repl.kill();
+    Repl.init(language);
+<<<<<<< HEAD
+    histOutputs = [[]];
+
+    io.emit('langChange', {
+      language: Repl.language,
+      data: welcome_msg,
+    });
+
+    Repl.process.on('data', emitOutput);
+  };
+
+  const getCurrentPrompt = () => {
+    return histOutputs[histOutputs.length - 1]
+             .join('')
+             .split('\n')
+             .pop();
+  };
+
+  socket.emit('langChange', { language: Repl.language || 'ruby', data: WELCOME_MSG });
+=======
+    Repl.bufferRead()
+      .then((data) => {
+        debug('    data: %j', data)
+        io.emit('langChange', {
+          language: Repl.language,
+          data: welcome_msg + data,
+        })
+      });
+  };
+
+  const emitOutput = (output) => {
+    debug('  [emitOutput] output: %s', output)
+    io.emit('output', { output });
+  };
+
+  // @todo: Check if this is necessary.
+  debug('`socket.emit("langChange", {` ~~> language: %s, data: %s', Repl.language || 'ruby', WELCOME_MSG)
+  socket.emit('langChange', {
+    language: Repl.language || 'ruby',  // Added null guard to speed up initial loading.
+    data: WELCOME_MSG,
+  });
+>>>>>>> no-yjs
+
+  io.of('/').clients((error, clients) => {
+    debug('  [io.of("/").clients(fn)] error: %s, clients: %s', error, clients)
+    if (clients.length === 1) {
+      initRepl('ruby', WELCOME_MSG);
+    }
+  });
+
+  socket.on('initRepl', ({ language }) => {
+    debug('  ["initRepl"] { language: %s }', language)
+    if (language === Repl.language) return;
+    initRepl(language);
+  });
+
+  socket.on('evaluate', ({ code }) => {
+<<<<<<< HEAD
+    currentPrompt = null; 
+    histOutputs.push([]);
+    Repl.write(code);
+  });
+
+  socket.on('lineChanged', ({ line }) => {
+    if (!currentPrompt) currentPrompt = getCurrentPrompt();
+    socket.broadcast.emit('syncLine', { line, prompt: currentPrompt });
+  });  
+
+  socket.on('clear', () => io.emit('clear'));
+=======
+    debug('  ["evaluate"] { code: %s }', code)
+    Repl.bufferWrite(code).then(emitOutput);
+  });
+
+  socket.on('clear', () => {
+    debug('  ["clear"]')
+    io.emit('clear');
+  });
+>>>>>>> no-yjs
+
+  socket.on('disconnect', () => {
+    debug('  ["disconnect"]')
+    io.of('/').clients((error, clients) => {
+      debug('    [io of / .clients] error: %s, clients: %s', error, clients)
+      if (clients.length === 0) {
+        Repl.kill();
+      }
+    });
+  });
+
+<<<<<<< HEAD
+  // Yjs Websockets Server Events
+  require('./yjs-ws-server.js')(io, socket);
+=======
+  socket.on('lineChanged', ({ line }) => {
+    debug('  ["lineChanged"] { line: %s }', line)
+    socket.broadcast.emit('syncLine', { line });
+  });
+
+  // // Yjs Websockets Server Events
+  // require('./yjs-ws-server.js')(io, socket);
+>>>>>>> no-yjs
+});
+
+server.listen(port, () => {
+  debug(`Listening on port: ${port}...`);
+});

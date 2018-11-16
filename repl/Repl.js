@@ -1,51 +1,53 @@
-const pty = require('node-pty');
-const COMMANDS = require('./LangCommands.js');
+'use strict'
+
+const debug = require('debug')('Repl')
+
+// @todo: Check if we should add some or all of the boilerplate in the node-pty readme.
+const pty = require('node-pty')
+const COMMANDS = require('./LangCommands.js')
 
 const Repl = {
+  // @todo: Check if it's necessary to set these two props to `null`.
   language: null,
   process: null,
 
-  init(language) {
-    console.log(`${Date().slice(4, 33)} -- [Repl.init(language = ${language})]`);
-
-    const command = COMMANDS[language];
+  init (language) {
+    debug(`[Repl.init(language = "${language}")]`)
+    const command = COMMANDS[language]
     if (command) {
-      this.process = pty.spawn(command);
-      this.language = language;
-      console.log(`${Date().slice(4, 33)} -- INITIALIZED ${command}`);
-      return this;
+      this.process = pty.spawn(command)
+      this.language = language
+      debug(`  INITIALIZED command: ${command}`)
+      debug('  this.process: %O, this.language: "%s"', this.process, this.language)
+
+      // @todo: Is it necessary to return `this` here? -- it doesn't appear to be used anywhere.
+      return this
     }
 
-    // TODO: refactor
-    console.log('WARNING: Unknown Language! Setting language to ruby...');
-    this.init('ruby');
-    return this;
+    // @todo: Refactor or remove.
+    debug('WARNING: Unknown Language! Setting language to ruby...')
+    return this.init('ruby')
   },
 
-  write(string) {
-    console.log(`${Date().slice(4, 33)} -- [Repl.write(string = ${string})]`);
-    this.process.write(string + '\n');
+  write (string) {
+    debug(`[Repl.write(string = ${string})]`)
+
+    // @todo: Check if we also need a carriage return here, like in the node-pty readme.
+    this.process.write(string + '\n')
   },
 
-  untilCondIsMet(condFunc, interval = 1, value) {
-    return new Promise((resolve, reject) => {
-      (function wait() {
-        if (condFunc()) return resolve(value);
-        setTimeout(wait, interval);
-      })();
-    });
-  },
+  kill () {
+    debug('[kill()] this.process: %o', this.process)
 
-  bufferRead(bufferInterval) {
-    return this.bufferWrite('', bufferInterval, write = false);
-  },
+    // @todo: Check if `kill` is the best method to use here.
+    if (this.process) {
+      this.process.removeAllListeners('data')
+      this.process.kill()
+      this.process = null
+      debug('Repl process killed.')
+    }
+    this.language = null
+  }
+}
 
-  kill() {
-    this.process && this.process.removeAllListeners('data');
-    if (this.process) this.process.kill();
-    this.process = null;
-    this.language = null;
-  },
-};
-
-module.exports = Repl;
+module.exports = Repl

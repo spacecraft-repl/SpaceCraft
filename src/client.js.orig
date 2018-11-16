@@ -10,13 +10,18 @@ const runButton = $('.run-editor-code-button')
 let state = {
   line: '',
   language: 'ruby',
-  currentPrompt: ''
+<<<<<<< HEAD
+  currentPrompt: null
 }
+=======
+  currentPrompt: '',
+};
+>>>>>>> streaming-mode-remove-buffer
 
 // #~~~~~~~~~~~~~~~~~ Term ~~~~~~~~~~~~~~~~~#
 term.open($('#terminal'))
 
-// @todo: Refactor or remove.
+// @todo: Refactor.
 const clearTermLine = () => term.write('\u001b[2K\r')
 const setTermPrompt = () => term.write(state.currentPrompt)
 const resetTermLine = () => {
@@ -24,7 +29,6 @@ const resetTermLine = () => {
   setTermPrompt()
 }
 
-// @todo: Refactor or remove.
 const clearTermScreen = () => term.reset()
 const resetTermScreen = () => {
   clearTermScreen()
@@ -35,10 +39,9 @@ const writeBackspaces = (length) => {
   for (let i = 0; i < length; i++) term.write('\b \b')
 }
 
-// @todo: Refactor or remove.
-// const resetCurrentPrompt = () => {
-//   state.currentPrompt = ''
-// }
+const resetCurrentPrompt = () => {
+  state.currentPrompt = ''
+}
 
 // #~~~~~~~~~~~~~~~~~ Socket ~~~~~~~~~~~~~~~~~#
 socket.on('output', ({ output }) => {
@@ -46,12 +49,22 @@ socket.on('output', ({ output }) => {
 })
 
 socket.on('langChange', ({ language, data }) => {
+<<<<<<< HEAD
   editor.setOption('mode', language)
   state.language = language
+  resetCurrentPrompt()
   languageSelectElem.value = language
   term.reset()
   term.write(data)
 })
+=======
+  editor.setOption('mode', language);
+  state.language = language;
+  languageSelectElem.value = language;
+  term.reset();
+  term.write(data);
+});
+>>>>>>> streaming-mode-remove-buffer
 
 socket.on('clear', () => {
   state.line = ''
@@ -66,7 +79,7 @@ socket.on('syncLine', ({ line, prompt }) => {
   term.write(line)
 })
 
-// TODO: Fill in or remove...?
+// TODO: fill in...?
 socket.on('connect', () => {})
 socket.on('disconnect', () => {})
 
@@ -81,9 +94,8 @@ const ClientRepl = {
   },
 
   // Emit 'lineChanged` event to server --> server broadcasts 'syncLine' to clients.
-
-  emitLineChanged({ syncSelf = false } = {}) {
-    socket.emit('lineChanged', { line: state.line, syncSelf });
+  emitLineChanged () {
+    socket.emit('lineChanged', { line: state.line })
   },
 
   emitInitRepl () {
@@ -118,33 +130,28 @@ const ClientRepl = {
 
   // Handle special keys (Enter, Backspace).
   // @param: KeyboardEvent
-  handleKeydown({ key }) {
-    if      (key === 'Enter')     this.handleEnter();
-    else if (key === 'Backspace') this.handleBackspace();
-  },
-
-  handleRunButtonClick() {
-    let editorCode = editor.getValue().trim();
-    if (editorCode === '') return;
-    this.emitLineChanged({ syncSelf: true });
-    this.emitClear();
-    this.emitEvaluate(editorCode);
-
   handleKeydown ({ key }) {
     if (key === 'Enter') this.handleEnter()
     else if (key === 'Backspace') this.handleBackspace()
   },
 
+<<<<<<< HEAD
   handleRunButtonClick () {
     let editorCode = editor.getValue().trim()
     if (editorCode === '') return
     this.emitLineChanged()
     this.emitClear()
     this.emitEvaluate(editorCode)
+=======
+  handleLanguageChange() {
+    this.clearLine(); 
+    this.emitInitRepl();
+>>>>>>> streaming-mode-remove-buffer
   },
 
   handleLanguageChange () {
     this.clearLine()
+    resetCurrentPrompt()
     this.emitInitRepl()
   }
 }

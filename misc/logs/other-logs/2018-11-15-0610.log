@@ -1,0 +1,755 @@
+λ root [~/SpaceCraft-debug] at  no-yjs ✔
+→ d run -it -p 4000:3000 njohnson7/spacecraft-debug-11-15-0534                                                                                                                                                                                                                    [6182f93]
+
+> npm_repl_prototype@1.0.0 debug /app
+> DEBUG=* node server.js
+
+  express:application set "x-powered-by" to true +0ms
+  express:application set "etag" to 'weak' +4ms
+  express:application set "etag fn" to [Function: generateETag] +1ms
+  express:application set "env" to 'development' +1ms
+  express:application set "query parser" to 'extended' +0ms
+  express:application set "query parser fn" to [Function: parseExtendedQueryString] +0ms
+  express:application set "subdomain offset" to 2 +1ms
+  express:application set "trust proxy" to false +0ms
+  express:application set "trust proxy fn" to [Function: trustNone] +0ms
+  express:application booting in development mode +0ms
+  express:application set "view" to [Function: View] +1ms
+  express:application set "views" to '/app/views' +0ms
+  express:application set "jsonp callback name" to 'callback' +0ms
+  express:router use '/' query +2ms
+  express:router:layer new '/' +0ms
+  express:router use '/' expressInit +1ms
+  express:router:layer new '/' +0ms
+  express:router use '/' textParser +1ms
+  express:router:layer new '/' +0ms
+  express:router use '/' serveStatic +0ms
+  express:router:layer new '/' +0ms
+  socket.io:server initializing namespace / +0ms
+  socket.io-parser encoding packet {"type":0,"nsp":"/"} +0ms
+  socket.io-parser encoded {"type":0,"nsp":"/"} as 0 +1ms
+  socket.io:server creating engine.io instance with opts {"path":"/socket.io","initialPacket":["0"]} +2ms
+  socket.io:server attaching client serving req handler +17ms
+  express:router:route new '/:room' +25ms
+  express:router:layer new '/:room' +0ms
+  express:router:route get '/:room' +1ms
+  express:router:layer new '/' +0ms
+  server Listening on port: 3000... +0ms
+  engine intercepting request for path "/socket.io/" +0ms
+  engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSNe8zC" +0ms
+  engine handshaking client "icQ-T1XmrRCM5ubbAAAA" +5ms
+  engine:socket sending packet "open" ({"sid":"icQ-T1XmrRCM5ubbAAAA","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}) +0ms
+  engine:socket sending packet "message" (0) +0ms
+  engine:polling setting request +0ms
+  engine:socket flushing buffer to transport +1ms
+  engine:polling writing "96:0{"sid":"icQ-T1XmrRCM5ubbAAAA","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}2:40" +1ms
+  engine:socket executing batch send callback +6ms
+  socket.io:server incoming connection with id icQ-T1XmrRCM5ubbAAAA +2s
+  socket.io:client connecting to namespace / +0ms
+  socket.io:namespace adding socket to nsp / +0ms
+  socket.io:socket socket connected - writing packet +0ms
+  socket.io:socket joining room icQ-T1XmrRCM5ubbAAAA +0ms
+  socket.io:socket packet already sent in initial handshake +0ms
+  server io.on("connection", (socket) => { +2s
+  socket.io:client writing packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +4ms
+  socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +2s
+  socket.io-parser encoded {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} as 2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}] +1ms
+  engine:socket sending packet "message" (2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]) +6ms
+  socket.io:socket joined room icQ-T1XmrRCM5ubbAAAA +3ms
+  server   [io.of("/").clients(fn)] error: null, clients: icQ-T1XmrRCM5ubbAAAA +2ms
+  server   [initRepl] lang: ruby, welcome_msg: WELCOME TO SPACECRAFT!
+ +0ms
+  Repl [kill()] this.process: null +0ms
+  Repl Repl process killed. +1ms
+  Repl [Repl.init(language = "ruby")] +0ms
+  Repl   INITIALIZED command: irb +7ms
+  Repl   this.process: UnixTerminal {
+  Repl   _internalee:
+  Repl    EventEmitter {
+  Repl      _events: [Object: null prototype] {},
+  Repl      _eventsCount: 0,
+  Repl      _maxListeners: undefined },
+  Repl   _socket:
+  Repl    PipeSocket {
+  Repl      connecting: false,
+  Repl      _hadError: false,
+  Repl      _handle:
+  Repl       Pipe {
+  Repl         onread: [Function: onStreamRead],
+  Repl         [Symbol(owner)]: [Circular] },
+  Repl      _parent: null,
+  Repl      _host: null,
+  Repl      _readableState:
+  Repl       ReadableState {
+  Repl         objectMode: false,
+  Repl         highWaterMark: 16384,
+  Repl         buffer: BufferList { head: null, tail: null, length: 0 },
+  Repl         length: 0,
+  Repl         pipes: null,
+  Repl         pipesCount: 0,
+  Repl         flowing: null,
+  Repl         ended: false,
+  Repl         endEmitted: false,
+  Repl         reading: false,
+  Repl         sync: true,
+  Repl         needReadable: false,
+  Repl         emittedReadable: false,
+  Repl         readableListening: false,
+  Repl         resumeScheduled: false,
+  Repl         emitClose: false,
+  Repl         destroyed: false,
+  Repl         defaultEncoding: 'utf8',
+  Repl         awaitDrain: 0,
+  Repl         readingMore: false,
+  Repl         decoder:
+  Repl          StringDecoder {
+  Repl            encoding: 'utf8',
+  Repl            [Symbol(kNativeDecoder)]: <Buffer 00 00 00 00 00 00 01> },
+  Repl         encoding: 'utf8' },
+  Repl      readable: false,
+  Repl      _events:
+  Repl       [Object: null prototype] {
+  Repl         end: [Function: onReadableStreamEnd],
+  Repl         error: [Function],
+  Repl         close: [Function] },
+  Repl      _eventsCount: 3,
+  Repl      _maxListeners: undefined,
+  Repl      _writableState:
+  Repl       WritableState {
+  Repl         objectMode: false,
+  Repl         highWaterMark: 16384,
+  Repl         finalCalled: false,
+  Repl         needDrain: false,
+  Repl         ending: false,
+  Repl         ended: false,
+  Repl         finished: false,
+  Repl         destroyed: false,
+  Repl         decodeStrings: false,
+  Repl         defaultEncoding: 'utf8',
+  Repl         length: 0,
+  Repl         writing: false,
+  Repl         corked: 0,
+  Repl         sync: true,
+  Repl         bufferProcessing: false,
+  Repl         onwrite: [Function: bound onwrite],
+  Repl         writecb: null,
+  Repl         writelen: 0,
+  Repl         bufferedRequest: null,
+  Repl         lastBufferedRequest: null,
+  Repl         pendingcb: 0,
+  Repl         prefinished: false,
+  Repl         errorEmitted: false,
+  Repl         emitClose: false,
+  Repl         bufferedRequestCount: 0,
+  Repl         corkedRequestsFree:
+  Repl          { next: null,
+  Repl            entry: null,
+  Repl            finish: [Function: bound onCorkedFinish] } },
+  Repl      writable: false,
+  Repl      allowHalfOpen: false,
+  Repl      _sockname: null,
+  Repl      _pendingData: null,
+  Repl      _pendingEncoding: '',
+  Repl      server: null,
+  Repl      _server: null,
+  Repl      [Symbol(asyncId)]: 84,
+  Repl      [Symbol(lastWriteQueueSize)]: 0,
+  Repl      [Symbol(timeout)]: null,
+  Repl      [Symbol(kBytesRead)]: 0,
+  Repl      [Symbol(kBytesWritten)]: 0 },
+  Repl   _pid: 27,
+  Repl   _fd: 22,
+  Repl   _pty: '/dev/pts/1',
+  Repl   _file: 'irb',
+  Repl   _name: 'xterm',
+  Repl   _readable: true,
+  Repl   _writable: true }, this.language: "ruby" +0ms
+  Repl [bufferRead(bufferInterval = undefined)] +16ms
+  Repl [bufferWrite(string = "", bufferInterval = 5, write = false)] +1ms
+  Repl this.process.on("data", concatResult) +0ms
+  Repl   `return new Promise(async (resolve = function () { [native code] }) => {` +1ms
+  Repl   `await this.untilCondIsMet(isDataReceived)` +0ms
+  Repl [untilCondIsMet(condFunc = () => {
+      debug('  [isDataReceived()] result: "%s"', result)
+      return result !== '';
+    }, interval = 1, value = undefined)] +0ms
+  Repl   `return new Promise((resolve) => {` resolve: function () { [native code] } +1ms
+  engine intercepting request for path "/socket.io/" +46ms
+  engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSNeEZy" +5ms
+  engine handshaking client "GnYbi-By3gVScFJXAAAB" +1ms
+  engine:socket sending packet "open" ({"sid":"GnYbi-By3gVScFJXAAAB","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}) +37ms
+  engine:socket sending packet "message" (0) +1ms
+  engine:polling setting request +49ms
+  engine:socket flushing buffer to transport +0ms
+  engine:polling writing "96:0{"sid":"GnYbi-By3gVScFJXAAAB","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}2:40" +1ms
+  engine:socket executing batch send callback +1ms
+  socket.io:server incoming connection with id GnYbi-By3gVScFJXAAAB +44ms
+  socket.io:client connecting to namespace / +41ms
+  socket.io:namespace adding socket to nsp / +44ms
+(node:16) UnhandledPromiseRejectionWarning: TypeError: debug(...) is not a function
+    at Promise (/app/repl/Repl.js:48:7)
+    at new Promise (<anonymous>)
+    at Object.untilCondIsMet (/app/repl/Repl.js:45:12)
+    at Promise (/app/repl/Repl.js:95:18)
+    at new Promise (<anonymous>)
+    at Object.bufferWrite (/app/repl/Repl.js:91:12)
+    at Object.bufferRead (/app/repl/Repl.js:134:17)
+    at initRepl (/app/server.js:38:10)
+    at io.of.clients (/app/server.js:62:7)
+    at process.internalTickCallback (internal/process/next_tick.js:70:11)
+(node:16) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 2)
+(node:16) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+  socket.io:socket socket connected - writing packet +43ms
+  socket.io:socket joining room GnYbi-By3gVScFJXAAAB +0ms
+  socket.io:socket packet already sent in initial handshake +0ms
+  server io.on("connection", (socket) => { +43ms
+  socket.io:client writing packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +5ms
+  socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +45ms
+  socket.io-parser encoded {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} as 2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}] +0ms
+  engine:socket sending packet "message" (2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]) +7ms
+  socket.io:socket joined room GnYbi-By3gVScFJXAAAB +2ms
+  server   [io.of("/").clients(fn)] error: null, clients: icQ-T1XmrRCM5ubbAAAA,GnYbi-By3gVScFJXAAAB +3ms
+  engine intercepting request for path "/socket.io/" +32ms
+  engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSNeKgc" +0ms
+  engine handshaking client "yWEUajbf7k7V6Q8HAAAC" +1ms
+  engine:socket sending packet "open" ({"sid":"yWEUajbf7k7V6Q8HAAAC","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}) +25ms
+  engine:socket sending packet "message" (0) +0ms
+  engine:polling setting request +32ms
+  engine:socket flushing buffer to transport +0ms
+  engine:polling writing "96:0{"sid":"yWEUajbf7k7V6Q8HAAAC","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}2:40" +1ms
+  engine:socket executing batch send callback +1ms
+  socket.io:server incoming connection with id yWEUajbf7k7V6Q8HAAAC +34ms
+  socket.io:client connecting to namespace / +28ms
+  socket.io:namespace adding socket to nsp / +33ms
+  socket.io:socket socket connected - writing packet +28ms
+  socket.io:socket joining room yWEUajbf7k7V6Q8HAAAC +0ms
+  socket.io:socket packet already sent in initial handshake +0ms
+  server io.on("connection", (socket) => { +28ms
+  socket.io:client writing packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +2ms
+  socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +30ms
+  socket.io-parser encoded {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} as 2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}] +1ms
+  engine:socket sending packet "message" (2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]) +4ms
+  socket.io:socket joined room yWEUajbf7k7V6Q8HAAAC +2ms
+  server   [io.of("/").clients(fn)] error: null, clients: icQ-T1XmrRCM5ubbAAAA,GnYbi-By3gVScFJXAAAB,yWEUajbf7k7V6Q8HAAAC +2ms
+  engine intercepting request for path "/socket.io/" +33ms
+  engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSNeQnF" +1ms
+  engine handshaking client "01pWVeEjKvq9g-rfAAAD" +0ms
+  engine:socket sending packet "open" ({"sid":"01pWVeEjKvq9g-rfAAAD","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}) +29ms
+  engine:socket sending packet "message" (0) +0ms
+  engine:polling setting request +33ms
+  engine:socket flushing buffer to transport +0ms
+  engine:polling writing "96:0{"sid":"01pWVeEjKvq9g-rfAAAD","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}2:40" +1ms
+  engine:socket executing batch send callback +1ms
+  socket.io:server incoming connection with id 01pWVeEjKvq9g-rfAAAD +34ms
+  socket.io:client connecting to namespace / +32ms
+  socket.io:namespace adding socket to nsp / +34ms
+  socket.io:socket socket connected - writing packet +32ms
+  socket.io:socket joining room 01pWVeEjKvq9g-rfAAAD +0ms
+  socket.io:socket packet already sent in initial handshake +0ms
+  server io.on("connection", (socket) => { +31ms
+  socket.io:client writing packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +2ms
+  socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +33ms
+  socket.io-parser encoded {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} as 2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}] +0ms
+  engine:socket sending packet "message" (2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]) +3ms
+  socket.io:socket joined room 01pWVeEjKvq9g-rfAAAD +2ms
+  server   [io.of("/").clients(fn)] error: null, clients: icQ-T1XmrRCM5ubbAAAA,GnYbi-By3gVScFJXAAAB,yWEUajbf7k7V6Q8HAAAC,01pWVeEjKvq9g-rfAAAD +2ms
+  Repl   [concatResult(data = irb(main):001:0> )] result: "" +110ms
+  engine intercepting request for path "/socket.io/" +37ms
+  engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSNeQqH&sid=01pWVeEjKvq9g-rfAAAD" +1ms
+  engine setting new request for existing client +0ms
+  engine:polling setting request +37ms
+  engine:socket flushing buffer to transport +34ms
+  engine:polling writing "72:42["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]" +0ms
+  engine:socket executing batch send callback +1ms
+  engine upgrading existing transport +33ms
+  engine:socket might upgrade socket transport from "polling" to "websocket" +31ms
+  engine intercepting request for path "/socket.io/" +5ms
+  engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSNeQqw&sid=01pWVeEjKvq9g-rfAAAD" +0ms
+  engine setting new request for existing client +1ms
+  engine:polling setting request +38ms
+  engine:ws received "2probe" +0ms
+  engine:ws writing "3probe" +1ms
+  engine:socket writing a noop packet to polling for fast upgrade +137ms
+  engine:polling writing "1:6" +132ms
+  engine:ws received "5" +137ms
+  engine:socket got upgrade packet - upgrading +34ms
+  engine:polling closing +34ms
+  engine:polling transport discarded - closing right away +1ms
+  express:router dispatching GET / +6s
+  express:router query  : / +2ms
+  express:router expressInit  : / +0ms
+  express:router textParser  : / +1ms
+  body-parser:text skip empty body +0ms
+  express:router serveStatic  : / +0ms
+  send stat "/app/public/index.html" +0ms
+  send pipe "/app/public/index.html" +2ms
+  send accept ranges +0ms
+  send cache-control public, max-age=0 +0ms
+  send modified Thu, 15 Nov 2018 07:15:53 GMT +0ms
+  send etag W/"28c-1671639e828" +1ms
+  send content-type text/html +0ms
+  socket.io:client client close with reason transport close +4s
+  socket.io:socket closing socket - reason transport close +4s
+  server   ["disconnect"] +4s
+  server     [io of / .clients] error: null, clients: icQ-T1XmrRCM5ubbAAAA,GnYbi-By3gVScFJXAAAB,yWEUajbf7k7V6Q8HAAAC +1ms
+  express:router dispatching GET /main.js +49ms
+  express:router query  : /main.js +0ms
+  express:router expressInit  : /main.js +0ms
+  express:router textParser  : /main.js +1ms
+  body-parser:text skip empty body +50ms
+  express:router serveStatic  : /main.js +0ms
+  send stat "/app/public/main.js" +46ms
+  send pipe "/app/public/main.js" +1ms
+  send accept ranges +0ms
+  send cache-control public, max-age=0 +0ms
+  send modified Thu, 15 Nov 2018 13:43:44 GMT +0ms
+  send etag W/"1250ee-167179cfe80" +0ms
+  send content-type application/javascript +0ms
+  engine intercepting request for path "/socket.io/" +5s
+  engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSNeS07" +0ms
+  engine handshaking client "ic2QKUApDPorw7w5AAAE" +0ms
+  engine:socket sending packet "open" ({"sid":"ic2QKUApDPorw7w5AAAE","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}) +5s
+  engine:socket sending packet "message" (0) +1ms
+  engine:polling setting request +5s
+  engine:socket flushing buffer to transport +0ms
+  engine:polling writing "96:0{"sid":"ic2QKUApDPorw7w5AAAE","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}2:40" +0ms
+  engine:socket executing batch send callback +0ms
+  socket.io:server incoming connection with id ic2QKUApDPorw7w5AAAE +5s
+  socket.io:client connecting to namespace / +759ms
+  socket.io:namespace adding socket to nsp / +5s
+  socket.io:socket socket connected - writing packet +758ms
+  socket.io:socket joining room ic2QKUApDPorw7w5AAAE +0ms
+  socket.io:socket packet already sent in initial handshake +1ms
+  server io.on("connection", (socket) => { +759ms
+  socket.io:client writing packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +3ms
+  socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} +5s
+  socket.io-parser encoded {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} as 2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}] +0ms
+  engine:socket sending packet "message" (2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]) +3ms
+  socket.io:socket joined room ic2QKUApDPorw7w5AAAE +2ms
+  server   [io.of("/").clients(fn)] error: null, clients: icQ-T1XmrRCM5ubbAAAA,GnYbi-By3gVScFJXAAAB,yWEUajbf7k7V6Q8HAAAC,ic2QKUApDPorw7w5AAAE +1ms
+  engine intercepting request for path "/socket.io/" +160ms
+  engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSNeS2a&sid=ic2QKUApDPorw7w5AAAE" +0ms
+  engine setting new request for existing client +0ms
+  engine:polling setting request +159ms
+  engine:socket flushing buffer to transport +156ms
+  engine:polling writing "72:42["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]" +0ms
+  engine:socket executing batch send callback +1ms
+  engine upgrading existing transport +26ms
+  engine:socket might upgrade socket transport from "polling" to "websocket" +25ms
+  engine intercepting request for path "/socket.io/" +12ms
+  engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSNeS3G&sid=ic2QKUApDPorw7w5AAAE" +0ms
+  engine setting new request for existing client +0ms
+  engine:polling setting request +38ms
+  engine:ws received "2probe" +5s
+  engine:ws writing "3probe" +0ms
+  engine:socket writing a noop packet to polling for fast upgrade +135ms
+  engine:polling writing "1:6" +123ms
+  engine:ws received "5" +132ms
+  engine:socket got upgrade packet - upgrading +31ms
+  engine:polling closing +31ms
+  engine:polling transport discarded - closing right away +0ms
+  engine:ws received "42["lineChanged",{"line":"1"}]" +3s
+  engine:socket packet +3s
+  socket.io-parser decoded 2["lineChanged",{"line":"1"}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +3s
+  socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":"1"}]} +3s
+  socket.io:socket emitting event ["lineChanged",{"line":"1"}] +0ms
+  socket.io:socket dispatching an event ["lineChanged",{"line":"1"}] +0ms
+  server   ["lineChanged"] { line: 1 } +3s
+  socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":"1"}],"nsp":"/"} +1ms
+  socket.io-parser encoded {"type":2,"data":["syncLine",{"line":"1"}],"nsp":"/"} as 2["syncLine",{"line":"1"}] +0ms
+  socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"1\"}]"] +3s
+  engine:socket sending packet "message" (2["syncLine",{"line":"1"}]) +2ms
+  socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"1\"}]"] +0ms
+  engine:socket sending packet "message" (2["syncLine",{"line":"1"}]) +0ms
+  socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"1\"}]"] +0ms
+  engine:socket sending packet "message" (2["syncLine",{"line":"1"}]) +0ms
+  engine:ws received "42["lineChanged",{"line":""}]" +977ms
+  engine:socket packet +975ms
+  socket.io-parser decoded 2["lineChanged",{"line":""}] as {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +975ms
+  socket.io:socket got packet {"type":2,"nsp":"/","data":["lineChanged",{"line":""}]} +976ms
+  socket.io:socket emitting event ["lineChanged",{"line":""}] +0ms
+  socket.io:socket dispatching an event ["lineChanged",{"line":""}] +0ms
+  server   ["lineChanged"] { line:  } +975ms
+  socket.io-parser encoding packet {"type":2,"data":["syncLine",{"line":""}],"nsp":"/"} +0ms
+  socket.io-parser encoded {"type":2,"data":["syncLine",{"line":""}],"nsp":"/"} as 2["syncLine",{"line":""}] +0ms
+  socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"\"}]"] +976ms
+  engine:socket sending packet "message" (2["syncLine",{"line":""}]) +1ms
+  socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"\"}]"] +0ms
+  engine:socket sending packet "message" (2["syncLine",{"line":""}]) +0ms
+  socket.io:client writing packet ["2[\"syncLine\",{\"line\":\"\"}]"] +0ms
+  engine:socket sending packet "message" (2["syncLine",{"line":""}]) +0ms
+  engine:ws received "42["evaluate",{"code":"1"}]" +5ms
+  engine:socket packet +4ms
+  socket.io-parser decoded 2["evaluate",{"code":"1"}] as {"type":2,"nsp":"/","data":["evaluate",{"code":"1"}]} +5ms
+  socket.io:socket got packet {"type":2,"nsp":"/","data":["evaluate",{"code":"1"}]} +5ms
+  socket.io:socket emitting event ["evaluate",{"code":"1"}] +0ms
+  socket.io:socket dispatching an event ["evaluate",{"code":"1"}] +0ms
+  server   ["evaluate"] { code: 1 } +5ms
+  Repl [bufferWrite(string = "1", bufferInterval = 5, write = true)] +9s
+  Repl   this.process.write('1' + '\n') +0ms
+  Repl this.process.on("data", concatResult) +0ms
+  Repl   `return new Promise(async (resolve = function () { [native code] }) => {` +1ms
+  Repl   `await this.untilCondIsMet(isDataReceived)` +0ms
+  Repl [untilCondIsMet(condFunc = () => {
+      debug('  [isDataReceived()] result: "%s"', result)
+      return result !== '';
+    }, interval = 1, value = undefined)] +0ms
+  Repl   `return new Promise((resolve) => {` resolve: function () { [na
+  Repl   [concatResult(data = 1
+=> 1
+irb(main):002:0> )] result: "irb(main):001:0> " +1ms
+  Repl   [concatResult(data = 1
+=> 1
+irb(main):002:0> )] result: "" +0ms
+(node:16) UnhandledPromiseRejectionWarning: TypeError: debug(...) is no
+    at Promise (/app/repl/Repl.js:48:7)
+    at new Promise (<anonymous>)
+    at Object.untilCondIsMet (/app/repl/Repl.js:45:12)
+    at Promise (/app/repl/Repl.js:95:18)
+    at new Promise (<anonymous>)
+    at Object.bufferWrite (/app/repl/Repl.js:91:12)
+    at Socket.socket.on (/app/server.js:74:10)
+    at Socket.emit (events.js:182:13)
+    at /app/node_modules/socket.io/lib/socket.js:528:12
+    at process.internalTickCallback (internal/process/next_tick.js:70:1
+(node:16) UnhandledPromiseRejectionWarning: Unhandled promise rejection
+  engine:polling closing +25s
+  engine:polling transport not writable - buffering orderly close +0ms
+  socket.io:client client close with reason ping timeout +21s
+  socket.io:socket closing socket - reason ping timeout +21s
+  server   ["disconnect"] +21s
+  server     [io of / .clients] error: null, clients: GnYbi-By3gVScFJXA
+  engine:polling closing +34ms
+  engine:polling transport not writable - buffering orderly close +0ms
+  socket.io:client client close with reason ping timeout +34ms
+  socket.io:socket closing socket - reason ping timeout +34ms
+  server   ["disconnect"] +34ms
+  server     [io of / .clients] error: null, clients: yWEUajbf7k7V6Q8HA
+  engine:polling closing +33ms
+  engine:polling transport not writable - buffering orderly close +0ms
+  socket.io:client client close with reason ping timeout +33ms
+  socket.io:socket closing socket - reason ping timeout +34ms
+  server   ["disconnect"] +34ms
+  server     [io of / .clients] error: null, clients: ic2QKUApDPorw7w5A
+  engine:ws received "2" +21s
+  engine:socket packet +21s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +1ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +1ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  server     [io of / .clients] error: null, clients: ic2QKUApDPorw7w5A
+  engine:ws received "2" +21s
+  engine:socket packet +21s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +1ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +1ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +1ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +1ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +1ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +1ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +1ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +1ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +1ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +1ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+  engine:ws received "2" +25s
+  engine:socket packet +25s
+  engine:socket got ping +0ms
+  engine:socket sending packet "pong" (undefined) +0ms
+  engine:socket flushing buffer to transport +0ms
+  engine:ws writing "3" +0ms
+^C#
+
+λ root [~/SpaceCraft-debug] at  no-yjs !
+→                                                                                                                                   [6182f93]
