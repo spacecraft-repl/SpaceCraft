@@ -12,7 +12,6 @@ const port = process.env.PORT || 3000
 const app = express()
 const server = http.Server(app)
 const io = socketIo(server) // our websocket server
-const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
 const DEFAULT_LANG = 'ruby'
 
 let histOutputs = ''
@@ -33,7 +32,7 @@ io.on('connection', (socket) => {
   const handleTooMuchOutput = () => {
     lastOutput = ''
     Repl.write('\x03')
-    io.emit('output', { output: TOO_MUCH_OUTPUT })    
+    io.emit('output', { output: TOO_MUCH_OUTPUT })
   }
 
   const emitOutput = (output) => {
