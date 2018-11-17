@@ -23,7 +23,7 @@ app.use(express.static('public'))
 // @todo: Check if order of \n\r matters.
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
 const TOO_MUCH_OUTPUT = '\n\r------TOO MUCH OUTPUT!-------\n\r'
-const MAX_OUTPUT_LENGTH = 10000
+const MAX_OUTPUT_LENGTH = 1000000
 const DEFAULT_LANG = 'ruby'
 
 io.on('connection', (socket) => {

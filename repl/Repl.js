@@ -24,7 +24,6 @@ const Repl = {
 
   write (string) {
     debug(`[Repl.write(string = ${string})]`)
-
     // @todo: Check if we also need a carriage return here, like in the node-pty readme.
     this.process.write(string + '\n')
   },
