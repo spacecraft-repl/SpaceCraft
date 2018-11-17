@@ -1,0 +1,754 @@
+
+> spacecraft@1.0.0 debug /home/one/ls/cap/repl/SpaceCraft
+> standard --fix && webpack && DEBUG=* node server.js
+
+Hash: 3a91b11c2b024e127cd5
+Version: webpack 4.25.1
+Time: 1988ms
+Built at: 11/16/2018 10:12:08 PM
+  Asset      Size  Chunks             Chunk Names
+main.js  1.56 MiB    main  [emitted]  main
+Entrypoint main = main.js
+[0] ws (ignored) 15 bytes {main} [optional] [built]
+[./node_modules/css-loader/index.js!./src/main.css] ./node_modules/css-loader!./src/main.css 1.15 KiB {main} [built]
+[./node_modules/webpack/buildin/amd-options.js] (webpack)/buildin/amd-options.js 80 bytes {main} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 489 bytes {main} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 497 bytes {main} [built]
+[./node_modules/yjs/src sync recursive] ./node_modules/yjs/src sync 160 bytes {main} [built]
+[./src/client.js] 3.91 KiB {main} [built]
+[./src/editor.js] 1.86 KiB {main} [built]
+[./src/main.css] 1.04 KiB {main} [built]
+[./src/term.js] 1.04 KiB {main} [built]
+[./src/utils.js] 64 bytes {main} [built]
+    + 175 hidden modules
+Sat, 17 Nov 2018 06:12:08 GMT express:application set "x-powered-by" to true
+Sat, 17 Nov 2018 06:12:08 GMT express:application set "etag" to 'weak'
+Sat, 17 Nov 2018 06:12:08 GMT express:application set "etag fn" to [Function: generateETag]
+Sat, 17 Nov 2018 06:12:08 GMT express:application set "env" to 'development'
+Sat, 17 Nov 2018 06:12:08 GMT express:application set "query parser" to 'extended'
+Sat, 17 Nov 2018 06:12:08 GMT express:application set "query parser fn" to [Function: parseExtendedQueryString]
+Sat, 17 Nov 2018 06:12:08 GMT express:application set "subdomain offset" to 2
+Sat, 17 Nov 2018 06:12:08 GMT express:application set "trust proxy" to false
+Sat, 17 Nov 2018 06:12:08 GMT express:application set "trust proxy fn" to [Function: trustNone]
+Sat, 17 Nov 2018 06:12:08 GMT express:application booting in development mode
+Sat, 17 Nov 2018 06:12:08 GMT express:application set "view" to [Function: View]
+Sat, 17 Nov 2018 06:12:08 GMT express:application set "views" to '/home/one/ls/cap/repl/SpaceCraft/views'
+Sat, 17 Nov 2018 06:12:08 GMT express:application set "jsonp callback name" to 'callback'
+2018-11-17T06:12:08.514Z socket.io:server initializing namespace /
+2018-11-17T06:12:08.515Z socket.io-parser encoding packet {"type":0,"nsp":"/"}
+2018-11-17T06:12:08.515Z socket.io-parser encoded {"type":0,"nsp":"/"} as 0
+2018-11-17T06:12:08.515Z socket.io:server creating engine.io instance with opts {"path":"/socket.io","initialPacket":["0"]}
+2018-11-17T06:12:08.529Z socket.io:server attaching client serving req handler
+Sat, 17 Nov 2018 06:12:08 GMT express:router use '/' query
+Sat, 17 Nov 2018 06:12:08 GMT express:router:layer new '/'
+Sat, 17 Nov 2018 06:12:08 GMT express:router use '/' expressInit
+Sat, 17 Nov 2018 06:12:08 GMT express:router:layer new '/'
+Sat, 17 Nov 2018 06:12:08 GMT express:router use '/' textParser
+Sat, 17 Nov 2018 06:12:08 GMT express:router:layer new '/'
+Sat, 17 Nov 2018 06:12:08 GMT express:router use '/' serveStatic
+Sat, 17 Nov 2018 06:12:08 GMT express:router:layer new '/'
+2018-11-17T06:12:08.534Z server process.env: { KDE_FULL_SESSION: 'true',
+  npm_package_dependencies_codemirror_one_dark_theme: '^1.1.1',
+  npm_config_cache_lock_stale: '60000',
+  npm_config_ham_it_up: '',
+  GS_LIB: '/home/one/.fonts',
+  npm_config_legacy_bundling: '',
+  npm_config_sign_git_tag: '',
+  PAM_KWALLET5_LOGIN: '/tmp/kwallet5_one.socket',
+  USER: 'one',
+  npm_package_dependencies_y_memory: '^8.0.9',
+  npm_package_devDependencies_webpack_cli: '^3.1.2',
+  npm_config_user_agent: 'npm/6.4.1 node/v11.1.0 linux x64',
+  npm_config_always_auth: '',
+  XDG_SEAT: 'seat0',
+  npm_package_bugs_url: 'https://github.com/spacecraft-repl/SpaceCraft/issues',
+  npm_package_dependencies_socket_io: '^2.1.1',
+  npm_config_bin_links: 'true',
+  npm_config_key: '',
+  SSH_AGENT_PID: '3490',
+  FZF_DEFAULT_OPTS:
+   "\n  --color fg:#cccccc,bg:#1e1f29,hl:#33b5e5,fg+:#ffffff,bg+:#0e1013,hl+:#00ff73\n  --color info:#8b87ff,prompt:#2186ec,spinner:#2186ec,pointer:39,marker:168\n  --tabstop=2\n  --multi\n  --bind=ctrl-d:half-page-down,alt-d:half-page-down,alt-u:half-page-up,alt-p:toggle-preview\n  --filepath-word\n  --height=60%\n  --preview='(bat --color=always --style=changes,header {} || highlight -O ansi -l {} 2> /dev/null || pygmentize {} || command cat {} || tree -C {}) 2> /dev/null | head -200'\n  --preview-window=right:50%\n  --history='/home/one/fzf-history'\n  --prompt='❯ '\n",
+  XDG_SESSION_TYPE: 'x11',
+  FZF_CTRL_T_COMMAND: 'rg -S --files --hidden',
+  npm_package_dependencies_codemirror: '^5.41.0',
+  npm_package_devDependencies_file_loader: '^2.0.0',
+  npm_config_allow_same_version: '',
+  npm_config_description: 'true',
+  npm_config_fetch_retries: '2',
+  npm_config_heading: 'npm',
+  npm_config_if_present: '',
+  npm_config_init_version: '1.0.0',
+  npm_config_user: '1000',
+  npm_node_execpath: '/home/one/.asdf/installs/nodejs/11.1.0/bin/node',
+  DEBUG: '*',
+  XCURSOR_SIZE: '23',
+  SHLVL: '1',
+  BROWSER: '/usr/bin/chromium-browser',
+  npm_config_prefer_online: '',
+  npm_config_noproxy: '',
+  ZSH_THEME: 'lambda-mod',
+  ASDF_DIR: '/home/one/.asdf',
+  HOME: '/home/one',
+  TERMINFO: '/home/one/.local/kitty.app/lib/kitty/terminfo',
+  LESS: '-R',
+  npm_config_force: '',
+  DESKTOP_SESSION: '/usr/share/xsessions/plasma',
+  npm_package_scripts_server: 'node server.js',
+  npm_package_dependencies_y_websockets_server: '^9.2.1',
+  npm_config_only: '',
+  npm_config_read_only: '',
+  ZSH: '/home/one/.oh-my-zsh',
+  LSCOLORS: 'Gxfxcxdxbxegedabagacad',
+  NODE_REPL_HISTORY_SIZE: '3000',
+  npm_package_dependencies_supports_color: '^5.5.0',
+  npm_package_devDependencies_standard_loader: '^6.0.1',
+  npm_config_cache_min: '10',
+  npm_config_init_license: 'ISC',
+  QT_LINUX_ACCESSIBILITY_ALWAYS_ON: '1',
+  GTK_RC_FILES: '/etc/gtk/gtkrc:/home/one/.gtkrc:/home/one/.config/gtkrc',
+  XDG_SEAT_PATH: '/org/freedesktop/DisplayManager/Seat0',
+  PAGER: 'less',
+  SUDO_EDITOR: 'nvim',
+  KDE_SESSION_VERSION: '5',
+  npm_package_dependencies_yjs: '^12.3.3',
+  npm_config_editor: 'nvim',
+  npm_config_rollback: 'true',
+  npm_config_tag_version_prefix: 'v',
+  LC_CTYPE: 'en_US.UTF-8',
+  npm_config_cache_max: 'Infinity',
+  npm_config_timing: '',
+  npm_config_userconfig: '/home/one/.npmrc',
+  VISUAL: 'nvr --remote-wait',
+  DBUS_SESSION_BUS_ADDRESS:
+   'unix:abstract=/tmp/dbus-K53xFi2LDq,guid=66b5e551e5881c99b598176e5bef2c28',
+  LASTFM_API_KEY: '8a6601781ec1a5e25f0a97d32111b14e',
+  npm_package_contributors_0_email: '25574844+YingCGooi@users.noreply.github.com',
+  npm_config_engine_strict: '',
+  npm_config_init_author_name: '',
+  npm_config_init_author_url: '',
+  npm_config_preid: '',
+  npm_config_tmp: '/tmp',
+  FZF_CTRL_R_OPTS:
+   "--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'",
+  COLORTERM: 'truecolor',
+  npm_package_description:
+   'An open-source real-time collaborative REPL and code editor',
+  npm_package_contributors_1_email: 'jrzerwick@gmail.com',
+  npm_config_depth: 'Infinity',
+  npm_config_package_lock_only: '',
+  npm_config_save_dev: '',
+  npm_config_usage: '',
+  PS4: '$LINENO + ',
+  npm_package_contributors_2_email: 'njohnson7@pm.me',
+  npm_package_homepage: 'https://github.com/spacecraft-repl/SpaceCraft',
+  npm_package_readmeFilename: 'README.md',
+  npm_config_metrics_registry: 'https://registry.npmjs.org/',
+  npm_config_cafile: '',
+  npm_config_otp: '',
+  npm_config_package_lock: 'true',
+  npm_config_progress: 'true',
+  npm_config_https_proxy: '',
+  npm_config_save_prod: '',
+  MANDATORY_PATH:
+   '/usr/share/gconf//usr/share/xsessions/plasma.mandatory.path',
+  BAK: '/media/one/blue/backups',
+  FZF_CTRL_T_OPTS:
+   "--preview '(bat --color=always --style=changes,header {} || highlight -O ansi -l {} 2> /dev/null || command cat {} || tree -C {}) 2> /dev/null | head -200'",
+  npm_config_audit: 'true',
+  npm_config_cidr: '',
+  npm_config_onload_script: '',
+  npm_config_sso_type: 'oauth',
+  GLOT_TOKEN: '5bfee566-cb63-494d-958c-f9c8daab274e',
+  LOGNAME: 'one',
+  npm_config_rebuild_bundle: 'true',
+  npm_config_save_bundle: '',
+  npm_config_shell: '/usr/bin/zsh',
+  WINDOWID: '88080395',
+  ZSH_AUTOSUGGEST_USE_ASYNC: '1',
+  npm_package_dependencies_express: '^4.16.4',
+  npm_config_prefix: '/home/one/.asdf/installs/nodejs/11.1.0/.npm',
+  npm_config_dry_run: '',
+  XDG_SESSION_CLASS: 'user',
+  DEFAULTS_PATH: '/usr/share/gconf//usr/share/xsessions/plasma.default.path',
+  npm_config_scope: '',
+  npm_config_browser: '',
+  npm_config_cache_lock_wait: '10000',
+  npm_config_ignore_prepublish: '',
+  npm_config_registry: 'https://registry.npmjs.org/',
+  npm_config_save_optional: '',
+  npm_config_searchopts: '',
+  npm_config_versions: '',
+  XDG_SESSION_ID: '7',
+  TERM: 'xterm-kitty',
+  npm_config_cache: '/home/one/.npm',
+  npm_config_proxy: '',
+  npm_config_send_metrics: '',
+  npm_package_scripts_debug: 'standard --fix && webpack && DEBUG=* node server.js',
+  npm_package_scripts_start: 'standard --fix && webpack && node server.js',
+  npm_config_global_style: '',
+  npm_config_ignore_scripts: '',
+  npm_config_version: '',
+  GTK2_RC_FILES:
+   '/etc/gtk-2.0/gtkrc:/home/one/.gtkrc-2.0:/home/one/.config/gtkrc-2.0',
+  HISTCONTROL: 'ignoredups',
+  npm_config_local_address: '',
+  npm_config_viewer: 'man',
+  npm_config_node_gyp:
+   '/home/one/.asdf/installs/nodejs/11.1.0/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js',
+  PATH:
+   '/home/one/.asdf/installs/nodejs/11.1.0/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/home/one/ls/cap/repl/SpaceCraft/node_modules/.bin:/home/one/.asdf/installs/nodejs/11.1.0/bin:/home/one/go/bin:/home/one/go:/home/one/.asdf/installs/rust/1.30.0/bin/:/home/one/dasht/bin:/home/one/.asdf/installs/python/3.7.1/bin:/home/one/.asdf/shims:/home/one/.asdf/shims:/home/one/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/one/.local/bin:/home/one/scripts:/home/one/.cargo/bin:/snap/bin://home/one/.fzf/bin',
+  SESSION_MANAGER:
+   'local/two:@/tmp/.ICE-unix/3565,unix/two:/tmp/.ICE-unix/3565',
+  BAT_THEME: 'TwoDark',
+  npm_package_name: 'spacecraft',
+  npm_package_repository_type: 'git',
+  npm_config_audit_level: 'low',
+  npm_config_prefer_offline: '',
+  NODE: '/home/one/.asdf/installs/nodejs/11.1.0/bin/node',
+  VIMCONFIG: '/home/one/.config/nvim',
+  XDG_SESSION_PATH: '/org/freedesktop/DisplayManager/Session1',
+  XCURSOR_THEME: 'Alkano-aio',
+  VIMDATA: '/home/one/.local/share/nvim',
+  XDG_RUNTIME_DIR: '/run/user/1000',
+  npm_package_dependencies_y_websockets_client: '^8.0.16',
+  npm_config_color: 'true',
+  npm_config_sign_git_commit: '',
+  DL: '/media/one/blue/Downloads',
+  CHEATCOLORS: 'true',
+  SSL_CERT_DIR: '/etc/ssl/certs',
+  DISPLAY: ':0',
+  npm_package_devDependencies_standard: '^12.0.1',
+  npm_config_fetch_retry_mintimeout: '10000',
+  npm_config_maxsockets: '50',
+  npm_config_offline: '',
+  npm_config_sso_poll_frequency: '500',
+  DESKTOP_STARTUP_ID: 'two;1542427164;252905;3552_TIME28164506',
+  HISTSIZE: '30000',
+  LD_PRELOAD:
+   '/home/one/stderred/build/libstderred.so:/home/one/apps/qt5noblink-master/qt5noblink.so',
+  LANG: 'en_US.UTF-8',
+  XDG_CURRENT_DESKTOP: 'KDE',
+  npm_package_scripts_inspect: 'standard --fix && webpack && node --inspect server.js',
+  npm_package_dependencies_y_text: '^9.5.1',
+  npm_package_devDependencies_webpack: '^4.25.1',
+  npm_config_umask: '0002',
+  LS_COLORS:
+   'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:',
+  XDG_SESSION_DESKTOP: 'KDE',
+  XAUTHORITY: '/tmp/xauth-1000-_0',
+  npm_package_main: 'server.js',
+  npm_package_contributors_0_name: 'YingCGooi',
+  npm_package_gitHead: 'dc0a71df5eddd226278b47400dcd01e9754810b6',
+  npm_config_fetch_retry_maxtimeout: '60000',
+  npm_config_loglevel: 'notice',
+  npm_config_logs_max: '10',
+  npm_config_message: '%s',
+  npm_lifecycle_script: 'standard --fix && webpack && DEBUG=* node server.js',
+  SSH_AUTH_SOCK: '/tmp/ssh-nmK3yKMn4teC/agent.3442',
+  npm_package_contributors_1_name: 'Julius Zerwick',
+  npm_package_dependencies_body_parser: '^1.18.3',
+  npm_package_dependencies_node_pty: '^0.7.8',
+  npm_config_ca: '',
+  npm_config_cert: '',
+  npm_config_global: '',
+  npm_config_link: '',
+  SHELL: '/usr/bin/zsh',
+  GOPATH: '/home/one/go',
+  PAM_KWALLET_LOGIN: '/tmp/kwallet_one.socket',
+  npm_package_version: '1.0.0',
+  npm_package_repository_url: 'git+https://github.com/spacecraft-repl/SpaceCraft.git',
+  npm_package_contributors_2_name: 'Nick Johnson',
+  npm_config_access: '',
+  npm_config_also: '',
+  npm_config_save: 'true',
+  npm_config_unicode: 'true',
+  npm_lifecycle_event: 'debug',
+  MYVIMRC: '/home/one/.config/nvim/init.vim',
+  QT_ACCESSIBILITY: '1',
+  npm_package_scripts_build: 'standard --fix && webpack',
+  npm_config_argv:
+   '{"remain":[],"cooked":["run","debug"],"original":["run","debug"]}',
+  npm_config_long: '',
+  npm_config_production: '',
+  npm_config_searchlimit: '20',
+  npm_config_unsafe_perm: 'true',
+  npm_config_update_notifier: 'true',
+  KITTY_WINDOW_ID: '1',
+  npm_config_auth_type: 'legacy',
+  npm_config_node_version: '11.1.0',
+  npm_config_tag: 'latest',
+  DEFAULT_USER: 'one',
+  FZF_ALT_C_OPTS: "--preview 'tree -C {} | head -200'",
+  npm_package_dependencies_debug: '^4.1.0',
+  npm_config_git_tag_version: 'true',
+  npm_config_commit_hooks: 'true',
+  npm_config_script_shell: '',
+  npm_config_shrinkwrap: 'true',
+  KDE_MULTIHEAD: 'false',
+  GPG_AGENT_INFO: '/home/one/.gnupg/S.gpg-agent:0:1',
+  npm_package_license: 'MIT',
+  npm_config_fetch_retry_factor: '10',
+  npm_config_save_exact: '',
+  npm_config_strict_ssl: 'true',
+  XDG_VTNR: '7',
+  SAVEHIST: '30000',
+  DOT: '/home/one/dotfiles',
+  npm_package_dependencies_xterm: '^3.8.0',
+  npm_package_devDependencies_style_loader: '^0.23.1',
+  npm_config_dev: '',
+  npm_config_globalconfig: '/home/one/.asdf/installs/nodejs/11.1.0/.npm/etc/npmrc',
+  npm_config_init_module: '/home/one/.npm-init.js',
+  npm_config_parseable: '',
+  PWD: '/home/one/repl/SpaceCraft',
+  GPG_TTY: '/dev/pts/2',
+  FZF_DEFAULT_COMMAND: 'rg -S --files --hidden',
+  npm_config_globalignorefile: '/home/one/.asdf/installs/nodejs/11.1.0/.npm/etc/npmignore',
+  npm_execpath:
+   '/home/one/.asdf/installs/nodejs/11.1.0/lib/node_modules/npm/bin/npm-cli.js',
+  XDG_CONFIG_DIRS:
+   '/etc/xdg/xdg-/usr/share/xsessions/plasma:/etc/xdg:/usr/share/kubuntu-default-settings/kf5-settings',
+  XDG_DATA_DIRS:
+   '/home/one/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share/:/usr/share//usr/share/xsessions/plasma:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop',
+  RANGER_LOAD_DEFAULT_RC: 'FALSE',
+  npm_package_author_name: 'spacecraft-repl',
+  npm_package_devDependencies_css_loader: '^1.0.1',
+  npm_config_cache_lock_retries: '10',
+  npm_config_searchstaleness: '900',
+  BLU: '/media/one/blue',
+  SC: '~/ls/cap/repl/SpaceCraft',
+  npm_config_scripts_prepend_node_path: 'true',
+  npm_config_node_options: '',
+  npm_config_save_prefix: '^',
+  KDE_SESSION_UID: '1000',
+  BASE16_THEME: 'base16-snazzy',
+  npm_package_dependencies_y_array: '^10.1.4',
+  npm_config_group: '1000',
+  npm_config_init_author_email: '',
+  npm_config_searchexclude: '',
+  LASTFM_API_SECRET: '8ac822f405737894f2b07cc2b0c6372b',
+  npm_config_git: 'git',
+  npm_config_optional: 'true',
+  NPM_CONFIG_PREFIX: '/home/one/.asdf/installs/nodejs/11.1.0/.npm',
+  EDITOR: 'nvim',
+  npm_config_json: '',
+  INIT_CWD: '/home/one/ls/cap/repl/SpaceCraft' }
+2018-11-17T06:12:08.540Z server Listening on port: 3000...
+2018-11-17T06:12:11.640Z engine intercepting request for path "/socket.io/"
+2018-11-17T06:12:11.641Z engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSWJ53d"
+2018-11-17T06:12:11.650Z engine handshaking client "_56qJuUlOQcyfUiAAAAA"
+2018-11-17T06:12:11.651Z engine:socket sending packet "open" ({"sid":"_56qJuUlOQcyfUiAAAAA","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000})
+2018-11-17T06:12:11.652Z engine:socket sending packet "message" (0)
+2018-11-17T06:12:11.653Z engine:polling setting request
+2018-11-17T06:12:11.653Z engine:socket flushing buffer to transport
+2018-11-17T06:12:11.655Z engine:polling writing "96:0{"sid":"_56qJuUlOQcyfUiAAAAA","upgrades":["websocket"],"pingInterval":25000,"pingTimeout":5000}2:40"
+2018-11-17T06:12:11.661Z engine:socket executing batch send callback
+2018-11-17T06:12:11.661Z socket.io:server incoming connection with id _56qJuUlOQcyfUiAAAAA
+2018-11-17T06:12:11.662Z socket.io:client connecting to namespace /
+2018-11-17T06:12:11.662Z socket.io:namespace adding socket to nsp /
+2018-11-17T06:12:11.665Z socket.io:socket socket connected - writing packet
+2018-11-17T06:12:11.665Z socket.io:socket joining room _56qJuUlOQcyfUiAAAAA
+2018-11-17T06:12:11.666Z socket.io:socket packet already sent in initial handshake
+2018-11-17T06:12:11.666Z server io.on("connection", (socket = [Circular]) => {
+2018-11-17T06:12:11.667Z server socket.emit("langChange", { language: ruby, data: WELCOME TO SPACECRAFT!
+ })
+2018-11-17T06:12:11.667Z socket.io:client writing packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"}
+2018-11-17T06:12:11.667Z socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"}
+2018-11-17T06:12:11.667Z socket.io-parser encoded {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} as 2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]
+2018-11-17T06:12:11.668Z engine:socket sending packet "message" (2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}])
+2018-11-17T06:12:11.668Z server socket.emit("output", { output: histOutputs =  })
+2018-11-17T06:12:11.668Z socket.io:client writing packet {"type":2,"data":["output",{"output":""}],"nsp":"/"}
+2018-11-17T06:12:11.668Z socket.io-parser encoding packet {"type":2,"data":["output",{"output":""}],"nsp":"/"}
+2018-11-17T06:12:11.668Z socket.io-parser encoded {"type":2,"data":["output",{"output":""}],"nsp":"/"} as 2["output",{"output":""}]
+2018-11-17T06:12:11.668Z engine:socket sending packet "message" (2["output",{"output":""}])
+2018-11-17T06:12:11.679Z YjsWS { [Function: Y]
+  AbstractConnector: [Function: AbstractConnector],
+  AbstractDatabase: [Function: AbstractDatabase],
+  Transaction: [Function: TransactionInterface],
+  Struct:
+   { Delete:
+      { encode: [Function: encode],
+        requiredOps: [Function: requiredOps],
+        execute: [GeneratorFunction: execute] },
+     Insert:
+      { encode: [Function: encode],
+        requiredOps: [Function: requiredOps],
+        getDistanceToOrigin: [GeneratorFunction: getDistanceToOrigin],
+        execute: [GeneratorFunction: execute] },
+     List:
+      { create: [Function: create],
+        encode: [Function: encode],
+        requiredOps: [Function: requiredOps],
+        execute: [GeneratorFunction: execute],
+        ref: [GeneratorFunction: ref],
+        map: [GeneratorFunction: map] },
+     Map:
+      { create: [Function: create],
+        encode: [Function: encode],
+        requiredOps: [Function: requiredOps],
+        execute: [GeneratorFunction: execute],
+        get: [GeneratorFunction: get] } },
+  utils:
+   { bubbleEvent: [Function],
+     EventListenerHandler: [Function: EventListenerHandler],
+     EventHandler: [Function: EventHandler],
+     CustomType: [Function: CustomType],
+     CustomTypeDefinition: [Function: CustomTypeDefinition],
+     isTypeDefinition: [Function: isTypeDefinition],
+     copyObject: [Function: copyObject],
+     copyOperation: [Function: copyOperation],
+     smaller: [Function: smaller],
+     inDeletionRange: [Function: inDeletionRange],
+     compareIds: [Function: compareIds],
+     matchesId: [Function: matchesId],
+     getLastId: [Function: getLastId],
+     createSmallLookupBuffer: [Function: createSmallLookupBuffer],
+     generateGuid: [Function: generateGuid],
+     globalRoom:
+      { users: {},
+        buffers: {},
+        removeUser: [Function: removeUser],
+        addUser: [Function: addUser],
+        whenTransactionsFinished: [Function: whenTransactionsFinished],
+        flushOne: [Function: flushOne],
+        flushAll: [Function: flushAll] } },
+  Test: [Function: Test],
+  debug:
+   { [Function: createDebug]
+     default: [Circular],
+     debug: [Circular],
+     coerce: [Function: coerce],
+     disable: [Function: disable],
+     enable: [Function: enable],
+     enabled: [Function: enabled],
+     humanize: [Function],
+     names: [ /^.*?$/ ],
+     skips: [],
+     formatters: { o: [Function], O: [Function] },
+     init: [Function: init],
+     log: [Function: log],
+     formatArgs: [Function: formatArgs],
+     save: [Function: save],
+     load: [Function: load],
+     useColors: [Function: useColors],
+     colors: [ 6, 2, 3, 4, 5, 1 ],
+     inspectOpts: {} },
+  requiringModules: {},
+  extend: [Function],
+  requestModules: [Function: requestModules] }
+2018-11-17T06:12:11.679Z YjsWS Y.debug: function createDebug(namespace) {
+
+  function debug() {
+    // disabled?
+    if (!debug.enabled) return;
+
+    var self = debug;
+
+    // set `diff` timestamp
+    var curr = +new Date();
+    var ms = curr - (prevTime || curr);
+    self.diff = ms;
+    self.prev = prevTime;
+    self.curr = curr;
+    prevTime = curr;
+
+    // turn the `arguments` into a proper Array
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+
+    args[0] = exports.coerce(args[0]);
+
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
+    }
+
+    // apply any `formatters` transformations
+    var index = 0;
+    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
+      index++;
+      var formatter = exports.formatters[format];
+      if ('function' === typeof formatter) {
+        var val = args[index];
+        match = formatter.call(self, val);
+
+        // now we need to remove `args[index]` since it's inlined in the `format`
+        args.splice(index, 1);
+        index--;
+      }
+      return match;
+    });
+
+    // apply env-specific formatting (colors, etc.)
+    exports.formatArgs.call(self, args);
+
+    var logFn = debug.log || exports.log || console.log.bind(console);
+    logFn.apply(self, args);
+  }
+
+  debug.namespace = namespace;
+  debug.enabled = exports.enabled(namespace);
+  debug.useColors = exports.useColors();
+  debug.color = selectColor(namespace);
+
+  // env-specific initialization logic for debug instances
+  if ('function' === typeof exports.init) {
+    exports.init(debug);
+  }
+
+  return debug;
+}
+2018-11-17T06:12:11.681Z YjsWS [NEXT LINE: "const options = minimist(process.argv.slice(2), {..."]
+2018-11-17T06:12:11.681Z YjsWS     process.argv= [ '/home/one/.asdf/installs/nodejs/11.1.0/bin/node',
+  '/home/one/ls/cap/repl/SpaceCraft/server.js' ]
+2018-11-17T06:12:11.682Z socket.io:socket joined room _56qJuUlOQcyfUiAAAAA
+2018-11-17T06:12:11.682Z server   [io.of("/").clients(fn)] error: null, clients: _56qJuUlOQcyfUiAAAAA
+2018-11-17T06:12:11.682Z server     if (clients.length === 1) --> initRepl(DEFAULT_LANG, WELCOME_MSG)
+2018-11-17T06:12:11.682Z server   [initRepl] lang: ruby, welcome_msg: WELCOME TO SPACECRAFT!
+
+2018-11-17T06:12:11.683Z Repl [kill()] this.process: null
+2018-11-17T06:12:11.683Z Repl [Repl.init(language = "ruby")]
+2018-11-17T06:12:11.686Z Repl   INITIALIZED command: irb
+2018-11-17T06:12:11.688Z Repl   this.process: UnixTerminal {
+  _internalee:
+   EventEmitter {
+     _events: [Object: null prototype] {},
+     _eventsCount: 0,
+     _maxListeners: undefined },
+  _socket:
+   PipeSocket {
+     connecting: false,
+     _hadError: false,
+     _handle:
+      Pipe {
+        onread: [Function: onStreamRead],
+        [Symbol(owner)]: [Circular] },
+     _parent: null,
+     _host: null,
+     _readableState:
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: BufferList { head: null, tail: null, length: 0 },
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: null,
+        ended: false,
+        endEmitted: false,
+        reading: false,
+        sync: true,
+        needReadable: false,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        emitClose: false,
+        destroyed: false,
+        defaultEncoding: 'utf8',
+        awaitDrain: 0,
+        readingMore: false,
+        decoder:
+         StringDecoder {
+           encoding: 'utf8',
+           [Symbol(kNativeDecoder)]: <Buffer 00 00 00 00 00 00 01> },
+        encoding: 'utf8' },
+     readable: false,
+     _events:
+      [Object: null prototype] {
+        end: [Function: onReadableStreamEnd],
+        error: [Function],
+        close: [Function] },
+     _eventsCount: 3,
+     _maxListeners: undefined,
+     _writableState:
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        finalCalled: false,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        destroyed: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        emitClose: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree:
+         { next: null,
+           entry: null,
+           finish: [Function: bound onCorkedFinish] } },
+     writable: false,
+     allowHalfOpen: false,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: null,
+     _server: null,
+     [Symbol(asyncId)]: 88,
+     [Symbol(lastWriteQueueSize)]: 0,
+     [Symbol(timeout)]: null,
+     [Symbol(kBytesRead)]: 0,
+     [Symbol(kBytesWritten)]: 0 },
+  _pid: 11137,
+  _fd: 20,
+  _pty: '/dev/pts/4',
+  _file: 'irb',
+  _name: 'xterm-kitty',
+  _readable: true,
+  _writable: true }, this.language: "ruby"
+2018-11-17T06:12:11.688Z socket.io-parser encoding packet {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"}
+2018-11-17T06:12:11.688Z socket.io-parser encoded {"type":2,"data":["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}],"nsp":"/"} as 2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]
+2018-11-17T06:12:11.689Z socket.io:client writing packet ["2[\"langChange\",{\"language\":\"ruby\",\"data\":\"WELCOME TO SPACECRAFT!\\n\\r\"}]"]
+2018-11-17T06:12:11.689Z engine:socket sending packet "message" (2["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}])
+2018-11-17T06:12:11.689Z engine intercepting request for path "/socket.io/"
+2018-11-17T06:12:11.689Z engine handling "POST" http request "/socket.io/?EIO=3&transport=polling&t=MSWJ54G&sid=_56qJuUlOQcyfUiAAAAA"
+2018-11-17T06:12:11.690Z engine setting new request for existing client
+2018-11-17T06:12:11.691Z engine:polling received "32:42["joinRoom","spacecraft-repl"]"
+2018-11-17T06:12:11.691Z engine:socket packet
+2018-11-17T06:12:11.692Z socket.io-parser decoded 2["joinRoom","spacecraft-repl"] as {"type":2,"nsp":"/","data":["joinRoom","spacecraft-repl"]}
+2018-11-17T06:12:11.693Z socket.io:socket got packet {"type":2,"nsp":"/","data":["joinRoom","spacecraft-repl"]}
+2018-11-17T06:12:11.693Z socket.io:socket emitting event ["joinRoom","spacecraft-repl"]
+2018-11-17T06:12:11.693Z socket.io:socket dispatching an event ["joinRoom","spacecraft-repl"]
+2018-11-17T06:12:11.693Z YjsWS [socket.on('joinRoom', fn)] room: spacecraft-repl
+2018-11-17T06:12:11.693Z YjsWS User "_56qJuUlOQcyfUiAAAAA" joins room "spacecraft-repl"
+2018-11-17T06:12:11.693Z socket.io:socket joining room spacecraft-repl
+2018-11-17T06:12:11.694Z YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+2018-11-17T06:12:11.694Z YjsWS [NEXT LINE: "      global.yInstances[room] = Y({..."]
+2018-11-17T06:12:11.694Z YjsWS [NEXT LINE: "return global.yInstances[room];"]
+2018-11-17T06:12:11.694Z socket.io:socket joined room spacecraft-repl
+Sat, 17 Nov 2018 06:12:11 GMT y:connector Set userId to "c68b12b5-ed22-455f-a0f7-cecf3aceda98"
+2018-11-17T06:12:11.699Z engine intercepting request for path "/socket.io/"
+2018-11-17T06:12:11.699Z engine handling "POST" http request "/socket.io/?EIO=3&transport=polling&t=MSWJ54k&sid=_56qJuUlOQcyfUiAAAAA"
+2018-11-17T06:12:11.699Z engine setting new request for existing client
+2018-11-17T06:12:11.699Z engine:polling received "124:42["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]"
+2018-11-17T06:12:11.699Z engine:socket packet
+2018-11-17T06:12:11.699Z socket.io-parser decoded 2["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}] as {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]}
+2018-11-17T06:12:11.700Z socket.io:socket got packet {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]}
+2018-11-17T06:12:11.700Z socket.io:socket emitting event ["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]
+2018-11-17T06:12:11.700Z socket.io:socket dispatching an event ["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]
+2018-11-17T06:12:11.700Z YjsWS [socket.on('yjsEvent', fn)] msg: [object Object]
+2018-11-17T06:12:11.700Z YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+2018-11-17T06:12:11.700Z YjsWS [NEXT LINE: "return global.yInstances[room];"]
+2018-11-17T06:12:11.705Z engine upgrading existing transport
+2018-11-17T06:12:11.705Z engine:socket might upgrade socket transport from "polling" to "websocket"
+2018-11-17T06:12:11.705Z engine intercepting request for path "/socket.io/"
+2018-11-17T06:12:11.705Z engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSWJ54H&sid=_56qJuUlOQcyfUiAAAAA"
+2018-11-17T06:12:11.706Z engine setting new request for existing client
+2018-11-17T06:12:11.706Z engine:polling setting request
+2018-11-17T06:12:11.706Z engine:socket flushing buffer to transport
+2018-11-17T06:12:11.706Z engine:polling writing "72:42["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]26:42["output",{"output":""}]72:42["langChange",{"language":"ruby","data":"WELCOME TO SPACECRAFT!\n\r"}]"
+2018-11-17T06:12:11.706Z engine:socket executing batch send callback
+Sat, 17 Nov 2018 06:12:11 GMT y:connector User joined: _56qJuUlOQcyfUiAAAAA
+2018-11-17T06:12:11.711Z YjsWS [PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]
+Sat, 17 Nov 2018 06:12:11 GMT y:connector Receive 'sync step 1' from _56qJuUlOQcyfUiAAAAA
+Sat, 17 Nov 2018 06:12:11 GMT y:connector-message Message: {"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}
+2018-11-17T06:12:11.713Z socket.io-parser encoding packet {"type":2,"data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}],"nsp":"/"}
+2018-11-17T06:12:11.713Z socket.io-parser encoded {"type":2,"data":["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}],"nsp":"/"} as 2["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]
+2018-11-17T06:12:11.713Z socket.io:client writing packet ["2[\"yjsEvent\",{\"type\":\"sync step 1\",\"stateSet\":{},\"deleteSet\":{},\"protocolVersion\":11,\"auth\":null,\"room\":\"spacecraft-repl\"}]"]
+2018-11-17T06:12:11.713Z engine:socket sending packet "message" (2["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}])
+Sat, 17 Nov 2018 06:12:11 GMT y:connector Send 'sync step 1' to _56qJuUlOQcyfUiAAAAA
+Sat, 17 Nov 2018 06:12:11 GMT y:connector-message Message: {"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}
+2018-11-17T06:12:11.714Z socket.io-parser encoding packet {"type":2,"data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}],"nsp":"/"}
+2018-11-17T06:12:11.714Z socket.io-parser encoded {"type":2,"data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}],"nsp":"/"} as 2["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]
+2018-11-17T06:12:11.714Z socket.io:client writing packet ["2[\"yjsEvent\",{\"type\":\"sync step 2\",\"stateSet\":{},\"deleteSet\":{},\"os\":[],\"room\":\"spacecraft-repl\"}]"]
+2018-11-17T06:12:11.714Z engine:socket sending packet "message" (2["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}])
+Sat, 17 Nov 2018 06:12:11 GMT y:connector Send 'sync step 2' to _56qJuUlOQcyfUiAAAAA
+Sat, 17 Nov 2018 06:12:11 GMT y:connector-message Message: {"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}
+2018-11-17T06:12:11.714Z socket.io-parser encoding packet {"type":2,"data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}],"nsp":"/"}
+2018-11-17T06:12:11.715Z socket.io-parser encoded {"type":2,"data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}],"nsp":"/"} as 2["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]
+2018-11-17T06:12:11.715Z socket.io:client writing packet ["2[\"yjsEvent\",{\"type\":\"sync done\",\"room\":\"spacecraft-repl\"}]"]
+2018-11-17T06:12:11.715Z engine:socket sending packet "message" (2["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}])
+Sat, 17 Nov 2018 06:12:11 GMT y:connector Send 'sync done' to _56qJuUlOQcyfUiAAAAA
+Sat, 17 Nov 2018 06:12:11 GMT y:connector-message Message: {"type":"sync done","room":"spacecraft-repl"}
+2018-11-17T06:12:11.715Z engine intercepting request for path "/socket.io/"
+2018-11-17T06:12:11.715Z engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSWJ551&sid=_56qJuUlOQcyfUiAAAAA"
+2018-11-17T06:12:11.715Z engine setting new request for existing client
+2018-11-17T06:12:11.715Z engine:polling setting request
+2018-11-17T06:12:11.715Z engine:socket flushing buffer to transport
+2018-11-17T06:12:11.715Z engine:polling writing "124:42["yjsEvent",{"type":"sync step 1","stateSet":{},"deleteSet":{},"protocolVersion":11,"auth":null,"room":"spacecraft-repl"}]99:42["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]60:42["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]"
+2018-11-17T06:12:11.715Z engine:socket executing batch send callback
+2018-11-17T06:12:11.716Z engine:ws received "2probe"
+2018-11-17T06:12:11.717Z engine:ws writing "3probe"
+2018-11-17T06:12:11.737Z engine intercepting request for path "/socket.io/"
+2018-11-17T06:12:11.737Z engine handling "GET" http request "/socket.io/?EIO=3&transport=polling&t=MSWJ55N&sid=_56qJuUlOQcyfUiAAAAA"
+2018-11-17T06:12:11.737Z engine setting new request for existing client
+2018-11-17T06:12:11.737Z engine:polling setting request
+2018-11-17T06:12:11.818Z engine:socket writing a noop packet to polling for fast upgrade
+2018-11-17T06:12:11.818Z engine:polling writing "1:6"
+2018-11-17T06:12:11.821Z engine:ws received "5"
+2018-11-17T06:12:11.822Z engine:socket got upgrade packet - upgrading
+2018-11-17T06:12:11.822Z engine:polling closing
+2018-11-17T06:12:11.822Z engine:polling transport discarded - closing right away
+2018-11-17T06:12:11.823Z engine:ws received "42["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]"
+2018-11-17T06:12:11.823Z engine:socket packet
+2018-11-17T06:12:11.824Z socket.io-parser decoded 2["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}] as {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]}
+2018-11-17T06:12:11.824Z socket.io:socket got packet {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]}
+2018-11-17T06:12:11.824Z socket.io:socket emitting event ["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]
+2018-11-17T06:12:11.824Z socket.io:socket dispatching an event ["yjsEvent",{"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}]
+2018-11-17T06:12:11.824Z YjsWS [socket.on('yjsEvent', fn)] msg: [object Object]
+2018-11-17T06:12:11.824Z YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+2018-11-17T06:12:11.824Z YjsWS [NEXT LINE: "return global.yInstances[room];"]
+2018-11-17T06:12:11.824Z YjsWS [PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]
+Sat, 17 Nov 2018 06:12:11 GMT y:connector Receive 'sync step 2' from _56qJuUlOQcyfUiAAAAA
+Sat, 17 Nov 2018 06:12:11 GMT y:connector-message Message: {"type":"sync step 2","stateSet":{},"deleteSet":{},"os":[],"room":"spacecraft-repl"}
+2018-11-17T06:12:11.825Z engine:ws received "42["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]"
+2018-11-17T06:12:11.825Z engine:socket packet
+2018-11-17T06:12:11.825Z socket.io-parser decoded 2["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}] as {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]}
+2018-11-17T06:12:11.825Z socket.io:socket got packet {"type":2,"nsp":"/","data":["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]}
+2018-11-17T06:12:11.825Z socket.io:socket emitting event ["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]
+2018-11-17T06:12:11.825Z socket.io:socket dispatching an event ["yjsEvent",{"type":"sync done","room":"spacecraft-repl"}]
+2018-11-17T06:12:11.825Z YjsWS [socket.on('yjsEvent', fn)] msg: [object Object]
+2018-11-17T06:12:11.825Z YjsWS [getInstanceOfY(room)] arguments:  [Arguments] { '0': 'spacecraft-repl' }
+2018-11-17T06:12:11.825Z YjsWS [NEXT LINE: "return global.yInstances[room];"]
+2018-11-17T06:12:11.825Z YjsWS [PREV LINE: "getInstanceOfY(msg.room).then((y) => {"...]
+Sat, 17 Nov 2018 06:12:11 GMT y:connector Receive 'sync done' from _56qJuUlOQcyfUiAAAAA
+Sat, 17 Nov 2018 06:12:11 GMT y:connector-message Message: {"type":"sync done","room":"spacecraft-repl"}
+2018-11-17T06:12:11.846Z server   emitOutput(output = irb(main):001:0> )
+2018-11-17T06:12:11.847Z server   ~~> histOutputs: , lastOutput: 
+2018-11-17T06:12:11.847Z socket.io-parser encoding packet {"type":2,"data":["output",{"output":"irb(main):001:0> "}],"nsp":"/"}
+2018-11-17T06:12:11.847Z socket.io-parser encoded {"type":2,"data":["output",{"output":"irb(main):001:0> "}],"nsp":"/"} as 2["output",{"output":"irb(main):001:0> "}]
+2018-11-17T06:12:11.847Z socket.io:client writing packet ["2[\"output\",{\"output\":\"irb(main):001:0> \"}]"]
+2018-11-17T06:12:11.847Z engine:socket sending packet "message" (2["output",{"output":"irb(main):001:0> "}])
+2018-11-17T06:12:11.847Z engine:socket flushing buffer to transport
+2018-11-17T06:12:11.847Z engine:ws writing "42["output",{"output":"irb(main):001:0> "}]"
+2018-11-17T06:12:36.665Z engine:ws received "2"
+2018-11-17T06:12:36.665Z engine:socket packet
+2018-11-17T06:12:36.666Z engine:socket got ping
+2018-11-17T06:12:36.666Z engine:socket sending packet "pong" (undefined)
+2018-11-17T06:12:36.666Z engine:socket flushing buffer to transport
+2018-11-17T06:12:36.666Z engine:ws writing "3"
+2018-11-17T06:13:01.668Z engine:ws received "2"
+2018-11-17T06:13:01.668Z engine:socket packet
+2018-11-17T06:13:01.668Z engine:socket got ping
+2018-11-17T06:13:01.668Z engine:socket sending packet "pong" (undefined)
+2018-11-17T06:13:01.668Z engine:socket flushing buffer to transport
+2018-11-17T06:13:01.668Z engine:ws writing "3"
+2018-11-17T06:13:26.670Z engine:ws received "2"
+2018-11-17T06:13:26.670Z engine:socket packet
+2018-11-17T06:13:26.670Z engine:socket got ping
+2018-11-17T06:13:26.670Z engine:socket sending packet "pong" (undefined)
+2018-11-17T06:13:26.670Z engine:socket flushing buffer to transport
+2018-11-17T06:13:26.670Z engine:ws writing "3"
+2018-11-17T06:13:51.671Z engine:ws received "2"
+2018-11-17T06:13:51.671Z engine:socket packet
+2018-11-17T06:13:51.672Z engine:socket got ping
+2018-11-17T06:13:51.672Z engine:socket sending packet "pong" (undefined)
+2018-11-17T06:13:51.672Z engine:socket flushing buffer to transport
+2018-11-17T06:13:51.672Z engine:ws writing "3"

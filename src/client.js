@@ -1,7 +1,7 @@
 import { $ } from './utils.js'
 import term from './term.js'
 import { editor, socket } from './editor.js'
-import ansi from 'ansi-escapes'
+// import ansi from 'ansi-escapes'
 import './main.css'
 
 const languageSelectElem = $('#language')
@@ -156,5 +156,5 @@ languageSelectElem.addEventListener('change', ClientRepl.handleLanguageChange.bi
 // #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 window.state = state
 window.term = term
-window.ansi = ansi
+// window.ansi = ansi
 // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');

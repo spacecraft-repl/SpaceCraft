@@ -26,8 +26,10 @@ const TOO_MUCH_OUTPUT = '\n\r------TOO MUCH OUTPUT!-------\n\r'
 const MAX_OUTPUT_LENGTH = 10000
 const DEFAULT_LANG = 'ruby'
 
+debug('process.env: %O', process.env)
+
 io.on('connection', (socket) => {
-  debug('io.on("connection", (socket) => {')
+  debug('io.on("connection", (socket = %j) => {', socket)
 
   const handleTooMuchOutput = () => {
     debug('  handleTooMuchOutput() ~~> lastOutput: %s', lastOutput)
@@ -102,13 +104,13 @@ io.on('connection', (socket) => {
     debug('  ["lineChanged"] { line: %s, syncSelf: %s }', line)
     currentPrompt = currentPrompt || getCurrentPrompt()
 
-    debug('NEXT LINE: const data = { line, prompt: currentPrompt = %s }', currentPrompt)
+    debug('  NEXT LINE: const data = { line, prompt: currentPrompt = %s }', currentPrompt)
     const data = { line, prompt: currentPrompt }
 
-    debug('NEXT LINE: `if (syncSelf) return io.emit("syncLine", data)`')
+    debug('  NEXT LINE: `if (syncSelf) return io.emit("syncLine", data)`')
     if (syncSelf) return io.emit('syncLine', data)
 
-    debug('NEXT LINE: `socket.broadcast.emit("syncLine", data)`')
+    debug('  NEXT LINE: `socket.broadcast.emit("syncLine", data)`')
     socket.broadcast.emit('syncLine', data)
   })
 
