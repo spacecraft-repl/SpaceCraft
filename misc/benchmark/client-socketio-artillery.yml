@@ -1,0 +1,14 @@
+config:
+  target: "http://localhost:3000/"
+  phases:
+    - duration: 100
+      arrivalRate: 1
+scenarios:
+  - engine: "socketio"
+    flow:
+      - emit:
+          channel: "evaluate"
+          data: { code: "[1,2,3].map(&:to_s)" }
+          response:
+            channel: "output"
+      - think: 1
