@@ -2,3 +2,4 @@ node_modules
 public/main.js
 !logs
 !*.log
+script.log
