@@ -12,8 +12,6 @@ const port = process.env.PORT || 3000
 const app = express()
 const server = http.Server(app)
 const io = socketIo(server) // our websocket server
-const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
-const DEFAULT_LANG = 'ruby'
 
 let histOutputs = ''
 let lastOutput = ''
@@ -26,17 +24,21 @@ app.use(express.static('public'))
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
 const TOO_MUCH_OUTPUT = '\n\r------TOO MUCH OUTPUT!-------\n\r'
 const MAX_OUTPUT_LENGTH = 10000
+const DEFAULT_LANG = 'ruby'
 
 io.on('connection', (socket) => {
   debug('io.on("connection", (socket) => {')
 
   const handleTooMuchOutput = () => {
+    debug('  handleTooMuchOutput() ~~> lastOutput: %s', lastOutput)
     lastOutput = ''
     Repl.write('\x03')
-    io.emit('output', { output: TOO_MUCH_OUTPUT })    
+    io.emit('output', { output: TOO_MUCH_OUTPUT })
   }
 
   const emitOutput = (output) => {
+    debug('  emitOutput(output = %s)', output)
+    debug('  ~~> histOutputs: %s, lastOutput: %s', histOutputs, lastOutput)
     histOutputs += output
     lastOutput += output
     if (lastOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
@@ -59,21 +61,24 @@ io.on('connection', (socket) => {
   }
 
   const getCurrentPrompt = () => {
+    debug('  getCurrentPrompt() ~~> lastOutput: %s', lastOutput)
     return lastOutput.split('\n').pop()
   }
 
   // @todo: Check if this is necessary.
-  debug('`socket.emit("langChange", {` ~~> language: %s, data: %s', Repl.language || 'ruby', WELCOME_MSG)
+  debug('socket.emit("langChange", { language: %s, data: %s })', Repl.language || DEFAULT_LANG, WELCOME_MSG)
   socket.emit('langChange', {
     language: Repl.language || DEFAULT_LANG,
     data: WELCOME_MSG
   })
 
+  debug('socket.emit("output", { output: histOutputs = %s })', histOutputs)
   socket.emit('output', { output: histOutputs })
 
   io.of('/').clients((error, clients) => {
     debug('  [io.of("/").clients(fn)] error: %s, clients: %s', error, clients)
     if (clients.length === 1) {
+      debug('    if (clients.length === 1) --> initRepl(DEFAULT_LANG, WELCOME_MSG)')
       initRepl(DEFAULT_LANG, WELCOME_MSG)
     }
   })
@@ -82,6 +87,7 @@ io.on('connection', (socket) => {
     debug('  ["initRepl"] { language: %s }', language)
     currentPrompt = null
     if (language === Repl.language) return
+    debug('  (language !== Repl.language) --> initRepl(language)')
     initRepl(language)
   })
 
@@ -93,11 +99,16 @@ io.on('connection', (socket) => {
   })
 
   socket.on('lineChanged', ({ line, syncSelf }) => {
-    debug('  ["lineChanged"] { line: %s }', line)
+    debug('  ["lineChanged"] { line: %s, syncSelf: %s }', line)
     currentPrompt = currentPrompt || getCurrentPrompt()
+
+    debug('NEXT LINE: const data = { line, prompt: currentPrompt = %s }', currentPrompt)
     const data = { line, prompt: currentPrompt }
 
+    debug('NEXT LINE: `if (syncSelf) return io.emit("syncLine", data)`')
     if (syncSelf) return io.emit('syncLine', data)
+
+    debug('NEXT LINE: `socket.broadcast.emit("syncLine", data)`')
     socket.broadcast.emit('syncLine', data)
   })
 
