@@ -19,9 +19,6 @@ const Repl = {
       this.language = language
       debug(`  INITIALIZED command: ${command}`)
       debug('  this.process: %O, this.language: "%s"', this.process, this.language)
-
-      // @todo: Is it necessary to return `this` here? -- it doesn't appear to be used anywhere.
-      return this
     }
   },
 
