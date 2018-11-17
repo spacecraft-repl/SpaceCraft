@@ -1,0 +1,18 @@
+All virtual users finished
+Summary report @ 06:31:49(-0500) 2018-11-17
+  Scenarios launched:  100
+  Scenarios completed: 100
+  Requests completed:  200
+  RPS sent: 1
+  Request latency:
+    min: 8.1
+    max: 21.2
+    median: 11.9
+    p95: 14.3
+    p99: 20.5
+  Scenario counts:
+    0: 100 (100%)
+  Codes:
+    0: 200
+
+---refactor bufferWrite to use async await-commit 674bdb10421b586a59f143cd0be43bfb499b57b6---

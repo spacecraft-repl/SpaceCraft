@@ -43,6 +43,7 @@ io.on('connection', (socket) => {
     lastOutput += output
     if (lastOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
     io.emit('output', { output })
+    console.log(output)
   }
 
   const initRepl = (language, welcome_msg = '') => {
