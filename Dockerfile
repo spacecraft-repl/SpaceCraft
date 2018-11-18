@@ -15,8 +15,9 @@ WORKDIR /app
 COPY . /app
 
 # @todo: Verify that this build process is not producing any bugs!
-RUN apt install update \
-    apt install upgrade \
+RUN apt update \
+    && apt upgrade \
+    && apt install \
     make \
     g++ \
     ruby \
