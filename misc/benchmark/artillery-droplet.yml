@@ -1,5 +1,5 @@
 config:
-  target: "http://178.128.129.50:4000/"
+  target: "http://142.93.16.16:4000/"
   phases:
     - duration: 300
       arrivalRate: 1
