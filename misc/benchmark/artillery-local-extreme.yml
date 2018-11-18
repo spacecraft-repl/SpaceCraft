@@ -1,7 +1,7 @@
 config:
-  target: "http://178.128.129.50:4000/"
+  target: "http://localhost:3000/"
   phases:
-    - duration: 300
+    - duration: 1200
       arrivalRate: 1
 scenarios:
   - engine: "socketio"
