@@ -1,0 +1,10 @@
+config:
+  target: "http://178.128.129.50:5001/"
+  phases:
+    - duration: 1000
+      arrivalRate: 1
+scenarios:
+  - flow:
+    - get:
+        url: "/"
+    - think: 1

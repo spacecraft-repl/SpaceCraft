@@ -1,8 +1,10 @@
 import { $ } from './utils.js'
 import term from './term.js'
 import { editor, socket } from './editor.js'
-// import ansi from 'ansi-escapes'
+import ansi from 'ansi-escapes'
 import './main.css'
+
+import debug from 'debug'
 
 const languageSelectElem = $('#language')
 const runButton = $('.run-editor-code-button')
@@ -156,5 +158,9 @@ languageSelectElem.addEventListener('change', ClientRepl.handleLanguageChange.bi
 // #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 window.state = state
 window.term = term
-// window.ansi = ansi
-// term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');
+
+window.ansi = ansi
+term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
+console.log('Enabling debug...')
+window.localStorage.debug = '*'
+if (debug.enabled) console.log('...debug enabled.')

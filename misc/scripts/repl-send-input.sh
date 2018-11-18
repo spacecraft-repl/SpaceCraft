@@ -3,7 +3,7 @@
 # Focus Chrome window and send a sequence of keystrokes every 500ms.
 # To exit, use Ctrl-c in terminal.
 
-echo 'Starting keystroke input to Chrome... Type Ctrl-C to exit.'
+echo 'Sending input to Chrome... Type Ctrl-C to exit.'
 
 while true; do
   xdotool \

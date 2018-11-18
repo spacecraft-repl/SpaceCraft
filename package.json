@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/spacecraft-repl/SpaceCraft",
   "dependencies": {
+    "ansi-escapes": "^3.1.0",
     "body-parser": "^1.18.3",
     "codemirror": "^5.41.0",
     "codemirror-one-dark-theme": "^1.1.1",
@@ -49,6 +50,7 @@
     "yjs": "^12.3.3"
   },
   "devDependencies": {
+    "artillery": "^1.6.0-25",
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",
     "standard": "^12.0.1",
