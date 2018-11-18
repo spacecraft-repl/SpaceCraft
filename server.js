@@ -38,7 +38,7 @@ io.on('connection', (socket) => {
 
   const emitOutput = (output) => {
     debug('  emitOutput(output = %s)', output)
-    debug('  ~~> histOutputs: %s, lastOutput: %s', histOutputs, lastOutput)
+    // debug('  ~~> histOutputs: %s, lastOutput: %s', histOutputs, lastOutput)
     histOutputs += output
     lastOutput += output
     if (lastOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
@@ -73,7 +73,7 @@ io.on('connection', (socket) => {
     data: WELCOME_MSG
   })
 
-  debug('socket.emit("output", { output: histOutputs = %s })', histOutputs)
+  // debug('socket.emit("output", { output: histOutputs = %s })', histOutputs)
   socket.emit('output', { output: histOutputs })
 
   io.of('/').clients((error, clients) => {
