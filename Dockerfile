@@ -15,12 +15,11 @@ WORKDIR /app
 COPY . /app
 
 # @todo: Verify that this build process is not producing any bugs!
-RUN apt update \
-    && apt upgrade \
-    && apt install \
+RUN install_clean \
     make \
     g++ \
     ruby \
+    npm \
     nodejs \
     python \
     && npm install \
