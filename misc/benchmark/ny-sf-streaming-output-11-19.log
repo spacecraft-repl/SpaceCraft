@@ -1,0 +1,17 @@
+Summary report @ 11:34:52(-0500) 2018-11-19
+  Scenarios launched:  20
+  Scenarios completed: 20
+  Requests completed:  200
+  RPS sent: 4.03
+  Request latency:
+    min: 0.6
+    max: 86.8
+    median: 78.9
+    p95: 83.6
+    p99: 86.3
+  Scenario counts:
+    0: 20 (100%)
+  Codes:
+    0: 200
+
+
