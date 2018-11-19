@@ -27,10 +27,7 @@ const MAX_OUTPUT_LENGTH = 10000
 const DEFAULT_LANG = 'ruby'
 
 io.on('connection', (socket) => {
-  debug('io.on("connection", (socket) => {')
-
   const handleTooMuchOutput = () => {
-    debug('  handleTooMuchOutput() ~~> lastOutput: %s', lastOutput)
     lastOutput = ''
     Repl.write('\x03')
     io.emit('output', { output: TOO_MUCH_OUTPUT })
@@ -40,7 +37,7 @@ io.on('connection', (socket) => {
     debug('  emitOutput(output = %s)', output)
     debug('  ~~> histOutputs: %s, lastOutput: %s', histOutputs, lastOutput)
     histOutputs += output
-    lastOutput += output
+    lastOutput = output
     if (lastOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
     io.emit('output', { output })
     console.log(output)
