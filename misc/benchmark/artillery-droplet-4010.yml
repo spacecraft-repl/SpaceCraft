@@ -1,0 +1,14 @@
+config:
+  target: "http://142.93.16.16:4010/"
+  phases:
+    - duration: 300
+      arrivalRate: 2
+scenarios:
+  - engine: "socketio"
+    flow:
+      - emit:
+          channel: "evaluate"
+          data: { code: "[1,2,3,4,5].map(&:to_s)" }
+          response:
+            channel: "output"
+      - think: 1
