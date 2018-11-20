@@ -2,8 +2,7 @@
 
 const debug = require('debug')('server')
 const express = require('express')
-// const path = require('path')
-const bodyParser = require('body-parser')
+// const bodyParser = require('body-parser')
 const http = require('http')
 const socketIo = require('socket.io')
 const Repl = require('./repl/Repl.js')
@@ -13,11 +12,10 @@ const app = express()
 const server = http.Server(app)
 const io = socketIo(server) // our websocket server
 
-// let histOutputs = ''
+let outputHistory = ''
 // let lastOutput = ''
-// let currentPrompt = null
 
-app.use(bodyParser.text())
+// app.use(bodyParser.text())
 app.use(express.static('public'))
 
 // @todo: Check if order of \n\r matters.
@@ -38,9 +36,23 @@ io.on('connection', (socket) => {
     debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
     Repl.kill()
     Repl.init(language)
+    // Repl.process.on('data', emitOutput)
     Repl.process.on('data', (data) => {
-      socket.send({ data })
+      debug('[data] data: %s', data)
+      io.emit('message', { data })
     })
+  }
+
+  const emitOutput = (output) => {
+    debug('  emitOutput(output = %s)', output)
+    // debug('  ~~> outputHistory: %s, lastOutput: %s', outputHistory, lastOutput)
+    // outputHistory += output
+    // lastOutput = output
+    // if (lastOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
+    // io.emit('output', { output })
+    // io.emit(output)
+    socket.send({ data: output })
+    console.log(output)
   }
 
   io.of('/').clients((error, clients) => {
@@ -53,7 +65,6 @@ io.on('connection', (socket) => {
 
   socket.on('initRepl', ({ language }) => {
     debug('  ["initRepl"] { language: %s }', language)
-    // currentPrompt = null
     if (language === Repl.language) return
     debug('  (language !== Repl.language) --> initRepl(language)')
     initRepl(language)
@@ -63,6 +74,12 @@ io.on('connection', (socket) => {
     debug('  ["message"] msg: %s', msg)
     Repl.write(msg)
   })
+
+  // socket.on('clear', () => {
+  //   debug('  ["clear"]')
+  //   io.emit('clear')
+  //   outputHistory = ''
+  // })
 
   socket.on('disconnect', () => {
     debug('  ["disconnect"]')
@@ -80,8 +97,8 @@ io.on('connection', (socket) => {
 
   // const emitOutput = (output) => {
   //   debug('  emitOutput(output = %s)', output)
-  //   // debug('  ~~> histOutputs: %s, lastOutput: %s', histOutputs, lastOutput)
-  //   // histOutputs += output
+  //   // debug('  ~~> outputHistory: %s, lastOutput: %s', outputHistory, lastOutput)
+  //   // outputHistory += output
   //   // lastOutput = output
   //   // if (lastOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
   //   // io.emit('output', { output })
@@ -96,7 +113,7 @@ io.on('connection', (socket) => {
 //     debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
 //     Repl.kill()
 //     Repl.init(language)
-//     // histOutputs = ''
+//     // outputHistory = ''
 //     // lastOutput = ''
 
 //     // io.emit('langChange', {
@@ -122,34 +139,23 @@ io.on('connection', (socket) => {
   //   data: WELCOME_MSG
   // })
 
-  // debug('socket.emit("output", { output: histOutputs = %s })', histOutputs)
-  // socket.emit('output', { output: histOutputs })
+  // debug('socket.emit("output", { output: outputHistory = %s })', outputHistory)
+  // socket.emit('output', { output: outputHistory })
 
   // socket.on('evaluate', ({ code }) => {
   //   debug('  ["evaluate"] { code: %s }', code)
-  //   currentPrompt = null
   //   lastOutput = ''
   //   Repl.write(code)
   // })
 
   // socket.on('lineChanged', ({ line, syncSelf }) => {
   //   debug('  ["lineChanged"] { line: %s, syncSelf: %s }', line)
-  //   currentPrompt = currentPrompt || getCurrentPrompt()
-
-  //   debug('NEXT LINE: const data = { line, prompt: currentPrompt = %s }', currentPrompt)
-  //   const data = { line, prompt: currentPrompt }
 
   //   debug('NEXT LINE: `if (syncSelf) return io.emit("syncLine", data)`')
   //   if (syncSelf) return io.emit('syncLine', data)
 
   //   debug('NEXT LINE: `socket.broadcast.emit("syncLine", data)`')
   //   socket.broadcast.emit('syncLine', data)
-  // })
-
-  // socket.on('clear', () => {
-  //   debug('  ["clear"]')
-  //   io.emit('clear')
-  //   histOutputs = ''
   // })
 
 
