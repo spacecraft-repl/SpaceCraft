@@ -7,13 +7,16 @@ const bodyParser = require('body-parser')
 const http = require('http')
 const socketIo = require('socket.io')
 const Repl = require('./repl/Repl.js')
+const Ansi = require('ansi-escapes')
 
 const port = process.env.PORT || 3000
 const app = express()
 const server = http.Server(app)
 const io = socketIo(server) // our websocket server
 
-let outputs = { hist: '', last: '' }
+let histOutputs = ''
+let currOutput = ''
+let lastOutput = ''
 let currentPrompt = null
 
 app.use(bodyParser.text())
@@ -21,35 +24,41 @@ app.use(express.static('public'))
 
 // @todo: Check if order of \n\r matters.
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
-const TOO_MUCH_OUTPUT = '\n\r \u001b[31m\u001b[7m\u001b[1m--------MAXIMUM OUTPUT EXCEEDED--------\u001b[0m'
-const MAX_OUTPUT_LENGTH = 1000000
+const TOO_MUCH_OUTPUT = (() => {
+  const text = '--------MAXIMUM OUTPUT EXCEEDED--------'
+  const formatted = `\u001b[31m\u001b[7m\u001b[1m${text}\u001b[0m`
+  return Ansi.cursorUp(1) + formatted + Ansi.cursorDown(1) + Ansi.cursorBackward(text.length)
+})()
+const MAX_OUTPUT_LENGTH = 10000
+const MAX_HIST_LENGTH = 1000000
 const DEFAULT_LANG = 'ruby'
 
 io.on('connection', (socket) => {
   const resetOutputCache = () => {
-    outputs = { hist: '', last: '' }
+    histOutputs = ''
+    lastOutput = ''
   }
 
   const cacheOutputs = (output) => {
-    outputs.hist += output
-    outputs.last = output
+    histOutputs += output
+    currOutput += output
+    lastOutput = output
+    if (histOutputs.length > MAX_HIST_LENGTH) histOutputs = histOutputs.slice(-1000)
   }
 
   const handleTooMuchOutput = () => {
-    outputs.hist = outputs.hist.slice(-1000)
-    console.log(outputs.hist)
+    currOutput = ''
     Repl.write('\x03')
     setTimeout(() => io.emit('output', { output: TOO_MUCH_OUTPUT }), 50)
   }
 
   const emitOutput = (output) => {
+    io.emit('output', { output })
     debug('  emitOutput(output = %s)', output)
-    debug('  ~~> outputs.hist: %s, outputs.last: %s', outputs.hist, outputs.last)
+    debug('  ~~> histOutputs: %s, lastOutput: %s', histOutputs, lastOutput)
 
     cacheOutputs(output)
-    console.log(outputs.hist.length)
-    if (outputs.hist.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
-    io.emit('output', { output })
+    if (currOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
   }
 
   const initRepl = (language, welcome_msg = '') => {
@@ -67,8 +76,8 @@ io.on('connection', (socket) => {
   }
 
   const getCurrentPrompt = () => {
-    debug('  getCurrentPrompt() ~~> outputs.last: %s', outputs.last)
-    return outputs.last.split('\n').pop()
+    debug('  getCurrentPrompt() ~~> lastOutput: %s', lastOutput)
+    return lastOutput.split('\n').pop()
   }
 
   // @todo: Check if this is necessary.
@@ -78,8 +87,8 @@ io.on('connection', (socket) => {
     data: WELCOME_MSG
   })
 
-  debug('socket.emit("output", { output: outputs.hist = %s })', outputs.hist)
-  socket.emit('output', { output: outputs.hist })
+  debug('socket.emit("output", { output: histOutputs = %s })', histOutputs)
+  socket.emit('output', { output: histOutputs })
 
   io.of('/').clients((error, clients) => {
     debug('  [io.of("/").clients(fn)] error: %s, clients: %s', error, clients)
@@ -100,7 +109,8 @@ io.on('connection', (socket) => {
   socket.on('evaluate', ({ code }) => {
     debug('  ["evaluate"] { code: %s }', code)
     currentPrompt = null
-    outputs.last = ''
+    lastOutput = ''
+    currOutput = ''
     Repl.write(code)
   })
 
@@ -121,7 +131,7 @@ io.on('connection', (socket) => {
   socket.on('clear', () => {
     debug('  ["clear"]')
     io.emit('clear')
-    outputs.hist = ''
+    histOutputs = ''
   })
 
   socket.on('disconnect', () => {
