@@ -1,6 +1,5 @@
 'use strict'
 
-const debug = require('debug')('server')
 const express = require('express')
 // const path = require('path')
 const bodyParser = require('body-parser')
@@ -54,15 +53,11 @@ io.on('connection', (socket) => {
 
   const emitOutput = (output) => {
     io.emit('output', { output })
-    debug('  emitOutput(output = %s)', output)
-    debug('  ~~> histOutputs: %s, lastOutput: %s', histOutputs, lastOutput)
-
     cacheOutputs(output)
     if (currOutputLength > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
   }
 
   const initRepl = (language, welcome_msg = '') => {
-    debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
     Repl.kill()
     Repl.init(language)
     resetOutputCache()
@@ -76,38 +71,30 @@ io.on('connection', (socket) => {
   }
 
   const getCurrentPrompt = () => {
-    debug('  getCurrentPrompt() ~~> lastOutput: %s', lastOutput)
     return lastOutput.split('\n').pop()
   }
 
   // @todo: Check if this is necessary.
-  debug('socket.emit("langChange", { language: %s, data: %s })', Repl.language || DEFAULT_LANG, WELCOME_MSG)
   socket.emit('langChange', {
     language: Repl.language || DEFAULT_LANG,
     data: WELCOME_MSG
   })
 
-  debug('socket.emit("output", { output: histOutputs = %s })', histOutputs)
   socket.emit('output', { output: histOutputs })
 
-  io.of('/').clients((error, clients) => {
-    debug('  [io.of("/").clients(fn)] error: %s, clients: %s', error, clients)
+  io.of('/').clients((_, clients) => {
     if (clients.length === 1) {
-      debug('    if (clients.length === 1) --> initRepl(DEFAULT_LANG, WELCOME_MSG)')
       initRepl(DEFAULT_LANG, WELCOME_MSG)
     }
   })
 
   socket.on('initRepl', ({ language }) => {
-    debug('  ["initRepl"] { language: %s }', language)
     currentPrompt = null
     if (language === Repl.language) return
-    debug('  (language !== Repl.language) --> initRepl(language)')
     initRepl(language)
   })
 
   socket.on('evaluate', ({ code }) => {
-    debug('  ["evaluate"] { code: %s }', code)
     currentPrompt = null
     lastOutput = ''
     currOutputLength = 0
@@ -115,29 +102,21 @@ io.on('connection', (socket) => {
   })
 
   socket.on('lineChanged', ({ line, syncSelf }) => {
-    debug('  ["lineChanged"] { line: %s, syncSelf: %s }', line)
     currentPrompt = currentPrompt || getCurrentPrompt()
 
-    debug('NEXT LINE: const data = { line, prompt: currentPrompt = %s }', currentPrompt)
     const data = { line, prompt: currentPrompt }
 
-    debug('NEXT LINE: `if (syncSelf) return io.emit("syncLine", data)`')
     if (syncSelf) return io.emit('syncLine', data)
-
-    debug('NEXT LINE: `socket.broadcast.emit("syncLine", data)`')
     socket.broadcast.emit('syncLine', data)
   })
 
   socket.on('clear', () => {
-    debug('  ["clear"]')
     io.emit('clear')
     histOutputs = ''
   })
 
   socket.on('disconnect', () => {
-    debug('  ["disconnect"]')
-    io.of('/').clients((error, clients) => {
-      debug('    [io of / .clients] error: %s, clients: %s', error, clients)
+    io.of('/').clients((_, clients) => {
       if (clients.length === 0) Repl.kill()
     })
   })
@@ -147,5 +126,5 @@ io.on('connection', (socket) => {
 })
 
 server.listen(port, () => {
-  debug(`Listening on port: ${port}...`)
+  console.log('Listening on 3000...')
 })
