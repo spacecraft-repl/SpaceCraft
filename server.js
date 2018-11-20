@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const http = require('http')
 const socketIo = require('socket.io')
 const Repl = require('./repl/Repl.js')
+const Ansi = require('ansi-escapes')
 
 const port = process.env.PORT || 3000
 const app = express()
@@ -14,40 +15,57 @@ const server = http.Server(app)
 const io = socketIo(server) // our websocket server
 
 let histOutputs = ''
+let currOutputLength = 0
 let lastOutput = ''
 let currentPrompt = null
 
 app.use(bodyParser.text())
 app.use(express.static('public'))
 
-// @todo: Check if order of \n\r matters.
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
-const TOO_MUCH_OUTPUT = '\n\r------TOO MUCH OUTPUT!-------\n\r'
+const TOO_MUCH_OUTPUT = (() => {
+  const text = '--------MAXIMUM OUTPUT EXCEEDED--------'
+  const formatted = `\u001b[31m\u001b[7m\u001b[1m${text}\u001b[0m`
+  return Ansi.cursorUp(1) + formatted + Ansi.cursorDown(1) + Ansi.cursorBackward(text.length)
+})()
 const MAX_OUTPUT_LENGTH = 10000
+const MAX_HIST_LENGTH = 100000
 const DEFAULT_LANG = 'ruby'
 
 io.on('connection', (socket) => {
-  const handleTooMuchOutput = () => {
+  const resetOutputCache = () => {
+    histOutputs = ''
     lastOutput = ''
+    currOutputLength = 0
+  }
+
+  const cacheOutputs = (output) => {
+    histOutputs += output
+    currOutputLength += output.length
+    lastOutput = output
+    if (histOutputs.length > MAX_HIST_LENGTH) histOutputs = histOutputs.slice(-1000)
+  }
+
+  const handleTooMuchOutput = () => {
+    currOutputLength = 0
     Repl.write('\x03')
-    io.emit('output', { output: TOO_MUCH_OUTPUT })
+    setTimeout(() => io.emit('output', { output: TOO_MUCH_OUTPUT }), 50)
   }
 
   const emitOutput = (output) => {
+    io.emit('output', { output })
     debug('  emitOutput(output = %s)', output)
     debug('  ~~> histOutputs: %s, lastOutput: %s', histOutputs, lastOutput)
-    histOutputs += output
-    lastOutput = output
-    if (lastOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
-    io.emit('output', { output })
+
+    cacheOutputs(output)
+    if (currOutputLength > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
   }
 
   const initRepl = (language, welcome_msg = '') => {
     debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
     Repl.kill()
     Repl.init(language)
-    histOutputs = ''
-    lastOutput = ''
+    resetOutputCache()
 
     io.emit('langChange', {
       language: Repl.language,
@@ -92,6 +110,7 @@ io.on('connection', (socket) => {
     debug('  ["evaluate"] { code: %s }', code)
     currentPrompt = null
     lastOutput = ''
+    currOutputLength = 0
     Repl.write(code)
   })
 
