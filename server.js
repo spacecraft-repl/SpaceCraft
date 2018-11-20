@@ -15,14 +15,13 @@ const server = http.Server(app)
 const io = socketIo(server) // our websocket server
 
 let histOutputs = ''
-let currOutput = ''
+let currOutputLength = 0
 let lastOutput = ''
 let currentPrompt = null
 
 app.use(bodyParser.text())
 app.use(express.static('public'))
 
-// @todo: Check if order of \n\r matters.
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
 const TOO_MUCH_OUTPUT = (() => {
   const text = '--------MAXIMUM OUTPUT EXCEEDED--------'
@@ -37,17 +36,18 @@ io.on('connection', (socket) => {
   const resetOutputCache = () => {
     histOutputs = ''
     lastOutput = ''
+    currOutputLength = 0
   }
 
   const cacheOutputs = (output) => {
     histOutputs += output
-    currOutput += output
+    currOutputLength += output.length
     lastOutput = output
     if (histOutputs.length > MAX_HIST_LENGTH) histOutputs = histOutputs.slice(-1000)
   }
 
   const handleTooMuchOutput = () => {
-    currOutput = ''
+    currOutputLength = 0
     Repl.write('\x03')
     setTimeout(() => io.emit('output', { output: TOO_MUCH_OUTPUT }), 50)
   }
@@ -58,7 +58,7 @@ io.on('connection', (socket) => {
     debug('  ~~> histOutputs: %s, lastOutput: %s', histOutputs, lastOutput)
 
     cacheOutputs(output)
-    if (currOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
+    if (currOutputLength > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
   }
 
   const initRepl = (language, welcome_msg = '') => {
@@ -110,7 +110,7 @@ io.on('connection', (socket) => {
     debug('  ["evaluate"] { code: %s }', code)
     currentPrompt = null
     lastOutput = ''
-    currOutput = ''
+    currOutputLength = 0
     Repl.write(code)
   })
 
