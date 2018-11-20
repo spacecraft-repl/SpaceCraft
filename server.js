@@ -26,14 +26,12 @@ io.on('connection', (socket) => {
   }
 
   const emitOutput = (output) => {
-    debug('  emitOutput(output = %s)', output)
     outputHistory += output
     if (outputHistory.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
     io.emit('output', { output })
   }
 
   const initRepl = (language, initial_msg = '') => {
-    debug('  [initRepl] language: %s, initial_msg: %s', language, initial_msg)
     Repl.kill()
     Repl.init(language)
     outputHistory = ''
@@ -42,47 +40,35 @@ io.on('connection', (socket) => {
   }
 
   io.of('/').clients((error, clients) => {
-    debug('  [io.of("/").clients(fn)] error: %s, clients: %s', error, clients)
-    if (clients.length === 1) {
-      debug('    if (clients.length === 1) --> initRepl(DEFAULT_LANG, initial_msg)')
-      initRepl(DEFAULT_LANG, WELCOME_MSG)
-    }
+    if (clients.length === 1) initRepl(DEFAULT_LANG, WELCOME_MSG)
   })
 
   socket.on('initRepl', ({ language }) => {
-    debug('  ["initRepl"] { language: %s }', language)
     if (language === Repl.language) return
-    debug('  (language !== Repl.language) --> initRepl(language)')
     initRepl(language)
   })
 
   socket.on('message', (msg) => {
-    debug('  ["message"] msg: %s', msg)
     Repl.write(msg)
   })
 
   socket.on('clear', () => {
-    debug('  ["clear"]')
     io.emit('clear')
     outputHistory = ''
   })
 
   socket.on('disconnect', () => {
-    debug('  ["disconnect"]')
     io.of('/').clients((error, clients) => {
-      debug('    [io of / .clients] error: %s, clients: %s', error, clients)
       if (clients.length === 0) Repl.kill()
     })
   })
 
   // @todo: Check if this is necessary.
-  debug('socket.emit("langChange", { language: %s, data: %s })', Repl.language || DEFAULT_LANG, WELCOME_MSG)
   socket.emit('langChange', {
     language: Repl.language || DEFAULT_LANG,
     data: WELCOME_MSG
   })
 
-  debug('socket.emit("output", { output: outputHistory = %s })', outputHistory)
   socket.emit('output', { output: outputHistory })
 
   // Yjs Websockets Server Events
@@ -90,5 +76,5 @@ io.on('connection', (socket) => {
 })
 
 server.listen(port, () => {
-  debug(`Listening on port: ${port}...`)
+  console.log(`Listening on port: ${port}...`)
 })
