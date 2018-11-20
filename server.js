@@ -13,8 +13,7 @@ const app = express()
 const server = http.Server(app)
 const io = socketIo(server) // our websocket server
 
-let histOutputs = ''
-let lastOutput = ''
+let outputs = { hist: '', last: '' }
 let currentPrompt = null
 
 app.use(bodyParser.text())
@@ -22,23 +21,34 @@ app.use(express.static('public'))
 
 // @todo: Check if order of \n\r matters.
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
-const TOO_MUCH_OUTPUT = '\n\r------TOO MUCH OUTPUT!-------\n\r'
-const MAX_OUTPUT_LENGTH = 10000
+const TOO_MUCH_OUTPUT = '\n\r \u001b[31m\u001b[7m\u001b[1m--------MAXIMUM OUTPUT EXCEEDED--------\u001b[0m'
+const MAX_OUTPUT_LENGTH = 1000000
 const DEFAULT_LANG = 'ruby'
 
 io.on('connection', (socket) => {
+  const resetOutputCache = () => {
+    outputs = { hist: '', last: '' }
+  }
+
+  const cacheOutputs = (output) => {
+    outputs.hist += output
+    outputs.last = output
+  }
+
   const handleTooMuchOutput = () => {
-    lastOutput = ''
+    outputs.hist = outputs.hist.slice(-1000)
+    console.log(outputs.hist)
     Repl.write('\x03')
-    io.emit('output', { output: TOO_MUCH_OUTPUT })
+    setTimeout(() => io.emit('output', { output: TOO_MUCH_OUTPUT }), 50)
   }
 
   const emitOutput = (output) => {
     debug('  emitOutput(output = %s)', output)
-    debug('  ~~> histOutputs: %s, lastOutput: %s', histOutputs, lastOutput)
-    histOutputs += output
-    lastOutput = output
-    if (lastOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
+    debug('  ~~> outputs.hist: %s, outputs.last: %s', outputs.hist, outputs.last)
+
+    cacheOutputs(output)
+    console.log(outputs.hist.length)
+    if (outputs.hist.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
     io.emit('output', { output })
   }
 
@@ -46,8 +56,7 @@ io.on('connection', (socket) => {
     debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
     Repl.kill()
     Repl.init(language)
-    histOutputs = ''
-    lastOutput = ''
+    resetOutputCache()
 
     io.emit('langChange', {
       language: Repl.language,
@@ -58,8 +67,8 @@ io.on('connection', (socket) => {
   }
 
   const getCurrentPrompt = () => {
-    debug('  getCurrentPrompt() ~~> lastOutput: %s', lastOutput)
-    return lastOutput.split('\n').pop()
+    debug('  getCurrentPrompt() ~~> outputs.last: %s', outputs.last)
+    return outputs.last.split('\n').pop()
   }
 
   // @todo: Check if this is necessary.
@@ -69,8 +78,8 @@ io.on('connection', (socket) => {
     data: WELCOME_MSG
   })
 
-  debug('socket.emit("output", { output: histOutputs = %s })', histOutputs)
-  socket.emit('output', { output: histOutputs })
+  debug('socket.emit("output", { output: outputs.hist = %s })', outputs.hist)
+  socket.emit('output', { output: outputs.hist })
 
   io.of('/').clients((error, clients) => {
     debug('  [io.of("/").clients(fn)] error: %s, clients: %s', error, clients)
@@ -91,7 +100,7 @@ io.on('connection', (socket) => {
   socket.on('evaluate', ({ code }) => {
     debug('  ["evaluate"] { code: %s }', code)
     currentPrompt = null
-    lastOutput = ''
+    outputs.last = ''
     Repl.write(code)
   })
 
@@ -112,7 +121,7 @@ io.on('connection', (socket) => {
   socket.on('clear', () => {
     debug('  ["clear"]')
     io.emit('clear')
-    histOutputs = ''
+    outputs.hist = ''
   })
 
   socket.on('disconnect', () => {
