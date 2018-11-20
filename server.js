@@ -29,7 +29,7 @@ const TOO_MUCH_OUTPUT = (() => {
   return Ansi.cursorUp(1) + formatted + Ansi.cursorDown(1) + Ansi.cursorBackward(text.length)
 })()
 const MAX_OUTPUT_LENGTH = 10000
-const MAX_HIST_LENGTH = 1000000
+const MAX_HIST_LENGTH = 100000
 const DEFAULT_LANG = 'ruby'
 
 io.on('connection', (socket) => {
