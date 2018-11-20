@@ -3,6 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true })
 
 function attach (term, socket, bidirectional, buffered) {
+  // @todo: Test out buffered mode.
   bidirectional = (typeof bidirectional === 'undefined') ? true : bidirectional
   term.socket = socket
 
@@ -20,7 +21,7 @@ function attach (term, socket, bidirectional, buffered) {
     }
   }
 
-  term.getMessage = function (ev) {
+  term.getMessage = (ev) => {
     buffered ? term.pushToBuffer(ev.output) : term.write(ev.output)
   }
 
@@ -29,7 +30,6 @@ function attach (term, socket, bidirectional, buffered) {
   }
 
   socket.on('output', term.getMessage)
-  // socket.on('message', term.getMessage)
   if (bidirectional) term.on('data', term.sendData)
   socket.addEventListener('close', term.detach.bind(term, socket))
   socket.addEventListener('error', term.detach.bind(term, socket))
@@ -37,7 +37,6 @@ function attach (term, socket, bidirectional, buffered) {
 exports.attach = attach
 
 function detach (term, socket) {
-  var term = term
   term.off('data', term.sendData)
   socket = (typeof socket === 'undefined') ? term.socket : socket
   if (socket) socket.removeEventListener('message', term.getMessage)

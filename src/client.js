@@ -1,18 +1,15 @@
 import { $ } from './utils.js'
 import term from './term.js'
 import { editor, socket } from './editor.js'
-import ansi from 'ansi-escapes'
 import './main.css'
 
 const languageSelectElem = $('#language')
 const runButton = $('.run-editor-code-button')
 
 let state = {
-  line: '',
-  language: 'ruby',
-  currentPrompt: '',
-  locked: false,
-  lastLineLength: 0
+  language: 'ruby'
+  // locked: false,
+  // lastLineLength: 0
 }
 
 // #~~~~~~~~~~~~~~~~~ Term ~~~~~~~~~~~~~~~~~#
@@ -20,26 +17,8 @@ term.open($('#terminal'))
 term.fit()
 term.focus()
 
-// @todo: Refactor or remove.
-const clearTermLine = () => term.write('\u001b[2K\r')
-const setTermPrompt = () => term.write(state.currentPrompt)
-const resetTermLine = () => {
-  clearTermLine()
-  setTermPrompt()
-}
-
-// @todo: Refactor or remove.
-const clearTermScreen = () => term.reset()
-const resetTermScreen = () => {
-  clearTermScreen()
-  setTermPrompt()
-}
-
-const writeBackspaces = (length) => {
-  for (let i = 0; i < length; i++) term.write('\b \b')
-}
-
 // #~~~~~~~~~~~~~~~~~ Socket ~~~~~~~~~~~~~~~~~#
+// @todo: Reimplement locking or remove.
 // socket.on('output', ({ output }) => {
 //   if (state.locked) {
 //     state.locked = false
@@ -57,40 +36,23 @@ socket.on('langChange', ({ language, data }) => {
 })
 
 socket.on('clear', () => {
-  state.line = ''
-  resetTermScreen()
+  ClientRepl.clearLine()
+  term.clear()
 })
 
-// // Sync line of client so that it's the same as the line from server.
-// socket.on('syncLine', ({ line, prompt }) => {
-//   state.currentPrompt = prompt
-//   state.line = line
-//   resetTermLine()
-//   term.write(line)
-// })
-
-// TODO: Fill in or remove...?
 socket.on('connect', () => {
   console.log('socket connected')
   term.attach(socket)
 })
+
 socket.on('disconnect', () => {
   console.log('socket disconnected')
 })
 
 // #~~~~~~~~~~~~~~~~~ ClientRepl ~~~~~~~~~~~~~~~~~#
 const ClientRepl = {
-  emitEvaluate (code) {
-    socket.emit('evaluate', { code })
-  },
-
   emitClear () {
     socket.emit('clear')
-  },
-
-  // Emit 'lineChanged` event to server --> server broadcasts 'syncLine' to clients.
-  emitLineChanged ({ syncSelf = undefined } = {}) {
-    socket.emit('lineChanged', { line: state.line, syncSelf })
   },
 
   emitInitRepl () {
@@ -98,74 +60,27 @@ const ClientRepl = {
   },
 
   clearLine () {
-    state.lastLineLength = state.line.length
-    state.line = ''
-    this.emitLineChanged()
+    term.sendData('\u0015')
   },
 
-  handleEnter () {
-    if (state.locked) return
-    state.locked = true
-    let lineOfCode = state.line
-    this.clearLine()
-    this.emitEvaluate(lineOfCode)
-  },
-
-  handleBackspace () {
-    if (state.line === '') return
-    state.line = state.line.slice(0, -1)
-    this.emitLineChanged()
-    term.write('\b \b')
-  },
-
-  // Handle character keys.
-  handleKeypress (key) {
-    console.log('handleKeypress -- key:', key)
-    if (state.locked) return
-    state.line += key
-    this.emitLineChanged()
-    term.write(key)
-  },
-
-  handleCtrlC () {
-    this.clearLine()
-    this.emitEvaluate('\x03')
-  },
-
-  // Handle special keys (Enter, Backspace).
-  // @param: KeyboardEvent
-  handleKeydown (event, { key, ctrlKey } = event) {
-    console.log('handleKeydown -- event:', event)
-    if (key === 'Enter') this.handleEnter()
-    else if (key === 'Backspace') this.handleBackspace()
-    else if (key === 'c' && ctrlKey) this.handleCtrlC()
+  handleLanguageChange () {
+    this.emitInitRepl()
   },
 
   handleRunButtonClick () {
     let editorCode = editor.getValue().trim()
     if (editorCode === '') return
-    this.emitLineChanged({ syncSelf: true })
     this.emitClear()
-    this.emitEvaluate(editorCode)
-  },
-
-  handleLanguageChange () {
     this.clearLine()
-    this.emitInitRepl()
+    term.sendData(editorCode + '\n')
   }
 }
 
-// term.on('keypress', ClientRepl.handleKeypress.bind(ClientRepl))
-// term.on('keydown', ClientRepl.handleKeydown.bind(ClientRepl))
-runButton.addEventListener('click', ClientRepl.handleRunButtonClick.bind(ClientRepl))
 languageSelectElem.addEventListener('change', ClientRepl.handleLanguageChange.bind(ClientRepl))
+runButton.addEventListener('click', ClientRepl.handleRunButtonClick.bind(ClientRepl))
 
-// #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 // #~~~~~~~~~~~~~~~~~~~~~~~~ Debugging ~~~~~~~~~~~~~~~~~~~~~~~~#
-// #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 window.state = state
 window.term = term
-window.ansi = ansi
 window.ClientRepl = ClientRepl
 window.localStorage.debug = '*'
-// term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');

@@ -17,6 +17,7 @@ COPY . /app
 # @todo: Verify that this build process is not producing any bugs!
 # @todo: Install latest node and npm.
 # @todo: Install build-essential.
+# @todo: Create .dockerignore file.
 RUN install_clean \
     make \
     g++ \
