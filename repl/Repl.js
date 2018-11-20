@@ -17,19 +17,13 @@ const Repl = {
     if (command) {
       this.process = pty.spawn(command)
       this.language = language
-      debug(`  INITIALIZED command: ${command}`)
-      debug('  this.process: %O, this.language: "%s"', this.process, this.language)
-
-      // @todo: Is it necessary to return `this` here? -- it doesn't appear to be used anywhere.
-      return this
+      debug('  initialized command: %s, this.process: %o, this.language: "%s"', command, this.process, this.language)
     }
   },
 
   write (string) {
     debug(`[Repl.write(string = ${string})]`)
-
-    // @todo: Check if we also need a carriage return here, like in the node-pty readme.
-    this.process.write(string + '\n')
+    this.process.write(string)
   },
 
   kill () {

@@ -2,11 +2,10 @@ import { Terminal } from 'xterm'
 import * as fit from 'xterm/lib/addons/fit/fit'
 import 'xterm/dist/xterm.css'
 
-Terminal.applyAddon(fit)
+import * as attach from './attach.js'
 
-// @todo: Uncomment or remove.
-// import * as attach from 'xterm/lib/addons/attach/attach';
-// Terminal.applyAddon(attach);
+Terminal.applyAddon(attach)
+Terminal.applyAddon(fit)
 
 const term = new Terminal()
 
