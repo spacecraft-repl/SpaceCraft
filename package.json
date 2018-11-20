@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "build": "standard --fix && webpack",
-    "debug": "standard --fix && webpack && DEBUG=* node server.js",
-    "inspect": "standard --fix && webpack && node --inspect server.js",
+    "debug": "webpack && DEBUG=* node server.js",
+    "inspect": "webpack && DEBUG=* node --inspect server.js",
     "server": "node server.js",
     "start": "standard --fix && webpack && node server.js",
     "test": "artillery run misc/benchmark/client-socketio-artillery.yml"

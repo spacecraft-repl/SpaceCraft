@@ -13,65 +13,35 @@ const app = express()
 const server = http.Server(app)
 const io = socketIo(server) // our websocket server
 
-let histOutputs = ''
-let lastOutput = ''
-let currentPrompt = null
+// let histOutputs = ''
+// let lastOutput = ''
+// let currentPrompt = null
 
 app.use(bodyParser.text())
 app.use(express.static('public'))
 
 // @todo: Check if order of \n\r matters.
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
-const TOO_MUCH_OUTPUT = '\n\r------TOO MUCH OUTPUT!-------\n\r'
-const MAX_OUTPUT_LENGTH = 10000
+// const TOO_MUCH_OUTPUT = '\n\r------TOO MUCH OUTPUT!-------\n\r'
+// const MAX_OUTPUT_LENGTH = 10000
 const DEFAULT_LANG = 'ruby'
 
 io.on('connection', (socket) => {
-  const handleTooMuchOutput = () => {
-    lastOutput = ''
-    Repl.write('\x03')
-    io.emit('output', { output: TOO_MUCH_OUTPUT })
-  }
-
-  const emitOutput = (output) => {
-    debug('  emitOutput(output = %s)', output)
-    debug('  ~~> histOutputs: %s, lastOutput: %s', histOutputs, lastOutput)
-    histOutputs += output
-    lastOutput = output
-    if (lastOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
-    io.emit('output', { output })
-    console.log(output)
-  }
+  global.debug = debug
+  global.Repl = Repl
+  global.app = app
+  global.server = server
+  global.io = io
+  global.socket = socket
 
   const initRepl = (language, welcome_msg = '') => {
     debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
     Repl.kill()
     Repl.init(language)
-    histOutputs = ''
-    lastOutput = ''
-
-    io.emit('langChange', {
-      language: Repl.language,
-      data: welcome_msg
+    Repl.process.on('data', (data) => {
+      socket.send({ data })
     })
-
-    Repl.process.on('data', emitOutput)
   }
-
-  const getCurrentPrompt = () => {
-    debug('  getCurrentPrompt() ~~> lastOutput: %s', lastOutput)
-    return lastOutput.split('\n').pop()
-  }
-
-  // @todo: Check if this is necessary.
-  debug('socket.emit("langChange", { language: %s, data: %s })', Repl.language || DEFAULT_LANG, WELCOME_MSG)
-  socket.emit('langChange', {
-    language: Repl.language || DEFAULT_LANG,
-    data: WELCOME_MSG
-  })
-
-  debug('socket.emit("output", { output: histOutputs = %s })', histOutputs)
-  socket.emit('output', { output: histOutputs })
 
   io.of('/').clients((error, clients) => {
     debug('  [io.of("/").clients(fn)] error: %s, clients: %s', error, clients)
@@ -83,37 +53,15 @@ io.on('connection', (socket) => {
 
   socket.on('initRepl', ({ language }) => {
     debug('  ["initRepl"] { language: %s }', language)
-    currentPrompt = null
+    // currentPrompt = null
     if (language === Repl.language) return
     debug('  (language !== Repl.language) --> initRepl(language)')
     initRepl(language)
   })
 
-  socket.on('evaluate', ({ code }) => {
-    debug('  ["evaluate"] { code: %s }', code)
-    currentPrompt = null
-    lastOutput = ''
-    Repl.write(code)
-  })
-
-  socket.on('lineChanged', ({ line, syncSelf }) => {
-    debug('  ["lineChanged"] { line: %s, syncSelf: %s }', line)
-    currentPrompt = currentPrompt || getCurrentPrompt()
-
-    debug('NEXT LINE: const data = { line, prompt: currentPrompt = %s }', currentPrompt)
-    const data = { line, prompt: currentPrompt }
-
-    debug('NEXT LINE: `if (syncSelf) return io.emit("syncLine", data)`')
-    if (syncSelf) return io.emit('syncLine', data)
-
-    debug('NEXT LINE: `socket.broadcast.emit("syncLine", data)`')
-    socket.broadcast.emit('syncLine', data)
-  })
-
-  socket.on('clear', () => {
-    debug('  ["clear"]')
-    io.emit('clear')
-    histOutputs = ''
+  socket.on('message', (msg) => {
+    debug('  ["message"] msg: %s', msg)
+    Repl.write(msg)
   })
 
   socket.on('disconnect', () => {
@@ -123,6 +71,87 @@ io.on('connection', (socket) => {
       if (clients.length === 0) Repl.kill()
     })
   })
+
+  // const handleTooMuchOutput = () => {
+  //   lastOutput = ''
+  //   Repl.write('\x03')
+  //   io.emit('output', { output: TOO_MUCH_OUTPUT })
+  // }
+
+  // const emitOutput = (output) => {
+  //   debug('  emitOutput(output = %s)', output)
+  //   // debug('  ~~> histOutputs: %s, lastOutput: %s', histOutputs, lastOutput)
+  //   // histOutputs += output
+  //   // lastOutput = output
+  //   // if (lastOutput.length > MAX_OUTPUT_LENGTH) return handleTooMuchOutput()
+  //   // io.emit('output', { output })
+
+  //   // io.emit(output)
+  //   socket.send({ data: output })
+
+  //   console.log(output)
+  // }
+
+//   const initRepl = (language, welcome_msg = '') => {
+//     debug('  [initRepl] lang: %s, welcome_msg: %s', language, welcome_msg)
+//     Repl.kill()
+//     Repl.init(language)
+//     // histOutputs = ''
+//     // lastOutput = ''
+
+//     // io.emit('langChange', {
+//     //   language: Repl.language,
+//     //   data: welcome_msg
+//     // })
+
+//     // // Repl.process.on('data', emitOutput)
+//     // Repl.process.on('data', (data) => {
+//     //   socket.send(data)
+//     // })
+//   }
+
+  // const getCurrentPrompt = () => {
+  //   debug('  getCurrentPrompt() ~~> lastOutput: %s', lastOutput)
+  //   return lastOutput.split('\n').pop()
+  // }
+
+  // // @todo: Check if this is necessary.
+  // debug('socket.emit("langChange", { language: %s, data: %s })', Repl.language || DEFAULT_LANG, WELCOME_MSG)
+  // socket.emit('langChange', {
+  //   language: Repl.language || DEFAULT_LANG,
+  //   data: WELCOME_MSG
+  // })
+
+  // debug('socket.emit("output", { output: histOutputs = %s })', histOutputs)
+  // socket.emit('output', { output: histOutputs })
+
+  // socket.on('evaluate', ({ code }) => {
+  //   debug('  ["evaluate"] { code: %s }', code)
+  //   currentPrompt = null
+  //   lastOutput = ''
+  //   Repl.write(code)
+  // })
+
+  // socket.on('lineChanged', ({ line, syncSelf }) => {
+  //   debug('  ["lineChanged"] { line: %s, syncSelf: %s }', line)
+  //   currentPrompt = currentPrompt || getCurrentPrompt()
+
+  //   debug('NEXT LINE: const data = { line, prompt: currentPrompt = %s }', currentPrompt)
+  //   const data = { line, prompt: currentPrompt }
+
+  //   debug('NEXT LINE: `if (syncSelf) return io.emit("syncLine", data)`')
+  //   if (syncSelf) return io.emit('syncLine', data)
+
+  //   debug('NEXT LINE: `socket.broadcast.emit("syncLine", data)`')
+  //   socket.broadcast.emit('syncLine', data)
+  // })
+
+  // socket.on('clear', () => {
+  //   debug('  ["clear"]')
+  //   io.emit('clear')
+  //   histOutputs = ''
+  // })
+
 
   // Yjs Websockets Server Events
   require('./yjs-ws-server.js')(io, socket)

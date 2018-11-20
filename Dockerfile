@@ -15,6 +15,8 @@ WORKDIR /app
 COPY . /app
 
 # @todo: Verify that this build process is not producing any bugs!
+# @todo: Install latest node and npm.
+# @todo: Install build-essential.
 RUN install_clean \
     make \
     g++ \

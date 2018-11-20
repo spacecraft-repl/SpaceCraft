@@ -17,6 +17,8 @@ let state = {
 
 // #~~~~~~~~~~~~~~~~~ Term ~~~~~~~~~~~~~~~~~#
 term.open($('#terminal'))
+term.fit()
+term.focus()
 
 // @todo: Refactor or remove.
 const clearTermLine = () => term.write('\u001b[2K\r')
@@ -38,13 +40,13 @@ const writeBackspaces = (length) => {
 }
 
 // #~~~~~~~~~~~~~~~~~ Socket ~~~~~~~~~~~~~~~~~#
-socket.on('output', ({ output }) => {
-  if (state.locked) {
-    state.locked = false
-    writeBackspaces(state.lastLineLength)
-  }
-  term.write(output)
-})
+// socket.on('output', ({ output }) => {
+//   if (state.locked) {
+//     state.locked = false
+//     writeBackspaces(state.lastLineLength)
+//   }
+//   term.write(output)
+// })
 
 socket.on('langChange', ({ language, data }) => {
   editor.setOption('mode', language)
@@ -59,17 +61,22 @@ socket.on('clear', () => {
   resetTermScreen()
 })
 
-// Sync line of client so that it's the same as the line from server.
-socket.on('syncLine', ({ line, prompt }) => {
-  state.currentPrompt = prompt
-  state.line = line
-  resetTermLine()
-  term.write(line)
-})
+// // Sync line of client so that it's the same as the line from server.
+// socket.on('syncLine', ({ line, prompt }) => {
+//   state.currentPrompt = prompt
+//   state.line = line
+//   resetTermLine()
+//   term.write(line)
+// })
 
 // TODO: Fill in or remove...?
-socket.on('connect', () => {})
-socket.on('disconnect', () => {})
+socket.on('connect', () => {
+  console.log('socket connected')
+  term.attach(socket)
+})
+socket.on('disconnect', () => {
+  console.log('socket disconnected')
+})
 
 // #~~~~~~~~~~~~~~~~~ ClientRepl ~~~~~~~~~~~~~~~~~#
 const ClientRepl = {
@@ -113,6 +120,7 @@ const ClientRepl = {
 
   // Handle character keys.
   handleKeypress (key) {
+    console.log('handleKeypress -- key:', key)
     if (state.locked) return
     state.line += key
     this.emitLineChanged()
@@ -126,7 +134,8 @@ const ClientRepl = {
 
   // Handle special keys (Enter, Backspace).
   // @param: KeyboardEvent
-  handleKeydown ({ key, ctrlKey }) {
+  handleKeydown (event, { key, ctrlKey } = event) {
+    console.log('handleKeydown -- event:', event)
     if (key === 'Enter') this.handleEnter()
     else if (key === 'Backspace') this.handleBackspace()
     else if (key === 'c' && ctrlKey) this.handleCtrlC()
@@ -146,8 +155,8 @@ const ClientRepl = {
   }
 }
 
-term.on('keypress', ClientRepl.handleKeypress.bind(ClientRepl))
-term.on('keydown', ClientRepl.handleKeydown.bind(ClientRepl))
+// term.on('keypress', ClientRepl.handleKeypress.bind(ClientRepl))
+// term.on('keydown', ClientRepl.handleKeydown.bind(ClientRepl))
 runButton.addEventListener('click', ClientRepl.handleRunButtonClick.bind(ClientRepl))
 languageSelectElem.addEventListener('change', ClientRepl.handleLanguageChange.bind(ClientRepl))
 
@@ -157,4 +166,6 @@ languageSelectElem.addEventListener('change', ClientRepl.handleLanguageChange.bi
 window.state = state
 window.term = term
 window.ansi = ansi
+window.ClientRepl = ClientRepl
+window.localStorage.debug = '*'
 // term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ');

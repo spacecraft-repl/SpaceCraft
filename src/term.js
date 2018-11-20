@@ -2,11 +2,12 @@ import { Terminal } from 'xterm'
 import * as fit from 'xterm/lib/addons/fit/fit'
 import 'xterm/dist/xterm.css'
 
-Terminal.applyAddon(fit)
-
 // @todo: Uncomment or remove.
-// import * as attach from 'xterm/lib/addons/attach/attach';
-// Terminal.applyAddon(attach);
+// import * as attach from 'xterm/lib/addons/attach/attach'
+import * as attach from './attach.js'
+
+Terminal.applyAddon(attach)
+Terminal.applyAddon(fit)
 
 const term = new Terminal()
 
@@ -17,7 +18,8 @@ term.setOption('theme', {
   cursor: '#e06c75',
   cursorAccent: '#e06c75',
   selection: '#98c379',
-  black: '#98c379',
+  // black: '#98c379',
+  black: '#000000',
   red: '#d19a66',
   green: '#d19a66',
   yellow: '#61afef',
