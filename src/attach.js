@@ -20,31 +20,16 @@ function attach (term, socket, bidirectional, buffered) {
     }
   }
 
-  // var myTextDecoder
-
   term.getMessage = function (ev) {
-    // var str
-    // if (typeof ev.data === 'object') {
-    //   if (ev.data instanceof ArrayBuffer) {
-    //     if (!myTextDecoder) myTextDecoder = new TextDecoder()
-    //     str = myTextDecoder.decode(ev.data)
-    //   } else {
-    //     throw new Error('TODO: handle Blob?')
-    //   }
-    // }
-    buffered 
-      ? term.pushToBuffer(ev.data)
-      : term.write(ev.data)
-      // ? term.pushToBuffer(str || ev.data)
-      // : term.write(str || ev.data)
+    buffered ? term.pushToBuffer(ev.output) : term.write(ev.output)
   }
 
   term.sendData = (data) => {
     socket.send(data)
   }
 
-  socket.on('message', term.getMessage)
-  // socket.addEventListener('message', term.getMessage)
+  socket.on('output', term.getMessage)
+  // socket.on('message', term.getMessage)
   if (bidirectional) term.on('data', term.sendData)
   socket.addEventListener('close', term.detach.bind(term, socket))
   socket.addEventListener('error', term.detach.bind(term, socket))
