@@ -27,6 +27,9 @@ const TOO_MUCH_OUTPUT = '\n\r------TOO MUCH OUTPUT!-------\n\r'
 const MAX_OUTPUT_LENGTH = 1000000
 const DEFAULT_LANG = 'ruby'
 
+// Route to global ip for project page -> needs ip address
+// proxy.register("spacecraft-repl.com", "http://:4000");
+
 io.on('connection', (socket) => {
   debug('io.on("connection", (socket) => {')
 
