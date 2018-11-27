@@ -5,7 +5,7 @@ const express = require('express')
 // const path = require('path')
 const bodyParser = require('body-parser')
 const http = require('http')
-const proxy = require('redbird')({port: 3000});
+const proxy = require('redbird')({ port: 80 })
 const socketIo = require('socket.io')
 const Repl = require('./repl/Repl.js')
 
@@ -28,7 +28,8 @@ const MAX_OUTPUT_LENGTH = 1000000
 const DEFAULT_LANG = 'ruby'
 
 // Route to global ip for project page -> needs ip address
-// proxy.register("spacecraft-repl.com", "http://:4000");
+// Line below successfully redirects localhost url to target url, while retaining localhost in url
+proxy.register('localhost', 'http://spacecraft-repl.com:4000/')
 
 io.on('connection', (socket) => {
   debug('io.on("connection", (socket) => {')
