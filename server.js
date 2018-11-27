@@ -5,6 +5,7 @@ const express = require('express')
 // const path = require('path')
 const bodyParser = require('body-parser')
 const http = require('http')
+const proxy = require('redbird')({port: 3000});
 const socketIo = require('socket.io')
 const Repl = require('./repl/Repl.js')
 
