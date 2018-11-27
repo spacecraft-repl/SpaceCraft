@@ -45,6 +45,7 @@
     "debug": "^4.1.0",
     "express": "^4.16.4",
     "node-pty": "^0.7.8",
+    "redbird": "^0.9.0",
     "socket.io": "^2.1.1",
     "uninstall": "0.0.0",
     "xterm": "^3.8.0",
