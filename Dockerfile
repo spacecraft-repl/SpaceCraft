@@ -38,5 +38,5 @@ CMD ["node", "server.js"]
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #   Clean up APT when done.    #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-# USER root
+# USER root                    # If this is run, user assumes root within the application
 # RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
