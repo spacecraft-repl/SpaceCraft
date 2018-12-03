@@ -67,9 +67,9 @@ socket.on('syncLine', ({ line, prompt }) => {
   term.write(line)
 })
 
-// TODO: Fill in or remove...?
-socket.on('connect', () => {})
-socket.on('disconnect', () => {})
+socket.on('connect', () => {
+  socket.emit('registerSession', { url: window.location.host })
+})
 
 // #~~~~~~~~~~~~~~~~~ ClientRepl ~~~~~~~~~~~~~~~~~#
 const ClientRepl = {

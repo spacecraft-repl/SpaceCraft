@@ -3,6 +3,7 @@
 # See https://github.com/phusion/baseimage-docker/blob/master/Changelog.md for
 # a list of version numbers.
 FROM phusion/baseimage:0.11
+RUN useradd -ms /bin/false newuser
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
@@ -27,6 +28,7 @@ RUN install_clean \
 
 EXPOSE 3000
 
+USER newuser
 # Uncomment for regular server.
 CMD ["node", "server.js"]
 
@@ -36,4 +38,5 @@ CMD ["node", "server.js"]
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #   Clean up APT when done.    #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# USER root                    # If this is run, user assumes root within the application
+# RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
