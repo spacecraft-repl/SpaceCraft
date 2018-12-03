@@ -128,10 +128,8 @@ io.on('connection', (socket) => {
 
         const fetch = require('node-fetch')
 
-        fetch('http://spacecraft-repl.com', {
-          method: 'POST',
-          body: JSON.stringify(sessionURL),
-          headers: { 'Content-Type': 'application/json' }
+        fetch(sessionURL, {
+          method: 'DELETE'
         }).then(res => console.log(res))
       }
     })

@@ -68,7 +68,7 @@ socket.on('syncLine', ({ line, prompt }) => {
 })
 
 socket.on('connect', () => {
-  socket.emit('registerSession', { url: window.location.host })
+  socket.emit('registerSession', { url: window.location.origin })
 })
 
 // #~~~~~~~~~~~~~~~~~ ClientRepl ~~~~~~~~~~~~~~~~~#
