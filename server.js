@@ -17,6 +17,7 @@ let histOutputs = ''
 let currOutputLength = 0
 let lastOutput = ''
 let currentPrompt = null
+let sessionURL = ''
 
 app.use(bodyParser.text())
 app.use(express.static('public'))
@@ -88,6 +89,11 @@ io.on('connection', (socket) => {
     }
   })
 
+  socket.on('registerSession', ({ url }) => {
+    sessionURL = url
+    console.log(sessionURL)
+  })
+
   socket.on('initRepl', ({ language }) => {
     currentPrompt = null
     if (language === Repl.language) return
@@ -117,7 +123,15 @@ io.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     io.of('/').clients((_, clients) => {
-      if (clients.length === 0) Repl.kill()
+      if (clients.length === 0) {
+        Repl.kill()
+
+        const fetch = require('node-fetch')
+
+        fetch(sessionURL, {
+          method: 'DELETE'
+        }).then(res => console.log(res))
+      }
     })
   })
 
