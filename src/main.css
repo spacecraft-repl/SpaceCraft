@@ -12,11 +12,39 @@ html, body, textarea, input, div, button, pre, .terminal, .xterm, #terminal, .co
 
 body {
   overflow: hidden;
+  height: 100vh;
+}
+
+img.logo {
+  height: auto;
+  width: 350px;
+  display: block;
+}
+
+/*.xterm, .xterm-viewport, .xterm-screen, canvas {
+  height: 100%;
+}*/
+
+#main {
+  box-sizing: border-box;
+  display: flex;
+  height: 85%;
+  padding-bottom: 10px;
+}
+
+#left {
+  border-right: solid 1px #b9c1cb; 
+  height: 100%;
+}
+
+#left, #right {
+  margin-left: 10px;
 }
 
 #editor-output, #terminal {
-  border-bottom: solid 1px #61afef;
+  /*border-bottom: solid 1px #61afef;*/
   padding-top: 15px;
+  height: 90%;
 }
 
 button, #language {
@@ -27,11 +55,26 @@ button, #language {
   border: none;
   border-radius: 2px;
   color: #1e2127;
+  margin-bottom: 5px;
+}
+
+#language {
+  background: #fff;
+}
+
+button {
+  margin-left: 9px;
+  width: 55px;
 }
 
 button:hover {
   background: #56b6c2;
   cursor: pointer;
+}
+
+.CodeMirror {
+  height: 90%;
+  width: 100%;
 }
 
 .CodeMirror-vscrollbar, .CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar, .xterm .xterm-viewport {
