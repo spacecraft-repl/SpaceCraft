@@ -104,6 +104,6 @@ button:hover {
 
   img.logo {
     width: 250px;
-    padding-top: 10px;
+    padding-top: 0;
   }
 }
