@@ -14,6 +14,11 @@ body {
   overflow: hidden;
 }
 
+img.logo {
+  height: auto;
+  width: 400px;
+}
+
 #editor-output, #terminal {
   border-bottom: solid 1px #61afef;
   padding-top: 15px;
