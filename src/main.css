@@ -97,8 +97,13 @@ button:hover {
   }
 
   #right {
+    height: 45%;
     margin-left: 0;
-    padding-top: 20px;
-    height: 100%;
+    padding-top: 10px;
+  }
+
+  img.logo {
+    width: 250px;
+    padding-top: 10px;
   }
 }
