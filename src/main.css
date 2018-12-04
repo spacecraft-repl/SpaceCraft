@@ -85,5 +85,20 @@ button:hover {
 }
 
 @media screen and (max-width: 750px) {
+  main {
+    display: block;
+  }
 
+  #left {
+    height: 50%;    
+    padding-bottom: 20px;
+    border: none;
+    border-bottom: solid 1px #b9c1cb;
+  }
+
+  #right {
+    margin-left: 0;
+    padding-top: 20px;
+    height: 100%;
+  }
 }
