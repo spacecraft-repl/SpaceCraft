@@ -39,6 +39,7 @@ img.logo {
 
 #left, #right {
   margin-left: 10px;
+  width: 100%;
 }
 
 #editor-output, #terminal {
@@ -74,7 +75,7 @@ button:hover {
 
 .CodeMirror {
   height: 90%;
-  width: 100%;
+  position: relative;
 }
 
 .CodeMirror-vscrollbar, .CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar, .xterm .xterm-viewport {
