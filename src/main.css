@@ -122,5 +122,7 @@ button:hover {
   img.logo {
     height: 100%;
     width: auto;
+    box-sizing: border-box;
+    padding-top: 5px;
   }
 }
