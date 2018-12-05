@@ -36,13 +36,13 @@ const DEFAULT_LANG = 'ruby'
 
 const intervalId = setInterval(() => {
   io.of('/').clients((_, clients) => {
-    if (clients.length === 0) isConfirmDelete = true
-
     if (isConfirmDelete) {
       const fetch = require('node-fetch')
       fetch('http://' + sessionURL, { method: 'DELETE' })
       clearInterval(intervalId)
     }
+
+    if (clients.length === 0) isConfirmDelete = true    
   })
 }, 5000);
 
