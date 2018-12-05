@@ -18,6 +18,7 @@ let state = {
 // #~~~~~~~~~~~~~~~~~ Term ~~~~~~~~~~~~~~~~~#
 term.open($('#terminal'))
 term.fit()
+window.onresize = () => term.fit()
 
 // @todo: Refactor or remove.
 const clearTermLine = () => term.write('\u001b[2K\r')

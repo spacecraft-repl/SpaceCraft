@@ -103,6 +103,10 @@ button:hover {
     border: none;
   }
 
+  #terminal {
+    padding: 0;
+  }
+
   #right {
     margin-left: 0;
     padding-top: 10px;
