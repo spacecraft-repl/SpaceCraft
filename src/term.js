@@ -14,25 +14,24 @@ const term = new Terminal()
 term.setOption('theme', {
   foreground: '#abb2bf',
   background: '#282c34',
-  cursor: '#e06c75',
+  cursor: '#ed663e',
   cursorAccent: '#e06c75',
-  selection: '#98c379',
   black: '#98c379',
-  red: '#d19a66',
-  green: '#d19a66',
-  yellow: '#61afef',
-  blue: '#61afef',
-  magenta: '#c678dd',
-  cyan: '#c678dd',
-  white: '#56b6c2',
+  red: '#d85030',
+  green: '#6DED3E',
+  yellow: '#ffc022',
+  blue: '#2261FF',
+  magenta: '#FF22CF',
+  cyan: '#30B8D8',
+  white: '#b9c1cb',
   brightBlack: '#56b6c2',
-  brightRed: '#abb2bf',
-  brightGreen: '#ffffff',
-  brightYellow: '#abb2bf',
+  brightRed: '#ed663e',
+  brightGreen: '#6DED3E',
+  brightYellow: '#ffc022',
   brightBlue: '#abb2bf',
   brightMagenta: '#3a3f4b',
   brightCyan: '#5c6370',
-  brightWhite: '#1e2127'
+  brightWhite: '#ffffff'
 })
 
 term.setOption('cursorBlink', true)

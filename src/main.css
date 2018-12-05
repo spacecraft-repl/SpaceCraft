@@ -115,6 +115,10 @@ button:hover {
     padding-top: 10px;
   }
 
+  .CodeMirror {
+    padding-top: 0;
+  }
+
   img.logo {
     height: 100%;
     width: auto;
