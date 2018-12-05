@@ -75,6 +75,7 @@ button:hover {
 }
 
 .CodeMirror {
+  padding-top: 8px;
   height: 90%;
   position: relative;
 }
