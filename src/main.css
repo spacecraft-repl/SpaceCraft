@@ -7,16 +7,50 @@ html, body, textarea, input, div, button, pre, .terminal, .xterm, #terminal, .co
   background-color: #282c34;
   color: #abb2bf;
   font-family: 'Inconsolata', Menlo, 'SF Mono', Consolas, Monaco, 'Liberation Mono', 'Droid Sans Mono', monospace;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 body {
   overflow: hidden;
+  height: 100vh;
+}
+
+header {
+  margin-left: 8px;
+}
+
+img.logo {
+  height: auto;
+  width: 300px;
+  display: block;
+  padding: 8px 0;
+}
+
+/*.xterm, .xterm-viewport, .xterm-screen, canvas {
+  height: 100%;
+}*/
+
+main {
+  box-sizing: border-box;
+  display: flex;
+  height: 85%;
+  padding-bottom: 10px;
+}
+
+#left {
+  border-right: solid 1px #b9c1cb; 
+  height: 100%;
+}
+
+#left, #right {
+  margin-left: 10px;
+  width: 50%;
 }
 
 #editor-output, #terminal {
-  border-bottom: solid 1px #61afef;
+  /*border-bottom: solid 1px #61afef;*/
   padding-top: 15px;
+  height: 90%;
 }
 
 button, #language {
@@ -27,6 +61,16 @@ button, #language {
   border: none;
   border-radius: 2px;
   color: #1e2127;
+  margin-bottom: 5px;
+}
+
+#language {
+  background: #fff;
+}
+
+button {
+  margin-left: 9px;
+  width: 55px;
 }
 
 button:hover {
@@ -34,7 +78,54 @@ button:hover {
   cursor: pointer;
 }
 
+.CodeMirror {
+  padding-top: 15px;
+  height: 90%;
+  position: relative;
+}
+
 .CodeMirror-vscrollbar, .CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar, .xterm .xterm-viewport {
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+@media screen and (max-width: 750px) {
+  main {
+    flex-direction: column;
+    height: 90%;
+    padding-bottom: none;
+  }
+
+  header {
+    height: 12%;
+  }
+
+  #left, #right {
+    height: 50%;
+    width: 100%;
+  }
+
+  #left { 
+    border: none;
+  }
+
+  #terminal {
+    padding-top: 5px;
+    padding-bottom: 15px;
+  }
+
+  #right {
+    margin-left: 0;
+    padding-top: 10px;
+  }
+
+  .CodeMirror {
+    padding-top: 0;
+  }
+
+  img.logo {
+    height: 100%;
+    width: auto;
+    box-sizing: border-box;
+  }
 }
