@@ -127,10 +127,7 @@ io.on('connection', (socket) => {
         Repl.kill()
 
         const fetch = require('node-fetch')
-
-        fetch(sessionURL, {
-          method: 'DELETE'
-        }).then(res => console.log(res))
+        fetch(sessionURL, { method: 'DELETE' })
       }
     })
   })

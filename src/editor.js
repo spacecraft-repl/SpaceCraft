@@ -25,6 +25,7 @@ const editor = CodeMirror.fromTextArea(code, {
   theme: 'one-dark',
   tabSize: 2,
   mode: 'ruby',
+  lineWrapping: true,
   // Prevent bug with Yjs syncing.
   // - disable auto-re-indenting on certain characters (eg: `end`).
   electricChars: false

@@ -4,20 +4,31 @@
   <meta charset="utf-8" />
   <title>SpaceCraft: A Real-Time Collaborative REPL and Code Editor - @dev</title>
 </head>
-<body>
-  <select id="language">
-    <option value="" style="display:none;" disabled selected>Initializing...</option>
-    <option value="ruby">Ruby</option>
-    <option value="javascript">JavaScript</option>
-    <option value="python">Python</option>
-    <option value="shell">Shell</option>
-  </select>
+<body style="background: #282c34">
+  <header>
+    <img style="max-width: 350px" class="logo" src="./spacecraft_logo_withtext_dark.png">
+  </header>
 
-  <div id="terminal"></div>
+  <main>
 
-  <button class="run-editor-code-button">Run</button>
-  <textarea class="codemirror-textarea"></textarea>
+    <div id="left">
+      <select id="language">
+        <option value="" style="display:none;" disabled selected>Initializing...</option>
+        <option value="ruby">Ruby</option>
+        <option value="javascript">JavaScript</option>
+        <option value="python">Python</option>
+        <option value="shell">Shell</option>
+      </select>
+      <div id="terminal"></div>
+    </div>
 
+    <div id="right">
+      <button class="run-editor-code-button">Run</button>
+      <textarea class="codemirror-textarea"></textarea>
+    </div>
+
+  </main>
+  
   <script src="main.js"></script>
 </body>
 </html>
