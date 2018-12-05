@@ -71,6 +71,7 @@ button, #language {
 button {
   margin-left: 9px;
   width: 55px;
+  background: #dfe8f5;
 }
 
 button:hover {
