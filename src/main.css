@@ -15,11 +15,15 @@ body {
   height: 100vh;
 }
 
+header {
+  margin-left: 8px;
+}
+
 img.logo {
   height: auto;
-  width: 350px;
+  width: 300px;
   display: block;
-  margin-left: 8px;
+  padding: 8px 0;
 }
 
 /*.xterm, .xterm-viewport, .xterm-screen, canvas {
@@ -75,7 +79,7 @@ button:hover {
 }
 
 .CodeMirror {
-  padding-top: 8px;
+  padding-top: 15px;
   height: 90%;
   position: relative;
 }
@@ -93,7 +97,7 @@ button:hover {
   }
 
   header {
-    height: 10%;
+    height: 12%;
   }
 
   #left, #right {
@@ -106,8 +110,8 @@ button:hover {
   }
 
   #terminal {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 15px;
   }
 
   #right {
@@ -123,6 +127,5 @@ button:hover {
     height: 100%;
     width: auto;
     box-sizing: border-box;
-    padding-top: 5px;
   }
 }
