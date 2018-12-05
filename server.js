@@ -17,9 +17,11 @@ let histOutputs = ''
 let currOutputLength = 0
 let lastOutput = ''
 let currentPrompt = null
-let sessionURL = ''
+let sessionURL = 'localhost:' + port
+let isConfirmDelete = false
 
 app.use(bodyParser.text())
+app.use(bodyParser.json())
 app.use(express.static('public'))
 
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
@@ -32,7 +34,26 @@ const MAX_OUTPUT_LENGTH = 10000
 const MAX_HIST_LENGTH = 100000
 const DEFAULT_LANG = 'ruby'
 
+const intervalId = setInterval(() => {
+  io.of('/').clients((_, clients) => {
+    if (clients.length === 0) isConfirmDelete = true
+
+    if (isConfirmDelete) {
+      const fetch = require('node-fetch')
+      fetch('http://' + sessionURL, { method: 'DELETE' })
+      clearInterval(intervalId)
+    }
+  })
+}, 5000);
+
+app.post('/', (req, res) => {
+  sessionURL = req.body.sessionURL
+  res.send('sessionURL received')
+})
+
 io.on('connection', (socket) => {
+  isConfirmDelete = false
+
   const resetOutputCache = () => {
     histOutputs = ''
     lastOutput = ''
@@ -125,9 +146,6 @@ io.on('connection', (socket) => {
     io.of('/').clients((_, clients) => {
       if (clients.length === 0) {
         Repl.kill()
-
-        const fetch = require('node-fetch')
-        fetch(sessionURL, { method: 'DELETE' })
       }
     })
   })
