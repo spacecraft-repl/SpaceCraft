@@ -86,24 +86,30 @@ button:hover {
 
 @media screen and (max-width: 750px) {
   main {
-    display: block;
+    flex-direction: column;
+    height: 90%;
+    padding-bottom: none;
   }
 
-  #left {
-    height: 50%;    
-    padding-bottom: 20px;
+  header {
+    height: 10%;
+  }
+
+  #left, #right {
+    height: 50%;
+  }
+
+  #left { 
     border: none;
-    border-bottom: solid 1px #b9c1cb;
   }
 
   #right {
-    height: 45%;
     margin-left: 0;
     padding-top: 10px;
   }
 
   img.logo {
-    width: 250px;
-    padding-top: 0;
+    height: 100%;
+    width: auto;
   }
 }

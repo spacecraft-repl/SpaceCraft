@@ -27,7 +27,7 @@ Navigate to `http://localhost:3000/` to start the app.
 *Note: in order for Ruby and Python REPLs to run properly, you need to have those runtimes installed in your system.*
 
 ## The Team
-![Gooi Chyi Ying]()
+![Ying Chyi Gooi]()
 _Software Engineer_
 New York City, NY
 
