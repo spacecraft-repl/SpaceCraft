@@ -7,7 +7,7 @@ html, body, textarea, input, div, button, pre, .terminal, .xterm, #terminal, .co
   background-color: #282c34;
   color: #abb2bf;
   font-family: 'Inconsolata', Menlo, 'SF Mono', Consolas, Monaco, 'Liberation Mono', 'Droid Sans Mono', monospace;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 body {
@@ -40,7 +40,7 @@ main {
 
 #left, #right {
   margin-left: 10px;
-  width: 100%;
+  width: 50%;
 }
 
 #editor-output, #terminal {
@@ -98,6 +98,7 @@ button:hover {
 
   #left, #right {
     height: 50%;
+    width: 100%;
   }
 
   #left { 
@@ -105,7 +106,8 @@ button:hover {
   }
 
   #terminal {
-    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   #right {
