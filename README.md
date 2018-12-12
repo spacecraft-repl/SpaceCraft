@@ -45,19 +45,19 @@ Make sure you have Docker installed in your host system. Then, clone this reposi
 ```
 docker built -t spacecraft-app .
 ```
-Note: the `spacecraft-app` can be replaced by any name.
+Note: `spacecraft-app` can be replaced by any name of your choice.
 
-Once Docker is finished with building the image, run:
+Once Docker is finished with building the image, run the following command to verify that `spacecraft-app` exists and has been built successfully.
 
 ```
 docker images
 ```
-To verify that `spacecraft-app` exists and has been built successfully. If the build success, run to following to launch the application:
+If the build succeeds, run to following to launch the application:
 
 ```
 docker run -p 3000:3000 -d spacecraft-app
 ```
-Once that is done, navigate to `localhost:3000` to view the app. If running on a remote host however, you'll need to request `<remote host IP or domain name>:3000` to connect with the app.
+Once that is done, navigate to `localhost:3000` to view the app. If running on a remote host however, you'll need to request `<remote host IP OR domain name>:3000` in order to connect with the app.
 
 
 
