@@ -22,6 +22,11 @@ let isConfirmDelete = false
 
 app.use(bodyParser.text())
 app.use(bodyParser.json())
+app.get('*.js', (request, response, next) => {
+  request.url = request.url + '.gz'
+  response.set('Content-Encoding', 'gzip')
+  next()
+})
 app.use(express.static('public'))
 
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
