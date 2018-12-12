@@ -57,25 +57,21 @@ button, #language {
   font-family: Roboto, sans-serif;
   padding: 3px;
   font-size: 16px;
-  background: #61afef;
+  background: #dfe8f5;
   border: none;
   border-radius: 2px;
   color: #1e2127;
   margin-bottom: 5px;
 }
 
-#language {
-  background: #fff;
-}
-
 button {
   margin-left: 9px;
   width: 55px;
-  background: #dfe8f5;
+  background: #85B3FF;
 }
 
 button:hover {
-  background: #56b6c2;
+  background: #99C0FF;
   cursor: pointer;
 }
 
@@ -90,7 +86,7 @@ button:hover {
   overflow-y: hidden;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 900px) {
   main {
     flex-direction: column;
     height: 90%;
