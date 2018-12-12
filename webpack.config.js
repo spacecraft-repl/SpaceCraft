@@ -2,6 +2,7 @@
 
 const path = require('path')
 const webpack = require('webpack')
+const CompressionPlugin = require('compression-webpack-plugin')
 
 // @todo: Verify all syntax is correct, and everything necessary is present.
 module.exports = {
@@ -14,7 +15,8 @@ module.exports = {
   },
   plugins: [
     // @todo: Verify what this does.
-    new webpack.ContextReplacementPlugin(/y.*/)
+    new webpack.ContextReplacementPlugin(/y.*/),
+    new CompressionPlugin({ algorithm: 'gzip' })
   ],
   module: {
     rules: [
