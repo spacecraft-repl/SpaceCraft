@@ -69,10 +69,6 @@ socket.on('syncLine', ({ line, prompt }) => {
   term.write(line)
 })
 
-socket.on('connect', () => {
-  socket.emit('registerSession', { url: window.location.origin })
-})
-
 // #~~~~~~~~~~~~~~~~~ ClientRepl ~~~~~~~~~~~~~~~~~#
 const ClientRepl = {
   emitEvaluate (code) {
