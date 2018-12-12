@@ -1,7 +1,7 @@
 'use strict'
 
 const express = require('express')
-// const path = require('path')
+const expressStaticGzip = require('express-static-gzip')
 const bodyParser = require('body-parser')
 const http = require('http')
 const socketIo = require('socket.io')
@@ -22,12 +22,7 @@ let isConfirmDelete = false
 
 app.use(bodyParser.text())
 app.use(bodyParser.json())
-app.get('*.js', (request, response, next) => {
-  request.url = request.url + '.gz'
-  response.set('Content-Encoding', 'gzip')
-  next()
-})
-app.use(express.static('public'))
+app.use('/', expressStaticGzip('public'))
 
 const WELCOME_MSG = 'WELCOME TO SPACECRAFT!\n\r'
 const TOO_MUCH_OUTPUT = (() => {
@@ -49,7 +44,7 @@ const intervalId = setInterval(() => {
 
     if (clients.length === 0) isConfirmDelete = true
   })
-}, 5000)
+}, 10000)
 
 app.post('/', (req, res) => {
   sessionURL = req.body.sessionURL
