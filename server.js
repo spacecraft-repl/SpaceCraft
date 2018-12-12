@@ -42,9 +42,9 @@ const intervalId = setInterval(() => {
       clearInterval(intervalId)
     }
 
-    if (clients.length === 0) isConfirmDelete = true    
+    if (clients.length === 0) isConfirmDelete = true
   })
-}, 5000);
+}, 5000)
 
 app.post('/', (req, res) => {
   sessionURL = req.body.sessionURL
