@@ -146,6 +146,9 @@ io.on('connection', (socket) => {
     io.of('/').clients((_, clients) => {
       if (clients.length === 0) {
         Repl.kill()
+
+        const fetch = require('node-fetch')
+        fetch(sessionURL, { method: 'DELETE' })
       }
     })
   })
