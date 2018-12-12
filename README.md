@@ -60,5 +60,3 @@ docker run -p 3000:3000 -d spacecraft-app
 Once that is done, navigate to `localhost:3000` to view the app. If running on a remote host however, you'll need to request `<remote host IP OR domain name>:3000` in order to connect with the app.
 
 
-
-
