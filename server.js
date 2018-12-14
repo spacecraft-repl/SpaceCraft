@@ -37,6 +37,7 @@ const DEFAULT_LANG = 'ruby'
 const intervalId = setInterval(() => {
   io.of('/').clients((_, clients) => {
     if (isConfirmDelete) {
+      console.log(sessionURL)
       const fetch = require('node-fetch')
       fetch('http://' + sessionURL, { method: 'DELETE' })
       clearInterval(intervalId)
@@ -46,7 +47,8 @@ const intervalId = setInterval(() => {
   })
 }, 10000)
 
-app.post('/', (req, res) => {
+app.post('/session', (req, res) => {
+  console.log('POST received', sessionURL)
   sessionURL = req.body.sessionURL
   res.send('sessionURL received')
 })
@@ -146,9 +148,6 @@ io.on('connection', (socket) => {
     io.of('/').clients((_, clients) => {
       if (clients.length === 0) {
         Repl.kill()
-
-        const fetch = require('node-fetch')
-        fetch(sessionURL, { method: 'DELETE' })
       }
     })
   })
