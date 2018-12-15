@@ -10,7 +10,7 @@ We currently limit our support to three main languages: Ruby, JavaScript and Pyt
 Learn more about our project [here](https://spacecraft-repl.github.io/), including the challenges we solved by implementing containers, pseudo-terminals, input synchronization, and a reverse proxy.
 
 ## Deploying with Heroku
-Make sure you are signed-in to Heroku in your browser, then deploy using the one-click app below:
+Make sure that you are signed-in to Heroku in your browser, then deploy using the one-click button below:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
