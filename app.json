@@ -1,0 +1,7 @@
+{
+  "name": "SpaceCraft - A Real Time, Collaborative REPL",
+  "description": "SpaceCraft is an open source REPL (Read-Eval-Print-Loop) that enables real-time collaboration between users. It encourages pair-programming without any additional setup and allows users to execute code in the browser for Ruby, JavaScript, and Python.",
+  "repository": "https://github.com/spacecraft-repl/SpaceCraft",
+  "logo": "https://i.imgur.com/akVbwkZ.png",
+  "keywords": ["node", "docker", "websockets"]
+}
