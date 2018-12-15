@@ -57,7 +57,7 @@
     "y-websockets-server": "^9.2.1",
     "yjs": "^12.3.3",
     "standard": "^12.0.1",
-    "standard-loader": "^6.0.1",    
+    "standard-loader": "^6.0.1"    
   },
   "devDependencies": {
     "artillery": "^1.6.0-25",
