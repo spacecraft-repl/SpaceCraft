@@ -11,6 +11,7 @@ Learn more about our project [here](https://spacecraft-repl.github.io/), includi
 
 ## Deploying with Heroku
 Make sure you are signed-in to Heroku in your browser, then deploy using the one-click app below:
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 *Note: this will deploy the latest `master` branch from this repository.*
