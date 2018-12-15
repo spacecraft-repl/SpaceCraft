@@ -57,16 +57,16 @@
     "y-websockets-server": "^9.2.1",
     "yjs": "^12.3.3",
     "standard": "^12.0.1",
-    "standard-loader": "^6.0.1"    
-  },
-  "devDependencies": {
-    "artillery": "^1.6.0-25",
+    "standard-loader": "^6.0.1",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",
     "style-loader": "^0.23.1",
-    "supports-color": "^5.5.0",
     "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "supports-color": "^5.5.0"    
+  },
+  "devDependencies": {
+    "artillery": "^1.6.0-25"
   }
 }
