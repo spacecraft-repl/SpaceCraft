@@ -16,11 +16,11 @@ New York City, NY
 
 Nick Johnson
 _Software Engineer_
-New York City, NY
+San Francisco, CA
 
 Julius Zerwick
 _Software Engineer_
-San Francisco, CA
+New York City, NY
 
 
 ## Deploying with Heroku
