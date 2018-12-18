@@ -1,26 +1,26 @@
 ![spacecraft-logo](https://i.imgur.com/f9RQ9GC.png)
 ## Overview
-SpaceCraft is an open-source, real-time, collaborative REPL (Read-Eval-Print Loop) and code editor.
+SpaceCraft is an open-source, real-time, collaborative REPL (Read-Eval-Print Loop).
 
 Currently, there are several existing solutions in this problem domain that attempt to allow developers to easily try out unfamiliar languages and provide a REPL-like experience. However, each of these solutions has made decisions that limit their ability to provide a comprehensive experience for developers. Repl.it, for example, does not allow real-time collaboration between users. Furthermore, Coderpad.io, requires sign-up and only provides a 30-minute demo environment. Our team wants to create a free open-source alternative that developers can use to explore different languages through a collaborative REPL and code editor.
 
 We currently limit our support to three main languages: Ruby, JavaScript and Python. More languages may be added in the future.
 
 ## Case Study
-Learn more about our project [here](https://spacecraft-repl.github.io/), including the challenges we solved by implementing containers, pseudo-terminals, input synchronization, and a reverse proxy.
+Learn more about our project [here](https://spacecraft-repl.github.io/whitepaper), including the challenges we solved by implementing containers, pseudo-terminals, input synchronization, and a reverse proxy.
 
 ## The Team
-Ying Chyi Gooi
-_Software Engineer_
-New York City, NY
+![gooi](https://i.imgur.com/lBvHH9j.jpg?2)
 
-Nick Johnson
-_Software Engineer_
-San Francisco, CA
+**Ying Chyi Gooi - New York City, NY**
 
-Julius Zerwick
-_Software Engineer_
-New York City, NY
+![nick](https://i.imgur.com/2atacXb.jpg?2)
+
+**Nick Johnson - San Francisco, CA**
+
+![julius](https://i.imgur.com/FUQCN67.jpg?2)
+
+**Julius Zerwick - New York City, NY**
 
 
 ## Deploying with Heroku
