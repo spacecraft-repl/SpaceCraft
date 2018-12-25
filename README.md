@@ -21,7 +21,8 @@ Learn more about our project [here](https://spacecraft-repl.github.io/whitepaper
 ![julius](https://i.imgur.com/FUQCN67.jpg?2)
 
 **Julius Zerwick - New York City, NY**
-[https://rouxcaesar.github.io/]
+
+https://rouxcaesar.github.io/
 
 
 ## Deploying with Heroku
