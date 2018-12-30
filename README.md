@@ -12,7 +12,7 @@ Learn more about our project [here](https://spacecraft-repl.github.io/whitepaper
 ## The Team
 ![gooi](https://i.imgur.com/lBvHH9j.jpg?2)
 
-**Ying Chyi Gooi - New York City, NY**
+**[Ying Chyi Gooi](https://gooi.tech) - New York City, NY**
 
 ![nick](https://i.imgur.com/2atacXb.jpg?2)
 
