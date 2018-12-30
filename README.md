@@ -1,4 +1,4 @@
-![spacecraft-logo](https://i.imgur.com/f9RQ9GC.png)
+[![spacecraft-logo](https://i.imgur.com/f9RQ9GC.png)](https://spacecraft-repl.com)
 ## Overview
 SpaceCraft is an open-source, real-time, collaborative REPL (Read-Eval-Print Loop) that runs in the browser.
 
@@ -7,7 +7,7 @@ Currently, there are several existing solutions in this problem domain that atte
 We currently limit our support to three main languages: Ruby, JavaScript and Python. More languages may be added in the future.
 
 ## Case Study
-Learn more about our project [here](https://spacecraft-repl.github.io/whitepaper), including the challenges we solved by implementing containers, pseudo-terminals, input synchronization, and a reverse proxy.
+[Learn more about our project here](https://spacecraft-repl.com/whitepaper), including the challenges we solved by implementing containers, pseudo-terminals, input synchronization, and a reverse proxy.
 
 ## The Team
 ![gooi](https://i.imgur.com/lBvHH9j.jpg?2)
