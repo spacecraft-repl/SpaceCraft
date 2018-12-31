@@ -60,7 +60,7 @@ Once Docker is finished with building the image, run the following command to ve
 ```
 docker images
 ```
-If the build succeeds, run to following to launch the application:
+If the build succeeds, execute the following command to launch the application:
 
 ```
 docker run -p 80:3000 -d spacecraft-app
