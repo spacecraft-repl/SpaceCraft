@@ -22,8 +22,12 @@ header {
 img.logo {
   height: auto;
   width: 300px;
-  display: block;
+  display: inline-block;
   padding: 8px 0;
+}
+
+img.logo:hover {
+  filter: brightness(110%);
 }
 
 /*.xterm, .xterm-viewport, .xterm-screen, canvas {
