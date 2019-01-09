@@ -37,6 +37,7 @@ const DEFAULT_LANG = 'ruby'
 const intervalId = setInterval(() => {
   io.of('/').clients((_, clients) => {
     if (isConfirmDelete) {
+      console.log(sessionURL)
       const fetch = require('node-fetch')
       console.log(sessionURL)
       fetch('http://' + sessionURL, { method: 'DELETE' })
@@ -47,7 +48,8 @@ const intervalId = setInterval(() => {
   })
 }, 10000)
 
-app.post('/', (req, res) => {
+app.post('/session', (req, res) => {
+  console.log('POST received', sessionURL)
   sessionURL = req.body.sessionURL
   res.send('sessionURL received')
 })
