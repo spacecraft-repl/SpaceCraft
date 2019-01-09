@@ -38,6 +38,7 @@ const intervalId = setInterval(() => {
   io.of('/').clients((_, clients) => {
     if (isConfirmDelete) {
       const fetch = require('node-fetch')
+      console.log(sessionURL)
       fetch('http://' + sessionURL, { method: 'DELETE' })
       clearInterval(intervalId)
     }
@@ -146,9 +147,6 @@ io.on('connection', (socket) => {
     io.of('/').clients((_, clients) => {
       if (clients.length === 0) {
         Repl.kill()
-
-        const fetch = require('node-fetch')
-        fetch(sessionURL, { method: 'DELETE' })
       }
     })
   })
