@@ -51,7 +51,7 @@ Navigate to `http://localhost:3000/` to start the app.
 Make sure you have Docker installed in your host system. Then, clone this repository, navigate to the root path of the project folder, and then run:
 
 ```
-docker built -t spacecraft-app .
+docker build -t spacecraft-app .
 ```
 Note: `spacecraft-app` can be replaced by a name of your choice.
 
