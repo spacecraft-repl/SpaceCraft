@@ -16,7 +16,7 @@ We currently limit our support to three main languages: Ruby, JavaScript and Pyt
 
 ![nick](https://i.imgur.com/2atacXb.jpg?2)
 
-**Nick Johnson - San Francisco, CA**
+**[Nick Johnson](https://njohnson7.github.io) - San Francisco, CA**
 
 ![julius](https://i.imgur.com/FUQCN67.jpg?2)
 
