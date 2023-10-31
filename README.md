@@ -1,13 +1,10 @@
 [![spacecraft-logo](https://i.imgur.com/f9RQ9GC.png)](https://spacecraft-repl.com)
 ## Overview
-[SpaceCraft](https://spacecraft-repl.com) is an open-source, real-time, collaborative REPL (Read-Eval-Print Loop) that runs in the browser.
+SpaceCraft is an open-source, real-time, collaborative REPL (Read-Eval-Print Loop) that runs in the browser.
 
 Currently, there are several existing solutions in this problem domain that attempt to allow developers to easily try out unfamiliar languages and provide a REPL-like experience. However, each of these solutions has made decisions that limit their ability to provide a comprehensive experience for developers. Coderpad.io, for example, requires sign-up and only provides a 30-minute demo environment. Repl.it recently announced the launch of its collaborative feature, however it is closed source and requires sign-up. Our team wants to create a free open-source alternative that developers can deploy on their own and use it to explore different languages through a collaborative REPL and code editor.
 
 We currently limit our support to three main languages: Ruby, JavaScript and Python. More languages may be added in the future.
-
-## Case Study
-[Learn more about our project here](https://spacecraft-repl.com/whitepaper), including the challenges we solved by implementing containers, pseudo-terminals, input synchronization, and a reverse proxy.
 
 ## The Team
 ![gooi](https://i.imgur.com/lBvHH9j.jpg?2)
